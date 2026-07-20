@@ -880,80 +880,80 @@ Le Sprint 003 pourra être proposé au verrouillage uniquement lorsque tous les 
 
 ### 10.1 Couverture fonctionnelle
 
-- [ ] La finalité fonctionnelle de la V1 est explicitement définie.
-- [ ] Tous les acteurs nécessaires à la V1 sont identifiés.
-- [ ] Chaque acteur possède au moins un besoin fonctionnel explicite.
-- [ ] Chaque besoin retenu est couvert par au moins une capacité fonctionnelle.
-- [ ] Chaque capacité indispensable est représentée dans au moins un cas d’usage.
-- [ ] Chaque cas d’usage indispensable est couvert par des exigences fonctionnelles vérifiables.
-- [ ] Les comportements transversaux nécessaires à la cohérence du produit sont définis.
-- [ ] Les exigences non fonctionnelles applicables à la V1 sont explicitées.
-- [ ] Les éléments d’acquisition, de suivi et d’authenticité nécessaires à la V1 sont couverts.
-- [ ] Les capacités nécessaires à la présentation de la démarche artistique de David sont couvertes.
+- [x] La finalité fonctionnelle de la V1 est explicitement définie.
+- [x] Tous les acteurs nécessaires à la V1 sont identifiés.
+- [x] Chaque acteur possède au moins un besoin fonctionnel explicite.
+- [x] Chaque besoin retenu est couvert par au moins une capacité fonctionnelle.
+- [x] Chaque capacité indispensable est représentée dans au moins un cas d’usage.
+- [x] Chaque cas d’usage indispensable est couvert par des exigences fonctionnelles vérifiables.
+- [x] Les comportements transversaux nécessaires à la cohérence du produit sont définis.
+- [x] Les exigences non fonctionnelles applicables à la V1 sont explicitées.
+- [x] Les éléments d’acquisition, de suivi et d’authenticité nécessaires à la V1 sont couverts.
+- [x] Les capacités nécessaires à la présentation de la démarche artistique de David sont couvertes.
 
 ### 10.2 Traçabilité
 
-- [ ] La chaîne de traçabilité principale peut être vérifiée dans les deux sens :
+- [x] La chaîne de traçabilité principale peut être vérifiée dans les deux sens :
 
   > Vision → acteur → besoin → capacité → cas d’usage → exigence
 
-- [ ] Lorsqu’un comportement transversal s’applique, son rattachement aux exigences concernées est vérifiable.
-- [ ] Aucune exigence fonctionnelle n’existe sans besoin ou cas d’usage identifiable.
-- [ ] Aucun besoin indispensable ne reste sans réponse fonctionnelle.
-- [ ] Les exigences non fonctionnelles sont reliées aux qualités attendues du produit ou aux obligations applicables.
+- [x] Lorsqu’un comportement transversal s’applique, son rattachement aux exigences concernées est vérifiable.
+- [x] Aucune exigence fonctionnelle n’existe sans besoin ou cas d’usage identifiable.
+- [x] Aucun besoin indispensable ne reste sans réponse fonctionnelle.
+- [x] Les exigences non fonctionnelles sont reliées aux qualités attendues du produit ou aux obligations applicables.
 
 ### 10.3 Priorisation et périmètre
 
-- [ ] Toutes les capacités et exigences sont qualifiées comme indispensables, souhaitables ou futures.
-- [ ] Les éléments indispensables permettent à la V1 de remplir sa finalité.
-- [ ] Les éléments souhaitables peuvent être différés sans invalider la V1.
-- [ ] Les éléments futurs ne sont pas présentés comme des engagements de réalisation.
-- [ ] Le périmètre de la V1 est explicite.
-- [ ] Les exclusions de la V1 sont explicites.
-- [ ] Les sujets réservés aux Sprints de conception, de métier, d’architecture et d’implémentation sont clairement identifiés.
-- [ ] Les enchères et leurs mécanismes associés sont explicitement exclus de la V1.
+- [x] Toutes les capacités et exigences sont qualifiées comme indispensables, souhaitables ou futures.
+- [x] Les éléments indispensables permettent à la V1 de remplir sa finalité.
+- [x] Les éléments souhaitables peuvent être différés sans invalider la V1.
+- [x] Les éléments futurs ne sont pas présentés comme des engagements de réalisation.
+- [x] Le périmètre de la V1 est explicite.
+- [x] Les exclusions de la V1 sont explicites.
+- [x] Les sujets réservés aux Sprints de conception, de métier, d’architecture et d’implémentation sont clairement identifiés.
+- [x] Les enchères et leurs mécanismes associés sont explicitement exclus de la V1.
 
 ### 10.4 Respect des décisions héritées
 
-- [ ] Le cahier des charges reste cohérent avec la vision verrouillée du Sprint 002.
-- [ ] David Prieur-Gélis demeure l’unique artiste permanent concerné par le produit.
-- [ ] La démarche artistique reste le principe organisateur d’AZUREUM.
-- [ ] L’acquisition est intégrée à l’expérience sans la définir.
-- [ ] Aucune exigence ne transforme AZUREUM en marketplace ou en produit générique multi-artistes.
-- [ ] Aucune décision héritée n’est modifiée implicitement.
+- [x] Le cahier des charges reste cohérent avec la vision verrouillée du Sprint 002.
+- [x] David Prieur-Gélis demeure l’unique artiste permanent concerné par le produit.
+- [x] La démarche artistique reste le principe organisateur d’AZUREUM.
+- [x] L’acquisition est intégrée à l’expérience sans la définir.
+- [x] Aucune exigence ne transforme AZUREUM en marketplace ou en produit générique multi-artistes.
+- [x] Aucune décision héritée n’est modifiée implicitement.
 
 ### 10.5 Respect du niveau fonctionnel
 
-- [ ] Le cahier des charges ne définit aucune page ou aucun écran.
-- [ ] Il ne définit ni navigation, ni architecture de l’information, ni wireframe.
-- [ ] Il ne fixe aucune règle métier détaillée, aucun état interne ni aucune transition normative.
-- [ ] Il ne définit aucune architecture technique.
-- [ ] Il n’impose aucune technologie, base de données, API ou dépendance.
-- [ ] Il ne contient aucun choix d’implémentation.
-- [ ] Les exigences décrivent des résultats ou comportements observables et vérifiables.
-- [ ] Aucune formulation fonctionnelle ne masque une décision métier ou technique implicite.
+- [x] Le cahier des charges ne définit aucune page ou aucun écran.
+- [x] Il ne définit ni navigation, ni architecture de l’information, ni wireframe.
+- [x] Il ne fixe aucune règle métier détaillée, aucun état interne ni aucune transition normative.
+- [x] Il ne définit aucune architecture technique.
+- [x] Il n’impose aucune technologie, base de données, API ou dépendance.
+- [x] Il ne contient aucun choix d’implémentation.
+- [x] Les exigences décrivent des résultats ou comportements observables et vérifiables.
+- [x] Aucune formulation fonctionnelle ne masque une décision métier ou technique implicite.
 
 ### 10.6 Qualité documentaire
 
-- [ ] Les identifiants des besoins, capacités, cas d’usage et exigences sont uniques et cohérents.
-- [ ] Les termes employés sont cohérents dans l’ensemble du document.
-- [ ] Chaque information normative possède une source de vérité identifiable.
-- [ ] Les références aux documents verrouillés sont correctes.
-- [ ] Aucune hypothèse n’est présentée comme une décision validée.
-- [ ] Toutes les questions structurantes relevant du Sprint 003 sont résolues.
-- [ ] Le document peut être compris sans dépendre de l’historique des discussions.
+- [x] Les identifiants des besoins, capacités, cas d’usage et exigences sont uniques et cohérents.
+- [x] Les termes employés sont cohérents dans l’ensemble du document.
+- [x] Chaque information normative possède une source de vérité identifiable.
+- [x] Les références aux documents verrouillés sont correctes.
+- [x] Aucune hypothèse n’est présentée comme une décision validée.
+- [x] Toutes les questions structurantes relevant du Sprint 003 sont résolues.
+- [x] Le document peut être compris sans dépendre de l’historique des discussions.
 
 ### 10.7 Validation et clôture
 
-- [ ] Une revue complète du cahier des charges a été effectuée.
-- [ ] Les éventuelles contradictions détectées ont été corrigées ou explicitement arbitrées.
-- [ ] La documentation de référence reflète l’état réel du projet.
-- [ ] `git diff --check` réussit.
-- [ ] Le dépôt ne contient aucune modification hors périmètre.
-- [ ] Le Product Owner a validé le cahier des charges fonctionnel.
-- [ ] Le Product Owner a prononcé le verrouillage du Sprint 003.
-- [ ] Le livrable validé a été enregistré dans Git.
-- [ ] Le Sprint verrouillé a reçu son tag Git conformément à la gouvernance.
+- [x] Une revue complète du cahier des charges a été effectuée.
+- [x] Les éventuelles contradictions détectées ont été corrigées ou explicitement arbitrées.
+- [x] La documentation de référence reflète l’état réel du projet.
+- [x] `git diff --check` réussit.
+- [x] Le dépôt ne contient aucune modification hors périmètre.
+- [x] Le Product Owner a validé le cahier des charges fonctionnel.
+- [x] Le Product Owner a prononcé le verrouillage du Sprint 003.
+- [x] Le livrable validé a été enregistré dans Git.
+- [x] Le Sprint verrouillé a reçu son tag Git conformément à la gouvernance.
 
 ## 11. Validation
 
@@ -995,8 +995,8 @@ La décision finale doit enregistrer :
 | Réserves acceptées | Aucune |
 | Décision du Product Owner | Cahier des charges fonctionnel V1 validé ; Sprint 003 verrouillé |
 | Date de validation | 20 juillet 2026 |
-| Commit de clôture | À compléter |
-| Tag Git | À compléter |
+| Commit de clôture | `3bba2cf` |
+| Tag Git | `sprint-003` |
 
 La décision du Product Owner constitue la référence officielle du statut du Sprint 003.
 

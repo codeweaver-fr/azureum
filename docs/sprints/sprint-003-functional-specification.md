@@ -59,5 +59,5 @@ Le Sprint pourra être proposé au verrouillage lorsque :
 | Date de validation | 20 juillet 2026 |
 | Statut documentaire final | Validé |
 | Statut final du Sprint | Verrouillé |
-| Commit de clôture | À compléter |
-| Tag Git | À compléter |
+| Commit de clôture | `3bba2cf` |
+| Tag Git | `sprint-003` |
