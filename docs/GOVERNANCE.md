@@ -1,4 +1,3 @@
-@'
 # Gouvernance du projet AZUREUM
 
 ## Principe central
@@ -53,4 +52,3 @@ Un Sprint est verrouillable uniquement si :
 - les validations prévues réussissent ;
 - le dépôt est propre ;
 - aucune modification hors périmètre n'est présente.
-'@ | Set-Content -Encoding UTF8 docs\GOVERNANCE.md

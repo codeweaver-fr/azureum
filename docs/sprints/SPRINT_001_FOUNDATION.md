@@ -1,5 +1,9 @@
 ﻿# Sprint 001 — Fondation et gouvernance
 
+## Statut
+
+**Verrouillé**
+
 ## Objectif
 
 Créer la fondation documentaire et méthodologique du nouveau projet AZUREUM.
@@ -39,7 +43,7 @@ Ce Sprint ne contient aucune implémentation applicative.
 - `LICENSE`
 - `.gitignore`
 - `docs/GOVERNANCE.md`
-- `docs/vision/PRODUCT_VISION.md`
+- première vision produit, remplacée pendant le Sprint 002 par `docs/sprints/SPRINT_002_PRODUCT_VISION.md`
 - `docs/product/ROADMAP.md`
 - `docs/glossary/GLOSSARY.md`
 - `docs/sprints/SPRINT_001_FOUNDATION.md`
@@ -58,4 +62,4 @@ Ce Sprint ne contient aucune implémentation applicative.
 
 ## Validation
 
-Le Sprint sera verrouillé uniquement après relecture et validation explicite de tous les documents.
+Le Sprint 001 a été verrouillé après relecture et validation explicite de tous ses documents.

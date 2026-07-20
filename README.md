@@ -1,7 +1,6 @@
-@'
 # AZUREUM
 
-AZUREUM est une galerie d'art numérique premium conçue pour présenter et commercialiser les œuvres d'un artiste dans un environnement élégant, fiable et sécurisé.
+AZUREUM est une galerie d'art numérique premium consacrée à David Prieur-Gélis. Sa mission est de faire découvrir, comprendre et transmettre sa démarche artistique dans un environnement numérique où l'acquisition des œuvres s'intègre naturellement à l'expérience, sans jamais la définir.
 
 ## État du projet
 
@@ -20,5 +19,4 @@ Le projet est construit par Sprints courts et contrôlés :
 - validation explicite avant le Sprint suivant ;
 - aucun code sans périmètre validé.
 
-Voir `PROJECT_STATE.md` pour connaître l'état actuel.
-'@ | Set-Content -Encoding UTF8 README.md
+Voir `PROJECT_STATE.md` pour connaître l'état actuel et `docs/sprints/SPRINT_002_PRODUCT_VISION.md` pour consulter la vision produit validée.
