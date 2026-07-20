@@ -8,7 +8,9 @@ Fondation documentaire et conception produit.
 
 Aucun.
 
-Le Sprint 002 — Vision produit est verrouillé. Aucun Sprint suivant n'est encore ouvert.
+Le Sprint 003 — Cahier des charges fonctionnel V1 a été ouvert, validé puis verrouillé le 20 juillet 2026.
+
+Son livrable officiel est `docs/specifications/functional-specification-v1.md`.
 
 ## Produit
 
@@ -16,18 +18,9 @@ AZUREUM est une galerie d'art numérique premium consacrée durablement à David
 
 La démarche artistique de David structure prioritairement le produit. L'acquisition des œuvres s'intègre à l'expérience sans la définir.
 
-## V1 envisagée
+## V1 fonctionnelle
 
-- galerie publique ;
-- collections ;
-- fiches détaillées des œuvres ;
-- achat à prix fixe ;
-- espace membre ;
-- espace artiste ;
-- espace administrateur ;
-- paiement sécurisé ;
-- suivi des commandes ;
-- certificats d'authenticité.
+Le périmètre fonctionnel de la V1 est validé dans `docs/specifications/functional-specification-v1.md`, qui en constitue l'unique référence fonctionnelle.
 
 ## V2 envisagée
 
@@ -49,6 +42,8 @@ La démarche artistique de David structure prioritairement le produit. L'acquisi
 - aucune implémentation avant validation des contrats correspondants ;
 - le Sprint 001 est verrouillé ;
 - la vision produit du Sprint 002 est validée ;
+- le cahier des charges fonctionnel V1 du Sprint 003 est validé ;
+- le Sprint 003 est verrouillé ;
 - David Prieur-Gélis est l'artiste permanent et le sujet de la vision d'AZUREUM ;
 - la fidélité à sa démarche artistique prime sur l'optimisation commerciale.
 
@@ -62,4 +57,4 @@ Aucune base de données définie.
 
 ## Prochaine étape
 
-L'ouverture du prochain Sprint nécessite une décision explicite du Product Owner.
+L'ouverture du Sprint suivant nécessite une décision explicite du Product Owner.
