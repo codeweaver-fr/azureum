@@ -4,6 +4,14 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 
 ## Non publié
 
+### Sprint 004 — Règles métier de la V1
+
+- validation par le Product Owner du modèle métier de la V1 ;
+- ajout de la spécification métier officielle `docs/specifications/business-rules-v1.md` ;
+- formalisation des règles métier, invariants, décisions structurantes et interprétations fonctionnelles applicables à la V1 ;
+- acceptation explicite de la réserve attachée aux règles conditionnelles `RM-LEG-01` à `RM-LEG-05`, à vérifier avant toute mise en exploitation ;
+- verrouillage documentaire du Sprint 004.
+
 ### Révision contrôlée du Sprint 003
 
 - validation par le Product Owner de la révision documentaire `sprint-003-r1` ;
