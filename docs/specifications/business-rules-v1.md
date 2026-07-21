@@ -12,7 +12,7 @@
 | Tag Git | `sprint-004` |
 | Révision contrôlée | `sprint-004-r1` |
 | Objet de la révision | Collections obligatoires, archivage, suppression exceptionnelle et modèle d'autorisations |
-| Commit de révision | À compléter |
+| Commit de révision | `7b3e31e` |
 
 ---
 

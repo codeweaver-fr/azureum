@@ -120,6 +120,6 @@ Cette révision ne modifie aucun autre domaine métier du Sprint 004.
 |---|---|
 | Statut de la révision | Validée par le Product Owner |
 | Référence précédente | `sprint-004` |
-| Commit de révision | À compléter |
+| Commit de révision | `7b3e31e` |
 | Tag de révision | `sprint-004-r1` |
 | Date de validation | 21 juillet 2026 |
