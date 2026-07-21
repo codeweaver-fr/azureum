@@ -4,15 +4,25 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 
 ## Non publié
 
-### Sprint 005 — Structure fonctionnelle du produit
+### Sprint 005 — Verrouillage initial
 
-- validation par le Product Owner de la structure fonctionnelle et des parcours de la V1 ;
-- ajout du livrable officiel `docs/specifications/product-structure-v1.md` ;
-- organisation du produit en espaces publics, acquisition, suivi, gestion artistique et supervision ;
-- structuration de la découverte publique par les collections et les relations contextuelles ;
-- formalisation des vues, parcours, navigations et états fonctionnels perceptibles ;
-- confirmation d'une découverte éditoriale sans recherche ni filtrage exigés en V1 ;
-- verrouillage documentaire du Sprint 005.
+- création du livrable `docs/specifications/product-structure-v1.md` et de la fiche du Sprint ;
+- organisation du produit en espaces, vues, parcours et états perceptibles ;
+- création du commit et du tag `sprint-005`, puis intégration dans `main` ;
+- verrouillage Git réalisé avant la validation finale du Product Owner ;
+- conservation du tag `sprint-005` comme référence historique, sans déplacement.
+
+### Révision Sprint 005-r1 — Validée et verrouillée
+
+- préparation d'une révision documentaire après audit complémentaire ;
+- correction de la provenance métier du concept de collection ;
+- alignement de `PAR-01` avec `V-PUB-02` ;
+- remplacement d'une formulation introduisant implicitement une recherche dans `V-ADM-02` ;
+- renforcement de la traçabilité vers `H-06`, `H-07`, `RM-ŒUV-13`, `RM-ŒUV-14`, `INV-09` et `INV-14` ;
+- validation finale du Product Owner prononcée sans réserve ;
+- premier commit de révision créé sous la référence `3cea85f` ;
+- second commit de métadonnées créé sous la référence `395b300` ;
+- création du tag `sprint-005-r1` comme nouvelle référence documentaire de la structure fonctionnelle de la V1.
 
 ### Révision contrôlée du Sprint 004
 
