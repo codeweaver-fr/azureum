@@ -6,15 +6,17 @@ Fondation documentaire et conception produit.
 
 ## Sprint actif
 
-Sprint 004 — Règles métier de la V1 : **En cours**.
+Aucun Sprint actif.
 
-Les travaux du Sprint 004 ont été temporairement interrompus par décision exceptionnelle du Product Owner afin de permettre la révision contrôlée `sprint-003-r1`. Cette révision est désormais validée et le Sprint 004 peut reprendre sur cette nouvelle référence documentaire.
+Le Sprint 004 — Règles métier de la V1 est validé et verrouillé. L'ouverture du Sprint 005 est autorisée après la matérialisation du verrouillage Git du Sprint 004.
 
 Le Sprint 003 — Cahier des charges fonctionnel V1 a été validé puis verrouillé le 20 juillet 2026. Son historique initial reste conservé sous le tag `sprint-003`.
 
 La révision contrôlée du cahier des charges intégrant la déclaration d'état à réception et le signalement d'anomalie dans le périmètre fonctionnel de la V1 est validée. Son tag de validation est `sprint-003-r1`.
 
 Le livrable officiel demeure `docs/specifications/functional-specification-v1.md`.
+
+La référence métier officielle de la V1 est `docs/specifications/business-rules-v1.md`.
 
 ## Produit
 
@@ -52,6 +54,8 @@ Le périmètre fonctionnel de la V1 est validé dans `docs/specifications/functi
 - la déclaration d'état à réception et le signalement d'anomalie font partie du périmètre fonctionnel de la V1 ;
 - David Prieur-Gélis est l'artiste permanent et le sujet de la vision d'AZUREUM ;
 - la fidélité à sa démarche artistique prime sur l'optimisation commerciale.
+- le contenu métier du Sprint 004 est validé et son modèle métier est stabilisé ;
+- les règles conditionnelles `RM-LEG-01` à `RM-LEG-05` devront faire l'objet d'une vérification juridique, fiscale et contractuelle adaptée avant toute mise en exploitation d'AZUREUM.
 
 ## Implémentation
 
@@ -63,4 +67,4 @@ Aucune base de données définie.
 
 ## Prochaine étape
 
-Reprendre les travaux du Sprint 004 sur la référence fonctionnelle révisée `sprint-003-r1`.
+Matérialiser le verrouillage Git du Sprint 004, puis ouvrir officiellement le Sprint 005.
