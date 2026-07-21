@@ -942,5 +942,5 @@ Le présent document ne réalise ni ne définit en détail :
 | Réserves acceptées | `RES-01`, `RES-03` et `RES-04`, avec leurs échéances explicites |
 | Décision du Product Owner | Validé |
 | Date de validation | 2026-07-21 |
-| Commit de clôture | À compléter |
+| Commit de clôture | `c6616ba` |
 | Tag Git | `sprint-006` |
