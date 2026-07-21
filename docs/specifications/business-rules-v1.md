@@ -8,8 +8,8 @@
 | Autorité documentaire | Référence métier de la V1 |
 | Référence fonctionnelle | `docs/specifications/functional-specification-v1.md` |
 | Révision fonctionnelle applicable | `sprint-003-r1` |
-| Commit de clôture | À compléter |
-| Tag Git | À compléter |
+| Commit de clôture | `13be024` |
+| Tag Git | `sprint-004` |
 
 ---
 

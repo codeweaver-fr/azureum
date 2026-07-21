@@ -100,5 +100,5 @@ Cette réserve ne fait pas obstacle au verrouillage documentaire du Sprint 004 n
 | Validation métier | Prononcée par le Product Owner |
 | Réserve acceptée | Vérification de `RM-LEG-01` à `RM-LEG-05` avant mise en exploitation |
 | Date de validation | 21 juillet 2026 |
-| Commit de clôture | À compléter |
-| Tag Git | À compléter |
+| Commit de clôture | `13be024` |
+| Tag Git | `sprint-004` |
