@@ -436,5 +436,5 @@ Le document est validable lorsque :
 | Réserves acceptées | Aucune |
 | Décision du Product Owner | Validé |
 | Date de validation | 2026-07-21 |
-| Commit de clôture | À compléter après le commit |
-| Tag Git | À compléter après la création du tag |
+| Commit de clôture | `3bf18c5` |
+| Tag Git | `sprint-005` |
