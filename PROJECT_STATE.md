@@ -6,7 +6,9 @@ Fondation documentaire et conception produit.
 
 ## Sprint actif
 
-Sprint 005 — Structure fonctionnelle du produit : **En cours**.
+Aucun Sprint actif.
+
+Le Sprint 005 — Structure fonctionnelle du produit est validé et verrouillé. Son livrable officiel est `docs/specifications/product-structure-v1.md`.
 
 Le Sprint 004 — Règles métier de la V1 est validé et verrouillé. Sa révision contrôlée `sprint-004-r1`, limitée aux collections, à l'archivage, à la suppression exceptionnelle et au modèle d'autorisations, est validée par le Product Owner.
 
@@ -17,6 +19,8 @@ La révision contrôlée du cahier des charges intégrant la déclaration d'éta
 Le livrable officiel demeure `docs/specifications/functional-specification-v1.md`.
 
 La référence métier officielle de la V1 est `docs/specifications/business-rules-v1.md`.
+
+La référence officielle de la structure fonctionnelle et des parcours de la V1 est `docs/specifications/product-structure-v1.md`.
 
 ## Produit
 
@@ -61,6 +65,9 @@ Le périmètre fonctionnel de la V1 est validé dans `docs/specifications/functi
 - la suppression définitive d'une œuvre est exceptionnelle et relève du rôle Administrateur ;
 - les rôles Artiste et Administrateur portent les responsabilités opérationnelles et peuvent être cumulés par un même utilisateur ;
 - l'identité artistique, la qualité d'auteur, la propriété initiale et la qualité de vendeur demeurent exclusivement attachées à David Prieur-Gélis.
+- la structure fonctionnelle de la V1 est validée dans le cadre du Sprint 005 ;
+- la découverte publique est éditoriale et structurée par les collections, sans recherche ni filtrage exigés en V1 ;
+- les espaces privés ne participent pas à la navigation publique.
 
 ## Implémentation
 
@@ -72,4 +79,4 @@ Aucune base de données définie.
 
 ## Prochaine étape
 
-Poursuivre la conception de la structure fonctionnelle et des parcours du Sprint 005 sur la base de `sprint-003-r1` et `sprint-004-r1`.
+Préparer l'ouverture du Sprint 006 consacré à l'architecture technique, sur la base des références validées des Sprints 003-r1, 004-r1 et 005.
