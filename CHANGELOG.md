@@ -20,7 +20,8 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 - remplacement d'une formulation introduisant implicitement une recherche dans `V-ADM-02` ;
 - renforcement de la traçabilité vers `H-06`, `H-07`, `RM-ŒUV-13`, `RM-ŒUV-14`, `INV-09` et `INV-14` ;
 - validation finale du Product Owner prononcée sans réserve ;
-- staging, commit, tag, push et fusion non encore autorisés.
+- premier commit de révision créé sous la référence `3cea85f` ;
+- second commit de métadonnées, tag, push et fusion non encore autorisés.
 
 ### Révision contrôlée du Sprint 004
 

@@ -79,4 +79,4 @@ Aucune base de données définie.
 
 ## Prochaine étape
 
-Présenter le diff complet et les contrôles de cohérence de la révision `sprint-005-r1`, puis attendre l'autorisation explicite du Product Owner avant toute opération Git.
+Présenter le diff des métadonnées de clôture de la révision `sprint-005-r1`, puis attendre l'autorisation explicite du Product Owner avant le second commit, le tag, le push et la fusion.
