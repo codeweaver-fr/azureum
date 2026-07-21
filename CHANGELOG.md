@@ -4,6 +4,16 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 
 ## Non publié
 
+### Sprint 005 — Structure fonctionnelle du produit
+
+- validation par le Product Owner de la structure fonctionnelle et des parcours de la V1 ;
+- ajout du livrable officiel `docs/specifications/product-structure-v1.md` ;
+- organisation du produit en espaces publics, acquisition, suivi, gestion artistique et supervision ;
+- structuration de la découverte publique par les collections et les relations contextuelles ;
+- formalisation des vues, parcours, navigations et états fonctionnels perceptibles ;
+- confirmation d'une découverte éditoriale sans recherche ni filtrage exigés en V1 ;
+- verrouillage documentaire du Sprint 005.
+
 ### Révision contrôlée du Sprint 004
 
 - validation par le Product Owner de la révision documentaire `sprint-004-r1` ;
