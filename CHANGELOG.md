@@ -4,6 +4,31 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 
 ## Non publié
 
+### Sprint 006 — Architecture technique de la V1
+
+- ouverture du Sprint 006 ;
+- création de la fiche courte `docs/sprints/sprint-006-technical-architecture.md` ;
+- création de la première version complète de `docs/specifications/technical-architecture-v1.md` ;
+- création de `docs/QUICK_REFERENCE.md` comme synthèse opérationnelle non normative ;
+- ajout de cette référence rapide au parcours documentaire du `README.md` ;
+- motivation explicite des décisions techniques structurantes ;
+- vérification des dépendances technologiques dans leurs documentations officielles ;
+- identification explicite des réserves juridiques, fiscales, contractuelles et opérationnelles restant à fermer ;
+- adoption d'objectifs RPO et RTO différenciés selon la criticité des données ;
+- fixation d'un objectif interne de disponibilité de 99,5 % par mois ;
+- constat du besoin de PITR ou d'un mécanisme équivalent pour les données transactionnelles critiques ;
+- exigence d'une copie indépendante pour les fichiers irremplaçables ;
+- adoption de CSS moderne et Motion comme socle d'animation proportionné pour la V1 ;
+- exclusion des moteurs 3D et WebGL en l'absence de capacité fonctionnelle correspondante ;
+- prise en compte architecturale de la réduction des mouvements et du budget JavaScript des animations.
+- définition de Stripe Connect avec paiements directs comme architecture cible sous réserve de validation juridique, fiscale et contractuelle ;
+- sélection de Brevo comme architecture cible sous réserve pour les e-mails transactionnels, derrière un adaptateur AZUREUM ;
+- validation de la politique différenciée des fichiers, de leur quarantaine, de leur versionnement et de la copie indépendante des éléments irremplaçables ;
+- formalisation de la matrice provisoire de conservation et des réserves de conformité restant à lever avant les échéances concernées.
+- audit documentaire global conforme, sans contradiction ni référence orpheline ;
+- validation du livrable et acceptation explicite des réserves `RES-01`, `RES-03` et `RES-04` par le Product Owner ;
+- verrouillage documentaire du Sprint 006 et autorisation d'ouverture du Sprint 007.
+
 ### Gouvernance — Procédure de clôture à partir du Sprint 006
 
 - adoption d'une validation unique du Product Owner après la revue finale ;
