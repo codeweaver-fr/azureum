@@ -4,6 +4,14 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 
 ## Non publié
 
+### Gouvernance — Procédure de clôture à partir du Sprint 006
+
+- adoption d'une validation unique du Product Owner après la revue finale ;
+- autorisation globale des opérations de verrouillage Git couvertes par cette validation ;
+- suppression des demandes d'autorisation intermédiaires entre le staging, les commits, le tag, le push, la fusion et le nettoyage de branche ;
+- maintien d'un arrêt obligatoire en cas d'écart de périmètre, conflit, contrôle en échec, historique divergent, tag existant à déplacer ou opération destructive ;
+- maintien de l'interdiction des réécritures d'historique sans autorisation spécifique.
+
 ### Sprint 005 — Verrouillage initial
 
 - création du livrable `docs/specifications/product-structure-v1.md` et de la fiche du Sprint ;

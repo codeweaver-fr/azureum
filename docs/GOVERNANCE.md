@@ -53,6 +53,34 @@ Un Sprint est verrouillable uniquement si :
 - le dépôt est propre ;
 - aucune modification hors périmètre n'est présente.
 
+## Procédure de validation et de verrouillage des Sprints
+
+Cette procédure s'applique à partir du Sprint 006.
+
+Le travail documentaire, les corrections, les audits et la préparation du diff peuvent être réalisés sans autorisation intermédiaire.
+
+Lorsque la revue finale est terminée, le Product Owner prononce une validation unique :
+
+> Je valide et j'autorise le verrouillage complet du Sprint XXX.
+
+Cette autorisation couvre l'ensemble des opérations nécessaires à la clôture :
+
+- application des statuts définitifs ;
+- staging nominatif ;
+- vérification du staging ;
+- création des commits ;
+- création du tag ;
+- push de la branche et du tag ;
+- fusion dans `main` ;
+- push de `main` ;
+- nettoyage de la branche après vérification.
+
+Aucune autorisation supplémentaire n'est requise entre ces opérations.
+
+L'exécution doit toutefois être interrompue en cas de fichier inattendu, conflit, échec de contrôle, historique divergent, tag existant à déplacer ou opération destructive.
+
+Les opérations `push --force`, `reset --hard`, déplacement de tag publié et réécriture d'historique restent interdites sans autorisation spécifique du Product Owner.
+
 ## Révision contrôlée d'un Sprint validé
 
 Un Sprint validé constitue une référence documentaire stable. Il peut toutefois faire l'objet d'une révision ultérieure afin de corriger une omission, d'intégrer une décision de périmètre, de préserver la cohérence documentaire ou d'améliorer le référentiel fonctionnel ou métier.
