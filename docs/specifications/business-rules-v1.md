@@ -10,6 +10,9 @@
 | Révision fonctionnelle applicable | `sprint-003-r1` |
 | Commit de clôture | `13be024` |
 | Tag Git | `sprint-004` |
+| Révision contrôlée | `sprint-004-r1` |
+| Objet de la révision | Collections obligatoires, archivage, suppression exceptionnelle et modèle d'autorisations |
+| Commit de révision | `7b3e31e` |
 
 ---
 
@@ -140,6 +143,8 @@ Les règles du présent document s'appuient sur les décisions produit suivantes
 | H-03 | Les ventes externes restent autorisées et peuvent être enregistrées dans AZUREUM sans être présentées comme des acquisitions conclues sur la plateforme. | Établie |
 | H-04 | AZUREUM ne fixe aucune limitation géographique fonctionnelle prédéfinie. Toute restriction doit résulter de contraintes juridiques, fiscales ou logistiques vérifiées. | Orientation métier sous réserve de conformité |
 | H-05 | AZUREUM ne limite pas fonctionnellement la qualité de l'acquéreur. Toute personne physique ou morale pouvant légalement conclure une acquisition peut utiliser le produit, sous réserve des contraintes applicables. | Orientation métier sous réserve de conformité |
+| H-06 | Toute œuvre appartient à exactement une collection. L'archivage constitue son retrait normal de la présentation publique ; la suppression définitive reste exceptionnelle. | Établie |
+| H-07 | Les responsabilités opérationnelles sont exercées au moyen des rôles Artiste et Administrateur, cumulables par un même utilisateur. Ces rôles ne transfèrent aucune qualité artistique ou juridique attachée à David. | Établie |
 
 ---
 
@@ -226,7 +231,7 @@ La présentation poursuit une finalité culturelle avant toute finalité commerc
 
 ## 5.3 Disponibilité
 
-État indiquant si une œuvre peut actuellement faire l'objet d'une acquisition selon les règles définies par David.
+État indiquant si une œuvre peut actuellement faire l'objet d'une acquisition selon les règles définies au titre du rôle Artiste.
 
 La disponibilité est indépendante de la publication.
 
@@ -324,6 +329,48 @@ Jérémie exploite AZUREUM dans le cadre de son entreprise individuelle et perç
 
 ---
 
+## 5.16 Collection
+
+Regroupement artistique organisé afin de présenter un ensemble cohérent d'œuvres de David dans AZUREUM.
+
+Une collection constitue un contexte artistique structurant de la galerie publique. Elle ne constitue ni une édition, ni une catégorie commerciale, ni un regroupement fondé uniquement sur la disponibilité des œuvres.
+
+Chaque œuvre appartient à exactement une collection.
+
+---
+
+## 5.17 Utilisateur
+
+Personne disposant d'un compte lui permettant d'accéder aux fonctionnalités non publiques d'AZUREUM.
+
+Un utilisateur peut recevoir un ou plusieurs rôles sans que cette attribution modifie son identité ni celle de l'artiste présenté.
+
+---
+
+## 5.18 Rôle
+
+Ensemble d'autorisations permettant à un utilisateur d'exercer certaines responsabilités opérationnelles dans AZUREUM.
+
+La V1 distingue le rôle Artiste et le rôle Administrateur.
+
+---
+
+## 5.19 Rôle Artiste
+
+Ensemble d'autorisations permettant d'exercer les responsabilités de gestion artistique définies par AZUREUM.
+
+Le rôle Artiste ne désigne ni l'auteur des œuvres ni l'identité artistique présentée par la plateforme.
+
+Dans AZUREUM V1, toutes les œuvres demeurent exclusivement attribuées à David Prieur-Gélis, quel que soit l'utilisateur auquel le rôle Artiste est attribué.
+
+---
+
+## 5.20 Rôle Administrateur
+
+Ensemble d'autorisations permettant d'exercer les responsabilités administratives définies par AZUREUM.
+
+---
+
 # 6. Concepts métier
 
 Les concepts décrits ci-dessous constituent les objets fondamentaux manipulés par les règles métier.
@@ -418,16 +465,16 @@ La présence de plusieurs artistes est hors périmètre.
 
 ---
 
-## RM-ŒUV-03 — Publication
+## RM-ŒUV-03 — Publication et archivage
 
 Une œuvre peut être :
 
 - publiée ;
-- retirée de la publication.
+- archivée.
 
-Le retrait d'une œuvre de la présentation publique d'AZUREUM n'entraîne pas sa disparition métier.
+Une œuvre publiée apparaît dans la présentation publique d'AZUREUM au sein de sa collection.
 
-Les informations nécessaires aux acquisitions déjà réalisées demeurent conservées.
+Une œuvre archivée n'apparaît plus publiquement. Son archivage ne supprime ni son identité métier, ni son historique, ni les informations nécessaires aux acquisitions déjà réalisées.
 
 ---
 
@@ -465,7 +512,7 @@ Ces conditions doivent permettre à un acquéreur de connaître les éléments n
 
 ## RM-ŒUV-07 — Modification
 
-David peut modifier :
+Tout utilisateur disposant du rôle Artiste peut modifier :
 
 - la présentation ;
 - la disponibilité ;
@@ -483,13 +530,17 @@ Le présent document ne définit ni son niveau de détail ni son implémentation
 
 ---
 
-## RM-ŒUV-09 — Retrait
+## RM-ŒUV-09 — Archivage
 
-Le retrait d'une œuvre de la présentation publique :
+L'archivage d'une œuvre :
 
+- la retire de la présentation publique ;
 - ne supprime pas son identité ;
 - ne supprime pas son historique ;
-- ne remet pas en cause les acquisitions déjà réalisées.
+- ne remet pas en cause les acquisitions déjà réalisées ;
+- ne rompt pas son rattachement à sa collection.
+
+L'archivage constitue l'opération normale permettant de conserver une œuvre sans la présenter publiquement.
 
 ---
 
@@ -511,6 +562,26 @@ Lorsqu'une œuvre appartient à une édition numérotée, chaque exemplaire poss
 
 La disponibilité, la réservation, l'acquisition, la remise et les éléments d'authenticité d'un exemplaire ne modifient pas automatiquement ceux des autres exemplaires de la même œuvre.
 
+---
+
+## RM-ŒUV-13 — Collection obligatoire
+
+Toute nouvelle œuvre doit être créée dans une collection existante ou dans une collection créée à cette occasion.
+
+Une œuvre appartient à exactement une collection pendant toute son existence dans AZUREUM.
+
+Une œuvre ne peut ni être créée, ni être maintenue, ni être publiée sans rattachement à une collection.
+
+---
+
+## RM-ŒUV-14 — Suppression définitive
+
+La suppression définitive d'une œuvre constitue une opération exceptionnelle distincte de son archivage.
+
+Elle ne peut être effectuée que par un utilisateur disposant du rôle Administrateur, pour un motif justifié et traçable.
+
+Elle ne doit pas supprimer les informations dont la conservation reste nécessaire au suivi d'une acquisition, d'un exemplaire, d'un élément d'authenticité ou de toute obligation applicable.
+
 # 8. Conditions d'acquisition
 
 Les règles du présent chapitre définissent les conditions dans lesquelles une œuvre peut être acquise.
@@ -523,7 +594,7 @@ Aucune règle du présent chapitre ne peut introduire un mécanisme d'enchères,
 
 ## RM-ACQ-01 — Définition des conditions
 
-Pour chaque œuvre disponible, David définit les conditions d'acquisition applicables.
+Pour chaque œuvre disponible, un utilisateur disposant du rôle Artiste définit les conditions d'acquisition applicables.
 
 Ces conditions constituent la référence officielle de l'acquisition.
 
@@ -629,7 +700,7 @@ Parmi plusieurs tentatives concurrentes portant sur un même exemplaire disponib
 
 ## RM-ACQ-13 — Modalités autorisées
 
-Pour chaque œuvre proposée à l'acquisition, David définit les modalités de remise autorisées.
+Pour chaque œuvre proposée à l'acquisition, un utilisateur disposant du rôle Artiste définit les modalités de remise autorisées.
 
 Lorsque plusieurs modalités sont autorisées, l'acquéreur choisit avant son engagement. La modalité retenue devient une condition de cette acquisition et ne peut plus être modifiée unilatéralement.
 
@@ -1008,7 +1079,7 @@ Aucun montant ne doit être conservé ou réattribué sans fondement contractuel
 
 ## RM-ANN-05 — Retour à la disponibilité
 
-Un exemplaire précédemment acquis ne peut redevenir disponible qu'après décision explicite de David, prise après vérification de sa situation, de son état physique, de sa localisation et des éléments d'authenticité concernés.
+Un exemplaire précédemment acquis ne peut redevenir disponible qu'après une décision explicite prise au titre du rôle Artiste, après vérification de sa situation, de son état physique, de sa localisation et des éléments d'authenticité concernés.
 
 ---
 
@@ -1052,7 +1123,7 @@ Une acquisition ne peut donner lieu qu'à une seule remise de l'œuvre acquise.
 
 L'œuvre remise doit correspondre à l'œuvre acquise.
 
-Aucune substitution ne peut intervenir sans décision explicite de David et accord de l'acquéreur lorsque celui-ci est nécessaire.
+Aucune substitution ne peut intervenir sans décision explicite prise au titre du rôle Artiste et accord de l'acquéreur lorsque celui-ci est nécessaire.
 
 ---
 
@@ -1180,7 +1251,7 @@ L'authenticité constitue une caractéristique de l'œuvre et de son acquisition
 
 Une œuvre peut être accompagnée d'un ou plusieurs éléments attestant de son authenticité.
 
-Les éléments applicables sont définis par David.
+Les éléments applicables sont définis au titre du rôle Artiste.
 
 ---
 
@@ -1246,7 +1317,7 @@ Chaque élément d'authenticité doit pouvoir être rattaché sans ambiguïté :
 
 ## RM-AUT-10 — Détermination
 
-David détermine les éléments d'authenticité applicables à chaque œuvre ou édition.
+Un utilisateur disposant du rôle Artiste détermine les éléments d'authenticité applicables à chaque œuvre ou édition.
 
 Une œuvre ou un exemplaire ne doit pas être présenté comme accompagné d'un élément d'authenticité qui n'a pas été prévu ou établi.
 
@@ -1300,7 +1371,7 @@ Leur statut et leur éventuelle invalidation doivent être déterminés et conse
 
 ## RM-AUT-17 — Forme des éléments d'authenticité
 
-Les éléments d'authenticité peuvent être physiques, numériques ou associer les deux formes, selon la décision de David.
+Les éléments d'authenticité peuvent être physiques, numériques ou associer les deux formes, selon la décision prise au titre du rôle Artiste.
 
 Aucune de ces formes n'est obligatoire par principe ; seules les formes définies pour l'œuvre ou l'édition concernée sont applicables.
 
@@ -1318,21 +1389,36 @@ Chaque responsabilité métier est attribuée à un acteur clairement identifié
 
 Une même responsabilité ne peut être assumée simultanément par plusieurs acteurs sans règle explicite.
 
----
+Les responsabilités définies dans ce chapitre sont fonctionnelles. Elles ne correspondent ni à des comptes particuliers ni à une organisation technique des autorisations.
 
-## 12.2 David
+Une même personne peut exercer plusieurs ensembles de responsabilités lorsque les rôles correspondants lui sont attribués.
 
-David est responsable :
+Le cumul de plusieurs rôles ne fusionne pas leurs responsabilités : chaque opération est exercée au titre du rôle qui l'autorise.
 
-- de la création des œuvres ;
-- de la définition des conditions d'acquisition ;
-- de la présentation artistique des œuvres ;
-- de la décision de publier ou de retirer une œuvre ;
-- de la définition des éléments d'authenticité associés à chaque œuvre.
+L'identité artistique, la qualité d'auteur, la propriété des œuvres et des exemplaires avant leur acquisition, ainsi que la qualité de vendeur demeurent exclusivement attachées à David Prieur-Gélis, conformément aux règles métier applicables. Ces qualités ne peuvent être transférées par l'attribution d'un rôle.
 
 ---
 
-## 12.3 AZUREUM et l'Administrateur
+## 12.2 Gestion artistique
+
+Les responsabilités de gestion artistique portent sur les œuvres de David Prieur-Gélis et sur la présentation de sa démarche.
+
+Elles comprennent :
+
+- la création et le maintien des collections ;
+- la création et le maintien des œuvres ;
+- la définition de leur présentation artistique ;
+- la décision de publier ou d'archiver une œuvre ;
+- la définition des conditions d'acquisition ;
+- la définition des éléments d'authenticité.
+
+Ces responsabilités peuvent être exercées par tout utilisateur auquel le rôle Artiste est attribué.
+
+Cette attribution ne modifie ni l'identité de l'artiste présenté, ni l'attribution des œuvres à David Prieur-Gélis.
+
+---
+
+## 12.3 Administration
 
 AZUREUM porte les comportements fonctionnels nécessaires :
 
@@ -1341,11 +1427,17 @@ AZUREUM porte les comportements fonctionnels nécessaires :
 - à la conservation des informations nécessaires au fonctionnement de la V1 ;
 - au suivi de la remise des œuvres conformément aux conditions définies.
 
-L'Administrateur est responsable :
+Les responsabilités administratives comprennent :
 
-- de la supervision des opérations relevant de ses responsabilités ;
-- du traitement administratif des situations anormales ;
-- des interventions qui lui sont explicitement autorisées par les règles métier.
+- la supervision des opérations relevant de leur périmètre ;
+- le traitement administratif des situations anormales ;
+- les interventions explicitement autorisées par les règles métier ;
+- la suppression définitive exceptionnelle d'une œuvre ;
+- la préservation de la cohérence et de la traçabilité des opérations.
+
+Ces responsabilités peuvent être exercées par tout utilisateur auquel le rôle Administrateur est attribué.
+
+Un utilisateur disposant du rôle Administrateur peut également exercer les responsabilités de gestion artistique si le rôle Artiste lui est attribué.
 
 ---
 
@@ -1361,27 +1453,29 @@ L'acquéreur est responsable :
 
 ## RM-RESP-01 — Attribution
 
-Toute responsabilité métier doit être attribuée à un acteur identifié.
+Toute responsabilité opérationnelle doit être attribuée à un rôle identifié.
 
 ---
 
 ## RM-RESP-02 — Limitation
 
-Un acteur ne peut exercer que les responsabilités prévues par le périmètre fonctionnel de la V1.
+Un utilisateur ne peut exercer que les responsabilités permises par les rôles qui lui sont attribués et par le périmètre fonctionnel de la V1.
 
 ---
 
 ## RM-RESP-03 — Création
 
-Seul David peut créer une nouvelle œuvre destinée à être présentée dans AZUREUM V1.
+Tout utilisateur disposant du rôle Artiste peut créer une nouvelle œuvre destinée à être présentée dans AZUREUM V1.
+
+Toute nouvelle œuvre doit être rattachée à exactement une collection dès sa création.
 
 ---
 
-## RM-RESP-04 — Publication
+## RM-RESP-04 — Publication et archivage
 
-Seul David peut décider de publier ou de retirer une œuvre.
+Tout utilisateur disposant du rôle Artiste peut publier ou archiver une œuvre.
 
-AZUREUM doit refléter cette décision dans la présentation publique de l'œuvre.
+AZUREUM doit refléter cette décision dans la présentation publique de l'œuvre sans supprimer son identité ni son historique.
 
 ---
 
@@ -1395,7 +1489,7 @@ Cet engagement ne peut être réalisé par un tiers sans autorisation prévue pa
 
 ## RM-RESP-06 — Authenticité
 
-La définition des éléments d'authenticité relève exclusivement de David.
+La définition des éléments d'authenticité relève du rôle Artiste.
 
 AZUREUM doit permettre leur gestion conformément aux règles métier.
 
@@ -1439,41 +1533,48 @@ Le choix et l'intégration de ce prestataire ne relèvent pas du présent docume
 
 ---
 
-## RM-RESP-12 — Responsabilités de David
+## RM-RESP-12 — Responsabilités de gestion artistique
 
-David décide :
+Le rôle Artiste permet :
 
-- de la création et de l'identité artistique des œuvres ;
-- du nombre et de la numérotation des exemplaires ;
-- de leur publication ;
-- de leur disponibilité volontaire ;
-- du prix et des conditions d'acquisition ;
-- des modalités de remise autorisées ;
-- des éléments d'authenticité applicables ;
-- de la possibilité de proposer de nouveau un exemplaire après retour ou annulation.
-
----
-
-## RM-RESP-13 — Responsabilités de l'Administrateur
-
-L'Administrateur :
-
-- supervise les acquisitions et paiements ;
-- traite les situations anormales ;
-- prononce les interruptions administratives autorisées ;
-- peut annuler exceptionnellement une acquisition confirmée ;
-- clôt les anomalies ;
-- veille à la cohérence et à la traçabilité des interventions.
+- de créer et maintenir les collections ;
+- de créer et maintenir les œuvres de David ;
+- de rattacher chaque œuvre à sa collection ;
+- de définir le nombre et la numérotation des exemplaires ;
+- de publier ou archiver les œuvres ;
+- de définir leur disponibilité volontaire ;
+- de définir le prix et les conditions d'acquisition ;
+- de définir les modalités de remise autorisées ;
+- de définir les éléments d'authenticité applicables ;
+- de décider si un exemplaire peut être proposé de nouveau après retour ou annulation.
 
 ---
 
-## RM-RESP-14 — Limites
+## RM-RESP-13 — Responsabilités administratives
 
-David ne peut pas modifier rétroactivement les conditions d'une acquisition engagée.
+Le rôle Administrateur permet :
 
-L'Administrateur ne peut pas modifier une décision artistique relevant de David.
+- de superviser les acquisitions et paiements ;
+- de traiter les situations anormales ;
+- de prononcer les interruptions administratives autorisées ;
+- d'annuler exceptionnellement une acquisition confirmée ;
+- de clôturer les anomalies ;
+- d'effectuer, lorsqu'elle est justifiée, la suppression définitive exceptionnelle d'une œuvre conformément à `RM-ŒUV-14` ;
+- de veiller à la cohérence et à la traçabilité des interventions.
 
-Aucun des deux acteurs ne peut exercer une opération qui ne lui est pas attribuée par les règles métier applicables.
+---
+
+## RM-RESP-14 — Séparation et cumul des responsabilités
+
+Les responsabilités de gestion artistique et les responsabilités administratives sont distinctes.
+
+Un même utilisateur peut cumuler les rôles Artiste et Administrateur.
+
+Le rôle Administrateur n'autorise pas, à lui seul, l'exercice d'une responsabilité de gestion artistique.
+
+Le rôle Artiste n'autorise pas la suppression définitive d'une œuvre.
+
+Aucun utilisateur ne peut modifier rétroactivement les conditions d'une acquisition engagée.
 
 # 13. Situations anormales
 
@@ -1538,7 +1639,7 @@ Une situation anormale concernant une acquisition ne doit pas affecter les autre
 
 ## RM-ANOM-08 — Décision
 
-Les décisions exceptionnelles relèvent de David ou de l'Administrateur selon les responsabilités définies au chapitre 12. La clôture administrative d'une anomalie relève exclusivement de l'Administrateur.
+Les décisions exceptionnelles relèvent du rôle Artiste ou du rôle Administrateur selon les responsabilités définies au chapitre 12. La clôture administrative d'une anomalie relève exclusivement du rôle Administrateur.
 
 ---
 
@@ -1546,7 +1647,7 @@ Les décisions exceptionnelles relèvent de David ou de l'Administrateur selon l
 
 L'Administrateur peut clôturer une situation anormale lorsque les éléments disponibles permettent de prendre une décision conforme aux règles métier applicables.
 
-La clôture est motivée, traçable et portée à la connaissance de l'acquéreur et de David. Elle clôt une procédure administrative sans réécrire la déclaration initiale ni déterminer rétroactivement la réalité de son contenu.
+La clôture est motivée, traçable et portée à la connaissance de l'acquéreur et des utilisateurs autorisés concernés. Elle clôt une procédure administrative sans réécrire la déclaration initiale ni déterminer rétroactivement la réalité de son contenu.
 
 ---
 
@@ -1709,9 +1810,11 @@ Aucune règle ne peut conduire à une contradiction du modèle métier.
 
 ## INV-09 — Responsabilités
 
-Chaque responsabilité métier appartient à un acteur clairement identifié.
+Chaque responsabilité opérationnelle appartient à un rôle clairement identifié.
 
-Une responsabilité ne peut être exercée par un autre acteur sans modification explicite des règles métier.
+Une responsabilité ne peut être exercée par un utilisateur auquel le rôle correspondant n'est pas attribué.
+
+L'attribution d'un rôle ne transfère aucune des qualités artistiques ou juridiques exclusivement attachées à David Prieur-Gélis.
 
 ---
 
@@ -1740,6 +1843,14 @@ Chaque exemplaire acquérable possède une identité propre qui demeure distinct
 ## INV-13 — Qualité du vendeur
 
 David demeure le vendeur des exemplaires acquis dans AZUREUM. La commission due à l'exploitant ne lui transfère ni la propriété des exemplaires ni la qualité de vendeur.
+
+---
+
+## INV-14 — Appartenance à une collection
+
+Toute œuvre existant dans AZUREUM appartient à exactement une collection.
+
+Une œuvre sans collection ne peut être ni créée, ni maintenue, ni publiée.
 
 ---
 
@@ -1901,13 +2012,13 @@ La matrice relie les besoins et spécifications du Sprint 003-r1 aux décisions 
 
 | Besoins | Capacités | Cas d'usage | Exigences | Décisions produit | Règles métier | Invariants |
 |---|---|---|---|---|---|---|
-| BES-VIS-01 à BES-VIS-05, BES-DAV-01, BES-DAV-02, BES-DAV-05 | CAP-ART-01 à CAP-ART-06 | CU-VIS-01 à CU-VIS-03, CU-DAV-01 | EF-ART-01 à EF-ART-08, EF-ACQ-01 à EF-ACQ-05 | H-02 | RM-ŒUV-01 à RM-ŒUV-12 | INV-01, INV-02, INV-12 |
+| BES-VIS-01 à BES-VIS-05, BES-DAV-01, BES-DAV-02, BES-DAV-05 | CAP-ART-01 à CAP-ART-06 | CU-VIS-01 à CU-VIS-03, CU-DAV-01 | EF-ART-01 à EF-ART-08, EF-ACQ-01 à EF-ACQ-05 | H-02, H-06 | RM-ŒUV-01 à RM-ŒUV-14 | INV-01, INV-02, INV-12, INV-14 |
 | BES-ACQ-01 à BES-ACQ-03, BES-DAV-03, BES-ADM-02 | CAP-ACQ-01 à CAP-ACQ-05 | CU-ACQ-01, CU-DAV-02, CU-ADM-01 | EF-ACQ-01 à EF-ACQ-05, EF-ACH-01 à EF-ACH-09 | H-01, H-02, H-04, H-05 | RM-ACQ-01 à RM-ACQ-22, RM-COM-01 à RM-COM-05, RM-CYC-01 à RM-CYC-10, RM-ANN-01 à RM-ANN-06, RM-LEG-01 à RM-LEG-05 | INV-03 à INV-05, INV-11 à INV-13 |
 | BES-ACQ-04, BES-DAV-04, BES-ADM-02, BES-ADM-04 | CAP-ACQ-05, CAP-ACQ-06, CAP-ACQ-08, CAP-SUP-01, CAP-SUP-04 | CU-ACQ-02, CU-DAV-03, CU-ADM-01 | EF-SUI-01 à EF-SUI-08, EF-SUP-01, EF-SUP-03, EF-SUP-06 | H-02, H-03 | RM-CYC-04 à RM-CYC-10, RM-ANN-01 à RM-ANN-06, RM-REM-01 à RM-REM-19, RM-EXT-01 à RM-EXT-05 | INV-03 à INV-06, INV-11, INV-12 |
 | BES-ACQ-05 | CAP-ACQ-07 | CU-ACQ-03 | EF-AUT-01 à EF-AUT-04 | H-02, H-03 | RM-AUT-01 à RM-AUT-06, RM-AUT-08 à RM-AUT-17 | INV-07, INV-12 |
 | BES-ACQ-06, BES-ADM-03, BES-ADM-04 | CAP-ACQ-09, CAP-SUP-03 à CAP-SUP-05 | CU-ACQ-04, CU-ADM-02 | EF-REC-01 à EF-REC-07, EF-SUP-03 à EF-SUP-09 | H-01, H-02 | RM-REM-09 à RM-REM-19, RM-ANOM-01 à RM-ANOM-15 | INV-06, INV-08, INV-09 |
-| BES-DAV-01 à BES-DAV-03, BES-ADM-01, BES-ADM-05 | CAP-GES-01 à CAP-GES-05 | CU-DAV-01, CU-DAV-02 | EF-GES-01 à EF-GES-10 | H-02, H-03 | RM-ŒUV-03 à RM-ŒUV-12, RM-ACQ-01 à RM-ACQ-22, RM-EXT-01 à RM-EXT-05, RM-RESP-01 à RM-RESP-14 | INV-01, INV-02, INV-08, INV-09, INV-12, INV-13 |
-| BES-ADM-02 à BES-ADM-05 | CAP-SUP-01 à CAP-SUP-05 | CU-ADM-01, CU-ADM-02 | EF-SUP-01 à EF-SUP-09 | H-01, H-03 | RM-RESP-01 à RM-RESP-14, RM-ANOM-01 à RM-ANOM-15 | INV-06, INV-08, INV-09, INV-13 |
+| BES-DAV-01 à BES-DAV-03, BES-ADM-01, BES-ADM-05 | CAP-GES-01 à CAP-GES-05 | CU-DAV-01, CU-DAV-02 | EF-GES-01 à EF-GES-10 | H-02, H-03, H-06, H-07 | RM-ŒUV-03 à RM-ŒUV-14, RM-ACQ-01 à RM-ACQ-22, RM-EXT-01 à RM-EXT-05, RM-RESP-01 à RM-RESP-14 | INV-01, INV-02, INV-08, INV-09, INV-12 à INV-14 |
+| BES-ADM-02 à BES-ADM-05 | CAP-SUP-01 à CAP-SUP-05 | CU-ADM-01, CU-ADM-02 | EF-SUP-01 à EF-SUP-09 | H-01, H-03, H-07 | RM-RESP-01 à RM-RESP-14, RM-ANOM-01 à RM-ANOM-15 | INV-06, INV-08, INV-09, INV-13 |
 
 Les spécifications techniques et les tests compléteront cette chaîne dans les sprints qui leur sont consacrés sans modifier les relations métier définies ici.
 
