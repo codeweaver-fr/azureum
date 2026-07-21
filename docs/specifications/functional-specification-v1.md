@@ -2,7 +2,7 @@
 
 ## Statut
 
-- **Statut documentaire : Validé**
+- **Statut documentaire : Validé — révision contrôlée `sprint-003-r1`**
 - **Statut du Sprint 003 : Verrouillé**
 
 ## Table des matières
@@ -96,6 +96,7 @@ Elle doit couvrir fonctionnellement :
 - le paiement sécurisé ;
 - la confirmation de l’opération ;
 - le suivi de l’acquisition jusqu’à la remise physique de l’œuvre ;
+- la déclaration par l’acquéreur de l’état apparent de l’œuvre reçue et le signalement d’une anomalie ;
 - la remise des éléments attestant l’authenticité de l’œuvre lorsque ceux-ci sont requis.
 
 Une acquisition est considérée comme achevée lorsque l’œuvre a été remise à l’acquéreur et que les éléments d’authenticité requis ont été remis lorsqu’ils sont applicables. Les modalités de cette remise — expédition, retrait, livraison ou autre — relèveront du Sprint consacré au modèle métier.
@@ -211,6 +212,10 @@ L’acquéreur a besoin de retrouver les informations importantes et de connaît
 
 L’acquéreur a besoin de recevoir les éléments permettant d’attester l’authenticité de l’œuvre acquise lorsque ceux-ci sont requis.
 
+#### BES-ACQ-06 — Déclarer l’état de l’œuvre reçue
+
+L’acquéreur a besoin de pouvoir déclarer l’état apparent de l’œuvre reçue et signaler une anomalie relative à sa réception.
+
 ### 5.3 Besoins de David Prieur-Gélis
 
 #### BES-DAV-01 — Préserver la fidélité de la présentation
@@ -286,6 +291,7 @@ Chaque capacité doit répondre à au moins un besoin validé dans la section pr
 | CAP-ACQ-06 | Permettre à l’acquéreur de consulter les informations et l’avancement de son acquisition jusqu’à son achèvement. | BES-ACQ-04 |
 | CAP-ACQ-07 | Permettre la remise des éléments attestant l’authenticité d’une œuvre acquise lorsqu’ils sont requis. | BES-ACQ-05 |
 | CAP-ACQ-08 | Permettre de suivre et de constater la remise physique de l’œuvre à l’acquéreur. | BES-ACQ-04, BES-DAV-04, BES-ADM-02 |
+| CAP-ACQ-09 | Permettre à l’acquéreur de déclarer l’état apparent de l’œuvre reçue, de signaler une anomalie et de transmettre les informations utiles à son traitement. | BES-ACQ-06, BES-ADM-03, BES-ADM-04 |
 
 #### Maintien du contenu et des œuvres
 
@@ -372,6 +378,16 @@ Un cas d’usage décrit une situation fonctionnelle dans laquelle un acteur mob
 - **Résultat attendu :** l’acquéreur peut obtenir les éléments correspondant à l’œuvre acquise.
 - **Cas d’impossibilité principal :** les conditions ne sont pas encore remplies ; les éléments ne sont pas remis prématurément.
 - **Capacités associées :** CAP-ACQ-07.
+
+#### CU-ACQ-04 — Déclarer l’état de l’œuvre reçue
+
+- **Acteur principal :** acquéreur
+- **Objectif :** déclarer l’état apparent de l’œuvre reçue et, le cas échéant, signaler une anomalie.
+- **Conditions préalables :** l’acquisition existe, l’acquéreur dispose d’un accès légitime aux informations qui la concernent et la remise de l’œuvre peut être constatée conformément aux règles métier applicables.
+- **Déclencheur :** l’acquéreur souhaite communiquer son constat relatif à l’œuvre reçue.
+- **Résultat attendu :** la déclaration et les éventuelles informations complémentaires sont enregistrées et une anomalie signalée peut être suivie jusqu’à sa clôture.
+- **Cas d’impossibilité principal :** l’accès légitime ou le rattachement à l’acquisition ne peut pas être établi.
+- **Capacités associées :** CAP-ACQ-08, CAP-ACQ-09, CAP-SUP-03, CAP-SUP-04, CAP-SUP-05.
 
 #### CU-DAV-01 — Faire évoluer la présentation du travail artistique
 
@@ -477,6 +493,19 @@ Les priorités sont attribuées dans la section 8. Les liens vers les cas d’us
 | EF-SUI-05 | Une évolution importante de l’acquisition doit être reflétée dans les informations accessibles aux acteurs concernés. | CU-ACQ-02, CU-DAV-03, CU-ADM-01 |
 | EF-SUI-06 | AZUREUM doit permettre à l’acquéreur d’accéder légitimement au suivi de son acquisition sans lui imposer de compte persistant. | CU-ACQ-02 |
 | EF-SUI-07 | AZUREUM ne doit présenter une acquisition comme achevée que lorsque l’œuvre a été remise à l’acquéreur et que les éléments d’authenticité requis ont été remis lorsqu’ils sont applicables. | CU-ACQ-02, CU-ACQ-03 |
+| EF-SUI-08 | AZUREUM doit permettre que la remise de l’œuvre soit constatée au moyen d’éléments compatibles avec les règles métier applicables. | CU-ACQ-02, CU-ACQ-04 |
+
+#### Déclaration de l’état à réception
+
+| Identifiant | Exigence fonctionnelle | Cas d’usage associés |
+|---|---|---|
+| EF-REC-01 | AZUREUM doit permettre à l’acquéreur de déclarer l’état apparent de l’œuvre reçue dans le contexte de l’acquisition concernée. | CU-ACQ-04 |
+| EF-REC-02 | AZUREUM doit permettre à l’acquéreur de signaler et de décrire une anomalie relative à l’état apparent de l’œuvre reçue. | CU-ACQ-04 |
+| EF-REC-03 | AZUREUM doit permettre à l’acquéreur de transmettre facultativement des informations complémentaires utiles au traitement de sa déclaration. | CU-ACQ-04 |
+| EF-REC-04 | Les déclarations relatives à la réception d’une œuvre ne doivent pas être publiques. Elles ne doivent être accessibles qu’à l’acquéreur concerné, à David et à l’Administrateur. | CU-ACQ-04, CU-DAV-03, CU-ADM-02 |
+| EF-REC-05 | AZUREUM doit permettre le suivi d’une anomalie déclarée jusqu’à sa clôture conformément aux règles métier applicables. | CU-ACQ-04, CU-DAV-03, CU-ADM-02 |
+| EF-REC-06 | AZUREUM doit permettre à l’acquéreur de transmettre des informations complémentaires relatives à une déclaration antérieure. | CU-ACQ-04 |
+| EF-REC-07 | Toute déclaration, information complémentaire et décision relative à son traitement doit rester rattachable à l’acquisition et à l’œuvre concernées. | CU-ACQ-04, CU-ADM-02 |
 
 #### Authenticité
 
@@ -544,7 +573,7 @@ Les informations et opérations non publiques ne doivent être accessibles qu’
 
 Cette protection s’applique notamment aux acquisitions, aux informations personnelles et aux opérations de gestion ou de supervision.
 
-**Exigences associées :** EF-SUI-03, EF-SUP-08, EF-SUP-09.
+**Exigences associées :** EF-SUI-03, EF-REC-04, EF-SUP-08, EF-SUP-09.
 
 #### CT-04 — Continuité de la consultation publique
 
@@ -568,7 +597,7 @@ Les événements affectant les œuvres, leur disponibilité, les acquisitions et
 
 La traçabilité doit permettre de comprendre les événements ayant conduit à l’état observable du produit, sans définir encore le mécanisme technique de journalisation.
 
-**Exigences associées :** EF-SUP-06, EF-SUP-07.
+**Exigences associées :** EF-REC-07, EF-SUP-06, EF-SUP-07.
 
 #### CT-07 — Primauté de la démarche artistique
 
@@ -709,7 +738,7 @@ Cette qualification n’est pas un engagement de réalisation. Toute intégratio
 - CAP-ART-04 — Relier les œuvres à leur contexte ;
 - CAP-ART-05 — Permettre de découvrir l’évolution du travail de David dans le temps ;
 - CAP-ART-06 — Fournir des informations publiques cohérentes ;
-- CAP-ACQ-01 à CAP-ACQ-08 — Permettre l’acquisition des œuvres, son suivi, leur remise physique et la remise des éléments d’authenticité lorsqu’ils sont requis ;
+- CAP-ACQ-01 à CAP-ACQ-09 — Permettre l’acquisition des œuvres, son suivi, leur remise physique, la déclaration de leur état à réception et la remise des éléments d’authenticité lorsqu’ils sont requis ;
 - CAP-GES-01 à CAP-GES-05 — Maintenir les contenus, œuvres et informations d’acquisition ;
 - CAP-SUP-01 à CAP-SUP-05 — Superviser les opérations et protéger les accès.
 
@@ -876,7 +905,7 @@ Une nouvelle condition d’acquisition qui modifierait le périmètre, les acteu
 
 ## 10. Critères d’acceptation
 
-Le Sprint 003 pourra être proposé au verrouillage uniquement lorsque tous les critères suivants seront satisfaits.
+Les critères ci-dessous ont été satisfaits lors de la validation initiale du Sprint 003. Leur satisfaction devra être confirmée pour la révision contrôlée `sprint-003-r1` avant sa validation.
 
 ### 10.1 Couverture fonctionnelle
 
@@ -957,7 +986,7 @@ Le Sprint 003 pourra être proposé au verrouillage uniquement lorsque tous les 
 
 ## 11. Validation
 
-Cette section consigne la revue finale et la décision de verrouillage du Sprint 003. Elle ne peut être complétée définitivement qu’après assemblage et audit du cahier des charges fonctionnel.
+Cette section conserve la revue finale et la décision de verrouillage initiales du Sprint 003. La validation de la révision contrôlée est consignée séparément afin de préserver cet historique.
 
 ### 11.1 État de la rédaction
 
@@ -997,6 +1026,17 @@ La décision finale doit enregistrer :
 | Date de validation | 20 juillet 2026 |
 | Commit de clôture | `3bba2cf` |
 | Tag Git | `sprint-003` |
+
+#### Révision contrôlée `sprint-003-r1`
+
+| Élément | Valeur |
+|---|---|
+| Motif | Intégration de la déclaration d’état à réception et du signalement d’anomalie dans le périmètre fonctionnel de la V1 |
+| Autorisation | Décision explicite du Product Owner du 21 juillet 2026 |
+| Statut de la révision | Validé |
+| Validation de la révision | Validée par le Product Owner le 21 juillet 2026 |
+| Commit de clôture de la révision | Commit associé au tag `sprint-003-r1` |
+| Tag Git de la révision | `sprint-003-r1` |
 
 La décision du Product Owner constitue la référence officielle du statut du Sprint 003.
 

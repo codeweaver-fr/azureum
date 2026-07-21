@@ -52,3 +52,17 @@ Un Sprint est verrouillable uniquement si :
 - les validations prévues réussissent ;
 - le dépôt est propre ;
 - aucune modification hors périmètre n'est présente.
+
+## Révision contrôlée d'un Sprint validé
+
+Un Sprint validé constitue une référence documentaire stable. Il peut toutefois faire l'objet d'une révision ultérieure afin de corriger une omission, d'intégrer une décision de périmètre, de préserver la cohérence documentaire ou d'améliorer le référentiel fonctionnel ou métier.
+
+Toute révision doit :
+
+- être explicitement autorisée par le Product Owner ;
+- être documentée et versionnée ;
+- conserver l'historique des décisions et validations antérieures ;
+- recevoir un commit et un tag distincts de ceux de la validation initiale ;
+- être relue et validée avant de devenir la nouvelle référence.
+
+Le tag d'une validation antérieure ne doit jamais être déplacé ou remplacé.
