@@ -102,3 +102,24 @@ Cette réserve ne fait pas obstacle au verrouillage documentaire du Sprint 004 n
 | Date de validation | 21 juillet 2026 |
 | Commit de clôture | `13be024` |
 | Tag Git | `sprint-004` |
+
+## Révision contrôlée `sprint-004-r1`
+
+Le 21 juillet 2026, le Product Owner a autorisé une révision contrôlée et limitée du modèle métier afin d'intégrer :
+
+- la définition des collections ;
+- l'obligation pour chaque œuvre d'appartenir à exactement une collection ;
+- l'archivage distinct de la suppression définitive ;
+- la suppression définitive exceptionnelle réservée au rôle Administrateur ;
+- la distinction entre l'identité artistique de David, les utilisateurs, les rôles et les responsabilités opérationnelles ;
+- le cumul possible des rôles Artiste et Administrateur.
+
+Cette révision ne modifie aucun autre domaine métier du Sprint 004.
+
+| Élément | Valeur |
+|---|---|
+| Statut de la révision | Validée par le Product Owner |
+| Référence précédente | `sprint-004` |
+| Commit de révision | À compléter |
+| Tag de révision | `sprint-004-r1` |
+| Date de validation | 21 juillet 2026 |

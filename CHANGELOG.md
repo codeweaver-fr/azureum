@@ -4,6 +4,15 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 
 ## Non publié
 
+### Révision contrôlée du Sprint 004
+
+- validation par le Product Owner de la révision documentaire `sprint-004-r1` ;
+- ajout des collections obligatoires avec une cardinalité d'une collection par œuvre ;
+- distinction entre archivage et suppression définitive exceptionnelle ;
+- formalisation des rôles Artiste et Administrateur et de leur cumul possible ;
+- séparation entre responsabilités opérationnelles et qualités artistiques ou juridiques exclusivement attachées à David Prieur-Gélis ;
+- conservation de la validation initiale du Sprint 004 et de son tag `sprint-004`.
+
 ### Sprint 004 — Règles métier de la V1
 
 - validation par le Product Owner du modèle métier de la V1 ;

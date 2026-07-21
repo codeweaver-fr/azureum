@@ -6,9 +6,9 @@ Fondation documentaire et conception produit.
 
 ## Sprint actif
 
-Aucun Sprint actif.
+Sprint 005 — Structure fonctionnelle du produit : **En cours**.
 
-Le Sprint 004 — Règles métier de la V1 est validé et verrouillé. L'ouverture du Sprint 005 est autorisée après la matérialisation du verrouillage Git du Sprint 004.
+Le Sprint 004 — Règles métier de la V1 est validé et verrouillé. Sa révision contrôlée `sprint-004-r1`, limitée aux collections, à l'archivage, à la suppression exceptionnelle et au modèle d'autorisations, est validée par le Product Owner.
 
 Le Sprint 003 — Cahier des charges fonctionnel V1 a été validé puis verrouillé le 20 juillet 2026. Son historique initial reste conservé sous le tag `sprint-003`.
 
@@ -56,6 +56,11 @@ Le périmètre fonctionnel de la V1 est validé dans `docs/specifications/functi
 - la fidélité à sa démarche artistique prime sur l'optimisation commerciale.
 - le contenu métier du Sprint 004 est validé et son modèle métier est stabilisé ;
 - les règles conditionnelles `RM-LEG-01` à `RM-LEG-05` devront faire l'objet d'une vérification juridique, fiscale et contractuelle adaptée avant toute mise en exploitation d'AZUREUM.
+- toute œuvre appartient à exactement une collection ;
+- l'archivage d'une œuvre ne supprime ni son identité ni son historique ;
+- la suppression définitive d'une œuvre est exceptionnelle et relève du rôle Administrateur ;
+- les rôles Artiste et Administrateur portent les responsabilités opérationnelles et peuvent être cumulés par un même utilisateur ;
+- l'identité artistique, la qualité d'auteur, la propriété initiale et la qualité de vendeur demeurent exclusivement attachées à David Prieur-Gélis.
 
 ## Implémentation
 
@@ -67,4 +72,4 @@ Aucune base de données définie.
 
 ## Prochaine étape
 
-Matérialiser le verrouillage Git du Sprint 004, puis ouvrir officiellement le Sprint 005.
+Poursuivre la conception de la structure fonctionnelle et des parcours du Sprint 005 sur la base de `sprint-003-r1` et `sprint-004-r1`.
