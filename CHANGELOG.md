@@ -4,6 +4,12 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 
 ## Non publié
 
+### Révision contrôlée du Sprint 003
+
+- validation par le Product Owner de la révision documentaire `sprint-003-r1` ;
+- intégration au périmètre fonctionnel de la V1 de la déclaration d'état à réception et du signalement d'anomalie ;
+- conservation de la validation initiale du Sprint 003 et de son tag `sprint-003`.
+
 ### Ajouté
 
 - fondation documentaire ;

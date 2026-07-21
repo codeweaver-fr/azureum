@@ -6,11 +6,15 @@ Fondation documentaire et conception produit.
 
 ## Sprint actif
 
-Aucun.
+Sprint 004 — Règles métier de la V1 : **En cours**.
 
-Le Sprint 003 — Cahier des charges fonctionnel V1 a été ouvert, validé puis verrouillé le 20 juillet 2026.
+Les travaux du Sprint 004 ont été temporairement interrompus par décision exceptionnelle du Product Owner afin de permettre la révision contrôlée `sprint-003-r1`. Cette révision est désormais validée et le Sprint 004 peut reprendre sur cette nouvelle référence documentaire.
 
-Son livrable officiel est `docs/specifications/functional-specification-v1.md`.
+Le Sprint 003 — Cahier des charges fonctionnel V1 a été validé puis verrouillé le 20 juillet 2026. Son historique initial reste conservé sous le tag `sprint-003`.
+
+La révision contrôlée du cahier des charges intégrant la déclaration d'état à réception et le signalement d'anomalie dans le périmètre fonctionnel de la V1 est validée. Son tag de validation est `sprint-003-r1`.
+
+Le livrable officiel demeure `docs/specifications/functional-specification-v1.md`.
 
 ## Produit
 
@@ -42,8 +46,10 @@ Le périmètre fonctionnel de la V1 est validé dans `docs/specifications/functi
 - aucune implémentation avant validation des contrats correspondants ;
 - le Sprint 001 est verrouillé ;
 - la vision produit du Sprint 002 est validée ;
-- le cahier des charges fonctionnel V1 du Sprint 003 est validé ;
+- le cahier des charges fonctionnel V1 du Sprint 003 a été validé dans sa version initiale ;
 - le Sprint 003 est verrouillé ;
+- la révision contrôlée `sprint-003-r1` est validée par le Product Owner ;
+- la déclaration d'état à réception et le signalement d'anomalie font partie du périmètre fonctionnel de la V1 ;
 - David Prieur-Gélis est l'artiste permanent et le sujet de la vision d'AZUREUM ;
 - la fidélité à sa démarche artistique prime sur l'optimisation commerciale.
 
@@ -57,4 +63,4 @@ Aucune base de données définie.
 
 ## Prochaine étape
 
-L'ouverture du Sprint suivant nécessite une décision explicite du Product Owner.
+Reprendre les travaux du Sprint 004 sur la référence fonctionnelle révisée `sprint-003-r1`.

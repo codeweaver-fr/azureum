@@ -3,7 +3,7 @@
 ## État du Sprint
 
 - **Statut du Sprint : Verrouillé**
-- **Statut documentaire du livrable : Validé**
+- **Statut documentaire du livrable : Validé — révision contrôlée `sprint-003-r1`**
 
 ## Objectif
 
@@ -61,3 +61,14 @@ Le Sprint pourra être proposé au verrouillage lorsque :
 | Statut final du Sprint | Verrouillé |
 | Commit de clôture | `3bba2cf` |
 | Tag Git | `sprint-003` |
+
+## Révision contrôlée `sprint-003-r1`
+
+| Élément | Valeur |
+|---|---|
+| Motif | Intégration de la déclaration d’état à réception et du signalement d’anomalie dans le périmètre fonctionnel de la V1 |
+| Autorisation | Décision explicite du Product Owner du 21 juillet 2026 |
+| Statut de la révision | Validé |
+| Validation de la révision | Validée par le Product Owner le 21 juillet 2026 |
+| Commit de clôture de la révision | Commit associé au tag `sprint-003-r1` |
+| Tag Git de la révision | `sprint-003-r1` |
