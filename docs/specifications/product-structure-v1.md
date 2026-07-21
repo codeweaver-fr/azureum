@@ -111,7 +111,7 @@ Toute action sensible doit présenter un résultat compréhensible : réussite, 
 
 Toute œuvre appartient à exactement une collection. Cette collection constitue son accès principal dans l'exploration de la galerie publique, rassemble les œuvres selon une intention artistique définie et préserve les relations qui leur donnent sens.
 
-Dans le présent document, une collection est la forme de présentation publique d'un ensemble artistique validé au sens du Sprint 003-r1. Elle n'introduit ni nouvelle catégorie métier ni regroupement commercial implicite.
+Dans le présent document, une collection reprend le concept métier défini par le Sprint 004-r1 et organise la présentation publique d'un ensemble artistique. Elle ne constitue ni une édition, ni une catégorie commerciale, ni un regroupement fondé uniquement sur la disponibilité des œuvres.
 
 ### PS-08 — Découverte éditoriale
 
@@ -237,7 +237,7 @@ Plusieurs vues pourront ultérieurement être réunies dans une même page ou in
 | Identifiant | Page ou vue | Responsabilité fonctionnelle principale |
 |---|---|---|
 | V-ADM-01 | Vue de supervision | Signaler les acquisitions, paiements et anomalies nécessitant une attention administrative. |
-| V-ADM-02 | Liste des acquisitions | Rechercher et consulter les acquisitions relevant de la supervision. |
+| V-ADM-02 | Liste des acquisitions | Identifier et consulter les acquisitions relevant de la supervision. |
 | V-ADM-03 | Supervision d'une acquisition | Comprendre son état observable, ses événements importants et les interventions autorisées. |
 | V-ADM-04 | Liste des anomalies | Identifier les situations anormales ouvertes, leur nature et leur état de traitement. |
 | V-ADM-05 | Traitement d'une anomalie | Consulter l'historique, enregistrer une intervention autorisée et clôturer administrativement la situation lorsque les conditions sont réunies. |
@@ -300,7 +300,7 @@ Les espaces de gestion artistique, de suivi d'acquisition et de supervision admi
 
 ### PAR-01 — Découvrir la démarche de David
 
-`V-PUB-01 → V-PUB-03 → V-PUB-07 → V-PUB-04`
+`V-PUB-01 → V-PUB-02 → V-PUB-03 → V-PUB-07 → V-PUB-04`
 
 Le parcours peut commencer par plusieurs expressions du travail de David. La découverte des œuvres passe par leurs collections et doit toujours permettre de comprendre leur relation avec sa démarche.
 
@@ -383,11 +383,11 @@ Ce chapitre décrit des **états fonctionnels perceptibles** : il précise ce qu
 
 | Élément du Sprint 005 | Références principales |
 |---|---|
-| `ESP-PUB`, `V-PUB-*`, `PAR-01`, `PAR-02` | CAP-ART-01 à CAP-ART-06 ; CU-VIS-01, CU-VIS-02 ; CT-04, CT-07 |
+| `ESP-PUB`, `V-PUB-*`, `PAR-01`, `PAR-02` | CAP-ART-01 à CAP-ART-06 ; CU-VIS-01, CU-VIS-02 ; CT-04, CT-07 ; H-06 ; RM-ŒUV-13 ; INV-14 |
 | `V-PUB-04`, `ESP-ACQ`, `V-ACQ-*`, `PAR-03` | CAP-ACQ-01 à CAP-ACQ-05 ; CU-VIS-03, CU-ACQ-01 ; RM-ACQ-* ; RM-CYC-* |
 | `ESP-SUI`, `V-SUI-*`, `PAR-04`, `PAR-05` | CAP-ACQ-06 à CAP-ACQ-09 ; CU-ACQ-02 à CU-ACQ-04 ; RM-REM-* ; RM-AUT-* ; RM-ANOM-* |
-| `ESP-DAV`, `V-DAV-*`, `PAR-06`, `PAR-07` | CAP-GES-01 à CAP-GES-05 ; CU-DAV-01 à CU-DAV-03 ; RM-ŒUV-* ; RM-EXT-* ; RM-RESP-* |
-| `ESP-ADM`, `V-ADM-*`, `PAR-08`, `PAR-09` | CAP-SUP-01 à CAP-SUP-05 ; CU-ADM-01, CU-ADM-02 ; RM-RESP-* ; RM-ANOM-* |
+| `ESP-DAV`, `V-DAV-*`, `PAR-06`, `PAR-07` | CAP-GES-01 à CAP-GES-05 ; CU-DAV-01 à CU-DAV-03 ; H-06, H-07 ; RM-ŒUV-* ; RM-EXT-* ; RM-RESP-* ; INV-09, INV-14 |
+| `ESP-ADM`, `V-ADM-*`, `PAR-08`, `PAR-09` | CAP-SUP-01 à CAP-SUP-05 ; CU-ADM-01, CU-ADM-02 ; H-07 ; RM-ŒUV-14 ; RM-RESP-* ; RM-ANOM-* ; INV-09 |
 | États perceptibles | CT-01 à CT-06 ; exigences fonctionnelles associées ; invariants du Sprint 004-r1 |
 
 ## 12. Hors périmètre
@@ -436,5 +436,5 @@ Le document est validable lorsque :
 | Réserves acceptées | Aucune |
 | Décision du Product Owner | Validé |
 | Date de validation | 2026-07-21 |
-| Commit de clôture | `3bf18c5` |
-| Tag Git | `sprint-005` |
+| Commit de clôture | À compléter après autorisation Git |
+| Tag Git | `sprint-005-r1` à créer après autorisation Git |

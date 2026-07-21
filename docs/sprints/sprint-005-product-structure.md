@@ -2,7 +2,7 @@
 
 ## Statut
 
-🔒 Verrouillé
+🟡 Validation prononcée — verrouillage Git en attente
 
 ## 1. Objectif
 
@@ -65,7 +65,7 @@ Le Sprint est clôturable lorsque :
 
 | Élément | Valeur |
 |---|---|
-| Statut du Sprint | Verrouillé |
+| Statut du Sprint | En cours — verrouillage Git en attente |
 | Décision du Product Owner | Validé |
 | Date de validation | 2026-07-21 |
 | Livrable principal | `docs/specifications/product-structure-v1.md` validé |
