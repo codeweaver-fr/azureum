@@ -19,4 +19,4 @@ Le projet est construit par Sprints courts et contrôlés :
 - validation explicite avant le Sprint suivant ;
 - aucun code sans périmètre validé.
 
-Voir `PROJECT_STATE.md` pour connaître l'état actuel et `docs/sprints/SPRINT_002_PRODUCT_VISION.md` pour consulter la vision produit validée.
+Voir `PROJECT_STATE.md` pour connaître l'état actuel, `docs/QUICK_REFERENCE.md` pour retrouver rapidement les décisions structurantes et `docs/sprints/SPRINT_002_PRODUCT_VISION.md` pour consulter la vision produit validée.

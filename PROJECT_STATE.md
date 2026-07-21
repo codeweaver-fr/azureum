@@ -6,7 +6,13 @@ Fondation documentaire et conception produit.
 
 ## Sprint actif
 
-Révision documentaire du Sprint 005 — `sprint-005-r1` : **Validée et verrouillée**.
+Aucun Sprint actif. Le Sprint 006 — Architecture technique de la V1 est **Validé et verrouillé**.
+
+Le livrable `docs/specifications/technical-architecture-v1.md` est **Validé**. Il constitue la référence architecturale de la V1 et s'appuie exclusivement sur les références validées des Sprints 003-r1, 004-r1 et 005-r1.
+
+La synthèse opérationnelle `docs/QUICK_REFERENCE.md` est **Validée** avec le Sprint 006. Elle facilite l'accès aux décisions sans remplacer les documents de référence.
+
+La révision documentaire du Sprint 005 — `sprint-005-r1` est **Validée et verrouillée**.
 
 Le verrouillage Git initial du Sprint 005 et le tag `sprint-005` sont conservés dans l'historique. Ils ont été réalisés avant la validation finale du Product Owner et ne constituent donc pas la ratification de la version corrigée.
 
@@ -68,6 +74,8 @@ Le périmètre fonctionnel de la V1 est validé dans `docs/specifications/functi
 - la structure fonctionnelle et les parcours de la V1 sont validés dans le cadre de la révision `sprint-005-r1` ;
 - la découverte publique est éditoriale et structurée par les collections, sans recherche ni filtrage exigés en V1 ;
 - les espaces privés ne participent pas à la navigation publique.
+- l'architecture technique de la V1 est validée dans le cadre du Sprint 006 ;
+- `RES-01`, `RES-03` et `RES-04` restent à lever avant leurs échéances respectives sans remettre en cause la validation architecturale.
 
 ## Implémentation
 
@@ -75,8 +83,8 @@ Aucune implémentation applicative.
 
 ## Base de données
 
-Aucune base de données définie.
+Aucune base de données déployée. Le modèle conceptuel et l'architecture PostgreSQL cible sont validés dans le livrable du Sprint 006 ; aucun schéma physique ni aucune migration ne sont encore créés.
 
 ## Prochaine étape
 
-Préparer l'ouverture du Sprint 006 consacré à l'architecture technique, sur la base des références validées des Sprints 003-r1, 004-r1 et 005-r1.
+Ouvrir le Sprint 007 consacré aux fondations techniques et préparer l'implémentation du socle conformément à l'architecture validée du Sprint 006.
