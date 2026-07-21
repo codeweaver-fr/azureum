@@ -6,11 +6,11 @@ Fondation documentaire et conception produit.
 
 ## Sprint actif
 
-Révision documentaire du Sprint 005 — `sprint-005-r1` : **Validée par le Product Owner ; verrouillage Git en attente**.
+Révision documentaire du Sprint 005 — `sprint-005-r1` : **Validée et verrouillée**.
 
 Le verrouillage Git initial du Sprint 005 et le tag `sprint-005` sont conservés dans l'historique. Ils ont été réalisés avant la validation finale du Product Owner et ne constituent donc pas la ratification de la version corrigée.
 
-Le livrable `docs/specifications/product-structure-v1.md` est **Validé** dans le cadre de cette révision.
+Le livrable `docs/specifications/product-structure-v1.md` est **Validé** dans le cadre de cette révision. Le tag `sprint-005-r1` en constitue la référence historique.
 
 Le Sprint 004 — Règles métier de la V1 est validé et verrouillé. Sa révision contrôlée `sprint-004-r1`, limitée aux collections, à l'archivage, à la suppression exceptionnelle et au modèle d'autorisations, est validée par le Product Owner.
 
@@ -79,4 +79,4 @@ Aucune base de données définie.
 
 ## Prochaine étape
 
-Présenter le diff des métadonnées de clôture de la révision `sprint-005-r1`, puis attendre l'autorisation explicite du Product Owner avant le second commit, le tag, le push et la fusion.
+Préparer l'ouverture du Sprint 006 consacré à l'architecture technique, sur la base des références validées des Sprints 003-r1, 004-r1 et 005-r1.

@@ -437,4 +437,4 @@ Le document est validable lorsque :
 | Décision du Product Owner | Validé |
 | Date de validation | 2026-07-21 |
 | Commit de clôture | `3cea85f` |
-| Tag Git | `sprint-005-r1` à créer après autorisation Git |
+| Tag Git | `sprint-005-r1` |

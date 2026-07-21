@@ -12,7 +12,7 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 - verrouillage Git réalisé avant la validation finale du Product Owner ;
 - conservation du tag `sprint-005` comme référence historique, sans déplacement.
 
-### Révision Sprint 005-r1 — Validée, verrouillage Git en attente
+### Révision Sprint 005-r1 — Validée et verrouillée
 
 - préparation d'une révision documentaire après audit complémentaire ;
 - correction de la provenance métier du concept de collection ;
@@ -21,7 +21,8 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 - renforcement de la traçabilité vers `H-06`, `H-07`, `RM-ŒUV-13`, `RM-ŒUV-14`, `INV-09` et `INV-14` ;
 - validation finale du Product Owner prononcée sans réserve ;
 - premier commit de révision créé sous la référence `3cea85f` ;
-- second commit de métadonnées, tag, push et fusion non encore autorisés.
+- second commit de métadonnées créé sous la référence `395b300` ;
+- création du tag `sprint-005-r1` comme nouvelle référence documentaire de la structure fonctionnelle de la V1.
 
 ### Révision contrôlée du Sprint 004
 
