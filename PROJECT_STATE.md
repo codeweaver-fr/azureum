@@ -2,13 +2,15 @@
 
 ## Phase actuelle
 
-Construction du produit — consolidation documentaire préalable à l'implémentation visuelle.
+Construction du produit — implémentation du Design System V1.
 
 ## Sprint actif
 
-Sprint 008-r1 — Consolidation du Design System V1 : **Validé — verrouillage Git en attente**.
+Sprint 009 — Implémentation du Design System V1 : **Validé — verrouillage Git en attente**.
 
-Le Sprint 008-r1 est une révision corrective fermée. Il corrige les contradictions du Design System V1 et explicite uniquement les règles indispensables au Sprint 009, sans modifier la direction artistique ni étendre son périmètre.
+Le Sprint 009 transforme le Design System V1 validé en fondations CSS et composants React génériques, sans fonctionnalité métier ni interface produit définitive.
+
+Le Sprint 008-r1 — Consolidation du Design System V1 est **Validé, verrouillé et fusionné dans `main`**. Le tag `sprint-008-r1` en constitue la référence historique.
 
 Le Sprint 008 — Design System a été validé, fusionné dans `main` et conservé sous le tag `sprint-008`. Son audit rétrospectif a justifié la révision contrôlée `sprint-008-r1`, sans déplacement du tag initial.
 
@@ -108,4 +110,4 @@ Aucune base de données déployée. Le modèle conceptuel et l'architecture Post
 
 ## Prochaine étape
 
-Après autorisation explicite du Product Owner, verrouiller Git du Sprint 008-r1, puis reprendre le Sprint 009 consacré à l'implémentation du Design System.
+Faire valider le contrat du Sprint 009, fermer les seules décisions techniques qui lui ont été explicitement confiées, puis commencer l’implémentation des tokens et fondations globales.

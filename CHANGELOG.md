@@ -4,7 +4,14 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 
 ## Non publié
 
-### Révision Sprint 008-r1 — Validée, verrouillage Git en attente
+### Sprint 009 — Implémentation du Design System V1
+
+- ouverture du Sprint 009 à partir de la référence documentaire `sprint-008-r1` ;
+- création du contrat d’implémentation des tokens, fondations CSS et composants fondamentaux ;
+- maintien explicite hors périmètre des fonctionnalités métier et des interfaces produit définitives.
+- validation du contrat par le Product Owner et adoption d’une implémentation incrémentale avec revue entre chaque groupe de fondations.
+
+### Révision Sprint 008-r1 — Validée, verrouillée et fusionnée
 
 - autorisation explicite par le Product Owner d'une révision corrective fermée du Design System V1 ;
 - correction des contradictions documentaires relatives aux familles de couleurs, aux tokens sémantiques et aux conventions techniques ;
@@ -12,6 +19,7 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 - identification explicite des valeurs d'ombre et des courbes d'animation restant à définir pendant le Sprint 009, sans décision inventée ;
 - synchronisation des critères d'acceptation et des documents de gouvernance avec l'état réel du projet.
 - audit ciblé conforme et validation documentaire prononcée par le Product Owner le 22 juillet 2026, sans réserve bloquante.
+- verrouillage sous le tag `sprint-008-r1`, puis fusion contrôlée dans `main` avant la reprise du Sprint 009.
 
 ### Sprint 008 — Design System
 
