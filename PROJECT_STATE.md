@@ -6,7 +6,11 @@ Fondation documentaire et conception produit.
 
 ## Sprint actif
 
-Aucun Sprint actif. Le Sprint 006 — Architecture technique de la V1 est **Validé et verrouillé**.
+Sprint 007 — Fondations techniques : **En cours**.
+
+Le Sprint 007 matérialise le socle de développement défini par l'architecture du Sprint 006, sans implémenter de capacité métier ou fonctionnelle.
+
+Le Sprint 006 — Architecture technique de la V1 est **Validé et verrouillé**.
 
 Le livrable `docs/specifications/technical-architecture-v1.md` est **Validé**. Il constitue la référence architecturale de la V1 et s'appuie exclusivement sur les références validées des Sprints 003-r1, 004-r1 et 005-r1.
 
@@ -79,7 +83,17 @@ Le périmètre fonctionnel de la V1 est validé dans `docs/specifications/functi
 
 ## Implémentation
 
-Aucune implémentation applicative.
+Les cinq jalons du socle sont préparés : Next.js App Router, TypeScript, pnpm, ESLint, Prettier, structure modulaire minimale, Vitest, Playwright, GitHub Actions, variables d'environnement documentées, Supabase local et guide développeur, sans logique métier ni interface produit définitive.
+
+Le runtime Node.js `24.18.0` et pnpm `10.34.5` sont validés par une installation figée, le lint, la vérification TypeScript, le build et l'audit de sécurité. Le fichier de verrouillage reste inchangé et aucune vulnérabilité connue n'est signalée.
+
+Les scripts de formatage et de contrôle statique sont opérationnels. Les frontières `modules`, `shared`, `server`, `styles` et `test` sont documentées sans implémentation prématurée.
+
+Vitest exécute un premier test de contrat du socle sous Node.js, sans environnement navigateur ni bibliothèque de composants prématurée.
+
+Playwright vérifie localement la disponibilité du socle avec Chromium uniquement. Le workflow distant reproduisant installation figée, contrôles, build et test de bout en bout a terminé avec succès sur le commit `98f33d5`.
+
+La CLI Supabase `2.109.1`, sa configuration locale et le répertoire de migrations sont présents. Docker Desktop n'étant pas installé sur la machine de validation, le cycle réel de démarrage et d'arrêt Supabase reste à vérifier avant la clôture définitive.
 
 ## Base de données
 
@@ -87,4 +101,4 @@ Aucune base de données déployée. Le modèle conceptuel et l'architecture Post
 
 ## Prochaine étape
 
-Ouvrir le Sprint 007 consacré aux fondations techniques et préparer l'implémentation du socle conformément à l'architecture validée du Sprint 006.
+Faire valider le cycle Docker/Supabase sur une machine équipée, puis soumettre le Sprint 007 audité à la validation finale du Product Owner.

@@ -4,9 +4,20 @@ AZUREUM est une galerie d'art numérique premium consacrée à David Prieur-Gél
 
 ## État du projet
 
-Le projet est actuellement en phase de conception.
+Le projet est entré dans sa phase de construction. Le Sprint 007 met en place les fondations techniques reproductibles, sans logique métier ni interface définitive.
 
-Aucune base applicative n'est encore installée.
+Le socle comprend Next.js, TypeScript, pnpm, ESLint, Prettier, Vitest, Playwright, GitHub Actions et la fondation Supabase locale.
+
+## Démarrage rapide
+
+```powershell
+pnpm install --frozen-lockfile
+pnpm test:e2e:install
+pnpm check
+pnpm build
+```
+
+Le guide complet d'installation, de tests et d'environnement local est disponible dans `docs/DEVELOPMENT.md`.
 
 ## Méthode
 

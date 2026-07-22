@@ -4,6 +4,30 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 
 ## Non publié
 
+### Sprint 007 — Fondations techniques
+
+- ouverture du Sprint 007 sur la branche `sprint-007-technical-foundations` ;
+- définition du contrat de Sprint, de son périmètre strictement technique et de ses critères d'acceptation ;
+- interdiction explicite d'introduire une logique métier ou de modifier les contrats validés des Sprints 003-r1 à 006.
+- adoption de pnpm comme gestionnaire de paquets unique avant la création du socle applicatif.
+- choix de Node.js 24 LTS comme runtime de référence et fixation de pnpm `10.34.5` compatible avec Vercel ;
+- alignement des dépendances sur leurs dernières versions stables compatibles, sans forcer TypeScript 7 ni ESLint 10 au-delà des plages déclarées par l'écosystème Next.js.
+- génération du premier jalon Next.js App Router et TypeScript, sans logique métier ni interface produit définitive ;
+- validation reproductible sous Node.js `24.18.0` et pnpm `10.34.5` : installation figée, lint, vérification TypeScript, build et audit réussis, sans modification du lockfile ni vulnérabilité connue.
+- installation de Prettier `3.9.6` et harmonisation avec ESLint au moyen de `eslint-config-prettier` `10.1.8` ;
+- ajout des scripts `format`, `format:check` et `check` pour les contrôles statiques reproductibles ;
+- ajout de `.editorconfig` et limitation de l'exclusion Prettier aux documents contractuels, afin de contrôler également les README techniques ;
+- normalisation des fins de ligne avec `.gitattributes` et ajout d'une configuration VS Code partagée limitée aux réglages et extensions justifiés par le socle ;
+- création et documentation des frontières minimales `modules`, `shared`, `server`, `styles` et `test`, sans logique métier ni dépendance d'interface supplémentaire.
+- installation de Vitest `4.1.10`, configuration de l'environnement Node.js et alignement de l'alias `@` sur `src/` ;
+- ajout des scripts `test` et `test:watch`, intégration des tests unitaires dans `check` et création d'un premier test représentatif du contrat technique du projet.
+- installation de Playwright `1.61.1` avec Chromium uniquement et ajout d'un test de disponibilité du socle ;
+- création d'un workflow GitHub Actions minimal exécutant installation figée, contrôles, build et test de bout en bout lors des pushes et pull requests.
+- validation distante réussie du workflow de qualité sur le commit `98f33d5` ;
+- installation de la CLI Supabase `2.109.1`, initialisation de la configuration locale et création du répertoire de migrations sans contenu métier ;
+- ajout des commandes d'exploitation Supabase, d'un modèle d'environnement sans secret et du guide complet `docs/DEVELOPMENT.md` ;
+- mise à jour du README pour refléter l'entrée du projet dans sa phase de construction.
+
 ### Sprint 006 — Architecture technique de la V1
 
 - ouverture du Sprint 006 ;

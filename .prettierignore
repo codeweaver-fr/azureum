@@ -1,0 +1,19 @@
+# Dependencies and generated artifacts
+node_modules/
+.next/
+out/
+dist/
+build/
+coverage/
+playwright-report/
+test-results/
+next-env.d.ts
+*.tsbuildinfo
+
+# Lockfile managed exclusively by pnpm
+pnpm-lock.yaml
+
+# Contractual documentation keeps its existing reviewed formatting
+docs/
+PROJECT_STATE.md
+CHANGELOG.md
