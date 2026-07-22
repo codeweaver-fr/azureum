@@ -2,7 +2,7 @@
 
 ## Statut
 
-**En exploration**
+**Validé — Sprint 008-r1, verrouillage Git en attente**
 
 ---
 
@@ -202,7 +202,7 @@ Deux registres typographiques structurent l'identité :
 - une serif éditoriale pour les titres expressifs, les citations et les introductions ;
 - une sans-serif très lisible pour le corps, la navigation, les actions, les données et les espaces privés.
 
-La direction proposée pour la V1 associe **Cormorant Garamond** pour l'expression éditoriale et **Inter** pour l'interface. Leur licence, leur mode de distribution et leurs fichiers exacts devront être vérifiés avant implémentation. Une pile de polices système doit garantir une lecture correcte en cas d'indisponibilité.
+La V1 associe **Cormorant Garamond** pour l'expression éditoriale et **Inter** pour l'interface. Leur licence, leur mode de distribution et leurs fichiers exacts devront être vérifiés pendant le Sprint 009 avant leur intégration. Une pile de polices système doit garantir une lecture correcte en cas d'indisponibilité.
 
 La serif n'est jamais utilisée pour les petits textes fonctionnels, les contrôles, les messages d'erreur ou les données nécessitant une lecture rapide.
 
@@ -260,6 +260,8 @@ Son espacement, ses proportions et son caractère premium participent à l'ident
 
 **État : en finalisation.** La direction graphique est validée et la recherche créative est terminée. Le logo est fonctionnellement validé ; les travaux restants relèvent exclusivement de sa production graphique.
 
+La règle `RC-06` et la direction du symbole sont normatives pour la V1. Les fichiers de production du logo suivent leur spécification et leur validation propres ; la validation du présent Design System ne vaut pas validation automatique d'un master graphique encore déclaré en finalisation.
+
 | Variante | Statut | Usage |
 |---|---|---|
 | 02 — Équilibrée | Candidate officielle | Logo principal |
@@ -299,20 +301,20 @@ Les composants utilisent exclusivement ces tokens. Toute nouvelle valeur nécess
 
 **DT-01 — Système colorimétrique**
 
-Le système colorimétrique distingue quatre familles de couleurs :
+Le système colorimétrique distingue trois familles techniques de couleurs :
 
-- identitaires ;
+- accents de marque ;
 - neutres ;
-- fonctionnelles ;
-- système.
+- fonctionnelles.
 
-Chaque couleur appartient à une seule famille et possède un rôle clairement défini.
+Chaque couleur brute est déclarée une seule fois dans l'une de ces familles. Une couleur peut ensuite alimenter plusieurs rôles sémantiques compatibles avec ses usages et ses contrastes autorisés.
 
-### Palette identitaire
+Cette classification technique ne modifie pas la composition de l'identité décrite à la section 4.2. Le Noir minéral reste une couleur identitaire d'AZUREUM, mais sa valeur brute est déclarée une seule fois dans la palette neutre afin d'éviter les doublons.
+
+### Accents de marque
 
 | Nom | Valeur | Usage principal |
 |---|---:|---|
-| Noir minéral | `#0F0F11` | Texte principal, contrastes forts et éventuels fonds sombres |
 | Bleu AZUREUM | `#2E5CFF` | Identité de marque, actions principales et éléments interactifs |
 | Or fumé | `#D2C7A3` | Valorisation discrète et éléments premium |
 | Terre cuite | `#C87D57` | Accent éditorial ponctuel |
@@ -341,26 +343,31 @@ Chaque couleur appartient à une seule famille et possède un rôle clairement d
 
 Les composants utilisent des rôles sémantiques plutôt que des couleurs directes.
 
-Exemples :
+Les correspondances colorimétriques actives de la V1 sont :
 
-- Background
-- Surface
-- Surface Elevated
-- Surface Inverse
-- Border Subtle
-- Border Default
-- Border Strong
-- Divider
-- Focus Ring
-- Overlay
-- Backdrop
-- Selection
-- Skeleton
-- Placeholder
+| Token sémantique | Couleur source |
+|---|---|
+| Background | Blanc galerie |
+| Surface | Ivoire |
+| Surface Elevated | Blanc galerie |
+| Surface Inverse | Noir minéral |
+| Border Subtle | Gris pierre |
+| Border Default | Gris doux |
+| Border Strong | Gris graphite |
+| Divider | Gris pierre |
+| Text Primary | Noir minéral |
+| Text Secondary | Gris graphite |
+| Focus Ring | Bleu AZUREUM |
+| Success | Succès |
+| Warning | Avertissement |
+| Error | Erreur |
+| Information | Information |
+
+Les rôles `Overlay`, `Backdrop`, `Selection`, `Skeleton` et `Placeholder` ne possèdent aucune valeur validée dans le Design System V1. Si leur implémentation devient nécessaire, leurs valeurs devront être définies et documentées pendant le Sprint 009 sans être déduites arbitrairement d'une couleur brute.
 
 ### États interactifs
 
-Toute couleur interactive définit au minimum les états suivants :
+Tout élément interactif rend perceptibles au minimum les états suivants :
 
 - Default
 - Hover
@@ -373,6 +380,8 @@ Selon les besoins, peuvent également être définis :
 - Selected
 - Loading
 
+Aucune déclinaison colorimétrique supplémentaire du bleu AZUREUM n'est validée dans la V1. Les états utilisent les couleurs et les indices non colorimétriques déjà documentés aux chapitres 10 et 11. Si une valeur distincte s'avère indispensable, elle devra être définie et documentée pendant le Sprint 009 au lieu d'être inventée localement.
+
 ### Règles
 
 - les couleurs identitaires ne représentent jamais un état fonctionnel ;
@@ -383,9 +392,24 @@ Selon les besoins, peuvent également être définis :
 
 ### Accessibilité
 
-Les contrastes sont vérifiés avant toute validation du Design System.
+Les contrastes suivants, calculés selon WCAG 2.2, encadrent les associations de la V1 :
 
-Aucune couleur ne peut être utilisée si elle ne respecte pas les exigences d'accessibilité définies au chapitre correspondant.
+| Association | Contraste | Usage autorisé |
+|---|---:|---|
+| Noir minéral sur Blanc galerie | `18,20:1` | Texte et éléments graphiques |
+| Gris graphite sur Blanc galerie | `6,25:1` | Texte secondaire et éléments graphiques |
+| Blanc galerie sur Bleu AZUREUM | `4,88:1` | Texte et éléments graphiques |
+| Noir minéral sur Or fumé | `11,34:1` | Texte et éléments graphiques |
+| Noir minéral sur Terre cuite | `5,95:1` | Texte et éléments graphiques |
+| Noir minéral sur Succès | `5,16:1` | Texte et éléments graphiques |
+| Noir minéral sur Avertissement | `8,44:1` | Texte et éléments graphiques |
+| Noir minéral sur Information | `5,14:1` | Texte et éléments graphiques |
+| Erreur sur Blanc galerie | `4,25:1` | Éléments graphiques et grands textes uniquement |
+| Bleu AZUREUM sur Noir minéral | `3,73:1` | Focus et éléments graphiques uniquement |
+
+La couleur Erreur ne sert pas de fond à un texte courant dans la palette V1. Un message d'erreur utilise un texte principal conforme accompagné d'un indice graphique, d'un libellé ou d'une icône d'erreur.
+
+Toute association non documentée doit être contrôlée avant utilisation selon les seuils du chapitre 11. Une couleur fonctionnelle ou identitaire ne devient jamais, par sa seule présence dans la palette, une couleur de texte ou de fond autorisée.
 
 ---
 
@@ -508,6 +532,8 @@ Trois niveaux sont autorisés :
 - moyenne ;
 - forte.
 
+Ces noms définissent la hiérarchie sémantique autorisée, mais aucune valeur numérique d'ombre ne peut être déduite objectivement des décisions validées. Les valeurs correspondantes seront définies, documentées et contrôlées pendant le Sprint 009 avant leur utilisation.
+
 Les ombres servent exclusivement à exprimer une hiérarchie de surfaces.
 
 Elles ne remplacent jamais une bordure, un contraste ou un espacement.
@@ -545,6 +571,8 @@ Toute valeur hors échelle nécessite une justification documentaire.
 | Standard | `200ms` | États interactifs |
 | Posée | `320ms` | Transitions de surface |
 | Éditoriale | `600ms` | Animations contemplatives |
+
+Aucune courbe d'animation n'est validée par le présent document. Les courbes nécessaires seront définies et documentées pendant le Sprint 009 en respectant les durées, les principes de mouvement et la réduction des mouvements établis ici.
 
 Les animations accompagnent les interactions sans détourner l'attention.
 
@@ -870,69 +898,29 @@ Les éléments de ce chapitre complètent les fondations du Design System sans m
 
 ## 17.1 Tokens sémantiques
 
-Les composants utilisent exclusivement des tokens sémantiques.
+Les composants utilisent exclusivement les tokens définis au chapitre 5. Les composants ne référencent pas directement une valeur brute lorsqu'un token sémantique correspondant existe.
 
-Les couleurs, espacements, dimensions ou autres valeurs brutes ne sont jamais référencés directement dans les composants.
-
-Les principaux tokens utilisés par la V1 sont notamment :
-
-- Background
-- Surface
-- Surface Elevated
-- Surface Inverse
-- Border Subtle
-- Border Default
-- Border Strong
-- Divider
-- Text Primary
-- Text Secondary
-- Focus Ring
-- Overlay
-- Backdrop
-- Selection
-- Skeleton
-- Placeholder
-
-Leur implémentation exacte relève des variables CSS définies par le projet.
+Les correspondances colorimétriques actives sont définies à la section 5.1. Les autres catégories conservent les échelles et niveaux documentés dans leurs sections respectives.
 
 ---
 
 ## 17.2 Convention de nommage
 
-Les Design Tokens utilisent une convention de nommage unique afin de garantir leur cohérence et leur lisibilité.
+Le chapitre 3 régit exclusivement les identifiants documentaires. La présente section définit séparément la convention technique que le Sprint 009 devra appliquer aux variables CSS représentant les Design Tokens.
 
-Exemples :
+Les variables utilisent une convention de nommage unique afin de garantir leur cohérence et leur lisibilité.
 
-```text
---color-background
---color-surface
---color-border-default
-
---space-4
---space-8
---space-16
-
---radius-sm
---radius-md
-
---shadow-sm
---shadow-md
---shadow-lg
-
---duration-fast
---duration-standard
---duration-slow
-```
-
-Toute nouvelle variable respecte cette convention.
+Toute variable représentant un token validé respecte la structure `--<catégorie>-<rôle-ou-niveau>`, en minuscules et avec des segments séparés par des traits d'union. La liste définitive des variables est produite pendant le Sprint 009 à partir des seuls tokens du chapitre 5 ; cette opération ne peut créer une nouvelle valeur de conception.
 
 ---
 
 ## 17.3 Valeurs d'implémentation
 
-Les valeurs numériques exactes des ombres, des courbes d'animation et des autres paramètres propres au moteur de rendu ne constituent pas des décisions documentaires de la V1.
+Les valeurs déjà définies dans le présent document sont normatives et ne peuvent pas être remplacées localement pendant l'implémentation.
 
-Elles sont définies lors de l'implémentation, sous réserve de respecter les principes, Design Tokens et règles établis par le présent document.
+Les valeurs numériques des ombres et les courbes d'animation ne peuvent pas être déduites objectivement des décisions validées. Elles seront définies et documentées pendant le Sprint 009 avant leur première utilisation, sous réserve de respecter strictement les niveaux, durées, principes et règles établis par le présent document.
+
+Cette délégation identifiée ne permet ni de créer un nouveau niveau de token ni de modifier la direction artistique.
 
 ---
 
@@ -969,18 +957,18 @@ Toute évolution suit la gouvernance documentaire du projet.
 
 # 18. Critères d'acceptation
 
-- [ ] Chaque principe, règle structurante, catégorie de Design Tokens, règle responsive, règle d'accessibilité, état et composant fondamental possède un identifiant documentaire unique.
-- [ ] Les palettes et associations de couleurs satisfont les contrastes documentés.
-- [ ] Les composants utilisent exclusivement les Design Tokens définis par cette spécification.
-- [ ] Les échelles typographiques et d'espacement couvrent les usages publics et privés sans valeur locale non justifiée.
-- [ ] Les règles de mouvement respectent la réduction des mouvements et les contraintes de performance.
-- [ ] La grille et les composants restent utilisables en mobile, tablette et bureau.
-- [ ] Les œuvres peuvent être présentées sans recadrage destructif ni exposition d'un original privé.
-- [ ] Les états interactifs restent perceptibles au clavier et sans dépendre uniquement de la couleur.
-- [ ] Aucun composant fondamental n'introduit une règle métier ou une capacité nouvelle.
-- [ ] Aucun choix d'implémentation technique non nécessaire n'est imposé par la spécification.
-- [ ] La traçabilité vers les Sprints 003-r1 à 007 est vérifiée.
-- [ ] L'audit final ne révèle aucune contradiction interne ni dette de conception bloquant l'implémentation.
+- [x] Chaque principe, règle structurante, catégorie de Design Tokens, règle responsive, règle d'accessibilité, état et composant fondamental possède un identifiant documentaire unique.
+- [x] Les palettes et associations de couleurs satisfont les contrastes documentés.
+- [x] Les règles imposent aux futurs composants d'utiliser exclusivement les Design Tokens définis par cette spécification lorsqu'un token correspondant existe.
+- [x] Les échelles typographiques et d'espacement couvrent les usages publics et privés sans valeur locale non justifiée.
+- [x] Les règles de mouvement respectent la réduction des mouvements et les contraintes de performance.
+- [x] La grille et les composants restent utilisables en mobile, tablette et bureau.
+- [x] Les œuvres peuvent être présentées sans recadrage destructif ni exposition d'un original privé.
+- [x] Les états interactifs restent perceptibles au clavier et sans dépendre uniquement de la couleur.
+- [x] Aucun composant fondamental n'introduit une règle métier ou une capacité nouvelle.
+- [x] Aucun choix d'implémentation technique non nécessaire n'est imposé par la spécification.
+- [x] La traçabilité vers les Sprints 003-r1 à 007 est vérifiée.
+- [x] L'audit final ne révèle aucune contradiction interne ni dette de conception bloquant l'implémentation.
 
 ---
 
@@ -988,13 +976,13 @@ Toute évolution suit la gouvernance documentaire du projet.
 
 | Élément | Valeur |
 |---|---|
-| Statut documentaire | En exploration |
-| Verdict de la revue finale | À compléter |
-| Réserves acceptées | À compléter |
-| Décision du Product Owner | À compléter |
-| Date de validation | À compléter |
-| Commit de clôture | À compléter |
-| Tag Git | À compléter |
+| Statut documentaire | Validé — Sprint 008-r1, verrouillage Git en attente |
+| Verdict de la revue finale | Conforme |
+| Réserves acceptées | Aucune réserve bloquante |
+| Décision du Product Owner | Validé |
+| Date de validation | 2026-07-22 |
+| Commit de clôture | Non créé — en attente d'autorisation Git |
+| Tag Git | `sprint-008-r1` — à créer après autorisation Git |
 
 ---
 
@@ -1017,4 +1005,5 @@ Toute évolution ultérieure suit la gouvernance documentaire du projet et conse
 - `docs/specifications/business-rules-v1.md` ;
 - `docs/specifications/product-structure-v1.md` ;
 - `docs/specifications/technical-architecture-v1.md` ;
-- `docs/sprints/sprint-008-design-system.md`.
+- `docs/sprints/sprint-008-design-system.md` ;
+- `docs/sprints/sprint-008-r1-design-system-consolidation.md`.
