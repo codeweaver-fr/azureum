@@ -4,6 +4,17 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 
 ## Non publié
 
+### Sprint 007 — Fondations techniques
+
+- ouverture du Sprint 007 sur la branche `sprint-007-technical-foundations` ;
+- définition du contrat de Sprint, de son périmètre strictement technique et de ses critères d'acceptation ;
+- interdiction explicite d'introduire une logique métier ou de modifier les contrats validés des Sprints 003-r1 à 006.
+- adoption de pnpm comme gestionnaire de paquets unique avant la création du socle applicatif.
+- choix de Node.js 24 LTS comme runtime de référence et fixation de pnpm `10.34.5` compatible avec Vercel ;
+- alignement des dépendances sur leurs dernières versions stables compatibles, sans forcer TypeScript 7 ni ESLint 10 au-delà des plages déclarées par l'écosystème Next.js.
+- génération du premier jalon Next.js App Router et TypeScript, sans logique métier ni interface produit définitive ;
+- validation reproductible sous Node.js `24.18.0` et pnpm `10.34.5` : installation figée, lint, vérification TypeScript, build et audit réussis, sans modification du lockfile ni vulnérabilité connue.
+
 ### Sprint 006 — Architecture technique de la V1
 
 - ouverture du Sprint 006 ;

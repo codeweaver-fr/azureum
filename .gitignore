@@ -1,9 +1,11 @@
 ﻿# Dependencies
 node_modules/
+.pnpm-store/
 
 # Next.js
 .next/
 out/
+next-env.d.ts
 
 # Environment variables
 .env
@@ -18,6 +20,7 @@ test-results/
 # Build artifacts
 dist/
 build/
+*.tsbuildinfo
 
 # Logs
 *.log
