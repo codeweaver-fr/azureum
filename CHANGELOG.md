@@ -14,6 +14,11 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 - alignement des dépendances sur leurs dernières versions stables compatibles, sans forcer TypeScript 7 ni ESLint 10 au-delà des plages déclarées par l'écosystème Next.js.
 - génération du premier jalon Next.js App Router et TypeScript, sans logique métier ni interface produit définitive ;
 - validation reproductible sous Node.js `24.18.0` et pnpm `10.34.5` : installation figée, lint, vérification TypeScript, build et audit réussis, sans modification du lockfile ni vulnérabilité connue.
+- installation de Prettier `3.9.6` et harmonisation avec ESLint au moyen de `eslint-config-prettier` `10.1.8` ;
+- ajout des scripts `format`, `format:check` et `check` pour les contrôles statiques reproductibles ;
+- ajout de `.editorconfig` et limitation de l'exclusion Prettier aux documents contractuels, afin de contrôler également les README techniques ;
+- normalisation des fins de ligne avec `.gitattributes` et ajout d'une configuration VS Code partagée limitée aux réglages et extensions justifiés par le socle ;
+- création et documentation des frontières minimales `modules`, `shared`, `server`, `styles` et `test`, sans logique métier ni dépendance d'interface supplémentaire.
 
 ### Sprint 006 — Architecture technique de la V1
 

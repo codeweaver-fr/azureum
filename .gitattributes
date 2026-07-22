@@ -1,0 +1,17 @@
+# Normalize text files in the repository independently of the host operating system.
+* text=auto eol=lf
+
+# Windows command files require Windows line endings.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binary assets must never be altered by line-ending normalization.
+*.avif binary
+*.gif binary
+*.ico binary
+*.jpeg binary
+*.jpg binary
+*.png binary
+*.webp binary
+*.woff binary
+*.woff2 binary

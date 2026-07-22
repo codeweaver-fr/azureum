@@ -10,8 +10,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "check": "pnpm format:check && pnpm lint && pnpm typecheck"
   },
   "dependencies": {
     "next": "16.2.11",
@@ -24,6 +27,8 @@
     "@types/react-dom": "^19",
     "eslint": "^9.39.5",
     "eslint-config-next": "16.2.11",
+    "eslint-config-prettier": "10.1.8",
+    "prettier": "3.9.6",
     "typescript": "^6.0.3"
   }
 }

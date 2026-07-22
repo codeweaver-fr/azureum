@@ -99,6 +99,8 @@ Le runtime de référence est la ligne Node.js 24 LTS. La version de développem
 | React DOM | `19.2.8` | Alignée sur React. |
 | TypeScript | `6.0.3` | Dernière version stable compatible avec la plage déclarée par `typescript-eslint`. |
 | ESLint | `9.39.5` | Branche stable compatible avec les plugins fournis par Next.js. |
+| Prettier | `3.9.6` | Version stable retenue comme autorité unique de formatage du code et des configurations. |
+| eslint-config-prettier | `10.1.8` | Désactive les règles ESLint incompatibles avec Prettier sans ajouter un second moteur de formatage. |
 | Types Node.js | `24.13.3` | Alignés sur la ligne majeure Node.js 24 LTS. |
 
 Versions volontairement écartées :
@@ -127,6 +129,26 @@ La réserve locale de runtime est levée. Les contrôles du premier jalon ont é
 
 L'installation figée, le lint, la vérification TypeScript, le build et l'audit ont réussi. Le fichier `pnpm-lock.yaml` est resté strictement inchangé et l'audit n'a signalé aucune vulnérabilité connue.
 
+## Deuxième jalon — Qualité et structure minimale
+
+Prettier est l'unique autorité de formatage. ESLint conserve la responsabilité de l'analyse statique ; `eslint-config-prettier` neutralise uniquement les règles de style susceptibles de contredire Prettier. Les scripts `format`, `format:check` et `check` fournissent respectivement la correction du formatage, sa vérification et l'enchaînement des contrôles statiques quotidiens.
+
+Les documents contractuels sous `docs/`, ainsi que `PROJECT_STATE.md` et `CHANGELOG.md`, sont exclus du formatage automatique afin de préserver leur mise en forme relue. Les README techniques restent contrôlés par Prettier. Le fichier de verrouillage reste exclusivement géré par pnpm.
+
+Un fichier `.editorconfig` aligne les éditeurs sur UTF-8, les fins de ligne LF, l'indentation à deux espaces, la présence d'une dernière ligne vide et la suppression des espaces terminaux. Les espaces terminaux restent tolérés dans Markdown lorsqu'ils portent une signification de mise en forme.
+
+Le dépôt complète cette convention avec `.gitattributes`, qui normalise les fichiers texte en LF dans Git tout en préservant les fichiers de commandes Windows et les ressources binaires. Les recommandations et réglages VS Code versionnés appliquent Prettier à l'enregistrement, proposent les corrections ESLint explicites et utilisent la version TypeScript du projet. Les extensions restent recommandées et ne constituent pas une condition d'accès au dépôt.
+
+La structure minimale sous `src/` distingue :
+
+- `modules` pour les futurs modules fonctionnels et leurs contrats publics ;
+- `shared` pour les primitives techniques stables réellement partagées ;
+- `server` pour les fondations réservées à l'exécution de confiance côté serveur ;
+- `styles` pour les futurs styles partagés, sans système visuel anticipé ;
+- `test` pour les futurs utilitaires communs aux tests.
+
+Ces dossiers ne contiennent encore aucune logique métier. Des README courts matérialisent leur responsabilité sans anticiper les implémentations des prochains Sprints.
+
 ## Commandes de référence attendues
 
 Après installation des dépendances, les commandes suivantes doivent réussir :
@@ -148,10 +170,10 @@ La commande de développement est vérifiée par démarrage contrôlé ; elle n'
 - [x] pnpm est l'unique gestionnaire de paquets et sa version est fixée dans `package.json`.
 - [x] Aucun fichier de verrouillage concurrent n'est présent.
 - [x] Le projet utilise Next.js App Router et TypeScript conformément au Sprint 006.
-- [ ] La structure initiale matérialise les frontières du monolithe modulaire sans logique métier prématurée.
+- [x] La structure initiale matérialise les frontières du monolithe modulaire sans logique métier prématurée.
 - [ ] Aucun module métier ne dépend directement d'un fournisseur externe.
 - [ ] Le code serveur et le code client possèdent des frontières explicites et vérifiables.
-- [ ] ESLint et Prettier sont configurés et leurs contrôles réussissent.
+- [x] ESLint et Prettier sont configurés et leurs contrôles réussissent.
 - [x] La vérification TypeScript stricte réussit.
 - [ ] Vitest exécute au moins un test de fondation représentatif.
 - [ ] Playwright exécute au moins un parcours de disponibilité du socle.
