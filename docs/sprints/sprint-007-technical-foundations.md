@@ -103,6 +103,7 @@ Le runtime de référence est la ligne Node.js 24 LTS. La version de développem
 | eslint-config-prettier | `10.1.8` | Désactive les règles ESLint incompatibles avec Prettier sans ajouter un second moteur de formatage. |
 | Vitest | `4.1.10` | Version stable compatible avec Node.js 24, utilisée pour les tests unitaires sans environnement navigateur implicite. |
 | Playwright | `1.61.1` | Version stable compatible avec Node.js 24, limitée à Chromium pour le test de disponibilité du socle. |
+| Supabase CLI | `2.109.1` | Version stable fixée comme dépendance de développement pour reproduire l'environnement local. |
 | Types Node.js | `24.13.3` | Alignés sur la ligne majeure Node.js 24 LTS. |
 
 Versions volontairement écartées :
@@ -165,7 +166,17 @@ Playwright utilise uniquement Chromium et démarre automatiquement l'application
 
 Le workflow GitHub Actions s'exécute lors des pushes et des pull requests. Il installe les dépendances de manière figée, lance `check`, construit l'application, installe Chromium avec ses dépendances système puis exécute le test de bout en bout. Il ne réalise ni couverture, matrice, déploiement ni publication.
 
-La réussite locale valide Playwright. Le critère relatif à GitHub Actions ne sera coché qu'après l'exécution effective du workflow distant.
+La réussite locale valide Playwright. Le workflow GitHub Actions a également terminé avec succès sur le commit `98f33d5`, confirmant la reproductibilité distante du quatrième jalon.
+
+## Cinquième jalon — Environnement développeur
+
+La CLI Supabase est fixée dans les dépendances du projet. La configuration officielle locale et le répertoire de migrations sont présents sans schéma, table, seed, politique RLS, bucket ou donnée métier. Les scripts `supabase:start`, `supabase:stop`, `supabase:status` et `supabase:reset` encadrent son exploitation locale.
+
+Docker Desktop est un prérequis externe. Il n'est pas installé sur la machine de validation : la version de la CLI et les fichiers sont contrôlés, mais le démarrage et l'arrêt effectifs des services Supabase restent à valider sur une machine disposant de Docker.
+
+La CLI lit correctement la configuration avant d'échouer exclusivement sur l'absence du daemon Docker. Cette réserve machine ne masque donc ni une erreur de configuration détectée ni une dépendance applicative manquante.
+
+AZUREUM ne consomme encore aucune variable applicative. `.env.example` documente explicitement cette absence plutôt que d'anticiper des clés Supabase ou des secrets. Le guide `docs/DEVELOPMENT.md` couvre l'installation, Chromium, Docker, Supabase, Next.js, les tests, la qualité et la remise à zéro locale.
 
 ## Commandes de référence attendues
 
@@ -189,20 +200,20 @@ La commande de développement est vérifiée par démarrage contrôlé ; elle n'
 - [x] Aucun fichier de verrouillage concurrent n'est présent.
 - [x] Le projet utilise Next.js App Router et TypeScript conformément au Sprint 006.
 - [x] La structure initiale matérialise les frontières du monolithe modulaire sans logique métier prématurée.
-- [ ] Aucun module métier ne dépend directement d'un fournisseur externe.
-- [ ] Le code serveur et le code client possèdent des frontières explicites et vérifiables.
+- [x] Aucun module métier ne dépend directement d'un fournisseur externe.
+- [x] Le code serveur et le code client possèdent des frontières explicites et vérifiables.
 - [x] ESLint et Prettier sont configurés et leurs contrôles réussissent.
 - [x] La vérification TypeScript stricte réussit.
 - [x] Vitest exécute au moins un test de fondation représentatif.
 - [x] Playwright exécute au moins un parcours de disponibilité du socle.
 - [x] La construction de production réussit.
-- [ ] GitHub Actions exécute les contrôles reproductibles prévus par le Sprint.
-- [ ] Les variables d'environnement attendues sont documentées sans secret réel.
-- [ ] Le socle Supabase local et le répertoire de migrations sont présents sans schéma métier inventé.
-- [ ] Un développeur peut installer, démarrer et contrôler le projet à partir de la documentation.
-- [ ] Aucune fonctionnalité métier ou interface produit non prévue n'est implémentée.
-- [ ] La traçabilité vers les décisions du Sprint 006 est documentée.
-- [ ] L'audit final ne révèle aucun fichier généré, secret ou changement hors périmètre versionné.
+- [x] GitHub Actions exécute les contrôles reproductibles prévus par le Sprint.
+- [x] Les variables d'environnement attendues sont documentées sans secret réel.
+- [x] Le socle Supabase local et le répertoire de migrations sont présents sans schéma métier inventé.
+- [x] Un développeur peut installer, démarrer et contrôler le projet à partir de la documentation.
+- [x] Aucune fonctionnalité métier ou interface produit non prévue n'est implémentée.
+- [x] La traçabilité vers les décisions du Sprint 006 est documentée.
+- [x] L'audit final ne révèle aucun fichier généré, secret ou changement hors périmètre versionné.
 - [ ] Le Product Owner valide le Sprint.
 
 ## Validation finale

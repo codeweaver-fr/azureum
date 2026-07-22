@@ -83,7 +83,7 @@ Le périmètre fonctionnel de la V1 est validé dans `docs/specifications/functi
 
 ## Implémentation
 
-Les quatre premiers jalons du socle sont générés : Next.js App Router, TypeScript, pnpm, ESLint, Prettier, structure modulaire minimale, Vitest, Playwright et workflow GitHub Actions, sans logique métier ni interface produit définitive.
+Les cinq jalons du socle sont préparés : Next.js App Router, TypeScript, pnpm, ESLint, Prettier, structure modulaire minimale, Vitest, Playwright, GitHub Actions, variables d'environnement documentées, Supabase local et guide développeur, sans logique métier ni interface produit définitive.
 
 Le runtime Node.js `24.18.0` et pnpm `10.34.5` sont validés par une installation figée, le lint, la vérification TypeScript, le build et l'audit de sécurité. Le fichier de verrouillage reste inchangé et aucune vulnérabilité connue n'est signalée.
 
@@ -91,7 +91,9 @@ Les scripts de formatage et de contrôle statique sont opérationnels. Les front
 
 Vitest exécute un premier test de contrat du socle sous Node.js, sans environnement navigateur ni bibliothèque de composants prématurée.
 
-Playwright vérifie localement la disponibilité du socle avec Chromium uniquement. Le workflow distant reproduit installation figée, contrôles, build et test de bout en bout ; son exécution effective reste à confirmer après publication du jalon.
+Playwright vérifie localement la disponibilité du socle avec Chromium uniquement. Le workflow distant reproduisant installation figée, contrôles, build et test de bout en bout a terminé avec succès sur le commit `98f33d5`.
+
+La CLI Supabase `2.109.1`, sa configuration locale et le répertoire de migrations sont présents. Docker Desktop n'étant pas installé sur la machine de validation, le cycle réel de démarrage et d'arrêt Supabase reste à vérifier avant la clôture définitive.
 
 ## Base de données
 
@@ -99,4 +101,4 @@ Aucune base de données déployée. Le modèle conceptuel et l'architecture Post
 
 ## Prochaine étape
 
-Valider l'exécution distante de GitHub Actions, puis poursuivre le Sprint 007 avec le jalon d'environnement développeur : variables d'environnement, Supabase local et documentation complète.
+Faire valider le cycle Docker/Supabase sur une machine équipée, puis soumettre le Sprint 007 audité à la validation finale du Product Owner.

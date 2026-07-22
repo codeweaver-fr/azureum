@@ -23,6 +23,10 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 - ajout des scripts `test` et `test:watch`, intégration des tests unitaires dans `check` et création d'un premier test représentatif du contrat technique du projet.
 - installation de Playwright `1.61.1` avec Chromium uniquement et ajout d'un test de disponibilité du socle ;
 - création d'un workflow GitHub Actions minimal exécutant installation figée, contrôles, build et test de bout en bout lors des pushes et pull requests.
+- validation distante réussie du workflow de qualité sur le commit `98f33d5` ;
+- installation de la CLI Supabase `2.109.1`, initialisation de la configuration locale et création du répertoire de migrations sans contenu métier ;
+- ajout des commandes d'exploitation Supabase, d'un modèle d'environnement sans secret et du guide complet `docs/DEVELOPMENT.md` ;
+- mise à jour du README pour refléter l'entrée du projet dans sa phase de construction.
 
 ### Sprint 006 — Architecture technique de la V1
 
