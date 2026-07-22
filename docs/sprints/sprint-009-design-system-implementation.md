@@ -2,7 +2,7 @@
 
 ## Statut
 
-Validé — verrouillage Git en attente
+En cours — incrément 3 validé
 
 ## Objectif
 
@@ -51,13 +51,15 @@ Le Sprint comprend uniquement :
 
 ## Décisions explicitement reportées au Sprint 009
 
-Le Sprint finalise exclusivement les décisions explicitement reportées au Sprint 009 par le Design System V1. Il doit documenter avant leur première utilisation :
+Le Sprint finalise exclusivement les décisions explicitement reportées au Sprint 009 par le Design System V1. Les décisions suivantes ont été validées par le Product Owner et intégrées au Design System avant toute implémentation :
 
-- les valeurs numériques des niveaux d’ombre déjà définis ;
-- les courbes d’animation associées aux durées validées ;
-- la liste définitive des variables CSS dérivée des tokens ;
-- les modalités de chargement, les fichiers et les licences de Cormorant Garamond et Inter ;
-- les valeurs des rôles `Overlay`, `Backdrop`, `Selection`, `Skeleton` et `Placeholder` uniquement si leur implémentation devient nécessaire.
+- valeurs numériques des trois niveaux d’ombre ;
+- courbe d’animation unique et neutralisation de toutes les durées animées avec `prefers-reduced-motion` ;
+- liste définitive des variables CSS dérivée des tokens ;
+- chargement de Cormorant Garamond et Inter avec `next/font/google`, licences vérifiées ;
+- rôle `Selection` fondé sur Brand Primary et Text Inverse ;
+- report explicite de `Overlay`, `Backdrop`, `Skeleton` et `Placeholder` jusqu’à l’existence d’un usage démontré ;
+- traitement centralisé et traçable des points de rupture `DT-10`.
 
 Ces décisions ne peuvent créer une nouvelle direction artistique, une nouvelle catégorie de token ou une valeur sans usage démontré.
 
@@ -155,16 +157,17 @@ Le Sprint est terminable lorsque :
 10. réaliser l’audit final ;
 11. obtenir la validation Product Owner et verrouiller le Sprint.
 
-## Incréments d’implémentation
+## Incréments du Sprint
 
-Les composants ne sont pas implémentés en une seule fois. Chaque incrément est contrôlé avant le suivant :
+Le Sprint progresse par incréments contrôlés :
 
 Aucun incrément ne commence tant que l’incrément précédent n’a pas été validé lors de la revue Product Owner.
 
-1. fondations CSS : tokens, reset, styles globaux et typographies ;
-2. mise en page : Conteneur, Empilement et Grille ;
-3. typographie : Texte et titres ;
-4. interactions : Bouton et Lien ;
-5. médias : Image d’œuvre et Icône ;
-6. page de validation visuelle ;
-7. tests consolidés et audit final.
+1. décisions techniques explicitement reportées : **Validé** ;
+2. fondations CSS : tokens, reset, styles globaux et typographies — **Validé** ;
+3. mise en page : Conteneur, Empilement et Grille — **Validé** ;
+4. typographie : Texte et titres ;
+5. interactions : Bouton et Lien ;
+6. médias : Image d’œuvre et Icône ;
+7. page de validation visuelle ;
+8. tests consolidés et audit final.

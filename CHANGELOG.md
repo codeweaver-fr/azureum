@@ -10,6 +10,14 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 - création du contrat d’implémentation des tokens, fondations CSS et composants fondamentaux ;
 - maintien explicite hors périmètre des fonctionnalités métier et des interfaces produit définitives.
 - validation du contrat par le Product Owner et adoption d’une implémentation incrémentale avec revue entre chaque groupe de fondations.
+- validation de l’incrément 1 : polices, ombres, courbe d’animation, réduction globale des mouvements, convention CSS, sélection et traitement des points de rupture ;
+- intégration de ces décisions au Design System V1 avant toute ligne de CSS ou de React.
+- validation de l’incrément 2 : tokens CSS, reset, styles globaux, accessibilité, médias et chargement des typographies avec `next/font` ;
+- ajout d’un test de contrat des fondations CSS, sans création de composant React.
+- conservation du rendu typographique natif du navigateur plutôt que l'ajout de propriétés de lissage non standardisées.
+- validation de l’incrément 3 : primitives génériques Conteneur, Empilement et Grille, extensions responsive et tests de contrat associés ;
+- interdiction des styles inline dans l’API de ces primitives afin de préserver l’usage des Design Tokens.
+- adoption d’une API sémantique stable pour les espacements, reliée explicitement aux tokens `DT-03` sans modifier leurs valeurs.
 
 ### Révision Sprint 008-r1 — Validée, verrouillée et fusionnée
 

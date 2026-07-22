@@ -2,7 +2,7 @@
 
 ## Statut
 
-**Validé — Sprint 008-r1, verrouillage Git en attente**
+**Validé — base Sprint 008-r1, décisions techniques du Sprint 009 intégrées**
 
 ---
 
@@ -202,7 +202,9 @@ Deux registres typographiques structurent l'identité :
 - une serif éditoriale pour les titres expressifs, les citations et les introductions ;
 - une sans-serif très lisible pour le corps, la navigation, les actions, les données et les espaces privés.
 
-La V1 associe **Cormorant Garamond** pour l'expression éditoriale et **Inter** pour l'interface. Leur licence, leur mode de distribution et leurs fichiers exacts devront être vérifiés pendant le Sprint 009 avant leur intégration. Une pile de polices système doit garantir une lecture correcte en cas d'indisponibilité.
+La V1 associe **Cormorant Garamond** pour l'expression éditoriale et **Inter** pour l'interface. Les deux familles sont chargées avec `next/font/google`, en version variable lorsqu'elle est disponible, avec le sous-ensemble `latin` et `display: "swap"`. Elles sont exposées respectivement par `--font-editorial` et `--font-interface`. Une pile de polices système garantit une lecture correcte en cas d'indisponibilité.
+
+Le chargement produit par `next/font` est auto-hébergé et ne provoque aucune requête du navigateur vers Google Fonts. Inter et Cormorant sont distribuées sous SIL Open Font License 1.1 ; les références de licence sont conservées dans la documentation du projet.
 
 La serif n'est jamais utilisée pour les petits textes fonctionnels, les contrôles, les messages d'erreur ou les données nécessitant une lecture rapide.
 
@@ -357,13 +359,18 @@ Les correspondances colorimétriques actives de la V1 sont :
 | Divider | Gris pierre |
 | Text Primary | Noir minéral |
 | Text Secondary | Gris graphite |
+| Text Inverse | Blanc galerie |
+| Brand Primary | Bleu AZUREUM |
 | Focus Ring | Bleu AZUREUM |
 | Success | Succès |
 | Warning | Avertissement |
 | Error | Erreur |
 | Information | Information |
+| Selection | Brand Primary pour le fond, Text Inverse pour le texte |
 
-Les rôles `Overlay`, `Backdrop`, `Selection`, `Skeleton` et `Placeholder` ne possèdent aucune valeur validée dans le Design System V1. Si leur implémentation devient nécessaire, leurs valeurs devront être définies et documentées pendant le Sprint 009 sans être déduites arbitrairement d'une couleur brute.
+Les rôles `Overlay`, `Backdrop`, `Skeleton` et `Placeholder` ne possèdent aucune valeur validée dans le Design System V1. Leur création reste différée jusqu'à l'existence d'un usage démontré et nécessitera une décision Product Owner documentée.
+
+La sélection de texte utilise `--color-brand-primary` en fond et `--color-text-inverse` au premier plan.
 
 ### États interactifs
 
@@ -528,11 +535,11 @@ Deux composants remplissant une même fonction utilisent toujours le même rayon
 
 Trois niveaux sont autorisés :
 
-- légère ;
-- moyenne ;
-- forte.
-
-Ces noms définissent la hiérarchie sémantique autorisée, mais aucune valeur numérique d'ombre ne peut être déduite objectivement des décisions validées. Les valeurs correspondantes seront définies, documentées et contrôlées pendant le Sprint 009 avant leur utilisation.
+| Niveau | Variable | Valeur |
+|---|---|---|
+| Légère | `--shadow-light` | `0 1px 2px rgb(15 15 17 / 6%)` |
+| Moyenne | `--shadow-medium` | `0 8px 24px rgb(15 15 17 / 10%)` |
+| Forte | `--shadow-strong` | `0 20px 48px rgb(15 15 17 / 14%)` |
 
 Les ombres servent exclusivement à exprimer une hiérarchie de surfaces.
 
@@ -564,19 +571,30 @@ Toute valeur hors échelle nécessite une justification documentaire.
 
 **DT-09 — Mouvement**
 
-| Durée | Valeur | Usage |
-|---|---:|---|
-| Immédiate | `0ms` | Réduction des mouvements |
-| Rapide | `120ms` | Retour visuel |
-| Standard | `200ms` | États interactifs |
-| Posée | `320ms` | Transitions de surface |
-| Éditoriale | `600ms` | Animations contemplatives |
+| Durée | Variable | Valeur | Usage |
+|---|---|---:|---|
+| Immédiate | `--duration-immediate` | `0ms` | Réduction des mouvements |
+| Rapide | `--duration-fast` | `120ms` | Retour visuel |
+| Standard | `--duration-standard` | `200ms` | États interactifs |
+| Posée | `--duration-settled` | `320ms` | Transitions de surface |
+| Éditoriale | `--duration-editorial` | `600ms` | Animations contemplatives |
 
-Aucune courbe d'animation n'est validée par le présent document. Les courbes nécessaires seront définies et documentées pendant le Sprint 009 en respectant les durées, les principes de mouvement et la réduction des mouvements établis ici.
+La V1 utilise une courbe unique : `--ease-standard: cubic-bezier(0.2, 0, 0, 1)`.
 
 Les animations accompagnent les interactions sans détourner l'attention.
 
-Lorsque l'utilisateur demande une réduction des mouvements, elles sont supprimées ou remplacées par des transitions instantanées.
+Lorsque l'utilisateur demande une réduction des mouvements, les variables `--duration-fast`, `--duration-standard`, `--duration-settled` et `--duration-editorial` prennent toutes la valeur `0ms`. Les animations sont ainsi supprimées ou remplacées par des transitions instantanées ; aucune animation n'est considérée comme indispensable à la compréhension dans le périmètre actuel.
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-standard: 0ms;
+    --duration-settled: 0ms;
+    --duration-editorial: 0ms;
+  }
+}
+```
 
 ---
 
@@ -596,6 +614,8 @@ Le Design System adopte une approche **mobile-first**.
 | Exposition | `≥1600px` |
 
 Les composants privilégient leur adaptation intrinsèque.
+
+Les propriétés personnalisées CSS ne pouvant pas être utilisées dans les conditions des media queries ou des container queries, les valeurs de `DT-10` peuvent y être reprises littéralement. Aucune autre largeur n'est autorisée et chaque reprise porte un commentaire référençant `DT-10`. L'ordre de préférence reste : adaptation intrinsèque, container queries lorsqu'elles sont pertinentes, puis media queries.
 
 Les points de rupture servent uniquement à modifier la composition de l'interface, jamais son comportement fonctionnel.
 
@@ -910,7 +930,41 @@ Le chapitre 3 régit exclusivement les identifiants documentaires. La présente 
 
 Les variables utilisent une convention de nommage unique afin de garantir leur cohérence et leur lisibilité.
 
-Toute variable représentant un token validé respecte la structure `--<catégorie>-<rôle-ou-niveau>`, en minuscules et avec des segments séparés par des traits d'union. La liste définitive des variables est produite pendant le Sprint 009 à partir des seuls tokens du chapitre 5 ; cette opération ne peut créer une nouvelle valeur de conception.
+Toute variable représentant un token validé respecte la structure `--<catégorie>-<rôle-ou-niveau>`, en minuscules et avec des segments séparés par des traits d'union. La liste définitive ci-dessous dérive exclusivement des tokens du chapitre 5 et ne crée aucune nouvelle valeur de conception.
+
+La liste de référence de la V1 est la suivante :
+
+- couleurs primitives : `--color-brand-blue`, `--color-brand-gold`, `--color-brand-terracotta`, `--color-neutral-white`, `--color-neutral-ivory`, `--color-neutral-stone`, `--color-neutral-soft`, `--color-neutral-graphite`, `--color-neutral-black`, `--color-functional-success`, `--color-functional-warning`, `--color-functional-error`, `--color-functional-information` ;
+- couleurs sémantiques : `--color-background`, `--color-surface`, `--color-surface-elevated`, `--color-surface-inverse`, `--color-border-subtle`, `--color-border-default`, `--color-border-strong`, `--color-divider`, `--color-text-primary`, `--color-text-secondary`, `--color-text-inverse`, `--color-brand-primary`, `--color-focus-ring`, `--color-success`, `--color-warning`, `--color-error`, `--color-information` ;
+- typographies : `--font-editorial`, `--font-interface`, `--font-size-xs`, `--font-size-sm`, `--font-size-body`, `--font-size-body-lg`, `--font-size-heading-3`, `--font-size-heading-2`, `--font-size-heading-1`, `--line-height-xs`, `--line-height-sm`, `--line-height-body`, `--line-height-body-lg`, `--line-height-heading-3`, `--line-height-heading-2`, `--line-height-heading-1`, `--font-weight-regular`, `--font-weight-medium`, `--font-weight-semibold`, `--font-weight-bold` ;
+- espacements : `--space-0`, `--space-4`, `--space-8`, `--space-12`, `--space-16`, `--space-24`, `--space-32`, `--space-48`, `--space-64`, `--space-96`, `--space-128` ;
+- dimensions : `--size-control-compact`, `--size-control-standard`, `--size-control-comfortable`, `--size-icon-sm`, `--size-icon-md`, `--size-icon-lg`, `--size-reading-narrow`, `--size-reading-standard`, `--size-container-main` ;
+- bordures et rayons : `--border-width-standard`, `--border-width-strong`, `--radius-none`, `--radius-subtle`, `--radius-standard`, `--radius-full` ;
+- ombres : `--shadow-light`, `--shadow-medium`, `--shadow-strong` ;
+- profondeurs : `--z-base`, `--z-elevated`, `--z-navigation`, `--z-menu`, `--z-overlay`, `--z-dialog`, `--z-notification` ;
+- mouvements : `--duration-immediate`, `--duration-fast`, `--duration-standard`, `--duration-settled`, `--duration-editorial`, `--ease-standard`.
+
+Les points de rupture de `DT-10` ne sont pas exposés comme propriétés personnalisées CSS, conformément à l'exception documentée à la section 5.10.
+
+### Convention d'API des espacements
+
+Les propriétés React exposent des noms sémantiques stables plutôt que les valeurs numériques
+des tokens. Cette convention ne crée aucun espacement et établit uniquement la correspondance
+suivante avec `DT-03` :
+
+| Nom d'API | Token |
+|---|---|
+| `none` | `--space-0` |
+| `2xs` | `--space-4` |
+| `xs` | `--space-8` |
+| `sm` | `--space-12` |
+| `md` | `--space-16` |
+| `lg` | `--space-24` |
+| `xl` | `--space-32` |
+| `2xl` | `--space-48` |
+| `3xl` | `--space-64` |
+| `4xl` | `--space-96` |
+| `5xl` | `--space-128` |
 
 ---
 
@@ -918,9 +972,9 @@ Toute variable représentant un token validé respecte la structure `--<catégor
 
 Les valeurs déjà définies dans le présent document sont normatives et ne peuvent pas être remplacées localement pendant l'implémentation.
 
-Les valeurs numériques des ombres et les courbes d'animation ne peuvent pas être déduites objectivement des décisions validées. Elles seront définies et documentées pendant le Sprint 009 avant leur première utilisation, sous réserve de respecter strictement les niveaux, durées, principes et règles établis par le présent document.
+Les valeurs des ombres, la courbe d'animation, la réduction globale des durées, la convention des variables CSS et les modalités de chargement des polices ont été validées pendant le Sprint 009 puis intégrées au présent document avant leur implémentation.
 
-Cette délégation identifiée ne permet ni de créer un nouveau niveau de token ni de modifier la direction artistique.
+Cette intégration ne crée aucun nouveau niveau de token et ne modifie pas la direction artistique.
 
 ---
 
@@ -976,13 +1030,13 @@ Toute évolution suit la gouvernance documentaire du projet.
 
 | Élément | Valeur |
 |---|---|
-| Statut documentaire | Validé — Sprint 008-r1, verrouillage Git en attente |
+| Statut documentaire | Validé — base Sprint 008-r1, décisions techniques du Sprint 009 intégrées |
 | Verdict de la revue finale | Conforme |
 | Réserves acceptées | Aucune réserve bloquante |
 | Décision du Product Owner | Validé |
 | Date de validation | 2026-07-22 |
-| Commit de clôture | Non créé — en attente d'autorisation Git |
-| Tag Git | `sprint-008-r1` — à créer après autorisation Git |
+| Commit de référence Sprint 008-r1 | `69ac95f63623a16794acbe78d160462d0b6a10a1` |
+| Tag Git de référence | `sprint-008-r1` |
 
 ---
 
@@ -1006,4 +1060,8 @@ Toute évolution ultérieure suit la gouvernance documentaire du projet et conse
 - `docs/specifications/product-structure-v1.md` ;
 - `docs/specifications/technical-architecture-v1.md` ;
 - `docs/sprints/sprint-008-design-system.md` ;
-- `docs/sprints/sprint-008-r1-design-system-consolidation.md`.
+- `docs/sprints/sprint-008-r1-design-system-consolidation.md` ;
+- [documentation officielle `next/font`](https://nextjs.org/docs/app/api-reference/components/font) ;
+- [licence Inter — SIL Open Font License 1.1](https://github.com/rsms/inter/blob/master/LICENSE.txt) ;
+- [licence Cormorant — SIL Open Font License 1.1](https://github.com/CatharsisFonts/Cormorant/blob/master/OFL.txt) ;
+- [MDN — utilisation des propriétés personnalisées CSS](https://developer.mozilla.org/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties).

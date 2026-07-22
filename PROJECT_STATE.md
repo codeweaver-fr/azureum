@@ -6,7 +6,7 @@ Construction du produit — implémentation du Design System V1.
 
 ## Sprint actif
 
-Sprint 009 — Implémentation du Design System V1 : **Validé — verrouillage Git en attente**.
+Sprint 009 — Implémentation du Design System V1 : **En cours — incrément 3 validé**.
 
 Le Sprint 009 transforme le Design System V1 validé en fondations CSS et composants React génériques, sans fonctionnalité métier ni interface produit définitive.
 
@@ -110,4 +110,4 @@ Aucune base de données déployée. Le modèle conceptuel et l'architecture Post
 
 ## Prochaine étape
 
-Faire valider le contrat du Sprint 009, fermer les seules décisions techniques qui lui ont été explicitement confiées, puis commencer l’implémentation des tokens et fondations globales.
+Ouvrir ultérieurement l’incrément 4 du Sprint 009 consacré aux primitives typographiques Texte et titres.
