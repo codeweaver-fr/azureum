@@ -101,6 +101,7 @@ Le runtime de référence est la ligne Node.js 24 LTS. La version de développem
 | ESLint | `9.39.5` | Branche stable compatible avec les plugins fournis par Next.js. |
 | Prettier | `3.9.6` | Version stable retenue comme autorité unique de formatage du code et des configurations. |
 | eslint-config-prettier | `10.1.8` | Désactive les règles ESLint incompatibles avec Prettier sans ajouter un second moteur de formatage. |
+| Vitest | `4.1.10` | Version stable compatible avec Node.js 24, utilisée pour les tests unitaires sans environnement navigateur implicite. |
 | Types Node.js | `24.13.3` | Alignés sur la ligne majeure Node.js 24 LTS. |
 
 Versions volontairement écartées :
@@ -149,6 +150,14 @@ La structure minimale sous `src/` distingue :
 
 Ces dossiers ne contiennent encore aucune logique métier. Des README courts matérialisent leur responsabilité sans anticiper les implémentations des prochains Sprints.
 
+## Troisième jalon — Tests unitaires
+
+Vitest exécute les tests TypeScript dans un environnement Node.js explicite. Aucun DOM simulé ni bibliothèque de test de composants n'est ajouté avant l'apparition d'un besoin réel. L'alias `@` est aligné sur `src/` comme dans la configuration TypeScript.
+
+Les commandes `test` et `test:watch` distinguent l'exécution déterministe destinée aux contrôles et le mode interactif local. Le script `check` inclut désormais les tests unitaires après le formatage, ESLint et TypeScript ; le build de production reste un contrôle complet séparé.
+
+Le premier test vérifie le contrat technique du manifeste du projet : dépôt privé, identité du paquet, version de pnpm et ligne majeure Node.js. Il démontre le fonctionnement réel du moteur sans introduire de logique métier ou de test artificiel sans valeur.
+
 ## Commandes de référence attendues
 
 Après installation des dépendances, les commandes suivantes doivent réussir :
@@ -175,7 +184,7 @@ La commande de développement est vérifiée par démarrage contrôlé ; elle n'
 - [ ] Le code serveur et le code client possèdent des frontières explicites et vérifiables.
 - [x] ESLint et Prettier sont configurés et leurs contrôles réussissent.
 - [x] La vérification TypeScript stricte réussit.
-- [ ] Vitest exécute au moins un test de fondation représentatif.
+- [x] Vitest exécute au moins un test de fondation représentatif.
 - [ ] Playwright exécute au moins un parcours de disponibilité du socle.
 - [x] La construction de production réussit.
 - [ ] GitHub Actions exécute les contrôles reproductibles prévus par le Sprint.

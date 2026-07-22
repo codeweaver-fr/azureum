@@ -83,11 +83,13 @@ Le périmètre fonctionnel de la V1 est validé dans `docs/specifications/functi
 
 ## Implémentation
 
-Les deux premiers jalons du socle sont générés : Next.js App Router, TypeScript, pnpm, ESLint, Prettier et structure modulaire minimale, sans logique métier ni interface produit définitive.
+Les trois premiers jalons du socle sont générés : Next.js App Router, TypeScript, pnpm, ESLint, Prettier, structure modulaire minimale et Vitest, sans logique métier ni interface produit définitive.
 
 Le runtime Node.js `24.18.0` et pnpm `10.34.5` sont validés par une installation figée, le lint, la vérification TypeScript, le build et l'audit de sécurité. Le fichier de verrouillage reste inchangé et aucune vulnérabilité connue n'est signalée.
 
 Les scripts de formatage et de contrôle statique sont opérationnels. Les frontières `modules`, `shared`, `server`, `styles` et `test` sont documentées sans implémentation prématurée.
+
+Vitest exécute un premier test de contrat du socle sous Node.js, sans environnement navigateur ni bibliothèque de composants prématurée.
 
 ## Base de données
 
@@ -95,4 +97,4 @@ Aucune base de données déployée. Le modèle conceptuel et l'architecture Post
 
 ## Prochaine étape
 
-Poursuivre le Sprint 007 par les couches de fondation restantes : tests, intégration continue, variables d'environnement, Supabase local et documentation développeur.
+Poursuivre le Sprint 007 par les couches de fondation restantes : Playwright, intégration continue, variables d'environnement, Supabase local et documentation développeur.

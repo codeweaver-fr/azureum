@@ -19,6 +19,8 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 - ajout de `.editorconfig` et limitation de l'exclusion Prettier aux documents contractuels, afin de contrôler également les README techniques ;
 - normalisation des fins de ligne avec `.gitattributes` et ajout d'une configuration VS Code partagée limitée aux réglages et extensions justifiés par le socle ;
 - création et documentation des frontières minimales `modules`, `shared`, `server`, `styles` et `test`, sans logique métier ni dépendance d'interface supplémentaire.
+- installation de Vitest `4.1.10`, configuration de l'environnement Node.js et alignement de l'alias `@` sur `src/` ;
+- ajout des scripts `test` et `test:watch`, intégration des tests unitaires dans `check` et création d'un premier test représentatif du contrat technique du projet.
 
 ### Sprint 006 — Architecture technique de la V1
 
