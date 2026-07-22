@@ -21,6 +21,8 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 - création et documentation des frontières minimales `modules`, `shared`, `server`, `styles` et `test`, sans logique métier ni dépendance d'interface supplémentaire.
 - installation de Vitest `4.1.10`, configuration de l'environnement Node.js et alignement de l'alias `@` sur `src/` ;
 - ajout des scripts `test` et `test:watch`, intégration des tests unitaires dans `check` et création d'un premier test représentatif du contrat technique du projet.
+- installation de Playwright `1.61.1` avec Chromium uniquement et ajout d'un test de disponibilité du socle ;
+- création d'un workflow GitHub Actions minimal exécutant installation figée, contrôles, build et test de bout en bout lors des pushes et pull requests.
 
 ### Sprint 006 — Architecture technique de la V1
 

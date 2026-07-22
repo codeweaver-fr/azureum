@@ -102,6 +102,7 @@ Le runtime de référence est la ligne Node.js 24 LTS. La version de développem
 | Prettier | `3.9.6` | Version stable retenue comme autorité unique de formatage du code et des configurations. |
 | eslint-config-prettier | `10.1.8` | Désactive les règles ESLint incompatibles avec Prettier sans ajouter un second moteur de formatage. |
 | Vitest | `4.1.10` | Version stable compatible avec Node.js 24, utilisée pour les tests unitaires sans environnement navigateur implicite. |
+| Playwright | `1.61.1` | Version stable compatible avec Node.js 24, limitée à Chromium pour le test de disponibilité du socle. |
 | Types Node.js | `24.13.3` | Alignés sur la ligne majeure Node.js 24 LTS. |
 
 Versions volontairement écartées :
@@ -158,6 +159,14 @@ Les commandes `test` et `test:watch` distinguent l'exécution déterministe dest
 
 Le premier test vérifie le contrat technique du manifeste du projet : dépôt privé, identité du paquet, version de pnpm et ligne majeure Node.js. Il démontre le fonctionnement réel du moteur sans introduire de logique métier ou de test artificiel sans valeur.
 
+## Quatrième jalon — Qualité automatisée
+
+Playwright utilise uniquement Chromium et démarre automatiquement l'application locale pendant le test. L'unique scénario de fondation vérifie une réponse HTTP valide, le chargement du document HTML et la présence du titre stable `AZUREUM`, sans dépendre d'un contenu métier, d'une navigation ou du design.
+
+Le workflow GitHub Actions s'exécute lors des pushes et des pull requests. Il installe les dépendances de manière figée, lance `check`, construit l'application, installe Chromium avec ses dépendances système puis exécute le test de bout en bout. Il ne réalise ni couverture, matrice, déploiement ni publication.
+
+La réussite locale valide Playwright. Le critère relatif à GitHub Actions ne sera coché qu'après l'exécution effective du workflow distant.
+
 ## Commandes de référence attendues
 
 Après installation des dépendances, les commandes suivantes doivent réussir :
@@ -185,7 +194,7 @@ La commande de développement est vérifiée par démarrage contrôlé ; elle n'
 - [x] ESLint et Prettier sont configurés et leurs contrôles réussissent.
 - [x] La vérification TypeScript stricte réussit.
 - [x] Vitest exécute au moins un test de fondation représentatif.
-- [ ] Playwright exécute au moins un parcours de disponibilité du socle.
+- [x] Playwright exécute au moins un parcours de disponibilité du socle.
 - [x] La construction de production réussit.
 - [ ] GitHub Actions exécute les contrôles reproductibles prévus par le Sprint.
 - [ ] Les variables d'environnement attendues sont documentées sans secret réel.
