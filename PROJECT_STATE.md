@@ -2,13 +2,17 @@
 
 ## Phase actuelle
 
-Fondation documentaire et conception produit.
+Construction du produit — consolidation documentaire préalable à l'implémentation visuelle.
 
 ## Sprint actif
 
-Sprint 007 — Fondations techniques : **En cours**.
+Sprint 008-r1 — Consolidation du Design System V1 : **Validé — verrouillage Git en attente**.
 
-Le Sprint 007 matérialise le socle de développement défini par l'architecture du Sprint 006, sans implémenter de capacité métier ou fonctionnelle.
+Le Sprint 008-r1 est une révision corrective fermée. Il corrige les contradictions du Design System V1 et explicite uniquement les règles indispensables au Sprint 009, sans modifier la direction artistique ni étendre son périmètre.
+
+Le Sprint 008 — Design System a été validé, fusionné dans `main` et conservé sous le tag `sprint-008`. Son audit rétrospectif a justifié la révision contrôlée `sprint-008-r1`, sans déplacement du tag initial.
+
+Le Sprint 007 — Fondations techniques est **Validé et verrouillé**. Il fournit le socle Next.js, les contrôles de qualité, les tests, l'intégration continue et l'environnement développeur nécessaires aux sprints d'implémentation.
 
 Le Sprint 006 — Architecture technique de la V1 est **Validé et verrouillé**.
 
@@ -80,6 +84,9 @@ Le périmètre fonctionnel de la V1 est validé dans `docs/specifications/functi
 - les espaces privés ne participent pas à la navigation publique.
 - l'architecture technique de la V1 est validée dans le cadre du Sprint 006 ;
 - `RES-01`, `RES-03` et `RES-04` restent à lever avant leurs échéances respectives sans remettre en cause la validation architecturale.
+- le Sprint 007 et ses fondations techniques sont validés et verrouillés ;
+- le Sprint 008 définit la direction artistique et les fondations du Design System V1 ;
+- la révision `sprint-008-r1` est limitée à la consolidation de ce contrat avant son implémentation.
 
 ## Implémentation
 
@@ -101,4 +108,4 @@ Aucune base de données déployée. Le modèle conceptuel et l'architecture Post
 
 ## Prochaine étape
 
-Faire valider le cycle Docker/Supabase sur une machine équipée, puis soumettre le Sprint 007 audité à la validation finale du Product Owner.
+Après autorisation explicite du Product Owner, verrouiller Git du Sprint 008-r1, puis reprendre le Sprint 009 consacré à l'implémentation du Design System.

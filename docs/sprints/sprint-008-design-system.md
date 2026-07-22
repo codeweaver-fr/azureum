@@ -2,7 +2,7 @@
 
 ## Statut
 
-En cours
+Terminé — révision corrective ultérieure sous `sprint-008-r1`
 
 ---
 
