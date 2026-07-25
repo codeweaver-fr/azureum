@@ -6,6 +6,9 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 
 ### Sprint 009 — Implémentation du Design System V1
 
+- validation Product Owner de l’incrément 6 après formalisation de `CMP-07` et `CMP-08`, implémentation de `ArtworkImage` et `Icon`, ajout des tests contractuels et de leur démonstration temporaire ;
+- conservation de la taille officielle `large` de 24 pixels pour l’icône du placeholder : l’observation visuelle ne justifie ni valeur locale ni nouveau token ;
+- maintien de la configuration des sources distantes hors du composant, sans `remotePatterns` fictif ;
 - ouverture du Sprint 009 à partir de la référence documentaire `sprint-008-r1` ;
 - création du contrat d’implémentation des tokens, fondations CSS et composants fondamentaux ;
 - maintien explicite hors périmètre des fonctionnalités métier et des interfaces produit définitives.

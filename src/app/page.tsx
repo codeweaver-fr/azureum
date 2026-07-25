@@ -1,7 +1,9 @@
 import { Container, Grid, GridItem, Stack } from "@/shared/components/layout";
 import { Button, Link } from "@/shared/components/interactions";
+import { ArtworkImage, Icon } from "@/shared/components/media";
 import { Heading, Text } from "@/shared/components/typography";
 
+import { MediaPlayground } from "./MediaPlayground";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -97,6 +99,52 @@ export default function Home() {
                 >
                   Lien externe
                 </Link>
+              </Stack>
+            </Stack>
+          </section>
+
+          <section>
+            <Stack direction="vertical" gap="lg">
+              <Heading as="h2" variant="h2">
+                Médias
+              </Heading>
+
+              <Grid gap="lg">
+                <GridItem span={{ compact: 4, tablet: 4, desktop: 6 }}>
+                  <Stack direction="vertical" gap="md">
+                    <Text as="p" variant="sm">
+                      Image intrinsèque et état indisponible
+                    </Text>
+                    <MediaPlayground />
+                  </Stack>
+                </GridItem>
+
+                <GridItem span={{ compact: 4, tablet: 4, desktop: 6 }}>
+                  <Stack direction="vertical" gap="md">
+                    <Text as="p" variant="sm">
+                      Image responsive décorative
+                    </Text>
+                    <div className={styles.artworkFrame}>
+                      <ArtworkImage
+                        decorative
+                        fill
+                        sizes="(max-width: 767px) 100vw, 50vw"
+                        src="data:image/png;base64,invalid"
+                      />
+                    </div>
+                  </Stack>
+                </GridItem>
+              </Grid>
+
+              <Stack direction="horizontal" gap="lg">
+                <Icon name="image-unavailable" size="small" />
+                <Icon name="loading" size="medium" />
+                <Icon
+                  decorative={false}
+                  label="Lien externe"
+                  name="external-link"
+                  size="large"
+                />
               </Stack>
             </Stack>
           </section>

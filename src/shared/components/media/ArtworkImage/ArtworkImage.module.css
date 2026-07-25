@@ -1,0 +1,38 @@
+.frame {
+  color: var(--color-text-secondary);
+  display: inline-block;
+  max-inline-size: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.fill {
+  block-size: 100%;
+  display: block;
+  inline-size: 100%;
+}
+
+.image {
+  display: block;
+}
+
+.unavailable {
+  visibility: hidden;
+}
+
+.placeholder {
+  align-items: center;
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-interface), Arial, Helvetica, sans-serif;
+  font-size: var(--font-size-sm);
+  gap: var(--space-8);
+  inset: 0;
+  justify-content: center;
+  line-height: var(--line-height-sm);
+  padding: var(--space-16);
+  position: absolute;
+  text-align: center;
+}

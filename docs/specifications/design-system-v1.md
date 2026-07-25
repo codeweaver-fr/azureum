@@ -996,11 +996,75 @@ Les attributs HTML natifs utiles et `className` sont autorisés. La prop `style`
 
 ## 13.7 CMP-07 — Image d'œuvre
 
-Présente une œuvre en préservant son ratio, son alternative, ses états de chargement et d'indisponibilité. Elle distingue clairement aperçu recadrable et représentation complète.
+Présente exclusivement une œuvre AZUREUM avec une alternative accessible et un état
+d'indisponibilité maîtrisé. Le composant reste une primitive fermée : il n'accepte aucun
+enfant, aucune légende, aucun contrôle ni aucun contenu superposé.
+
+Le parent contrôle le ratio, le cadrage, la mise en page, la largeur, la légende et les
+interactions éventuelles. Le composant ne propose aucune propriété publique de cadrage,
+de `object-fit` ou de `object-position`.
+
+Deux modes exclusifs sont autorisés :
+
+- le mode intrinsèque exige `width` et `height` et interdit `fill` ;
+- le mode responsive exige `fill: true` et `sizes`, et interdit `width` et `height`.
+
+Dans le mode responsive, le parent fournit un conteneur correctement dimensionné. Le
+chargement différé natif constitue le comportement par défaut. Seule l'option `preload`
+peut signaler une œuvre critique ; `priority`, `loading`, `quality`, `loader` et
+`unoptimized` ne font pas partie de l'API publique.
+
+L'accessibilité distingue deux usages :
+
+- une œuvre informative exige une alternative non vide ;
+- une œuvre décorative exige une déclaration explicite et génère une alternative vide en
+  interne.
+
+Une alternative informative vide provoque une erreur pendant le développement. Elle ne
+provoque ni exception ni journalisation en production.
+
+Lorsqu'un chargement échoue, l'image est remplacée sans variation d'espace par un
+placeholder neutre composé de l'icône `image-unavailable` et du texte « Image
+indisponible ». Le placeholder est accessible pour une œuvre informative et ignoré pour
+une œuvre décorative. L'état d'erreur est associé à la source concernée et disparaît dès
+que la source change. Aucune nouvelle tentative automatique n'est effectuée. Un rappel
+`onError` sans argument peut rendre l'échec observable par le parent.
+
+Les sources locales et distantes sont prévues par le contrat. Une source distante ne
+devient effectivement utilisable qu'après ajout de son domaine officiel aux
+`remotePatterns` de Next.js. Aucun domaine fictif n'est autorisé. Les sources
+explicitement identifiables comme SVG sont refusées en V1 ; la vérification complète du
+format, du type MIME et de l'intégrité du fichier appartient au pipeline média.
+
+La propriété `className` est autorisée sur le conteneur de la primitive. La propriété
+`style`, les événements génériques et les propriétés arbitraires de `next/image` sont
+interdits. La frontière Client Component est limitée à la gestion de l'état d'erreur.
 
 ## 13.8 CMP-08 — Icône
 
-Normalise la taille, l'alignement et l'accessibilité des pictogrammes. Une icône décorative est masquée aux technologies d'assistance ; une icône interactive reçoit un nom accessible par son contrôle.
+Normalise la taille, l'alignement et l'accessibilité de pictogrammes SVG internes
+contrôlés. La V1 utilise une famille linéaire unique, une épaisseur homogène et
+`currentColor`.
+
+Le catalogue initial est fermé :
+
+- `image-unavailable` ;
+- `loading` ;
+- `external-link`.
+
+L'API accepte uniquement un nom appartenant à ce catalogue et les tailles sémantiques
+`small`, `medium` et `large`, respectivement reliées aux dimensions 16, 20 et 24 pixels
+de `DT-04`. Aucun SVG, composant, chemin ou fragment HTML ne peut être injecté par
+l'appelant.
+
+Une icône est décorative par défaut et porte alors `aria-hidden="true"`. Une icône
+informative exige `decorative={false}` et un libellé accessible non vide. Une icône ne
+constitue jamais une interaction autonome : le contrôle parent porte la sémantique et le
+nom accessible de l'action.
+
+La propriété `className` est autorisée et la propriété `style` est interdite. La rotation,
+l'animation, les SVG externes et les variantes graphiques arbitraires sont hors
+périmètre.
 
 ---
 

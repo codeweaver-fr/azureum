@@ -2,7 +2,7 @@
 
 ## Statut
 
-En cours — incrément 5 validé
+En cours — incrément 6 validé
 
 ## Objectif
 
@@ -168,6 +168,6 @@ Aucun incrément ne commence tant que l’incrément précédent n’a pas été
 3. mise en page : Conteneur, Empilement et Grille — **Validé** ;
 4. typographie : Texte et titres — **Validé** ;
 5. interactions : Bouton et Lien — **Validé** ;
-6. médias : Image d’œuvre et Icône ;
+6. médias : Image d’œuvre et Icône — **Validé** ;
 7. page de validation visuelle ;
 8. tests consolidés et audit final.
