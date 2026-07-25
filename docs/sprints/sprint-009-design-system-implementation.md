@@ -2,7 +2,7 @@
 
 ## Statut
 
-En cours — incrément 6 validé
+En cours — incrément 7 validé
 
 ## Objectif
 
@@ -169,5 +169,5 @@ Aucun incrément ne commence tant que l’incrément précédent n’a pas été
 4. typographie : Texte et titres — **Validé** ;
 5. interactions : Bouton et Lien — **Validé** ;
 6. médias : Image d’œuvre et Icône — **Validé** ;
-7. page de validation visuelle ;
+7. page de validation visuelle — **Validé** ;
 8. tests consolidés et audit final.

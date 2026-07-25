@@ -6,6 +6,8 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 
 ### Sprint 009 — Implémentation du Design System V1
 
+- validation Product Owner de l’incrément 7 après création de la référence technique `/design-system`, séparation de la route `/` et ajout des validations responsive, clavier, médias et console ;
+- validation visuelle desktop, tablette et mobile sans débordement ; l’indicateur de développement Next.js et la densité de la matrice d’interactions ne constituent aucune réserve ;
 - validation Product Owner de l’incrément 6 après formalisation de `CMP-07` et `CMP-08`, implémentation de `ArtworkImage` et `Icon`, ajout des tests contractuels et de leur démonstration temporaire ;
 - conservation de la taille officielle `large` de 24 pixels pour l’icône du placeholder : l’observation visuelle ne justifie ni valeur locale ni nouveau token ;
 - maintien de la configuration des sources distantes hors du composant, sans `remotePatterns` fictif ;
