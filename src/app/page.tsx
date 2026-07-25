@@ -1,4 +1,6 @@
 import { Container, Grid, GridItem, Stack } from "@/shared/components/layout";
+import { Button, Link } from "@/shared/components/interactions";
+import { Heading, Text } from "@/shared/components/typography";
 
 import styles from "./page.module.css";
 
@@ -53,6 +55,50 @@ export default function Home() {
             <Container width="narrow">
               <div className={styles.narrowExample}>Container « narrow »</div>
             </Container>
+          </section>
+
+          <section>
+            <Stack direction="vertical" gap="lg">
+              <Heading as="h2" variant="h2">
+                Interactions
+              </Heading>
+
+              <Grid gap="md">
+                {(
+                  ["primary", "secondary", "subtle", "destructive"] as const
+                ).map((variant) => (
+                  <GridItem
+                    key={variant}
+                    span={{ compact: 4, tablet: 4, desktop: 3 }}
+                  >
+                    <Stack direction="vertical" gap="sm">
+                      <Text as="p" variant="sm">
+                        {variant}
+                      </Text>
+                      <Button variant={variant}>Action</Button>
+                      <Button disabled variant={variant}>
+                        Désactivé
+                      </Button>
+                      <Button loading variant={variant}>
+                        Chargement
+                      </Button>
+                    </Stack>
+                  </GridItem>
+                ))}
+              </Grid>
+
+              <Stack direction="horizontal" gap="lg">
+                <Link href="/">Lien interne</Link>
+                <Link
+                  aria-label="Documentation externe, nouvelle fenêtre"
+                  external
+                  href="https://example.com"
+                  target="_blank"
+                >
+                  Lien externe
+                </Link>
+              </Stack>
+            </Stack>
           </section>
         </Stack>
       </Container>

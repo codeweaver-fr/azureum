@@ -2,7 +2,7 @@
 
 ## Statut
 
-En cours — incrément 3 validé
+En cours — incrément 5 validé
 
 ## Objectif
 
@@ -166,8 +166,8 @@ Aucun incrément ne commence tant que l’incrément précédent n’a pas été
 1. décisions techniques explicitement reportées : **Validé** ;
 2. fondations CSS : tokens, reset, styles globaux et typographies — **Validé** ;
 3. mise en page : Conteneur, Empilement et Grille — **Validé** ;
-4. typographie : Texte et titres ;
-5. interactions : Bouton et Lien ;
+4. typographie : Texte et titres — **Validé** ;
+5. interactions : Bouton et Lien — **Validé** ;
 6. médias : Image d’œuvre et Icône ;
 7. page de validation visuelle ;
 8. tests consolidés et audit final.

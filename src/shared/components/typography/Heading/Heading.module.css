@@ -1,0 +1,21 @@
+.heading {
+  font-family: var(--font-editorial), Georgia, "Times New Roman", serif;
+}
+
+.display {
+  font-size: var(--font-size-heading-1);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-heading-1);
+}
+
+.h1 {
+  font-size: var(--font-size-heading-2);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-heading-2);
+}
+
+.h2 {
+  font-size: var(--font-size-heading-3);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-heading-3);
+}

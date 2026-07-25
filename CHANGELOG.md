@@ -18,6 +18,11 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 - validation de l’incrément 3 : primitives génériques Conteneur, Empilement et Grille, extensions responsive et tests de contrat associés ;
 - interdiction des styles inline dans l’API de ces primitives afin de préserver l’usage des Design Tokens.
 - adoption d’une API sémantique stable pour les espacements, reliée explicitement aux tokens `DT-03` sans modifier leurs valeurs.
+- validation de l’incrément 4 : primitives typographiques Texte et Titre, séparation du niveau HTML et de la variante visuelle, tests de contrat associés ;
+- formalisation dans `CMP-04` des éléments HTML autorisés, des variantes, des graisses et de la responsabilité exclusive du Conteneur pour les largeurs de lecture.
+- validation de l’incrément 5 : primitives d’interaction Bouton et Lien, matrices d’états, tailles, chargement accessible et tests de contrat associés ;
+- adoption de la matrice C pour la variante destructive et promotion contrôlée de ses tokens après expérimentation isolée.
+- confirmation de l’héritage typographique contextuel du composant Lien, la typographie fonctionnelle Inter restant sous la responsabilité des conteneurs de navigation et d’interface.
 
 ### Révision Sprint 008-r1 — Validée, verrouillée et fusionnée
 

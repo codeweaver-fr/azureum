@@ -13,6 +13,9 @@
   --color-functional-warning: #d8a34a;
   --color-functional-error: #b85c52;
   --color-functional-information: #4d7cff;
+  --color-functional-danger: #a0413b;
+  --color-functional-danger-active: #803d38;
+  --color-functional-danger-disabled: #6f5a58;
 
   /* DT-01 — Couleurs sémantiques */
   --color-background: var(--color-neutral-white);
@@ -32,6 +35,10 @@
   --color-warning: var(--color-functional-warning);
   --color-error: var(--color-functional-error);
   --color-information: var(--color-functional-information);
+  --color-danger-surface: var(--color-functional-danger);
+  --color-danger-surface-active: var(--color-functional-danger-active);
+  --color-danger-surface-disabled: var(--color-functional-danger-disabled);
+  --color-on-danger: var(--color-neutral-white);
 
   /* DT-02 — Typographie */
   --font-size-xs: 0.75rem;

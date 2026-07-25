@@ -338,8 +338,11 @@ Cette classification technique ne modifie pas la composition de l'identité déc
 |---|---:|---|
 | Succès | `#5F8F73` | Confirmation |
 | Avertissement | `#D8A34A` | Vigilance |
-| Erreur | `#B85C52` | Échec et suppression |
+| Erreur | `#B85C52` | Échec |
 | Information | `#4D7CFF` | Information contextuelle |
+| Destructif | `#A0413B` | Action irréversible |
+| Destructif actif | `#803D38` | Pression d'une action irréversible |
+| Destructif désactivé | `#6F5A58` | Action irréversible indisponible |
 
 ### Tokens sémantiques
 
@@ -366,6 +369,10 @@ Les correspondances colorimétriques actives de la V1 sont :
 | Warning | Avertissement |
 | Error | Erreur |
 | Information | Information |
+| Danger Surface | Destructif |
+| Danger Surface Active | Destructif actif |
+| Danger Surface Disabled | Destructif désactivé |
+| On Danger | Blanc galerie |
 | Selection | Brand Primary pour le fond, Text Inverse pour le texte |
 
 Les rôles `Overlay`, `Backdrop`, `Skeleton` et `Placeholder` ne possèdent aucune valeur validée dans le Design System V1. Leur création reste différée jusqu'à l'existence d'un usage démontré et nécessitera une décision Product Owner documentée.
@@ -412,6 +419,9 @@ Les contrastes suivants, calculés selon WCAG 2.2, encadrent les associations de
 | Noir minéral sur Avertissement | `8,44:1` | Texte et éléments graphiques |
 | Noir minéral sur Information | `5,14:1` | Texte et éléments graphiques |
 | Erreur sur Blanc galerie | `4,25:1` | Éléments graphiques et grands textes uniquement |
+| Blanc galerie sur Destructif | `6,02:1` | Texte et éléments graphiques |
+| Blanc galerie sur Destructif actif | `7,55:1` | Texte et éléments graphiques |
+| Blanc galerie sur Destructif désactivé | `6,09:1` | Texte et éléments graphiques |
 | Bleu AZUREUM sur Noir minéral | `3,73:1` | Focus et éléments graphiques uniquement |
 
 La couleur Erreur ne sert pas de fond à un texte courant dans la palette V1. Un message d'erreur utilise un texte principal conforme accompagné d'un indice graphique, d'un libellé ou d'une icône d'erreur.
@@ -836,15 +846,153 @@ Organise les contenus selon la grille responsive et permet aux éléments de s'�
 
 ## 13.4 CMP-04 — Texte et titre
 
-Applique les familles, niveaux, interlignes et largeurs de lecture. Le niveau visuel et le niveau sémantique restent distinguables afin de préserver la structure des titres.
+Applique les familles, niveaux et interlignes validés par `DT-02`. Le niveau visuel et le niveau sémantique restent indépendants afin de préserver la structure des titres.
+
+### Texte
+
+Le composant Texte accepte exclusivement les éléments HTML `p`, `span`, `small`, `strong` et `em`.
+
+| Variante API | Niveau DT-02 | Graisse |
+|---|---|---:|
+| `xs` | Très petit | Regular (`400`) |
+| `sm` | Petit | Regular (`400`) |
+| `body` | Corps | Regular (`400`) |
+| `body-lg` | Corps large | Regular (`400`) |
+
+### Titre
+
+Le composant Titre accepte exclusivement les éléments HTML `h1` à `h6`. Le niveau HTML est toujours choisi explicitement selon la structure du contenu et n'est jamais déduit de la variante visuelle.
+
+| Variante API | Niveau DT-02 | Graisse |
+|---|---|---:|
+| `display` | Titre 1 | Bold (`700`) |
+| `h1` | Titre 2 | Bold (`700`) |
+| `h2` | Titre 3 | SemiBold (`600`) |
+
+Les composants Texte et Titre n'exposent aucune prop de graisse. Le token Medium (`500`) reste disponible pour d'autres composants mais n'est pas utilisé par ces primitives dans la V1.
+
+Les largeurs de lecture ne relèvent pas des primitives typographiques. Elles sont appliquées exclusivement par le composant Conteneur (`CMP-01`).
 
 ## 13.5 CMP-05 — Bouton
 
 Déclenche une action. Ses variantes expriment une priorité principale, secondaire, discrète ou destructive. Il couvre les états de focus, chargement et désactivation sans changer de largeur de manière inattendue.
 
+### API publique
+
+Le composant rend exclusivement un élément HTML `button`. Il ne peut pas être utilisé pour assurer une navigation et ne peut contenir aucun autre contrôle interactif.
+
+Les variantes publiques autorisées sont :
+
+- `primary` ;
+- `secondary` ;
+- `subtle` ;
+- `destructive`.
+
+Les tailles publiques autorisées sont :
+
+- `compact` ;
+- `standard` ;
+- `comfortable`.
+
+La taille par défaut est `standard`. Le type HTML accepte exclusivement `button`, `submit` et `reset`, avec `button` comme valeur par défaut afin d'éviter toute soumission implicite.
+
+Les attributs HTML natifs utiles et `className` sont autorisés. La prop `style` est interdite. Une classe externe peut assurer la composition ou l'identification du composant, mais ne peut ni remplacer une variante ni contourner ses tokens.
+
+### Matrices des variantes
+
+Toutes les variantes utilisent constamment la largeur `Border Strong` afin que les changements de couleur de bordure ne modifient jamais les dimensions du contrôle. Le focus visible utilise exclusivement `Focus Ring`.
+
+#### Primary
+
+| État | Fond | Texte | Bordure | Indice complémentaire |
+|---|---|---|---|---|
+| Par défaut | Brand Primary | Text Inverse | Brand Primary | Aucun |
+| Survol | Brand Primary | Text Inverse | Brand Primary | Shadow Light |
+| Actif | Brand Primary | Text Inverse | Text Inverse | Aucun |
+| Focus visible | Brand Primary | Text Inverse | Brand Primary | Focus Ring |
+| Désactivé | Surface | Text Secondary | Border Subtle | Indisponibilité sémantique native |
+| Chargement | Brand Primary | Text Inverse | Brand Primary | Indicateur de progression |
+
+#### Secondary
+
+| État | Fond | Texte | Bordure | Indice complémentaire |
+|---|---|---|---|---|
+| Par défaut | Surface Elevated | Text Primary | Border Default | Aucun |
+| Survol | Surface | Text Primary | Border Default | Shadow Light |
+| Actif | Surface | Text Primary | Border Strong | Aucun |
+| Focus visible | Surface Elevated | Text Primary | Border Default | Focus Ring |
+| Désactivé | Surface | Text Secondary | Border Subtle | Indisponibilité sémantique native |
+| Chargement | Surface Elevated | Text Primary | Border Default | Indicateur de progression |
+
+#### Subtle
+
+| État | Fond | Texte | Bordure | Indice complémentaire |
+|---|---|---|---|---|
+| Par défaut | Transparent | Text Primary | Transparent | Aucun |
+| Survol | Surface | Text Primary | Transparent | Aucun |
+| Actif | Surface | Text Primary | Border Strong | Aucun |
+| Focus visible | Transparent | Text Primary | Transparent | Focus Ring |
+| Désactivé | Transparent | Text Secondary | Transparent | Indisponibilité sémantique native |
+| Chargement | Transparent | Text Primary | Transparent | Indicateur de progression |
+
+#### Destructive
+
+| État | Fond | Texte | Bordure | Indice complémentaire |
+|---|---|---|---|---|
+| Par défaut | Danger Surface | On Danger | Danger Surface | Aucun |
+| Survol | Danger Surface | On Danger | Danger Surface | Shadow Light |
+| Actif | Danger Surface Active | On Danger | Danger Surface Active | Aucun |
+| Focus visible | Danger Surface | On Danger | Danger Surface | Focus Ring |
+| Désactivé | Danger Surface Disabled | On Danger | Danger Surface Disabled | Indisponibilité sémantique native |
+| Chargement | Danger Surface | On Danger | Danger Surface | Indicateur de progression |
+
+Le survol conserve volontairement la couleur de fond. Il exprime l'interaction par un relief discret sans modifier la nature destructive du contrôle. Le focus utilise exclusivement le token `Focus Ring`. Le chargement conserve les dimensions et le fond de l'état par défaut.
+
+### Tailles
+
+| Taille API | Hauteur | Espacement horizontal | Typographie | Taille de l'indicateur | Espacement interne |
+|---|---|---|---|---|---|
+| `compact` | Control Compact | Space 12 | Petit, Medium (`500`) | Icon Small | Space 8 |
+| `standard` | Control Standard | Space 16 | Corps, Medium (`500`) | Icon Medium | Space 8 |
+| `comfortable` | Control Comfortable | Space 24 | Corps large, Medium (`500`) | Icon Large | Space 12 |
+
+Aucune taille, graisse, hauteur ou valeur d'espacement locale n'est autorisée.
+
+### Chargement
+
+La prop publique `loading` est facultative et booléenne.
+
+Pendant le chargement :
+
+- le libellé reste visible et inchangé ;
+- un indicateur interne est affiché dans un emplacement réservé ;
+- un emplacement symétrique préserve le centrage du libellé ;
+- la hauteur, la largeur et la position du libellé ne changent pas ;
+- le contrôle expose `aria-busy="true"` ;
+- le contrôle est désactivé nativement afin d'empêcher toute activation répétée ;
+- aucun déplacement volontaire du focus n'est effectué ;
+- l'indicateur est décoratif et masqué aux technologies d'assistance ;
+- son animation utilise les tokens de mouvement et devient immobile avec `prefers-reduced-motion`.
+
+L'indicateur de chargement est une partie interne du composant. Il n'est pas exposé comme un `ReactNode` et ne crée aucune API d'icône avant l'implémentation de `CMP-08`.
+
+### Icônes
+
+Les icônes de contenu sont reportées jusqu'à l'implémentation de `CMP-08`. Le composant n'accepte provisoirement aucune prop d'icône et aucune interaction composée uniquement d'une icône.
+
 ## 13.6 CMP-06 — Lien
 
 Conduit vers une destination. Il reste identifiable hors du seul contexte colorimétrique et ne doit pas être utilisé pour simuler une action applicative.
+
+Le composant possède une seule apparence. Il reste souligné dans son état par défaut et utilise exclusivement les tokens du Design System.
+
+Le lien hérite volontairement de la famille typographique de son contexte. Un lien éditorial conserve ainsi la typographie du texte qui le contient. Dans une navigation ou un contexte fonctionnel, le conteneur porte la responsabilité d'appliquer la typographie fonctionnelle Inter. Cette règle évite au composant Lien d'altérer localement la hiérarchie typographique de son contenu.
+
+Une destination interne est rendue avec `next/link`. Une destination externe est rendue avec un élément HTML `a` et doit être déclarée explicitement comme telle dans l'API. Les liens externes ouverts dans une nouvelle fenêtre imposent `target="_blank"`, ajoutent `noopener noreferrer` à `rel` et exigent un `aria-label` signalant ce comportement.
+
+Le téléchargement est autorisé uniquement pour une destination externe. Les états `disabled` et `loading` sont interdits : lorsqu'une destination n'est pas disponible, aucun lien n'est rendu.
+
+Les attributs HTML natifs utiles et `className` sont autorisés. La prop `style` est interdite. Le composant ne peut contenir aucun autre contrôle interactif et n'accepte aucune icône avant l'implémentation de `CMP-08`.
 
 ## 13.7 CMP-07 — Image d'œuvre
 
@@ -873,6 +1021,33 @@ Un composant fondamental est ajouté lorsqu'un besoin transversal ne peut être 
 ## 14.4 Dépréciation
 
 Un élément déprécié conserve son identifiant documentaire, indique son remplacement et reste traçable jusqu'à la migration de ses usages. Un identifiant retiré n'est jamais réattribué.
+
+## 14.5 Expérimentation et tokens candidats
+
+Lorsqu'un besoin démontré ne peut pas être satisfait par les tokens officiels existants, une évolution potentielle du Design System peut être évaluée au moyen de tokens candidats.
+
+Un token candidat :
+
+- utilise obligatoirement le préfixe `--candidate-*` ;
+- est défini exclusivement dans un fichier expérimental dédié au Playground ;
+- ne figure jamais dans `tokens.css` ;
+- n'est jamais exporté par l'API publique du Design System ;
+- n'est jamais utilisé, directement ou indirectement, par un composant ou une feuille de styles de production ;
+- peut être modifié ou supprimé sans procédure de migration ;
+- est supprimé après l'arbitrage Product Owner.
+
+Le Playground est l'unique environnement autorisé à utiliser des tokens candidats. Il permet de comparer les propositions, d'en vérifier l'accessibilité et d'en évaluer la cohérence visuelle. Une démonstration dans le Playground ne constitue jamais une validation du Design System.
+
+La promotion d'un token candidat suit obligatoirement cette séquence :
+
+1. validation fonctionnelle, accessible et visuelle par le Product Owner ;
+2. mise à jour de la documentation du Design System ;
+3. intégration du token validé dans `tokens.css` ;
+4. export par l'API publique lorsque nécessaire ;
+5. remplacement des usages expérimentaux ;
+6. suppression du token candidat et des propositions non retenues.
+
+Le Design System de production doit pouvoir être compilé et utilisé sans aucun fichier expérimental. Cette règle de non-dépendance est protégée par un test contractuel couvrant les sources et exports de production.
 
 ---
 
@@ -934,8 +1109,8 @@ Toute variable représentant un token validé respecte la structure `--<catégor
 
 La liste de référence de la V1 est la suivante :
 
-- couleurs primitives : `--color-brand-blue`, `--color-brand-gold`, `--color-brand-terracotta`, `--color-neutral-white`, `--color-neutral-ivory`, `--color-neutral-stone`, `--color-neutral-soft`, `--color-neutral-graphite`, `--color-neutral-black`, `--color-functional-success`, `--color-functional-warning`, `--color-functional-error`, `--color-functional-information` ;
-- couleurs sémantiques : `--color-background`, `--color-surface`, `--color-surface-elevated`, `--color-surface-inverse`, `--color-border-subtle`, `--color-border-default`, `--color-border-strong`, `--color-divider`, `--color-text-primary`, `--color-text-secondary`, `--color-text-inverse`, `--color-brand-primary`, `--color-focus-ring`, `--color-success`, `--color-warning`, `--color-error`, `--color-information` ;
+- couleurs primitives : `--color-brand-blue`, `--color-brand-gold`, `--color-brand-terracotta`, `--color-neutral-white`, `--color-neutral-ivory`, `--color-neutral-stone`, `--color-neutral-soft`, `--color-neutral-graphite`, `--color-neutral-black`, `--color-functional-success`, `--color-functional-warning`, `--color-functional-error`, `--color-functional-information`, `--color-functional-danger`, `--color-functional-danger-active`, `--color-functional-danger-disabled` ;
+- couleurs sémantiques : `--color-background`, `--color-surface`, `--color-surface-elevated`, `--color-surface-inverse`, `--color-border-subtle`, `--color-border-default`, `--color-border-strong`, `--color-divider`, `--color-text-primary`, `--color-text-secondary`, `--color-text-inverse`, `--color-brand-primary`, `--color-focus-ring`, `--color-success`, `--color-warning`, `--color-error`, `--color-information`, `--color-danger-surface`, `--color-danger-surface-active`, `--color-danger-surface-disabled`, `--color-on-danger` ;
 - typographies : `--font-editorial`, `--font-interface`, `--font-size-xs`, `--font-size-sm`, `--font-size-body`, `--font-size-body-lg`, `--font-size-heading-3`, `--font-size-heading-2`, `--font-size-heading-1`, `--line-height-xs`, `--line-height-sm`, `--line-height-body`, `--line-height-body-lg`, `--line-height-heading-3`, `--line-height-heading-2`, `--line-height-heading-1`, `--font-weight-regular`, `--font-weight-medium`, `--font-weight-semibold`, `--font-weight-bold` ;
 - espacements : `--space-0`, `--space-4`, `--space-8`, `--space-12`, `--space-16`, `--space-24`, `--space-32`, `--space-48`, `--space-64`, `--space-96`, `--space-128` ;
 - dimensions : `--size-control-compact`, `--size-control-standard`, `--size-control-comfortable`, `--size-icon-sm`, `--size-icon-md`, `--size-icon-lg`, `--size-reading-narrow`, `--size-reading-standard`, `--size-container-main` ;
