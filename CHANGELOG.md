@@ -6,6 +6,9 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 
 ### Sprint 009 — Implémentation du Design System V1
 
+- validation finale du Sprint 009 par le Product Owner avec exception de sécurité temporaire explicitement acceptée ;
+- correction compatible de `brace-expansion@5.0.7` vers `5.0.8` dans le lockfile ;
+- acceptation temporaire et documentée de `brace-expansion@1.1.16`, dépendance transitive de développement concernée par `GHSA-mh99-v99m-4gvg` / `CVE-2026-14257`, sans masquage de `pnpm audit` ni override incompatible ;
 - validation Product Owner de l’incrément 7 après création de la référence technique `/design-system`, séparation de la route `/` et ajout des validations responsive, clavier, médias et console ;
 - validation visuelle desktop, tablette et mobile sans débordement ; l’indicateur de développement Next.js et la densité de la matrice d’interactions ne constituent aucune réserve ;
 - validation Product Owner de l’incrément 6 après formalisation de `CMP-07` et `CMP-08`, implémentation de `ArtworkImage` et `Icon`, ajout des tests contractuels et de leur démonstration temporaire ;

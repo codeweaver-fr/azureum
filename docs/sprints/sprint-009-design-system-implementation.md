@@ -2,7 +2,7 @@
 
 ## Statut
 
-En cours — incrément 7 validé
+Validé — verrouillé
 
 ## Objectif
 
@@ -143,6 +143,34 @@ Le Sprint est terminable lorsque :
 - les décisions techniques ouvertes au début du Sprint sont toutes intégrées au Design System V1 ou explicitement reportées par une nouvelle décision du Product Owner ;
 - le Product Owner valide le résultat final.
 
+## Exception de sécurité temporaire
+
+L’audit final du Sprint 009 conserve explicitement une occurrence connue de
+`brace-expansion@1.1.16`, introduite transitivement par
+`eslint@9.39.5 > minimatch@3.1.5`. Cette dépendance appartient exclusivement à
+l’outillage de développement et n’est pas intégrée au bundle applicatif.
+
+L’avis `GHSA-mh99-v99m-4gvg` / `CVE-2026-14257` signale un risque de déni de
+service par épuisement de la mémoire. La branche `1.x` ne dispose actuellement
+d’aucune version corrigée : `1.1.16` est sa dernière version publiée, tandis que
+la première version annoncée comme corrigée est `5.0.8`.
+
+Les solutions suivantes ont été écartées :
+
+- un override de `1.1.16` vers `5.0.8`, car il imposerait une rupture majeure à
+  la contrainte `brace-expansion@^1.1.7` de `minimatch@3.1.5` ;
+- ESLint 10, car les dernières versions disponibles de `eslint-plugin-import`,
+  `eslint-plugin-jsx-a11y` et `eslint-plugin-react` ne déclarent pas encore cette
+  version compatible.
+
+L’alerte n’est ni masquée ni exclue de `pnpm audit`. L’exception sera levée dès
+qu’une mise à jour compatible d’ESLint ou de ses dépendances transitives
+supprimera la branche vulnérable. Elle doit être réévaluée lors de chaque mise à
+jour d’ESLint, de Next.js, d’`eslint-config-next` ou des plugins associés.
+
+La seconde occurrence initialement détectée, `brace-expansion@5.0.7`, est
+corrigée séparément par la résolution compatible `5.0.8` dans le lockfile.
+
 ## Séquence de réalisation
 
 1. valider le présent contrat ;
@@ -170,4 +198,9 @@ Aucun incrément ne commence tant que l’incrément précédent n’a pas été
 5. interactions : Bouton et Lien — **Validé** ;
 6. médias : Image d’œuvre et Icône — **Validé** ;
 7. page de validation visuelle — **Validé** ;
-8. tests consolidés et audit final.
+8. tests consolidés et audit final : **Validé**.
+
+## Validation Product Owner
+
+Le Sprint 009 est validé avec l’exception de sécurité temporaire documentée
+concernant `brace-expansion@1.1.16`. Aucun autre écart bloquant ne subsiste.

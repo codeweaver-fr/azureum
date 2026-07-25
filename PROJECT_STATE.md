@@ -6,7 +6,7 @@ Construction du produit — implémentation du Design System V1.
 
 ## Sprint actif
 
-Sprint 009 — Implémentation du Design System V1 : **En cours — incrément 7 validé**.
+Sprint 009 — Implémentation du Design System V1 : **Validé — verrouillé**.
 
 Le Sprint 009 transforme le Design System V1 validé en fondations CSS et composants React génériques, sans fonctionnalité métier ni interface produit définitive.
 
@@ -94,7 +94,7 @@ Le périmètre fonctionnel de la V1 est validé dans `docs/specifications/functi
 
 Les cinq jalons du socle sont préparés : Next.js App Router, TypeScript, pnpm, ESLint, Prettier, structure modulaire minimale, Vitest, Playwright, GitHub Actions, variables d'environnement documentées, Supabase local et guide développeur, sans logique métier ni interface produit définitive.
 
-Le runtime Node.js `24.18.0` et pnpm `10.34.5` sont validés par une installation figée, le lint, la vérification TypeScript, le build et l'audit de sécurité. Le fichier de verrouillage reste inchangé et aucune vulnérabilité connue n'est signalée.
+Le runtime Node.js `24.18.0` et pnpm `10.34.5` sont validés par une installation figée, le lint, la vérification TypeScript et le build. L’audit de sécurité du Sprint 009 conserve temporairement `brace-expansion@1.1.16`, dépendance transitive de l’outillage ESLint concernée par `GHSA-mh99-v99m-4gvg` / `CVE-2026-14257`. Cette exception n’est pas masquée et doit être réévaluée lors des mises à jour de la chaîne ESLint/Next.js.
 
 Les scripts de formatage et de contrôle statique sont opérationnels. Les frontières `modules`, `shared`, `server`, `styles` et `test` sont documentées sans implémentation prématurée.
 
@@ -110,4 +110,4 @@ Aucune base de données déployée. Le modèle conceptuel et l'architecture Post
 
 ## Prochaine étape
 
-Préparer l’incrément 8 du Sprint 009 consacré aux tests consolidés et à l’audit final, sans rouvrir les composants validés.
+Préparer le contrat du Sprint 010 à partir du Design System V1 désormais implémenté et verrouillé.
