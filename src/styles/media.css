@@ -1,0 +1,14 @@
+img,
+picture,
+video,
+canvas,
+svg {
+  block-size: auto;
+  display: block;
+  max-inline-size: 100%;
+}
+
+audio,
+video {
+  inline-size: 100%;
+}

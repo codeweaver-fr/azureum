@@ -1,0 +1,150 @@
+.page {
+  padding-block: var(--space-64);
+}
+
+.header {
+  border-block-end: var(--border-width-standard) solid
+    var(--color-border-default);
+  padding-block-end: var(--space-32);
+}
+
+.section {
+  border-block-end: var(--border-width-standard) solid var(--color-divider);
+  padding-block: var(--space-48);
+}
+
+.section:last-child {
+  border-block-end: none;
+}
+
+.eyebrow {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+}
+
+.examples {
+  align-items: start;
+}
+
+.example {
+  background: var(--color-surface);
+  border: var(--border-width-standard) solid var(--color-border-subtle);
+  border-radius: var(--radius-standard);
+  min-inline-size: 0;
+  padding: var(--space-24);
+}
+
+.technicalZone {
+  background: var(--color-surface);
+  border: var(--border-width-standard) dashed var(--color-border-default);
+  padding: var(--space-16);
+}
+
+.swatch {
+  border: var(--border-width-standard) solid var(--color-border-default);
+  block-size: var(--size-control-comfortable);
+  inline-size: 100%;
+}
+
+.brandBlue {
+  background: var(--color-brand-primary);
+}
+
+.brandGold {
+  background: var(--color-brand-gold);
+}
+
+.brandTerracotta {
+  background: var(--color-brand-terracotta);
+}
+
+.neutralWhite {
+  background: var(--color-neutral-white);
+}
+
+.neutralStone {
+  background: var(--color-neutral-stone);
+}
+
+.neutralBlack {
+  background: var(--color-neutral-black);
+}
+
+.spacingSample {
+  background: var(--color-brand-primary);
+  block-size: var(--space-8);
+}
+
+.space8 {
+  inline-size: var(--space-8);
+}
+
+.space16 {
+  inline-size: var(--space-16);
+}
+
+.space24 {
+  inline-size: var(--space-24);
+}
+
+.space32 {
+  inline-size: var(--space-32);
+}
+
+.radiusSample {
+  background: var(--color-surface-elevated);
+  border: var(--border-width-standard) solid var(--color-border-default);
+  block-size: var(--size-control-comfortable);
+}
+
+.radiusNone {
+  border-radius: var(--radius-none);
+}
+
+.radiusSubtle {
+  border-radius: var(--radius-subtle);
+}
+
+.radiusStandard {
+  border-radius: var(--radius-standard);
+}
+
+.shadowSample {
+  background: var(--color-surface-elevated);
+  block-size: var(--size-control-comfortable);
+}
+
+.shadowLight {
+  box-shadow: var(--shadow-light);
+}
+
+.shadowMedium {
+  box-shadow: var(--shadow-medium);
+}
+
+.shadowStrong {
+  box-shadow: var(--shadow-strong);
+}
+
+.editorialContext {
+  font-family: var(--font-editorial), Georgia, "Times New Roman", serif;
+}
+
+.functionalContext {
+  font-family: var(--font-interface), Arial, Helvetica, sans-serif;
+}
+
+.brandColor {
+  color: var(--color-brand-primary);
+}
+
+.artworkFrame {
+  aspect-ratio: 3 / 2;
+  position: relative;
+}
+
+.artworkFrame img {
+  object-fit: contain;
+}

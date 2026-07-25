@@ -1,0 +1,38 @@
+.container {
+  inline-size: 100%;
+  margin-inline: auto;
+  padding-inline: var(--space-16);
+}
+
+.main {
+  max-inline-size: var(--size-container-main);
+}
+
+.reading {
+  max-inline-size: var(--size-reading-standard);
+}
+
+.narrow {
+  max-inline-size: var(--size-reading-narrow);
+}
+
+/* DT-10 — Mobile large */
+@media (min-width: 480px) {
+  .container {
+    padding-inline: var(--space-24);
+  }
+}
+
+/* DT-10 — Bureau */
+@media (min-width: 1024px) {
+  .container {
+    padding-inline: var(--space-32);
+  }
+}
+
+/* DT-10 — Exposition */
+@media (min-width: 1600px) {
+  .container {
+    padding-inline: var(--space-64);
+  }
+}

@@ -4,7 +4,35 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 
 ## Non publié
 
-### Révision Sprint 008-r1 — Validée, verrouillage Git en attente
+### Sprint 009 — Implémentation du Design System V1
+
+- validation finale du Sprint 009 par le Product Owner avec exception de sécurité temporaire explicitement acceptée ;
+- correction compatible de `brace-expansion@5.0.7` vers `5.0.8` dans le lockfile ;
+- acceptation temporaire et documentée de `brace-expansion@1.1.16`, dépendance transitive de développement concernée par `GHSA-mh99-v99m-4gvg` / `CVE-2026-14257`, sans masquage de `pnpm audit` ni override incompatible ;
+- validation Product Owner de l’incrément 7 après création de la référence technique `/design-system`, séparation de la route `/` et ajout des validations responsive, clavier, médias et console ;
+- validation visuelle desktop, tablette et mobile sans débordement ; l’indicateur de développement Next.js et la densité de la matrice d’interactions ne constituent aucune réserve ;
+- validation Product Owner de l’incrément 6 après formalisation de `CMP-07` et `CMP-08`, implémentation de `ArtworkImage` et `Icon`, ajout des tests contractuels et de leur démonstration temporaire ;
+- conservation de la taille officielle `large` de 24 pixels pour l’icône du placeholder : l’observation visuelle ne justifie ni valeur locale ni nouveau token ;
+- maintien de la configuration des sources distantes hors du composant, sans `remotePatterns` fictif ;
+- ouverture du Sprint 009 à partir de la référence documentaire `sprint-008-r1` ;
+- création du contrat d’implémentation des tokens, fondations CSS et composants fondamentaux ;
+- maintien explicite hors périmètre des fonctionnalités métier et des interfaces produit définitives.
+- validation du contrat par le Product Owner et adoption d’une implémentation incrémentale avec revue entre chaque groupe de fondations.
+- validation de l’incrément 1 : polices, ombres, courbe d’animation, réduction globale des mouvements, convention CSS, sélection et traitement des points de rupture ;
+- intégration de ces décisions au Design System V1 avant toute ligne de CSS ou de React.
+- validation de l’incrément 2 : tokens CSS, reset, styles globaux, accessibilité, médias et chargement des typographies avec `next/font` ;
+- ajout d’un test de contrat des fondations CSS, sans création de composant React.
+- conservation du rendu typographique natif du navigateur plutôt que l'ajout de propriétés de lissage non standardisées.
+- validation de l’incrément 3 : primitives génériques Conteneur, Empilement et Grille, extensions responsive et tests de contrat associés ;
+- interdiction des styles inline dans l’API de ces primitives afin de préserver l’usage des Design Tokens.
+- adoption d’une API sémantique stable pour les espacements, reliée explicitement aux tokens `DT-03` sans modifier leurs valeurs.
+- validation de l’incrément 4 : primitives typographiques Texte et Titre, séparation du niveau HTML et de la variante visuelle, tests de contrat associés ;
+- formalisation dans `CMP-04` des éléments HTML autorisés, des variantes, des graisses et de la responsabilité exclusive du Conteneur pour les largeurs de lecture.
+- validation de l’incrément 5 : primitives d’interaction Bouton et Lien, matrices d’états, tailles, chargement accessible et tests de contrat associés ;
+- adoption de la matrice C pour la variante destructive et promotion contrôlée de ses tokens après expérimentation isolée.
+- confirmation de l’héritage typographique contextuel du composant Lien, la typographie fonctionnelle Inter restant sous la responsabilité des conteneurs de navigation et d’interface.
+
+### Révision Sprint 008-r1 — Validée, verrouillée et fusionnée
 
 - autorisation explicite par le Product Owner d'une révision corrective fermée du Design System V1 ;
 - correction des contradictions documentaires relatives aux familles de couleurs, aux tokens sémantiques et aux conventions techniques ;
@@ -12,6 +40,7 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 - identification explicite des valeurs d'ombre et des courbes d'animation restant à définir pendant le Sprint 009, sans décision inventée ;
 - synchronisation des critères d'acceptation et des documents de gouvernance avec l'état réel du projet.
 - audit ciblé conforme et validation documentaire prononcée par le Product Owner le 22 juillet 2026, sans réserve bloquante.
+- verrouillage sous le tag `sprint-008-r1`, puis fusion contrôlée dans `main` avant la reprise du Sprint 009.
 
 ### Sprint 008 — Design System
 

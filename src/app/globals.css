@@ -1,0 +1,24 @@
+@import "../styles/tokens.css";
+@import "../styles/reset.css";
+@import "../styles/accessibility.css";
+@import "../styles/media.css";
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-interface), Arial, Helvetica, sans-serif;
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+  min-block-size: 100vh;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-editorial), Georgia, "Times New Roman", serif;
+}

@@ -1,0 +1,47 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.gapMd {
+  gap: var(--space-16);
+}
+
+.gapLg {
+  gap: var(--space-24);
+}
+
+.gapXl {
+  gap: var(--space-32);
+}
+
+.item {
+  grid-column: span var(--grid-span-compact, 1);
+  min-inline-size: 0;
+}
+
+/* DT-10 — Tablette */
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+
+  .item {
+    grid-column: span var(--grid-span-tablet, var(--grid-span-compact, 1));
+  }
+}
+
+/* DT-10 — Bureau */
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .item {
+    grid-column: span
+      var(
+        --grid-span-desktop,
+        var(--grid-span-tablet, var(--grid-span-compact, 1))
+      );
+  }
+}

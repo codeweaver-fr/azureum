@@ -1,0 +1,55 @@
+.stack {
+  display: flex;
+}
+
+.horizontal {
+  flex-direction: row;
+}
+
+.vertical {
+  flex-direction: column;
+}
+
+.gapNone {
+  gap: var(--space-0);
+}
+
+.gap2xs {
+  gap: var(--space-4);
+}
+
+.gapXs {
+  gap: var(--space-8);
+}
+
+.gapSm {
+  gap: var(--space-12);
+}
+
+.gapMd {
+  gap: var(--space-16);
+}
+
+.gapLg {
+  gap: var(--space-24);
+}
+
+.gapXl {
+  gap: var(--space-32);
+}
+
+.gap2xl {
+  gap: var(--space-48);
+}
+
+.gap3xl {
+  gap: var(--space-64);
+}
+
+.gap4xl {
+  gap: var(--space-96);
+}
+
+.gap5xl {
+  gap: var(--space-128);
+}
