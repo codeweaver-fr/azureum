@@ -63,6 +63,7 @@ describe("public application shell", () => {
     expect(markup).toContain('<main class="');
     expect(markup).toContain('id="main-content"');
     expect(markup).toContain('tabindex="-1"');
+    expect(markup).not.toMatch(/tabindex="[1-9]\d*"/);
   });
 
   it("provides the skip link before the persistent landmarks", () => {

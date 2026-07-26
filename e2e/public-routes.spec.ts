@@ -30,6 +30,7 @@ for (const route of publicRoutes) {
     await expect(
       page.getByRole("heading", { level: 1, name: route.heading }),
     ).toBeVisible();
+    await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
     await expect(page.locator("main")).toHaveCount(1);
   });
 }
