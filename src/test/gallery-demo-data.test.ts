@@ -1,3 +1,6 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
+
 import { describe, expect, it } from "vitest";
 
 import {
@@ -110,19 +113,19 @@ describe("gallery local data contract", () => {
       {
         slug: "composition-a",
         src: "/gallery/composition-a.webp",
-        orientation: "portrait",
+        orientation: "landscape",
         dimensions: {
-          width: 1024,
-          height: 1536,
+          width: 1536,
+          height: 1024,
         },
       },
       {
         slug: "composition-b",
         src: "/gallery/composition-b.webp",
-        orientation: "landscape",
+        orientation: "portrait",
         dimensions: {
-          width: 1536,
-          height: 1024,
+          width: 1024,
+          height: 1536,
         },
       },
       {
@@ -142,6 +145,18 @@ describe("gallery local data contract", () => {
       expect(artwork.media.src).toMatch(/^\/gallery\/[a-z0-9-]+\.webp$/);
       expect(artwork.media.src).not.toMatch(/^https?:\/\//);
       expect(artwork.media.alt.trim()).not.toBe("");
+    }
+  });
+
+  it("references media files that physically exist under public", () => {
+    for (const artwork of galleryArtworks) {
+      const relativePath = artwork.media.src.replace(/^\//, "");
+      const absolutePath = join(process.cwd(), "public", relativePath);
+
+      expect(
+        existsSync(absolutePath),
+        `Missing gallery media: ${artwork.media.src}`,
+      ).toBe(true);
     }
   });
 
