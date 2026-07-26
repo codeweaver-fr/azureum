@@ -5,6 +5,7 @@ import { Container } from "@/shared/components/layout";
 import { Text } from "@/shared/components/typography";
 
 import styles from "./layout.module.css";
+import { PublicHeaderContent } from "./_components/PublicHeaderContent";
 
 interface PublicLayoutProps {
   children: ReactNode;
@@ -19,9 +20,7 @@ export default function PublicLayout({ children }: PublicLayoutProps) {
 
       <header className={styles.header}>
         <Container width="main">
-          <Text as="span" variant="body">
-            AZUREUM
-          </Text>
+          <PublicHeaderContent />
         </Container>
       </header>
 

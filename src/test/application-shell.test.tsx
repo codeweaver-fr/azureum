@@ -2,9 +2,17 @@ import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 
 import { renderToStaticMarkup } from "react-dom/server";
-import { describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import PublicLayout from "@/app/(public)/layout";
+
+const navigationState = vi.hoisted(() => ({
+  pathname: "/",
+}));
+
+vi.mock("next/navigation", () => ({
+  usePathname: () => navigationState.pathname,
+}));
 
 const layoutSource = readFileSync(
   fileURLToPath(new URL("../app/(public)/layout.tsx", import.meta.url)),
@@ -16,6 +24,10 @@ const layoutStyles = readFileSync(
 );
 
 describe("public application shell", () => {
+  beforeEach(() => {
+    navigationState.pathname = "/";
+  });
+
   it("renders the shared landmarks in document order", () => {
     const markup = renderToStaticMarkup(
       <PublicLayout>
@@ -80,5 +92,40 @@ describe("public application shell", () => {
     ]) {
       expect(layoutStyles).toContain(`var(${token})`);
     }
+  });
+
+  it("renders the validated desktop navigation in its documented order", () => {
+    const markup = renderToStaticMarkup(
+      <PublicLayout>
+        <h1>Contenu de la page</h1>
+      </PublicLayout>,
+    );
+
+    const collectionsIndex = markup.indexOf('href="/collections"');
+    const davidIndex = markup.indexOf('href="/david"');
+    const timelineIndex = markup.indexOf('href="/chronologie"');
+
+    expect(markup).toContain('aria-label="Navigation principale"');
+    expect(collectionsIndex).toBeGreaterThan(-1);
+    expect(davidIndex).toBeGreaterThan(collectionsIndex);
+    expect(timelineIndex).toBeGreaterThan(davidIndex);
+    expect(markup).not.toContain('href="/design-system"');
+  });
+
+  it("identifies the current page accessibly", () => {
+    navigationState.pathname = "/collections";
+
+    const markup = renderToStaticMarkup(
+      <PublicLayout>
+        <h1>Collections</h1>
+      </PublicLayout>,
+    );
+
+    expect(markup).toMatch(
+      /<a[^>]*aria-current="page"[^>]*href="\/collections"|<a[^>]*href="\/collections"[^>]*aria-current="page"/,
+    );
+    expect(markup).not.toMatch(
+      /<a[^>]*aria-current="page"[^>]*href="\/david"|<a[^>]*href="\/david"[^>]*aria-current="page"/,
+    );
   });
 });
