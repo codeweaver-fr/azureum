@@ -5,7 +5,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 
 import DesignSystemPage from "@/app/design-system/page";
-import Home from "@/app/page";
+import Home from "@/app/(public)/page";
 
 const designSystemSource = readFileSync(
   fileURLToPath(new URL("../app/design-system/page.tsx", import.meta.url)),
