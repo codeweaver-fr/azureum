@@ -22,6 +22,24 @@ const layoutStyles = readFileSync(
   fileURLToPath(new URL("../app/(public)/layout.module.css", import.meta.url)),
   "utf8",
 );
+const headerSource = readFileSync(
+  fileURLToPath(
+    new URL(
+      "../app/(public)/_components/PublicHeaderContent.tsx",
+      import.meta.url,
+    ),
+  ),
+  "utf8",
+);
+const headerStyles = readFileSync(
+  fileURLToPath(
+    new URL(
+      "../app/(public)/_components/PublicHeaderContent.module.css",
+      import.meta.url,
+    ),
+  ),
+  "utf8",
+);
 
 describe("public application shell", () => {
   beforeEach(() => {
@@ -127,5 +145,28 @@ describe("public application shell", () => {
     expect(markup).not.toMatch(
       /<a[^>]*aria-current="page"[^>]*href="\/david"|<a[^>]*href="\/david"[^>]*aria-current="page"/,
     );
+  });
+
+  it("exposes an accessible mobile navigation control", () => {
+    const markup = renderToStaticMarkup(
+      <PublicLayout>
+        <h1>Accueil</h1>
+      </PublicLayout>,
+    );
+
+    expect(markup).toContain('aria-controls="public-mobile-navigation"');
+    expect(markup).toContain('aria-expanded="false"');
+    expect(markup).toContain('type="button"');
+    expect(headerSource).toContain('event.key !== "Escape"');
+    expect(headerSource).toContain("closeNavigation");
+  });
+
+  it("uses only the documented responsive breakpoint and official tokens", () => {
+    expect(headerStyles).toContain("/* DT-10 — Bureau */");
+    expect(headerStyles).toContain("@media (min-width: 1024px)");
+    expect(headerStyles).not.toMatch(/@media[^{]*(?:480|768|1600)px/);
+    expect(headerStyles).not.toContain("--candidate-");
+    expect(headerStyles).not.toMatch(/#[\da-f]{3,8}\b/i);
+    expect(headerSource).not.toMatch(/\sstyle=\{/);
   });
 });

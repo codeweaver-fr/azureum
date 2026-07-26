@@ -37,3 +37,36 @@ test("the public desktop navigation follows the validated keyboard order", async
   await page.keyboard.press("Tab");
   await expect(links.nth(0)).toBeFocused();
 });
+
+test("the public mobile navigation is accessible and predictable", async ({
+  page,
+}) => {
+  await page.setViewportSize({ height: 844, width: 390 });
+  await page.goto("/");
+
+  const toggle = page.getByRole("button", { name: "Menu" });
+  const navigation = page.getByRole("navigation", {
+    name: "Navigation principale",
+  });
+
+  await expect(toggle).toHaveAttribute("aria-expanded", "false");
+  await expect(navigation).toHaveCount(0);
+
+  await toggle.click();
+
+  await expect(page.getByRole("button", { name: "Fermer" })).toHaveAttribute(
+    "aria-expanded",
+    "true",
+  );
+  await expect(navigation).toBeVisible();
+  await expect(navigation.getByRole("link")).toHaveCount(3);
+
+  await page.keyboard.press("Escape");
+
+  await expect(page.getByRole("button", { name: "Menu" })).toBeFocused();
+  await expect(page.getByRole("button", { name: "Menu" })).toHaveAttribute(
+    "aria-expanded",
+    "false",
+  );
+  await expect(navigation).toHaveCount(0);
+});
