@@ -2,13 +2,15 @@
 
 ## Phase actuelle
 
-Construction du produit — implémentation du Design System V1.
+Construction du produit — préparation du shell applicatif public.
 
 ## Sprint actif
 
-Sprint 009 — Implémentation du Design System V1 : **Validé — verrouillé**.
+Sprint 010 — Application Shell : **En préparation — contrat non verrouillé, aucune implémentation commencée**.
 
-Le Sprint 009 transforme le Design System V1 validé en fondations CSS et composants React génériques, sans fonctionnalité métier ni interface produit définitive.
+Le Sprint 010 doit traduire les spécifications validées en structure applicative publique persistante, sans introduire de nouvelle décision produit, métier ou visuelle.
+
+Le Sprint 009 — Implémentation du Design System V1 est **Validé, verrouillé et fusionné dans `main`**. Le tag `sprint-009` en constitue la référence historique.
 
 Le Sprint 008-r1 — Consolidation du Design System V1 est **Validé, verrouillé et fusionné dans `main`**. Le tag `sprint-008-r1` en constitue la référence historique.
 
@@ -77,6 +79,7 @@ Le périmètre fonctionnel de la V1 est validé dans `docs/specifications/functi
 - le contenu métier du Sprint 004 est validé et son modèle métier est stabilisé ;
 - les règles conditionnelles `RM-LEG-01` à `RM-LEG-05` devront faire l'objet d'une vérification juridique, fiscale et contractuelle adaptée avant toute mise en exploitation d'AZUREUM.
 - toute œuvre appartient à exactement une collection ;
+- le rattachement d'une œuvre à sa collection d'origine devient définitif dès sa première publication ;
 - l'archivage d'une œuvre ne supprime ni son identité ni son historique ;
 - la suppression définitive d'une œuvre est exceptionnelle et relève du rôle Administrateur ;
 - les rôles Artiste et Administrateur portent les responsabilités opérationnelles et peuvent être cumulés par un même utilisateur ;
@@ -85,6 +88,9 @@ Le périmètre fonctionnel de la V1 est validé dans `docs/specifications/functi
 - la découverte publique est éditoriale et structurée par les collections, sans recherche ni filtrage exigés en V1 ;
 - les espaces privés ne participent pas à la navigation publique.
 - l'architecture technique de la V1 est validée dans le cadre du Sprint 006 ;
+- les identifiants publics reposent sur des slugs immuables dès la première publication de la ressource concernée ;
+- les évolutions éditoriales, l'archivage ou le retrait de publication ne permettent ni de modifier ni de réattribuer un slug public ;
+- la stabilité d'une URL publique désigne l'immutabilité de son chemin et ne garantit pas la disponibilité perpétuelle de la ressource ;
 - `RES-01`, `RES-03` et `RES-04` restent à lever avant leurs échéances respectives sans remettre en cause la validation architecturale.
 - le Sprint 007 et ses fondations techniques sont validés et verrouillés ;
 - le Sprint 008 définit la direction artistique et les fondations du Design System V1 ;

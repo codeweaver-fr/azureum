@@ -4,6 +4,15 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 
 ## Non publié
 
+### Préparation du Sprint 010 — Application Shell
+
+- clarification de `RM-ŒUV-13` : une œuvre appartient à une seule collection pendant tout son cycle de vie et son rattachement à sa collection d'origine devient définitif dès sa première publication ;
+- clarification de `INV-14` afin que l'archivage ou l'évolution de la présentation ne permette ni de rompre ni de modifier ce rattachement ;
+- ajout de `DEC-18`, qui fonde la stabilité des URL publiques sur des slugs immuables après première publication ;
+- ajout de la section 8.6 à l'architecture technique afin de distinguer l'identifiant technique stable, le slug public et les données éditoriales ;
+- interdiction de modifier, réattribuer ou réutiliser le slug public d'une collection, d'une œuvre ou d'un contenu artistique après sa première publication ;
+- clarification du fait que la stabilité d'une URL concerne l'immutabilité de son chemin sans garantir l'accessibilité perpétuelle d'une ressource archivée ou retirée de la publication.
+
 ### Sprint 009 — Implémentation du Design System V1
 
 - validation finale du Sprint 009 par le Product Owner avec exception de sécurité temporaire explicitement acceptée ;
