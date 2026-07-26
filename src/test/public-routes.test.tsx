@@ -1,5 +1,6 @@
+import { notFound } from "next/navigation";
 import { renderToStaticMarkup } from "react-dom/server";
-import { describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import TimelinePage from "@/app/(public)/chronologie/page";
 import CollectionPage from "@/app/(public)/collections/[collectionSlug]/page";
@@ -14,7 +15,17 @@ import {
   getGalleryCollections,
 } from "@/modules/gallery/queries";
 
+vi.mock("next/navigation", () => ({
+  notFound: vi.fn(() => {
+    throw new Error("NEXT_NOT_FOUND");
+  }),
+}));
+
 describe("minimal public routes", () => {
+  beforeEach(() => {
+    vi.mocked(notFound).mockClear();
+  });
+
   it.each([
     ["home", HomePage, "AZUREUM"],
     ["David", DavidPage, "David"],
@@ -89,5 +100,49 @@ describe("minimal public routes", () => {
     expect(markup).toContain(
       `>Revenir à la collection ${collection.title}</a>`,
     );
+  });
+
+  it("returns a not-found state for an unknown collection", async () => {
+    await expect(
+      CollectionPage({
+        params: Promise.resolve({
+          collectionSlug: "unknown-collection",
+        }),
+      }),
+    ).rejects.toThrow("NEXT_NOT_FOUND");
+
+    expect(notFound).toHaveBeenCalledOnce();
+  });
+
+  it("returns a not-found state for an unknown artwork", async () => {
+    const [collection] = getGalleryCollections();
+
+    await expect(
+      ArtworkPage({
+        params: Promise.resolve({
+          artworkSlug: "unknown-artwork",
+          collectionSlug: collection.slug,
+        }),
+      }),
+    ).rejects.toThrow("NEXT_NOT_FOUND");
+
+    expect(notFound).toHaveBeenCalledOnce();
+  });
+
+  it("returns a not-found state for an artwork outside its collection", async () => {
+    const [firstCollection, secondCollection] =
+      getGalleryCollections();
+    const artworkSlug = firstCollection.artworkSlugs[0];
+
+    await expect(
+      ArtworkPage({
+        params: Promise.resolve({
+          artworkSlug,
+          collectionSlug: secondCollection.slug,
+        }),
+      }),
+    ).rejects.toThrow("NEXT_NOT_FOUND");
+
+    expect(notFound).toHaveBeenCalledOnce();
   });
 });

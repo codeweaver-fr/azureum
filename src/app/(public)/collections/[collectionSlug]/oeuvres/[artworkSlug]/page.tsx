@@ -42,7 +42,7 @@ export default async function ArtworkPage({ params }: ArtworkPageProps) {
           src={artwork.media.src}
           width={artwork.media.dimensions.width}
         />
-        
+
         <Stack direction="vertical" gap="lg">
           <Heading as="h1" variant="display">
             {artwork.title}
