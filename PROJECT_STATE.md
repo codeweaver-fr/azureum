@@ -2,11 +2,17 @@
 
 ## Phase actuelle
 
-Construction du produit — préparation documentaire de la galerie publique.
+Construction du produit — clôture de la galerie publique de démonstration.
 
 ## Sprint actif
 
-Le Sprint 011 — Galerie publique est **Validé par le Product Owner — verrouillage Git en attente, aucune implémentation commencée**.
+Le Sprint 011 — Galerie publique est **implémenté et validé techniquement — audit final, synchronisation documentaire et verrouillage Git en cours**.
+
+Le Sprint 011 matérialise la consultation publique de deux collections et de six œuvres fictives au moyen d’un jeu local, typé et fini de données de démonstration. Les routes `/collections`, `/collections/[collectionSlug]` et `/collections/[collectionSlug]/oeuvres/[artworkSlug]` permettent désormais la navigation complète entre la liste des collections, une collection, une œuvre et sa collection d’origine.
+
+Les données et médias utilisés restent strictement temporaires, locaux et séparés de toute persistance ou donnée artistique officielle de David Prieur-Gélis. Aucun mécanisme d’acquisition, d’authentification, de gestion éditoriale ou d’extension du Design System n’a été introduit.
+
+Les validations automatiques du Sprint sont conformes : 11 fichiers Vitest et 71 tests réussis, ESLint conforme, TypeScript conforme, build Next.js réussi et 24 tests Playwright réussis.
 
 Le Sprint 010 — Application Shell est **Validé, verrouillé et fusionné dans `main`**. Le tag `sprint-010` en constitue la référence historique. Le dépôt est propre et `main` est synchronisée avec `origin/main`.
 
@@ -97,6 +103,12 @@ Le périmètre fonctionnel de la V1 est validé dans `docs/specifications/functi
 - le Sprint 007 et ses fondations techniques sont validés et verrouillés ;
 - le Sprint 008 définit la direction artistique et les fondations du Design System V1 ;
 - la révision `sprint-008-r1` est limitée à la consolidation de ce contrat avant son implémentation.
+- le Sprint 011 utilise exclusivement un jeu local et temporaire de deux collections et six œuvres fictives ;
+- ces données de démonstration ne définissent ni le futur modèle de persistance, ni le contenu artistique officiel d’AZUREUM ;
+- la collection constitue l’accès public structurant aux œuvres ;
+- une œuvre publique reste consultée dans le contexte de sa collection d’origine ;
+- les routes inconnues ou les associations incohérentes entre une collection et une œuvre produisent un état absent sans donnée de remplacement ;
+- aucune information commerciale, acquisition, recherche, filtre ou tri interactif n’est introduit par le Sprint 011.
 
 ## Implémentation
 
@@ -112,10 +124,18 @@ Playwright vérifie localement la disponibilité du socle avec Chromium uniqueme
 
 La CLI Supabase `2.109.1`, sa configuration locale et le répertoire de migrations sont présents. Docker Desktop n'étant pas installé sur la machine de validation, le cycle réel de démarrage et d'arrêt Supabase reste à vérifier avant la clôture définitive.
 
+Le Sprint 011 implémente le premier domaine fonctionnel public d’AZUREUM au moyen d’un module de galerie isolé. Le modèle temporaire, les données fictives et les fonctions de résolution locale sont confinés au domaine de la galerie.
+
+La page `/collections` présente exactement deux collections de démonstration avec leur œuvre d’aperçu, leur titre, leur intention et leur accès public.
+
+Chaque page de collection présente exactement trois œuvres rattachées à cette collection. Chaque fiche d’œuvre conserve son ratio média, présente ses informations artistiques temporaires et permet de revenir explicitement à sa collection d’origine.
+
+Les collections inconnues, les œuvres inconnues et les associations collection–œuvre incohérentes utilisent l’état absent de l’App Router. L’ensemble du parcours est validé sur mobile, tablette et bureau, au clavier, sans débordement horizontal et avec un reflow compatible avec un zoom à 200 %.
+
 ## Base de données
 
 Aucune base de données déployée. Le modèle conceptuel et l'architecture PostgreSQL cible sont validés dans le livrable du Sprint 006 ; aucun schéma physique ni aucune migration ne sont encore créés.
 
 ## Prochaine étape
 
-Verrouiller le contrat validé du Sprint 011 consacré à la consultation publique des collections et des œuvres au moyen de données temporaires de démonstration, puis créer sa branche d'implémentation sans anticiper les incréments contractuels.
+Exécuter l’audit final du Sprint 011, synchroniser `PROJECT_STATE.md` et `CHANGELOG.md`, faire valider la clôture par le Product Owner, puis réaliser le commit de clôture, le tag `sprint-011`, la Pull Request et la fusion contrôlée dans `main`.
