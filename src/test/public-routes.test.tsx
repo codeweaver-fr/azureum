@@ -8,6 +8,10 @@ import CollectionsPage from "@/app/(public)/collections/page";
 import ArtisticContentPage from "@/app/(public)/contenus/[contentSlug]/page";
 import DavidPage from "@/app/(public)/david/page";
 import HomePage from "@/app/(public)/page";
+import {
+  getGalleryArtworksByCollectionSlug,
+  getGalleryCollections,
+} from "@/modules/gallery/queries";
 
 describe("minimal public routes", () => {
   it.each([
@@ -22,11 +26,33 @@ describe("minimal public routes", () => {
     expect(markup).toContain(`>${heading}</h1>`);
   });
 
-  it("renders a minimal collection page", () => {
-    const markup = renderToStaticMarkup(<CollectionPage />);
+  it("renders a collection with its identity, intention and artworks", async () => {
+    const [collection] = getGalleryCollections();
+
+    const artworks = getGalleryArtworksByCollectionSlug(collection.slug);
+
+    expect(artworks).toBeDefined();
+
+    const page = await CollectionPage({
+      params: Promise.resolve({
+        collectionSlug: collection.slug,
+      }),
+    });
+    const markup = renderToStaticMarkup(page);
 
     expect(markup).toContain("<h1");
-    expect(markup).toContain(">Collection</h1>");
+    expect(markup).toContain(`>${collection.title}</h1>`);
+    expect(markup).toContain(collection.intention);
+
+    expect(artworks).toHaveLength(3);
+
+    for (const artwork of artworks ?? []) {
+      expect(markup).toContain(artwork.title);
+      expect(markup).toContain(artwork.media.alt);
+      expect(markup).toContain(
+        `href="/collections/${collection.slug}/oeuvres/${artwork.slug}"`,
+      );
+    }
   });
 
   it("renders a minimal artistic content page", () => {
