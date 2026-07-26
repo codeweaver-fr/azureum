@@ -42,9 +42,7 @@ test("navigates from collections to an artwork and back", async ({ page }) => {
 
   await expect(page).toHaveURL(/\/collections\/collection-alpha$/);
 
- await page
-  .getByRole("link", { name: "Voir Étude fictive 01" })
-  .click();
+  await page.getByRole("link", { name: "Voir Étude fictive 01" }).click();
 
   await expect(page).toHaveURL(
     /\/collections\/collection-alpha\/oeuvres\/study-01$/,

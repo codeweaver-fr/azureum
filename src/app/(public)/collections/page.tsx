@@ -1,4 +1,7 @@
-import { getGalleryArtworkBySlugs, getGalleryCollections } from "@/modules/gallery/queries";
+import {
+  getGalleryArtworkBySlugs,
+  getGalleryCollections,
+} from "@/modules/gallery/queries";
 import { Link } from "@/shared/components/interactions";
 import { Container, Grid, GridItem, Stack } from "@/shared/components/layout";
 import { ArtworkImage } from "@/shared/components/media";

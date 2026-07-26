@@ -75,10 +75,7 @@ describe("minimal public routes", () => {
   it("renders an artwork in the context of its collection", async () => {
     const [collection] = getGalleryCollections();
     const artworkSlug = collection.artworkSlugs[0];
-    const artwork = getGalleryArtworkBySlugs(
-      collection.slug,
-      artworkSlug,
-    );
+    const artwork = getGalleryArtworkBySlugs(collection.slug, artworkSlug);
 
     expect(artwork).toBeDefined();
 
@@ -94,9 +91,7 @@ describe("minimal public routes", () => {
     expect(markup).toContain(`>${artwork?.title}</h1>`);
     expect(markup).toContain(artwork?.artisticText);
     expect(markup).toContain(artwork?.media.alt);
-    expect(markup).toContain(
-      `href="/collections/${collection.slug}"`,
-    );
+    expect(markup).toContain(`href="/collections/${collection.slug}"`);
     expect(markup).toContain(
       `>Revenir à la collection ${collection.title}</a>`,
     );
@@ -130,8 +125,7 @@ describe("minimal public routes", () => {
   });
 
   it("returns a not-found state for an artwork outside its collection", async () => {
-    const [firstCollection, secondCollection] =
-      getGalleryCollections();
+    const [firstCollection, secondCollection] = getGalleryCollections();
     const artworkSlug = firstCollection.artworkSlugs[0];
 
     await expect(
