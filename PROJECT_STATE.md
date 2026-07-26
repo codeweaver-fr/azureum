@@ -2,11 +2,13 @@
 
 ## Phase actuelle
 
-Construction du produit — audit final du shell applicatif public.
+Construction du produit — préparation documentaire de la galerie publique.
 
 ## Sprint actif
 
-Sprint 010 — Application Shell : **Implémentation terminée — audit final conforme, validation Product Owner et verrouillage en attente**.
+Le Sprint 011 — Galerie publique est **Validé par le Product Owner — verrouillage Git en attente, aucune implémentation commencée**.
+
+Le Sprint 010 — Application Shell est **Validé, verrouillé et fusionné dans `main`**. Le tag `sprint-010` en constitue la référence historique. Le dépôt est propre et `main` est synchronisée avec `origin/main`.
 
 Le Sprint 010 traduit les spécifications validées en structure applicative publique persistante, sans introduire de nouvelle décision produit, métier ou visuelle. Le shell public partagé, sa navigation responsive, ses routes structurelles minimales, son Footer et leurs validations transversales sont implémentés.
 
@@ -116,4 +118,4 @@ Aucune base de données déployée. Le modèle conceptuel et l'architecture Post
 
 ## Prochaine étape
 
-Soumettre l'audit final du Sprint 010 à la validation Product Owner, puis procéder à son verrouillage documentaire et Git sans anticiper le Sprint 011.
+Verrouiller le contrat validé du Sprint 011 consacré à la consultation publique des collections et des œuvres au moyen de données temporaires de démonstration, puis créer sa branche d'implémentation sans anticiper les incréments contractuels.
