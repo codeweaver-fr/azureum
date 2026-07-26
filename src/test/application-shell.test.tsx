@@ -89,6 +89,22 @@ describe("public application shell", () => {
     expect(markup).not.toContain("<h1");
   });
 
+  it("keeps the footer limited to validated and available content", () => {
+    const markup = renderToStaticMarkup(
+      <PublicLayout>
+        <h1>Contenu de la page</h1>
+      </PublicLayout>,
+    );
+    const footerMarkup = markup.slice(
+      markup.indexOf("<footer"),
+      markup.indexOf("</footer>") + "</footer>".length,
+    );
+
+    expect(footerMarkup).toContain(">AZUREUM</");
+    expect(footerMarkup).not.toContain("<a");
+    expect(footerMarkup).not.toContain("<nav");
+  });
+
   it("remains server-rendered and uses only official tokens", () => {
     const sources = `${layoutSource}\n${layoutStyles}`;
 

@@ -6,6 +6,8 @@ test("the application foundation is available", async ({ page }) => {
   expect(response?.ok()).toBe(true);
   await expect(page.locator("html")).toBeVisible();
   await expect(page.getByRole("heading", { name: "AZUREUM" })).toBeVisible();
+  await expect(page.locator("footer")).toContainText("AZUREUM");
+  await expect(page.locator("footer").getByRole("link")).toHaveCount(0);
 });
 
 test("the public desktop navigation follows the validated keyboard order", async ({
