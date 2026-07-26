@@ -60,6 +60,7 @@ describe("gallery local data contract", () => {
       expect(
         collection.artworkSlugs.includes(collection.previewArtworkSlug),
       ).toBe(true);
+
       expect(
         galleryArtworks.some(
           (artwork) =>
@@ -76,52 +77,112 @@ describe("gallery local data contract", () => {
         slug,
         src: media.src,
         orientation: media.orientation,
+        dimensions: media.dimensions,
       })),
     ).toEqual([
       {
         slug: "study-01",
-        src: "/gallery/demo/study-01-vertical.png",
+        src: "/gallery/study-01.webp",
         orientation: "portrait",
+        dimensions: {
+          width: 1024,
+          height: 1536,
+        },
       },
       {
         slug: "study-02",
-        src: "/gallery/demo/study-02-horizontal.png",
+        src: "/gallery/study-02.webp",
         orientation: "landscape",
+        dimensions: {
+          width: 1536,
+          height: 1024,
+        },
       },
       {
         slug: "study-03",
-        src: "/gallery/demo/study-03-square.png",
+        src: "/gallery/study-03.webp",
         orientation: "square",
+        dimensions: {
+          width: 1254,
+          height: 1254,
+        },
       },
       {
         slug: "composition-a",
-        src: "/gallery/demo/composition-a-horizontal.png",
-        orientation: "landscape",
+        src: "/gallery/composition-a.webp",
+        orientation: "portrait",
+        dimensions: {
+          width: 1024,
+          height: 1536,
+        },
       },
       {
         slug: "composition-b",
-        src: "/gallery/demo/composition-b-vertical.png",
-        orientation: "portrait",
+        src: "/gallery/composition-b.webp",
+        orientation: "landscape",
+        dimensions: {
+          width: 1536,
+          height: 1024,
+        },
       },
       {
         slug: "composition-c",
-        src: "/gallery/demo/composition-c-square.png",
+        src: "/gallery/composition-c.webp",
         orientation: "square",
+        dimensions: {
+          width: 1254,
+          height: 1254,
+        },
       },
     ]);
   });
 
-  it("provides local paths and non-empty alternative text", () => {
+  it("provides local WebP paths and non-empty alternative text", () => {
     for (const artwork of galleryArtworks) {
-      expect(artwork.media.src).toMatch(/^\/gallery\/demo\/[a-z0-9-]+\.png$/);
+      expect(artwork.media.src).toMatch(/^\/gallery\/[a-z0-9-]+\.webp$/);
       expect(artwork.media.src).not.toMatch(/^https?:\/\//);
       expect(artwork.media.alt.trim()).not.toBe("");
     }
   });
 
-  it("keeps intrinsic dimensions unresolved until media validation", () => {
+  it("provides valid intrinsic dimensions for every artwork", () => {
     for (const artwork of galleryArtworks) {
-      expect(artwork.media.dimensions).toBeNull();
+      const dimensions = artwork.media.dimensions;
+
+      expect(dimensions).not.toBeNull();
+
+      if (dimensions === null) {
+        continue;
+      }
+
+      expect(dimensions.width).toBeGreaterThan(0);
+      expect(dimensions.height).toBeGreaterThan(0);
+    }
+  });
+
+  it("keeps intrinsic dimensions consistent with media orientation", () => {
+    for (const artwork of galleryArtworks) {
+      const dimensions = artwork.media.dimensions;
+
+      expect(dimensions).not.toBeNull();
+
+      if (dimensions === null) {
+        continue;
+      }
+
+      switch (artwork.media.orientation) {
+        case "portrait":
+          expect(dimensions.height).toBeGreaterThan(dimensions.width);
+          break;
+
+        case "landscape":
+          expect(dimensions.width).toBeGreaterThan(dimensions.height);
+          break;
+
+        case "square":
+          expect(dimensions.width).toBe(dimensions.height);
+          break;
+      }
     }
   });
 
@@ -137,6 +198,7 @@ describe("gallery local data contract", () => {
     for (const artwork of galleryArtworks) {
       expect(Object.isFrozen(artwork)).toBe(true);
       expect(Object.isFrozen(artwork.media)).toBe(true);
+      expect(Object.isFrozen(artwork.media.dimensions)).toBe(true);
     }
   });
 });
@@ -189,6 +251,7 @@ describe("gallery local queries", () => {
     expect(
       getGalleryArtworkBySlugs("collection-alpha", "unknown-artwork"),
     ).toBeUndefined();
+
     expect(
       getGalleryArtworkBySlugs("unknown-collection", "study-01"),
     ).toBeUndefined();
@@ -198,6 +261,7 @@ describe("gallery local queries", () => {
     expect(
       getGalleryArtworkBySlugs("collection-alpha", "composition-a"),
     ).toBeUndefined();
+
     expect(
       getGalleryArtworkBySlugs("collection-beta", "study-01"),
     ).toBeUndefined();

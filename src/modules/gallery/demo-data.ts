@@ -35,12 +35,16 @@ export const galleryArtworks: readonly GalleryArtwork[] = Object.freeze([
     artisticText:
       "Des formes suspendues semblent chercher un équilibre provisoire dans un espace volontairement silencieux.",
     media: Object.freeze({
-      src: "/gallery/demo/study-01-vertical.png",
+      src: "/gallery/study-01.webp",
       alt: "Composition abstraite fictive verticale faite de formes superposées.",
       orientation: "portrait",
-      dimensions: null,
+      dimensions: Object.freeze({
+        width: 1024,
+        height: 1536,
+      }),
     }),
   }),
+
   Object.freeze({
     slug: "study-02",
     collectionSlug: "collection-alpha",
@@ -48,12 +52,16 @@ export const galleryArtworks: readonly GalleryArtwork[] = Object.freeze([
     artisticText:
       "Une ligne discrète traverse la composition et relie des volumes éloignés sans interrompre leur calme.",
     media: Object.freeze({
-      src: "/gallery/demo/study-02-horizontal.png",
+      src: "/gallery/study-02.webp",
       alt: "Composition abstraite fictive horizontale traversée par une ligne centrale.",
       orientation: "landscape",
-      dimensions: null,
+      dimensions: Object.freeze({
+        width: 1536,
+        height: 1024,
+      }),
     }),
   }),
+
   Object.freeze({
     slug: "study-03",
     collectionSlug: "collection-alpha",
@@ -61,12 +69,16 @@ export const galleryArtworks: readonly GalleryArtwork[] = Object.freeze([
     artisticText:
       "Les volumes se rapprochent sans se toucher, laissant apparaître un vide central comme point de respiration.",
     media: Object.freeze({
-      src: "/gallery/demo/study-03-square.png",
+      src: "/gallery/study-03.webp",
       alt: "Composition abstraite fictive carrée organisée autour d’un espace vide central.",
       orientation: "square",
-      dimensions: null,
+      dimensions: Object.freeze({
+        width: 1254,
+        height: 1254,
+      }),
     }),
   }),
+
   Object.freeze({
     slug: "composition-a",
     collectionSlug: "collection-beta",
@@ -74,25 +86,33 @@ export const galleryArtworks: readonly GalleryArtwork[] = Object.freeze([
     artisticText:
       "Des lignes ascendantes découpent l’espace et donnent à la composition un mouvement contenu.",
     media: Object.freeze({
-      src: "/gallery/demo/composition-a-horizontal.png",
-      alt: "Composition abstraite fictive horizontale structurée par des lignes ascendantes.",
-      orientation: "landscape",
-      dimensions: null,
+      src: "/gallery/composition-a.webp",
+      alt: "Composition abstraite fictive verticale structurée par des lignes ascendantes.",
+      orientation: "portrait",
+      dimensions: Object.freeze({
+        width: 1024,
+        height: 1536,
+      }),
     }),
   }),
+
   Object.freeze({
     slug: "composition-b",
     collectionSlug: "collection-beta",
     title: "Composition fictive B",
     artisticText:
-      "Les masses graphiques s’écartent puis se répondent dans un rythme vertical volontairement irrégulier.",
+      "Les masses graphiques s’écartent puis se répondent dans un rythme horizontal volontairement irrégulier.",
     media: Object.freeze({
-      src: "/gallery/demo/composition-b-vertical.png",
-      alt: "Composition abstraite fictive verticale formée de masses graphiques espacées.",
-      orientation: "portrait",
-      dimensions: null,
+      src: "/gallery/composition-b.webp",
+      alt: "Composition abstraite fictive horizontale formée de masses graphiques espacées.",
+      orientation: "landscape",
+      dimensions: Object.freeze({
+        width: 1536,
+        height: 1024,
+      }),
     }),
   }),
+
   Object.freeze({
     slug: "composition-c",
     collectionSlug: "collection-beta",
@@ -100,10 +120,13 @@ export const galleryArtworks: readonly GalleryArtwork[] = Object.freeze([
     artisticText:
       "Un ensemble de fragments géométriques converge vers le centre sans former de figure identifiable.",
     media: Object.freeze({
-      src: "/gallery/demo/composition-c-square.png",
+      src: "/gallery/composition-c.webp",
       alt: "Composition abstraite fictive carrée faite de fragments géométriques convergents.",
       orientation: "square",
-      dimensions: null,
+      dimensions: Object.freeze({
+        width: 1254,
+        height: 1254,
+      }),
     }),
   }),
 ]);
