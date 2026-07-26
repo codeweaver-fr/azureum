@@ -568,7 +568,11 @@ La disponibilité, la réservation, l'acquisition, la remise et les éléments d
 
 Toute nouvelle œuvre doit être créée dans une collection existante ou dans une collection créée à cette occasion.
 
-Une œuvre appartient à exactement une collection pendant toute son existence dans AZUREUM.
+Une œuvre appartient à exactement une collection pendant tout son cycle de vie dans AZUREUM.
+
+Avant sa première publication, son rattachement peut être corrigé dans le cadre de sa préparation éditoriale.
+
+Dès sa première publication, son rattachement à sa collection d'origine devient définitif. L'œuvre ne peut ensuite être déplacée vers aucune autre collection, y compris après son archivage ou une nouvelle publication.
 
 Une œuvre ne peut ni être créée, ni être maintenue, ni être publiée sans rattachement à une collection.
 
@@ -1851,6 +1855,8 @@ David demeure le vendeur des exemplaires acquis dans AZUREUM. La commission due 
 Toute œuvre existant dans AZUREUM appartient à exactement une collection.
 
 Une œuvre sans collection ne peut être ni créée, ni maintenue, ni publiée.
+
+Dès sa première publication, le rattachement de l'œuvre à sa collection d'origine est immuable. L'archivage ou toute évolution ultérieure de sa présentation ne permet ni de rompre ni de modifier ce rattachement.
 
 ---
 

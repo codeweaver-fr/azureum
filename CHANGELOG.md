@@ -4,6 +4,27 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 
 ## Non publié
 
+### Sprint 010 — Application Shell
+
+- implémentation du layout public partagé avec Header, Main, Footer et lien d'évitement ;
+- ajout de la navigation publique desktop et responsive vers Collections, David et Évolution dans le temps ;
+- matérialisation des routes publiques structurelles validées, sans contenu métier ni route privée ou juridique anticipée ;
+- maintien de `/design-system` comme référence technique interne, hors de la navigation publique et sans mécanisme de protection anticipé ;
+- validation du Footer minimal sans faux lien, emplacement vide ni contenu légal non validé ;
+- renforcement des contrôles de landmarks, hiérarchie des titres, focus, navigation clavier, `aria-current`, reflow et absence de débordement horizontal ;
+- validation des routes `/` et `/design-system` sans erreur ni avertissement navigateur inattendu ;
+- audit final conforme sur Prettier, ESLint, TypeScript, Vitest, build Next.js, Playwright et `git diff --check` ;
+- maintien explicite de l'exception de sécurité temporaire déjà documentée pour `brace-expansion@1.1.16`, dépendance transitive de l'outillage ESLint, sans masquage de `pnpm audit`.
+
+### Préparation du Sprint 010 — Application Shell
+
+- clarification de `RM-ŒUV-13` : une œuvre appartient à une seule collection pendant tout son cycle de vie et son rattachement à sa collection d'origine devient définitif dès sa première publication ;
+- clarification de `INV-14` afin que l'archivage ou l'évolution de la présentation ne permette ni de rompre ni de modifier ce rattachement ;
+- ajout de `DEC-18`, qui fonde la stabilité des URL publiques sur des slugs immuables après première publication ;
+- ajout de la section 8.6 à l'architecture technique afin de distinguer l'identifiant technique stable, le slug public et les données éditoriales ;
+- interdiction de modifier, réattribuer ou réutiliser le slug public d'une collection, d'une œuvre ou d'un contenu artistique après sa première publication ;
+- clarification du fait que la stabilité d'une URL concerne l'immutabilité de son chemin sans garantir l'accessibilité perpétuelle d'une ressource archivée ou retirée de la publication.
+
 ### Sprint 009 — Implémentation du Design System V1
 
 - validation finale du Sprint 009 par le Product Owner avec exception de sécurité temporaire explicitement acceptée ;

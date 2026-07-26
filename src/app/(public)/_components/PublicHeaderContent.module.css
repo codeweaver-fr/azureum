@@ -1,0 +1,57 @@
+.content {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-16);
+}
+
+.mobileToggle {
+  justify-self: end;
+}
+
+.mobileNavigation {
+  grid-column: 1 / -1;
+  border-block-start: var(--border-width-standard) solid
+    var(--color-border-subtle);
+  padding-block-start: var(--space-16);
+}
+
+.desktopNavigation {
+  display: none;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: var(--space-16);
+}
+
+.navigation a[aria-current="page"] {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+  text-decoration-thickness: var(--border-width-strong);
+}
+
+/* DT-10 — Bureau */
+@media (min-width: 1024px) {
+  .content {
+    grid-template-columns: auto 1fr;
+    gap: var(--space-32);
+  }
+
+  .mobileToggle,
+  .mobileNavigation {
+    display: none;
+  }
+
+  .desktopNavigation {
+    display: block;
+    justify-self: end;
+  }
+
+  .navigation {
+    flex-direction: row;
+    gap: var(--space-24);
+  }
+}

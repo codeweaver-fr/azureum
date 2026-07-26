@@ -179,6 +179,7 @@ Les statuts employés sont définis en section 2.3.
 | DEC-15 | Objectif interne de disponibilité de 99,5 % par mois | Décision validée | Guide les offres, la supervision et la reprise sans créer une garantie contractuelle envers les utilisateurs. |
 | DEC-16 | CSS natif et Motion pour l'expérience animée de la V1 | Décision validée | Préserve une expérience expressive sans imposer le poids ni la complexité d'un moteur 3D. |
 | DEC-17 | Politique différenciée de gestion des fichiers | Décision validée | Sépare publication, originaux et pièces privées ; impose quarantaine, contrôles, versionnement et copie indépendante des fichiers irremplaçables. |
+| DEC-18 | Les identifiants publics reposent sur des slugs immuables après première publication | Décision validée | Garantit la stabilité des URL publiques indépendamment des évolutions éditoriales. |
 
 ## 6. Vue d'ensemble
 
@@ -278,6 +279,23 @@ Le navigateur peut gérer la présentation, la saisie locale et le retour percep
 ### 8.5 Compatibilité
 
 La matrice de développement cible les versions stables courantes de Chromium, Firefox et Safari sur ordinateur et mobile au début de l'implémentation. Elle sera matérialisée par les projets Playwright et révisée avant chaque livraison majeure.
+
+### 8.6 Stabilité des identifiants publics
+
+Toute ressource exposée publiquement possède un identifiant technique stable. Lorsque cette ressource est adressable par un slug, celui-ci constitue son identifiant public et demeure distinct de ses données éditoriales.
+
+Le slug public d'une collection, d'une œuvre ou d'un contenu artistique est figé dès la première publication de la ressource concernée.
+
+Après cette publication :
+
+- le slug ne peut plus être modifié ;
+- il ne peut pas être réattribué à une autre ressource ;
+- une modification du titre ou des données éditoriales reste sans effet sur le slug ;
+- l'archivage ou le retrait de publication ne permet ni sa modification ni sa réutilisation.
+
+La stabilité d'une URL désigne l'immutabilité de son chemin public. Elle ne garantit pas que la ressource demeure publiquement accessible après son archivage ou son retrait de publication.
+
+Les routes publiques exactes et leur correspondance avec les vues restent définies par les contrats d'implémentation concernés.
 
 ## 9. Données et persistance
 
@@ -884,7 +902,7 @@ Ces réserves n'autorisent pas une hypothèse silencieuse. Le Sprint peut être 
 Le présent document ne réalise ni ne définit en détail :
 
 - le code, les composants et le design visuel ;
-- les routes ou URL définitives ;
+- les routes ou URL définitives, sans préjudice des invariants de stabilité des identifiants publics définis en section 8.6 ;
 - le schéma SQL final ;
 - les noms définitifs des tables, fonctions ou variables ;
 - les contrats API détaillés ;
