@@ -2,7 +2,7 @@
 
 ## Statut
 
-**Implémentation terminée — audit final conforme, validation Product Owner et verrouillage en attente**
+**Validé, verrouillé et fusionné dans `main` — tag `sprint-010`**
 
 ## 1. Objectif
 

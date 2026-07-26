@@ -4,6 +4,25 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 
 ## Non publié
 
+### Sprint 011 — Galerie publique
+
+- implémentation d'un jeu local, typé, fini et explicitement temporaire de deux collections et six œuvres fictives ;
+- ajout du modèle de démonstration de la galerie, de ses fonctions de résolution locale et de ses relations, sans base de données, API, variable d'environnement ni appel réseau ;
+- remplacement du contenu structurel de `/collections` par la liste publique des collections de démonstration ;
+- présentation de chaque collection avec une œuvre d'aperçu, son titre, une courte intention et un accès vers sa route publique stable ;
+- implémentation des pages dynamiques `/collections/[collectionSlug]` présentant exactement trois œuvres appartenant exclusivement à la collection consultée ;
+- implémentation des fiches publiques d'œuvre dans le contexte de leur collection d'origine, avec conservation du ratio du média via `ArtworkImage` ;
+- ajout d'un retour explicite de chaque œuvre vers sa collection d'origine ;
+- traitement des collections inconnues, des œuvres inconnues et des associations incohérentes entre collection et œuvre au moyen de l'état absent de l'App Router ;
+- maintien explicite hors périmètre de toute persistance, authentification, acquisition, gestion éditoriale, contenu artistique définitif ou extension du Design System ;
+- validation contractuelle du modèle temporaire, de ses relations et des routes dynamiques au moyen de Vitest ;
+- validation du parcours complet Collections → Collection → Œuvre → Collection, des routes publiques, du responsive et de l'accessibilité au moyen de Playwright ;
+- validation de 11 fichiers de tests et de 71 tests Vitest ;
+- validation de 24 tests Playwright ;
+- validation d'ESLint, TypeScript, du build Next.js et de la navigation publique sans régression ;
+- validation de la compatibilité mobile, tablette et bureau, de l'absence de débordement horizontal, du reflow à 200 %, de la navigation clavier, du focus visible et des noms accessibles ;
+- synchronisation de `PROJECT_STATE.md` et préparation du verrouillage documentaire du Sprint 011.
+
 ### Sprint 010 — Application Shell
 
 - implémentation du layout public partagé avec Header, Main, Footer et lien d'évitement ;
