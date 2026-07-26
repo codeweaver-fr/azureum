@@ -23,7 +23,7 @@ describe("design system validation page", () => {
     const markup = renderToStaticMarkup(<Home />);
 
     expect(markup).toContain(">AZUREUM<");
-    expect(markup).toContain('href="/design-system"');
+    expect(markup).not.toContain('href="/design-system"');
     expect(markup).not.toContain("Design System Playground");
   });
 

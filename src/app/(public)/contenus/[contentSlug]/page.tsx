@@ -1,15 +1,15 @@
 import { Container, Stack } from "@/shared/components/layout";
 import { Heading, Text } from "@/shared/components/typography";
 
-export default function Home() {
+export default function ArtisticContentPage() {
   return (
     <Container width="reading">
       <Stack direction="vertical" gap="lg">
         <Heading as="h1" variant="display">
-          AZUREUM
+          Contenu artistique
         </Heading>
         <Text as="p" variant="body-lg">
-          Page d&apos;entrée publique en cours de construction.
+          Page structurelle en attente de son contenu éditorial.
         </Text>
       </Stack>
     </Container>
