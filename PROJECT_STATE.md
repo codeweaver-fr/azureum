@@ -2,13 +2,13 @@
 
 ## Phase actuelle
 
-Construction du produit — préparation du shell applicatif public.
+Construction du produit — audit final du shell applicatif public.
 
 ## Sprint actif
 
-Sprint 010 — Application Shell : **En préparation — contrat non verrouillé, aucune implémentation commencée**.
+Sprint 010 — Application Shell : **Implémentation terminée — audit final conforme, validation Product Owner et verrouillage en attente**.
 
-Le Sprint 010 doit traduire les spécifications validées en structure applicative publique persistante, sans introduire de nouvelle décision produit, métier ou visuelle.
+Le Sprint 010 traduit les spécifications validées en structure applicative publique persistante, sans introduire de nouvelle décision produit, métier ou visuelle. Le shell public partagé, sa navigation responsive, ses routes structurelles minimales, son Footer et leurs validations transversales sont implémentés.
 
 Le Sprint 009 — Implémentation du Design System V1 est **Validé, verrouillé et fusionné dans `main`**. Le tag `sprint-009` en constitue la référence historique.
 
@@ -116,4 +116,4 @@ Aucune base de données déployée. Le modèle conceptuel et l'architecture Post
 
 ## Prochaine étape
 
-Préparer le contrat du Sprint 010 à partir du Design System V1 désormais implémenté et verrouillé.
+Soumettre l'audit final du Sprint 010 à la validation Product Owner, puis procéder à son verrouillage documentaire et Git sans anticiper le Sprint 011.

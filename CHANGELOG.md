@@ -4,6 +4,18 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 
 ## Non publié
 
+### Sprint 010 — Application Shell
+
+- implémentation du layout public partagé avec Header, Main, Footer et lien d'évitement ;
+- ajout de la navigation publique desktop et responsive vers Collections, David et Évolution dans le temps ;
+- matérialisation des routes publiques structurelles validées, sans contenu métier ni route privée ou juridique anticipée ;
+- maintien de `/design-system` comme référence technique interne, hors de la navigation publique et sans mécanisme de protection anticipé ;
+- validation du Footer minimal sans faux lien, emplacement vide ni contenu légal non validé ;
+- renforcement des contrôles de landmarks, hiérarchie des titres, focus, navigation clavier, `aria-current`, reflow et absence de débordement horizontal ;
+- validation des routes `/` et `/design-system` sans erreur ni avertissement navigateur inattendu ;
+- audit final conforme sur Prettier, ESLint, TypeScript, Vitest, build Next.js, Playwright et `git diff --check` ;
+- maintien explicite de l'exception de sécurité temporaire déjà documentée pour `brace-expansion@1.1.16`, dépendance transitive de l'outillage ESLint, sans masquage de `pnpm audit`.
+
 ### Préparation du Sprint 010 — Application Shell
 
 - clarification de `RM-ŒUV-13` : une œuvre appartient à une seule collection pendant tout son cycle de vie et son rattachement à sa collection d'origine devient définitif dès sa première publication ;

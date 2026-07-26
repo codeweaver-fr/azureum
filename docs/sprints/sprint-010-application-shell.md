@@ -2,7 +2,7 @@
 
 ## Statut
 
-**À valider — aucune implémentation commencée**
+**Implémentation terminée — audit final conforme, validation Product Owner et verrouillage en attente**
 
 ## 1. Objectif
 
