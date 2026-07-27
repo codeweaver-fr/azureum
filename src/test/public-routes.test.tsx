@@ -72,12 +72,25 @@ describe("minimal public routes", () => {
     expect(markup).toContain(">Contenu artistique</h1>");
   });
 
-  it("renders an artwork in the context of its collection", async () => {
+  it("renders an enriched artwork page in the context of its collection", async () => {
     const [collection] = getGalleryCollections();
     const artworkSlug = collection.artworkSlugs[0];
-    const artwork = getGalleryArtworkBySlugs(collection.slug, artworkSlug);
+    const artwork = getGalleryArtworkBySlugs(
+      collection.slug,
+      artworkSlug,
+    );
 
     expect(artwork).toBeDefined();
+
+    if (!artwork) {
+      throw new Error("Expected the demo artwork to exist.");
+    }
+
+    const expectedDimensions = [
+      artwork.dimensions.widthCm,
+      artwork.dimensions.heightCm,
+      artwork.dimensions.depthCm,
+    ].filter((dimension): dimension is number => dimension !== null);
 
     const page = await ArtworkPage({
       params: Promise.resolve({
@@ -88,13 +101,24 @@ describe("minimal public routes", () => {
     const markup = renderToStaticMarkup(page);
 
     expect(markup).toContain("<h1");
-    expect(markup).toContain(`>${artwork?.title}</h1>`);
-    expect(markup).toContain(artwork?.artisticText);
-    expect(markup).toContain(artwork?.media.alt);
-    expect(markup).toContain(`href="/collections/${collection.slug}"`);
+    expect(markup).toContain(`>${artwork.title}</h1>`);
+
+    expect(markup).toContain(collection.title);
+    expect(markup).toContain(
+      `href="/collections/${collection.slug}"`,
+    );
     expect(markup).toContain(
       `>Revenir à la collection ${collection.title}</a>`,
     );
+
+    expect(markup).toContain(artwork.media.alt);
+    expect(markup).toContain(artwork.shortDescription);
+    expect(markup).toContain(artwork.artisticText);
+
+    expect(markup).toContain(String(artwork.year));
+    expect(markup).toContain(artwork.technique);
+    expect(markup).toContain(artwork.support);
+    expect(markup).toContain(`${expectedDimensions.join(" × ")} cm`);
   });
 
   it("returns a not-found state for an unknown collection", async () => {

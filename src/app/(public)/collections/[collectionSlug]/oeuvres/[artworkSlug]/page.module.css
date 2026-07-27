@@ -1,0 +1,163 @@
+.artwork {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding-block: 3.5rem 5rem;
+}
+
+.media {
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.header {
+  max-width: 48rem;
+}
+
+.collection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  width: fit-content;
+}
+
+.collection::before {
+  content: "Collection";
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+.collection p {
+  margin: 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid
+    color-mix(in srgb, currentColor 24%, transparent);
+}
+
+.shortDescription {
+  max-width: 44rem;
+  padding-left: 1.5rem;
+  border-left: 2px solid
+    color-mix(in srgb, currentColor 40%, transparent);
+}
+
+.shortDescription p {
+  margin: 0;
+}
+
+.characteristics {
+  padding-block: 2.25rem;
+  border-block: 1px solid
+    color-mix(in srgb, currentColor 16%, transparent);
+}
+
+.characteristicsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 46rem;
+  margin: 0;
+}
+
+.characteristic {
+  display: grid;
+  grid-template-columns: minmax(7rem, 10rem) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: baseline;
+  padding-block: 0.875rem;
+  border-bottom: 1px solid
+    color-mix(in srgb, currentColor 10%, transparent);
+}
+
+.characteristic:first-child {
+  padding-top: 0;
+}
+
+.characteristic:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.characteristic dt {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.58;
+}
+
+.characteristic dd {
+  min-width: 0;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.artisticText {
+  max-width: 46rem;
+}
+
+.artisticText p {
+  margin: 0;
+  line-height: 1.75;
+}
+
+.footer {
+  order: -1;
+}
+
+.footer a::before {
+  content: "← ";
+}
+
+@media (max-width: 40rem) {
+  .artwork {
+    gap: 2.5rem;
+    padding-block: 1.5rem 3.5rem;
+  }
+
+  .content {
+    gap: 2.75rem;
+  }
+
+  .header {
+    max-width: none;
+  }
+
+  .shortDescription {
+    max-width: none;
+    padding-left: 1rem;
+  }
+
+  .characteristics {
+    padding-block: 1.75rem;
+  }
+
+  .characteristic {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+    padding-block: 1rem;
+  }
+
+  .artisticText {
+    max-width: none;
+  }
+}
