@@ -20,6 +20,70 @@ describe("gallery local data contract", () => {
     expect(galleryArtworks).toHaveLength(6);
   });
 
+  it("provides complete descriptive information for every artwork", () => {
+    const currentYear = new Date().getFullYear();
+
+    for (const artwork of galleryArtworks) {
+      expect(Number.isInteger(artwork.year)).toBe(true);
+      expect(artwork.year).toBeGreaterThanOrEqual(2000);
+      expect(artwork.year).toBeLessThanOrEqual(currentYear);
+
+      expect(artwork.technique.trim()).not.toBe("");
+      expect(artwork.support.trim()).not.toBe("");
+      expect(artwork.shortDescription.trim()).not.toBe("");
+      expect(artwork.artisticText.trim()).not.toBe("");
+    }
+  });
+
+  it("provides valid physical dimensions in centimetres", () => {
+    for (const artwork of galleryArtworks) {
+      expect(artwork.dimensions.widthCm).toBeGreaterThan(0);
+      expect(artwork.dimensions.heightCm).toBeGreaterThan(0);
+
+      if (artwork.dimensions.depthCm !== null) {
+        expect(artwork.dimensions.depthCm).toBeGreaterThan(0);
+      }
+    }
+  });
+
+  it("keeps physical dimensions consistent with artwork orientation", () => {
+    for (const artwork of galleryArtworks) {
+      const { widthCm, heightCm } = artwork.dimensions;
+
+      switch (artwork.media.orientation) {
+        case "portrait":
+          expect(heightCm).toBeGreaterThan(widthCm);
+          break;
+
+        case "landscape":
+          expect(widthCm).toBeGreaterThan(heightCm);
+          break;
+
+        case "square":
+          expect(widthCm).toBe(heightCm);
+          break;
+      }
+    }
+  });
+
+  it("uses only the supported media orientations", () => {
+    const supportedOrientations = new Set([
+      "portrait",
+      "landscape",
+      "square",
+    ]);
+
+    for (const artwork of galleryArtworks) {
+      expect(supportedOrientations.has(artwork.media.orientation)).toBe(true);
+    }
+  });
+
+  it("keeps short descriptions distinct from artistic texts", () => {
+    for (const artwork of galleryArtworks) {
+      expect(artwork.shortDescription).not.toBe(artwork.artisticText);
+    }
+  });
+
   it("references exactly three coherent artworks per collection", () => {
     for (const collection of galleryCollections) {
       expect(collection.artworkSlugs).toHaveLength(3);
@@ -212,6 +276,7 @@ describe("gallery local data contract", () => {
 
     for (const artwork of galleryArtworks) {
       expect(Object.isFrozen(artwork)).toBe(true);
+      expect(Object.isFrozen(artwork.dimensions)).toBe(true);
       expect(Object.isFrozen(artwork.media)).toBe(true);
       expect(Object.isFrozen(artwork.media.dimensions)).toBe(true);
     }

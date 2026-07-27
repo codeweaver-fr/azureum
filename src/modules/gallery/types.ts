@@ -12,10 +12,21 @@ export type GalleryMedia = Readonly<{
   dimensions: GalleryMediaDimensions | null;
 }>;
 
+export type GalleryArtworkDimensions = Readonly<{
+  widthCm: number;
+  heightCm: number;
+  depthCm: number | null;
+}>;
+
 export type GalleryArtwork = Readonly<{
   slug: string;
   collectionSlug: string;
   title: string;
+  year: number;
+  technique: string;
+  support: string;
+  dimensions: GalleryArtworkDimensions;
+  shortDescription: string;
   artisticText: string;
   media: GalleryMedia;
 }>;
