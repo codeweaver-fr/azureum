@@ -2,7 +2,7 @@
 
 ## Statut
 
-**Implémenté et audité — validation Product Owner et verrouillage Git en attente**
+**Terminé — validé par le Product Owner, verrouillé et fusionné dans `main`**
 
 ## 1. Objectif
 
@@ -364,9 +364,9 @@ Le contrat et le premier enrichissement du modèle descriptif apparaissent dans 
 commit historique. Cette observation de traçabilité ne modifie ni les décisions
 initiales, ni le contenu normatif du présent contrat.
 
-Le Sprint est prêt pour la validation du Product Owner. Le commit final, le tag, le
-push, la Pull Request, la fusion et le nettoyage de branche ne sont pas encore
-autorisés ni réalisés.
+Le Sprint a été validé par le Product Owner, verrouillé par le tag `sprint-012`,
+puis fusionné dans `main`. La branche de Sprint locale et distante a été supprimée
+après vérification de la synchronisation du dépôt.
 
 
 
