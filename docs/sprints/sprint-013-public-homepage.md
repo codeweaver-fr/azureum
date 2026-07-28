@@ -2,7 +2,7 @@
 
 ## Statut
 
-**Validé par le Product Owner — contrat verrouillé, implémentation non commencée**
+**Implémenté et audité — validation Product Owner finale et verrouillage Git en attente**
 
 Le présent contrat constitue la référence documentaire canonique du Sprint 013. Toute
 évolution ultérieure suit `docs/GOVERNANCE.md`.
@@ -425,7 +425,34 @@ Les décisions suivantes sont validées :
 Ces décisions complètent localement le contrat de la page d'accueil. Elles ne modifient
 ni les responsabilités des autres vues, ni le Design System, ni le module de galerie.
 
-## 19. Séquence de revue et de verrouillage
+## 19. Résultat de l'audit final
+
+Les Incréments 1 à 6 sont implémentés et validés :
+
+- `/` remplit la responsabilité publique `V-PUB-01` ;
+- le texte introductif et le lien principal vers `/collections` correspondent aux
+  décisions Product Owner ;
+- les deux collections publiques existantes sont présentées sans modification du
+  module privé `gallery` ;
+- `study-01` est réutilisé une seule fois comme média principal et aperçu de
+  `collection-alpha`, tandis que `composition-a` représente `collection-beta` ;
+- la page reste un Server Component et utilise exclusivement les composants officiels
+  du Design System ;
+- les validations couvrent le responsive, le reflow, le clavier, le focus, la
+  sémantique, la résilience des médias et la non-régression du shell public, de la
+  galerie et de `/design-system`.
+
+Les contrôles finaux sont conformes : Prettier, ESLint, TypeScript, 11 fichiers Vitest
+et 85 tests, build Next.js, 36 tests Playwright et `git diff --check`. `pnpm audit`
+restitue uniquement l'exception de sécurité temporaire déjà documentée pour
+`brace-expansion@1.1.16`, dépendance transitive de développement introduite par
+`eslint → minimatch`, sans masquage ni nouvelle vulnérabilité.
+
+L'Incrément 7 synchronise le présent document, `PROJECT_STATE.md` et `CHANGELOG.md`,
+puis soumet le Sprint à la validation Product Owner finale. Aucun verrouillage Git
+n'est réalisé avant cette autorisation.
+
+## 20. Séquence de revue et de verrouillage
 
 ```text
 Rédaction du contrat

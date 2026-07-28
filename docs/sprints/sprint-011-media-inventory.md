@@ -2,7 +2,23 @@
 
 ## Statut
 
-**Inventaire préparatoire — aucun média de galerie créé**
+**Livrable historique préparatoire — état antérieur à la création des médias**
+
+## Note de clôture
+
+Le présent document conserve l'inventaire préparatoire établi lors de l'Incrément 1 du
+Sprint 011. Ses noms de fichiers cibles, formats et formulations au futur décrivent
+l'état prévu à cette date et ne constituent pas un inventaire vivant.
+
+L'état effectivement implémenté et validé est défini par :
+
+- les fichiers présents dans `public/gallery/` ;
+- les chemins, dimensions, orientations et alternatives textuelles déclarés dans
+  `src/modules/gallery/demo-data.ts` ;
+- les contrôles contractuels de `src/test/gallery-demo-data.test.ts`.
+
+Ces sources prévalent pour toute vérification de l'inventaire actuel. Le contenu
+historique ci-dessous n'est pas réécrit rétroactivement.
 
 ## 1. Périmètre
 

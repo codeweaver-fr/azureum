@@ -2,19 +2,21 @@
 
 ## Phase actuelle
 
-Construction du produit — Sprint 012 définitivement clos ; aucun Sprint actif.
+Construction du produit — Sprint 013 implémenté et en cours de clôture.
 
 ## Sprint actif
 
-Aucun Sprint n'est actuellement ouvert. Le Sprint 012 — Consultation enrichie d'une œuvre est **terminé, validé par le Product Owner, verrouillé sous le tag `sprint-012` et fusionné dans `main`**.
+Le Sprint 013 — Page d'accueil publique est **implémenté et audité ; sa validation Product Owner finale et son verrouillage Git restent en attente**.
 
-Les Incréments 1 à 5 enrichissent le modèle local et la fiche publique d'une œuvre avec son année, sa technique, son support, ses dimensions physiques, une profondeur optionnelle et une description courte distincte du texte artistique.
+Les Incréments 1 à 6 ont remplacé l'état transitoire de `/` par la porte d'entrée publique contractuelle d'AZUREUM, ajouté le texte introductif validé, l'accès principal à `/collections`, les aperçus des deux collections publiques existantes et leurs médias locaux, puis vérifié le responsive, l'accessibilité, la résilience des médias et l'absence de régression.
 
-L'Incrément 6 a réalisé l'audit final et la synchronisation documentaire. Les corrections R1 ont rétabli l'ordre contractuel de lecture, supprimé le déplacement visuel du lien de retour, remplacé les valeurs visuelles locales par les tokens officiels, couvert les œuvres avec et sans profondeur, renforcé les validations transversales et préchargé uniquement l'image principale des listes publiques concernées afin de supprimer l'avertissement LCP de Next.js.
+La page reste un Server Component, lit sans mutation les données du module privé `gallery`, utilise exclusivement les composants officiels du Design System et n'introduit aucune nouvelle route, donnée, dépendance, logique métier ou décision de direction artistique.
 
-Les validations finales sont conformes : formatage, ESLint, TypeScript, 11 fichiers Vitest et 79 tests, build Next.js, 29 tests Playwright et `git diff --check`. Aucun bloqueur indispensable ne reste ouvert.
+L'Incrément 7 réalise l'audit final, les contrôles complets et la synchronisation documentaire avant la décision Product Owner de verrouillage.
 
-Le Sprint 012 a été validé par le Product Owner, verrouillé sous le tag `sprint-012`, fusionné dans `main`, puis sa branche locale et distante a été supprimée. Le dépôt est propre et `main` est synchronisée avec `origin/main`.
+Les validations finales sont conformes : Prettier, ESLint, TypeScript, 11 fichiers Vitest et 85 tests, build Next.js, 36 tests Playwright et `git diff --check`. `pnpm audit` restitue uniquement l'exception de sécurité temporaire déjà documentée pour `brace-expansion@1.1.16`, dépendance transitive de développement introduite par `eslint → minimatch`, sans masquage ni nouvelle vulnérabilité.
+
+Le Sprint 012 — Consultation enrichie d'une œuvre est **terminé, validé par le Product Owner, verrouillé sous le tag `sprint-012` et fusionné dans `main`**. Sa branche locale et distante a été supprimée.
 
 Le Sprint 010 — Application Shell est **Validé, verrouillé et fusionné dans `main`**. Le tag `sprint-010` en constitue la référence historique. Le dépôt est propre et `main` est synchronisée avec `origin/main`.
 
@@ -136,10 +138,12 @@ Les collections inconnues, les œuvres inconnues et les associations collection�
 
 Le Sprint 012 enrichit la fiche publique d'une œuvre sans modifier les routes ni les relations introduites par le Sprint 011. Les données descriptives restent locales, fictives, typées et immuables. La fiche conserve un rendu serveur, une structure sémantique, un ordre de lecture stable et l'accès aux informations essentielles lorsque le média est indisponible.
 
+Le Sprint 013 remplace l'état transitoire de `/` par la page d'accueil publique contractuelle d'AZUREUM. Elle introduit l'univers de David, propose l'accès principal à `/collections`, présente les deux collections publiques existantes et conserve un rendu serveur fondé exclusivement sur le Design System et les données immuables du module privé `gallery`.
+
 ## Base de données
 
 Aucune base de données déployée. Le modèle conceptuel et l'architecture PostgreSQL cible sont validés dans le livrable du Sprint 006 ; aucun schéma physique ni aucune migration ne sont encore créés.
 
 ## Prochaine étape
 
-Définir puis faire valider le contrat du Sprint 013 avant toute nouvelle implémentation. Aucun Sprint 013 n'est encore ouvert.
+Obtenir la validation Product Owner finale du Sprint 013, puis appliquer la procédure de verrouillage Git définie par `docs/GOVERNANCE.md`. Aucun Sprint suivant n'est ouvert.

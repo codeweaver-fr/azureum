@@ -4,6 +4,22 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 
 ## Non publié
 
+### Sprint 013 — Page d'accueil publique
+
+- remplacement de l'état transitoire de `/` par la porte d'entrée publique contractuelle d'AZUREUM ;
+- ajout du texte introductif temporaire validé et maintien d'un unique titre principal ;
+- ajout du lien principal « Découvrir les collections » vers `/collections` ;
+- présentation des deux collections publiques de démonstration existantes, sans statut de mise en avant ni lien direct vers une œuvre ;
+- réutilisation unique de `study-01` comme média principal et aperçu de `collection-alpha`, avec `composition-a` pour `collection-beta` ;
+- lecture sans mutation des données du module privé `gallery`, maintien du rendu serveur et utilisation exclusive des composants officiels du Design System ;
+- validation responsive sur mobile, tablette et bureau, sans débordement horizontal et avec un reflow compatible avec un zoom à 200 % ;
+- validation de la navigation clavier, du focus visible, de la sémantique et de l'accessibilité de la page ;
+- vérification de la résilience des aperçus et du maintien de l'accès aux collections lorsque leurs médias sont indisponibles ;
+- couverture de non-régression du shell public, de la galerie et de `/design-system` ;
+- validation finale de Prettier, ESLint, TypeScript, 11 fichiers Vitest et 85 tests, build Next.js, 36 tests Playwright et `git diff --check` ;
+- maintien explicite de l'exception de sécurité temporaire déjà documentée pour `brace-expansion@1.1.16`, dépendance transitive de développement introduite par `eslint → minimatch`, sans masquage ni nouvelle vulnérabilité ;
+- audit final et verrouillage Git en attente de la validation Product Owner finale.
+
 ### Sprint 012 — Consultation enrichie d'une œuvre
 
 - enrichissement des données locales de démonstration avec l'année, la technique, le support et les dimensions physiques des œuvres ;
@@ -37,7 +53,7 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 - validation de 24 tests Playwright ;
 - validation d'ESLint, TypeScript, du build Next.js et de la navigation publique sans régression ;
 - validation de la compatibilité mobile, tablette et bureau, de l'absence de débordement horizontal, du reflow à 200 %, de la navigation clavier, du focus visible et des noms accessibles ;
-- synchronisation de `PROJECT_STATE.md` et préparation du verrouillage documentaire du Sprint 011.
+- synchronisation de `PROJECT_STATE.md`, verrouillage sous le tag `sprint-011` et fusion dans `main`.
 
 ### Sprint 010 — Application Shell
 
