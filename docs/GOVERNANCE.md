@@ -16,6 +16,113 @@ Chaque Sprint doit posséder :
 - une documentation mise à jour ;
 - un état final propre et reproductible.
 
+## Stabilité du canon
+
+Les documents canoniques constituent la référence officielle du projet. Toute évolution
+du canon doit être motivée, tracée, validée par le Product Owner et intégrée selon la
+présente gouvernance.
+
+## Catégories de Sprints
+
+Les Sprints appartiennent à l'une des catégories suivantes. Leur catégorie précise leur
+objectif principal sans modifier les exigences communes de validation, de traçabilité
+et de verrouillage.
+
+| Catégorie | Objectif |
+|---|---|
+| Fonctionnel | Ajouter ou faire évoluer une capacité du produit conformément aux spécifications validées. |
+| Direction artistique | Faire évoluer l'expérience visuelle ou la mise en scène d'une capacité fonctionnelle déjà stabilisée. |
+| Sécurité | Auditer ou renforcer la protection du produit, de ses données, de son infrastructure et de son exploitation. |
+| Optimisation | Améliorer une qualité non fonctionnelle démontrée, notamment les performances, le SEO, l'accessibilité ou la dette technique. |
+| Documentation | Corriger, synchroniser ou consolider le référentiel documentaire sans modifier implicitement le produit. |
+
+Un Sprint peut produire une évolution des documents canoniques uniquement lorsque cette
+évolution est explicitement identifiée, justifiée, arbitrée par le Product Owner et
+validée avant l'implémentation qui en dépend.
+
+Une catégorie ne permet jamais d'étendre implicitement le périmètre d'un Sprint. Un
+besoin appartenant à une autre catégorie est différé ou fait l'objet d'un arbitrage
+explicite.
+
+## Statut des audits et propositions
+
+Un audit, une maquette, une recommandation UX, une proposition de direction artistique,
+un rapport de sécurité ou une mesure d'optimisation ne possède aucune valeur normative
+par lui-même.
+
+Ces éléments constituent des propositions tant qu'ils n'ont pas suivi la séquence
+suivante :
+
+```text
+Proposition ou constat
+→ Audit de conformité et de faisabilité
+→ Arbitrage Product Owner
+→ Mise à jour des documents canoniques concernés
+→ Validation documentaire
+→ Implémentation dans un Sprint autorisé
+→ Contrôles et contre-audit
+→ Verrouillage
+```
+
+Une proposition non retenue ne modifie ni le canon, ni le code de production, ni les
+critères d'acceptation en vigueur.
+
+La mise à jour documentaire doit cibler le document qui porte réellement la décision :
+
+- les capacités et comportements relèvent des spécifications fonctionnelles ;
+- les règles et invariants relèvent des règles métier ;
+- les vues, parcours et responsabilités relèvent de la structure produit ;
+- les contraintes transversales de conception relèvent du Design System ;
+- les contraintes de construction, de sécurité technique et de déploiement relèvent de
+  l'architecture technique ou des standards d'exploitation concernés ;
+- une composition strictement locale peut relever du contrat du Sprint autorisé si
+  elle ne crée aucune règle transversale.
+
+## Référence officielle et évolution
+
+Une implémentation validée et verrouillée constitue la référence officielle du produit à
+la date de sa clôture. Elle n'est ni provisoire, ni inachevée au motif qu'une évolution
+artistique, fonctionnelle, sécuritaire ou technique pourra être décidée ultérieurement.
+
+Une évolution future constitue une nouvelle décision du produit. Elle doit être motivée
+par un objectif validé ou un problème observé et suivre la gouvernance applicable. Une
+simple préférence ou une exploration non arbitrée ne justifie pas la modification d'une
+référence verrouillée.
+
+## Contrôles continus et Sprints spécialisés
+
+La création d'un Sprint spécialisé ne reporte pas les obligations courantes des autres
+Sprints.
+
+Chaque Sprint continue d'appliquer les contrôles proportionnés à son périmètre,
+notamment :
+
+- qualité et reproductibilité ;
+- accessibilité ;
+- contrôle des dépendances ;
+- absence de secrets versionnés ;
+- sécurité courante des changements introduits ;
+- performance et absence de régression ;
+- cohérence documentaire.
+
+Un Sprint de sécurité ou d'optimisation intervient lorsqu'un audit transversal, une
+préparation au déploiement ou un besoin démontré nécessite un périmètre dédié. Il ne
+remplace jamais les contrôles continus.
+
+## Brouillons de contrats
+
+Un contrat de Sprint en préparation constitue un travail en cours sans valeur normative
+tant qu'il n'a pas été explicitement validé par le Product Owner et verrouillé selon la
+présente gouvernance.
+
+Avant son verrouillage, un brouillon peut être déplacé, reformulé, complété ou réécrit
+sans procédure de migration documentaire. Il ne peut autoriser aucune implémentation et
+ne prévaut sur aucun document canonique.
+
+La présence d'un brouillon dans une branche ou dans l'historique Git de cette branche ne
+constitue ni l'ouverture de l'implémentation, ni la validation du Sprint, ni son
+intégration au canon.
+
 ## Interdictions
 
 - aucun développement hors Sprint ;
@@ -39,6 +146,9 @@ Chaque Sprint doit posséder :
 
 - `main` doit toujours rester stable ;
 - chaque Sprint utilise une branche dédiée ;
+- aucune modification n'est intégrée directement dans `main` ;
+- toute intégration dans `main` s'effectue par Pull Request après validation Product
+  Owner ;
 - chaque commit décrit une seule intention ;
 - chaque Sprint validé reçoit un tag ;
 - aucun fichier généré ou secret ne doit être versionné.
@@ -90,7 +200,14 @@ Toute révision doit :
 - être explicitement autorisée par le Product Owner ;
 - être documentée et versionnée ;
 - conserver l'historique des décisions et validations antérieures ;
-- recevoir un commit et un tag distincts de ceux de la validation initiale ;
 - être relue et validée avant de devenir la nouvelle référence.
+
+Une correction strictement documentaire reçoit un commit dédié et suit la procédure
+d'intégration par Pull Request. Elle ne nécessite pas automatiquement un nouveau tag
+lorsqu'elle ne crée pas une nouvelle référence officielle du Sprint.
+
+Une révision qui modifie le contrat validé, le périmètre, les décisions normatives ou la
+référence officielle du Sprint reçoit un commit et un tag distincts de ceux de la
+validation initiale.
 
 Le tag d'une validation antérieure ne doit jamais être déplacé ou remplacé.
