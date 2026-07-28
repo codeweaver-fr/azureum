@@ -2,7 +2,7 @@
 
 ## Statut
 
-**En cours — Incrément 1 implémenté, Sprint non verrouillé**
+**Implémenté et audité — validation Product Owner et verrouillage Git en attente**
 
 ## 1. Objectif
 
@@ -340,6 +340,33 @@ L'implémentation est menée par incréments validables :
 6. audit final, synchronisation documentaire et verrouillage.
 
 Aucun incrément ne commence avant validation de l'incrément précédent.
+
+### 13.1 État d'exécution et audit final
+
+Les Incréments 1 à 5 sont implémentés et audités. L'Incrément 6 a réalisé l'audit final,
+la synchronisation documentaire et les validations de clôture.
+
+Les corrections R1 issues de l'audit ont exclusivement :
+
+- rétabli l'ordre contractuel de lecture de la fiche d'œuvre ;
+- supprimé le déplacement visuel du lien de retour ;
+- remplacé les valeurs visuelles locales par les tokens et points de rupture officiels ;
+- exercé les dimensions avec et sans profondeur ;
+- renforcé les tests sémantiques, responsive, de reflow et d'indisponibilité du média ;
+- préchargé uniquement l'image principale des listes publiques concernées afin de
+  supprimer l'avertissement LCP de Next.js, sans modifier leur rendu ni leur API.
+
+Les validations finales de formatage, ESLint, TypeScript, Vitest, build Next.js,
+Playwright et `git diff --check` sont conformes. Aucun bloqueur indispensable ne reste
+ouvert.
+
+Le contrat et le premier enrichissement du modèle descriptif apparaissent dans un même
+commit historique. Cette observation de traçabilité ne modifie ni les décisions
+initiales, ni le contenu normatif du présent contrat.
+
+Le Sprint est prêt pour la validation du Product Owner. Le commit final, le tag, le
+push, la Pull Request, la fusion et le nettoyage de branche ne sont pas encore
+autorisés ni réalisés.
 
 
 
