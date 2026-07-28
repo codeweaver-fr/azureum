@@ -8,8 +8,11 @@ export default function Home() {
         <Heading as="h1" variant="display">
           AZUREUM
         </Heading>
+
         <Text as="p" variant="body-lg">
-          Page d&apos;entrée publique en cours de construction.
+          AZUREUM est l&apos;espace officiel consacré au travail artistique de
+          David. Découvrez ses collections, sa démarche et l&apos;évolution de
+          son univers.
         </Text>
       </Stack>
     </Container>

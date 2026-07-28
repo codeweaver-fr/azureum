@@ -23,6 +23,11 @@ vi.mock("next/navigation", () => ({
   }),
 }));
 
+const homePageSource = readFileSync(
+  fileURLToPath(new URL("../app/(public)/page.tsx", import.meta.url)),
+  "utf8",
+);
+
 const artworkPageSource = readFileSync(
   fileURLToPath(
     new URL(
@@ -48,6 +53,27 @@ describe("minimal public routes", () => {
 
     expect(markup).toContain("<h1");
     expect(markup).toContain(`>${heading}</h1>`);
+  });
+
+  it("renders the official semantic structure of the public homepage", () => {
+    const markup = renderToStaticMarkup(<HomePage />);
+
+    expect(markup.match(/<h1/g)).toHaveLength(1);
+    expect(markup).toContain(">AZUREUM</h1>");
+
+    expect(markup).toContain(
+      "AZUREUM est l&#x27;espace officiel consacré au travail artistique de David.",
+    );
+    expect(markup).toContain(
+      "Découvrez ses collections, sa démarche et l&#x27;évolution de son univers.",
+    );
+
+    expect(markup).not.toContain(
+      "Page d&#x27;entrée publique en cours de construction.",
+    );
+
+    expect(homePageSource).not.toContain('"use client"');
+    expect(homePageSource).not.toContain("'use client'");
   });
 
   it("renders a collection with its identity, intention and artworks", async () => {
