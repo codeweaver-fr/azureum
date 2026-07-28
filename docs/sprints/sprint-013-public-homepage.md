@@ -2,7 +2,10 @@
 
 ## Statut
 
-**En préparation — validation Product Owner en attente**
+**Validé par le Product Owner — contrat verrouillé, implémentation non commencée**
+
+Le présent contrat constitue la référence documentaire canonique du Sprint 013. Toute
+évolution ultérieure suit `docs/GOVERNANCE.md`.
 
 ## 1. Objectif
 
@@ -10,9 +13,19 @@ Le Sprint 013 a pour objectif de concevoir et d'implémenter la page d'accueil p
 `/` comme porte d'entrée principale dans l'univers AZUREUM et vers la galerie
 existante.
 
+Il appartient à la catégorie des Sprints fonctionnels définie par
+`docs/GOVERNANCE.md`.
+
 Le Sprint matérialise la responsabilité de `V-PUB-01` sans redéfinir la structure
 produit, la démarche artistique de David, les contenus éditoriaux définitifs ni les
 responsabilités des autres vues publiques.
+
+L'implémentation constituera la référence fonctionnelle officielle de la page d'accueil
+à la clôture du Sprint. Elle ne sera ni provisoire, ni inachevée au motif qu'une
+évolution de direction artistique pourra être décidée ultérieurement. Une telle
+évolution nécessitera une proposition non normative, un audit, un arbitrage Product
+Owner, la mise à jour des documents canoniques concernés et un Sprint autorisé,
+conformément à `docs/GOVERNANCE.md`.
 
 Aucune modification de `src`, de `public` ou des tests ne peut commencer avant la
 validation Product Owner et le verrouillage Git du présent contrat.
@@ -67,9 +80,8 @@ Le Sprint comprend uniquement :
 - l'utilisation du shell public existant ;
 - l'utilisation exclusive des primitives, composants et tokens officiels du Design
   System ;
-- la réutilisation éventuelle des données et médias locaux de démonstration déjà
-  disponibles, uniquement si leur présence sur l'accueil est validée dans le présent
-  contrat avant l'implémentation ;
+- la lecture des deux collections locales de démonstration déjà disponibles et de leurs
+  médias d'aperçu, sans duplication ni modification ;
 - les validations sémantiques, responsive, accessibles, visuelles et techniques de la
   page ;
 - la synchronisation documentaire nécessaire à la clôture du Sprint.
@@ -103,9 +115,14 @@ Une fois implémentée :
 - `/` ne présente plus le message transitoire « Page d'entrée publique en cours de
   construction » ;
 - la page possède un unique `h1` ;
+- la page présente le texte introductif temporaire validé par le Product Owner ;
+- les deux collections publiques de démonstration sont présentées comme accès à la
+  galerie ;
+- le média d'aperçu de `collection-alpha`, correspondant à `study-01`, constitue le
+  média principal de l'accueil ;
 - le contenu principal est rendu dans le landmark `main` fourni par le shell ;
-- le visiteur peut rejoindre `/collections` au moyen d'un lien explicite et utilisable
-  au clavier ;
+- le visiteur peut rejoindre `/collections` au moyen du lien « Découvrir les
+  collections », explicite et utilisable au clavier ;
 - la navigation publique persistante continue de fonctionner sans modification ;
 - `/design-system` reste absent de la navigation publique ;
 - la page reste compréhensible lorsque les médias ne sont pas chargés ou sont
@@ -132,12 +149,21 @@ Ces éléments :
 - ne doivent pas être modifiés pour répondre à un besoin propre à la page d'accueil ;
 - ne peuvent être utilisés que par lecture, sans mutation.
 
-Le choix d'afficher ou non un aperçu de galerie sur l'accueil constitue un arbitrage
-Product Owner préalable à l'implémentation.
+L'accueil présente les deux collections publiques actuellement disponibles :
+
+- `collection-alpha` ;
+- `collection-beta`.
+
+Cette sélection ne crée aucun statut de mise en avant. Tant que le jeu public disponible
+contient uniquement ces deux collections, elles sont toutes les deux présentées.
+
+Le média principal réutilise le média d'aperçu de la première collection existante,
+`collection-alpha`, soit l'œuvre fictive `study-01`. Aucun nouveau média et aucune
+copie du média existant ne sont créés.
 
 ## 8. Liens autorisés
 
-Le lien de découverte obligatoire de ce Sprint cible :
+Le lien principal porte le libellé « Découvrir les collections » et cible :
 
 ```text
 /collections
@@ -156,9 +182,9 @@ Le Sprint ne crée aucun nouveau lien éditorial vers `/david` ou `/chronologie`
 leur contenu demeure structurel et qu'aucune responsabilité propre à l'accueil ne le
 justifie explicitement.
 
-Les routes dynamiques de collection et d'œuvre peuvent uniquement être utilisées si un
-aperçu de galerie est validé. Aucun lien vers une ressource inconnue, fictive hors du
-jeu existant ou non matérialisée n'est autorisé.
+Chaque aperçu de collection peut cibler sa route dynamique existante. Aucun lien direct
+vers une œuvre n'est ajouté par l'accueil. Aucun lien vers une ressource inconnue,
+fictive hors du jeu existant ou non matérialisée n'est autorisé.
 
 ## 9. Intégration du Design System
 
@@ -280,7 +306,10 @@ Le Sprint doit produire :
 
 - `/` constitue une entrée publique identifiable dans AZUREUM ;
 - la page introduit l'univers et la démarche de David sans remplacer `V-PUB-02` ;
-- un accès explicite conduit à `/collections` ;
+- le texte introductif est exactement : « AZUREUM est l'espace officiel consacré au
+  travail artistique de David. Découvrez ses collections, sa démarche et l'évolution
+  de son univers. » ;
+- le lien principal « Découvrir les collections » conduit à `/collections` ;
 - les collections restent l'accès principal aux œuvres ;
 - aucun contenu ou comportement hors périmètre n'est simulé.
 
@@ -294,7 +323,9 @@ Le Sprint doit produire :
 
 ### Données
 
-- seules les données locales déjà validées sont éventuellement lues ;
+- seules les données locales déjà validées sont lues ;
+- les deux collections publiques de démonstration sont présentées ;
+- le média principal réutilise le média d'aperçu `study-01` de `collection-alpha` ;
 - aucune donnée officielle ou définitive n'est inventée ;
 - aucune donnée de galerie n'est dupliquée ou modifiée ;
 - aucun appel réseau ni mécanisme de persistance n'est introduit.
@@ -346,7 +377,6 @@ Avant clôture :
 
 1. **Contrat et inventaire**
    - validation du présent contrat ;
-   - arbitrage des points explicitement ouverts ;
    - verrouillage documentaire avant tout code.
 2. **Structure sémantique**
    - remplacement de l'état transitoire ;
@@ -356,7 +386,8 @@ Avant clôture :
    - accès explicite à `/collections` ;
    - réutilisation des composants d'interaction existants.
 4. **Données et médias validés**
-   - lecture éventuelle des données existantes uniquement si l'aperçu est validé ;
+   - lecture des deux collections existantes ;
+   - média principal issu de `collection-alpha` ;
    - gestion du média indisponible sans perte d'information.
 5. **Responsive et accessibilité**
    - mobile, tablette, bureau ;
@@ -373,21 +404,26 @@ Avant clôture :
 
 Aucun incrément ne commence avant la validation de l'incrément précédent.
 
-## 18. Arbitrages Product Owner requis avant verrouillage
+## 18. Décisions Product Owner
 
-Les spécifications ne déterminent pas les éléments suivants :
+Les décisions suivantes sont validées :
 
-1. le contenu éditorial temporaire exact qui introduira AZUREUM et la démarche de
-   David ;
-2. la présence ou l'absence d'un aperçu de la galerie sur l'accueil ;
-3. si un aperçu est retenu, la règle de sélection des collections ou œuvres affichées ;
-4. la présence ou l'absence d'un média principal sur l'accueil ;
-5. les libellés exacts des liens propres au contenu de la page, hors navigation
-   persistante déjà verrouillée.
+1. Le texte introductif temporaire est :
 
-Aucune de ces décisions ne peut être déduite localement pendant l'implémentation. Elles
-doivent être validées par le Product Owner puis intégrées au présent contrat avant son
-verrouillage.
+   > AZUREUM est l'espace officiel consacré au travail artistique de David. Découvrez
+   > ses collections, sa démarche et l'évolution de son univers.
+
+2. L'accueil présente un aperçu de la galerie.
+3. L'aperçu présente les deux collections publiques de démonstration actuellement
+   disponibles. Il ne sélectionne aucune œuvre indépendamment de sa collection et ne
+   crée aucune notion de contenu mis en avant.
+4. Le média principal réutilise le média d'aperçu de `collection-alpha`, correspondant
+   à `study-01`.
+5. Le lien principal vers `/collections` porte le libellé « Découvrir les collections ».
+   Aucun lien secondaire propre au contenu de l'accueil n'est ajouté dans ce Sprint.
+
+Ces décisions complètent localement le contrat de la page d'accueil. Elles ne modifient
+ni les responsabilités des autres vues, ni le Design System, ni le module de galerie.
 
 ## 19. Séquence de revue et de verrouillage
 
