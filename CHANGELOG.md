@@ -18,7 +18,7 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 - corrections R1 de l'ordre contractuel de la fiche, du positionnement du lien de retour, des valeurs visuelles locales et de la couverture transversale ;
 - préchargement limité à l'image principale des listes publiques concernées afin de supprimer l'avertissement LCP de Next.js, sans changement visuel ;
 - audit final conforme, sans dépendance, donnée commerciale, API, persistance ou fonctionnalité ultérieure introduite ;
-- Sprint prêt pour validation Product Owner, sans commit final, tag, push ou fusion de clôture à ce stade.
+- Sprint validé par le Product Owner, verrouillé sous le tag `sprint-012`, fusionné dans `main`, puis clôturé après suppression de sa branche locale et distante et vérification de la synchronisation du dépôt.
 
 ### Sprint 011 — Galerie publique
 

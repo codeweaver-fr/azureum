@@ -2,11 +2,11 @@
 
 ## Phase actuelle
 
-Construction du produit — validation finale de la consultation enrichie d'une œuvre.
+Construction du produit — Sprint 012 définitivement clos ; aucun Sprint actif.
 
 ## Sprint actif
 
-Le Sprint 012 — Consultation enrichie d'une œuvre est **implémenté et audité — validation Product Owner et verrouillage Git en attente**.
+Aucun Sprint n'est actuellement ouvert. Le Sprint 012 — Consultation enrichie d'une œuvre est **terminé, validé par le Product Owner, verrouillé sous le tag `sprint-012` et fusionné dans `main`**.
 
 Les Incréments 1 à 5 enrichissent le modèle local et la fiche publique d'une œuvre avec son année, sa technique, son support, ses dimensions physiques, une profondeur optionnelle et une description courte distincte du texte artistique.
 
@@ -14,7 +14,7 @@ L'Incrément 6 a réalisé l'audit final et la synchronisation documentaire. Les
 
 Les validations finales sont conformes : formatage, ESLint, TypeScript, 11 fichiers Vitest et 79 tests, build Next.js, 29 tests Playwright et `git diff --check`. Aucun bloqueur indispensable ne reste ouvert.
 
-Le Sprint 012 attend la validation finale du Product Owner et l'autorisation de verrouillage. Aucun commit final, tag, push ou merge de clôture n'a encore été réalisé.
+Le Sprint 012 a été validé par le Product Owner, verrouillé sous le tag `sprint-012`, fusionné dans `main`, puis sa branche locale et distante a été supprimée. Le dépôt est propre et `main` est synchronisée avec `origin/main`.
 
 Le Sprint 010 — Application Shell est **Validé, verrouillé et fusionné dans `main`**. Le tag `sprint-010` en constitue la référence historique. Le dépôt est propre et `main` est synchronisée avec `origin/main`.
 
@@ -142,4 +142,4 @@ Aucune base de données déployée. Le modèle conceptuel et l'architecture Post
 
 ## Prochaine étape
 
-Faire valider le Sprint 012 par le Product Owner et obtenir l'autorisation explicite de procéder à son verrouillage Git.
+Définir puis faire valider le contrat du Sprint 013 avant toute nouvelle implémentation. Aucun Sprint 013 n'est encore ouvert.
