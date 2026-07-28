@@ -23,6 +23,11 @@ vi.mock("next/navigation", () => ({
   }),
 }));
 
+const homePageSource = readFileSync(
+  fileURLToPath(new URL("../app/(public)/page.tsx", import.meta.url)),
+  "utf8",
+);
+
 const artworkPageSource = readFileSync(
   fileURLToPath(
     new URL(
@@ -48,6 +53,165 @@ describe("minimal public routes", () => {
 
     expect(markup).toContain("<h1");
     expect(markup).toContain(`>${heading}</h1>`);
+  });
+
+  it("renders the official semantic structure of the public homepage", () => {
+    const markup = renderToStaticMarkup(<HomePage />);
+
+    expect(markup.match(/<h1/g)).toHaveLength(1);
+    expect(markup).toContain(">AZUREUM</h1>");
+
+    expect(markup).toContain(
+      "AZUREUM est l&#x27;espace officiel consacré au travail artistique de David.",
+    );
+    expect(markup).toContain(
+      "Découvrez ses collections, sa démarche et l&#x27;évolution de son univers.",
+    );
+
+    expect(markup).not.toContain(
+      "Page d&#x27;entrée publique en cours de construction.",
+    );
+
+    expect(homePageSource).not.toContain('"use client"');
+    expect(homePageSource).not.toContain("'use client'");
+  });
+
+  it("provides the official link to the public gallery", () => {
+    const markup = renderToStaticMarkup(<HomePage />);
+
+    expect(markup).toContain(
+      'href="/collections">Découvrir les collections</a>',
+    );
+    expect(markup.match(/href="\/collections"/g)).toHaveLength(1);
+
+    expect(markup).not.toContain('href="/david"');
+    expect(markup).not.toContain('href="/chronologie"');
+    expect(markup).not.toContain('href="/design-system"');
+  });
+
+  it("presents exactly the two contractual collections", () => {
+    const collections = getGalleryCollections();
+    const alphaCollection = collections.find(
+      (collection) => collection.slug === "collection-alpha",
+    );
+    const betaCollection = collections.find(
+      (collection) => collection.slug === "collection-beta",
+    );
+
+    expect(collections).toHaveLength(2);
+    expect(alphaCollection).toBeDefined();
+    expect(betaCollection).toBeDefined();
+
+    if (alphaCollection === undefined || betaCollection === undefined) {
+      throw new Error(
+        "Expected collection-alpha and collection-beta to exist.",
+      );
+    }
+
+    const markup = renderToStaticMarkup(<HomePage />);
+
+    expect(markup).toContain(">Collections</h2>");
+    expect(markup.match(/role="listitem"/g)).toHaveLength(2);
+
+    for (const collection of [alphaCollection, betaCollection]) {
+      expect(markup).toContain(`>${collection.title}</h3>`);
+      expect(markup).toContain(collection.intention);
+      expect(markup).toContain(`href="/collections/${collection.slug}"`);
+      expect(markup).toContain(`aria-label="Découvrir ${collection.title}"`);
+    }
+
+    expect(markup.match(/href="\/collections\/collection-/g)).toHaveLength(2);
+  });
+
+  it("uses the collection previews as the only homepage media", () => {
+    const collections = getGalleryCollections();
+    const previewArtworks = collections.map((collection) =>
+      getGalleryArtworkBySlugs(collection.slug, collection.previewArtworkSlug),
+    );
+
+    expect(previewArtworks).not.toContain(undefined);
+
+    if (
+      previewArtworks.some((previewArtwork) => previewArtwork === undefined)
+    ) {
+      throw new Error(
+        "Expected every homepage collection preview artwork to exist.",
+      );
+    }
+
+    const markup = renderToStaticMarkup(<HomePage />);
+
+    expect(markup.match(/<img/g)).toHaveLength(2);
+
+    for (const previewArtwork of previewArtworks) {
+      expect(previewArtwork).toBeDefined();
+
+      if (previewArtwork === undefined) {
+        throw new Error("Expected the preview artwork to exist.");
+      }
+
+      expect(markup).toContain(`alt="${previewArtwork.media.alt}"`);
+      expect(
+        markup.match(
+          new RegExp(
+            `alt="${previewArtwork.media.alt.replace(
+              /[.*+?^${}()|[\]\\]/g,
+              "\\$&",
+            )}"`,
+            "g",
+          ),
+        ),
+      ).toHaveLength(1);
+    }
+  });
+
+  it("uses study-01 from collection-alpha once as the main media", () => {
+    const heroArtwork = getGalleryArtworkBySlugs(
+      "collection-alpha",
+      "study-01",
+    );
+
+    expect(heroArtwork).toBeDefined();
+
+    if (heroArtwork === undefined) {
+      throw new Error('Expected "study-01" from "collection-alpha" to exist.');
+    }
+
+    const markup = renderToStaticMarkup(<HomePage />);
+    const escapedAlt = heroArtwork.media.alt.replace(
+      /[.*+?^${}()|[\]\\]/g,
+      "\\$&",
+    );
+
+    expect(markup).toContain(`alt="${heroArtwork.media.alt}"`);
+    expect(markup.match(new RegExp(`alt="${escapedAlt}"`, "g"))).toHaveLength(
+      1,
+    );
+
+    const mainMediaIndex = markup.indexOf(`alt="${heroArtwork.media.alt}"`);
+    const betaMedia = getGalleryArtworkBySlugs(
+      "collection-beta",
+      "composition-a",
+    );
+
+    expect(betaMedia).toBeDefined();
+
+    if (betaMedia === undefined) {
+      throw new Error(
+        'Expected "composition-a" from "collection-beta" to exist.',
+      );
+    }
+
+    const betaMediaIndex = markup.indexOf(`alt="${betaMedia.media.alt}"`);
+
+    expect(mainMediaIndex).toBeGreaterThan(-1);
+    expect(betaMediaIndex).toBeGreaterThan(mainMediaIndex);
+  });
+
+  it("does not link directly to an artwork from the homepage", () => {
+    const markup = renderToStaticMarkup(<HomePage />);
+
+    expect(markup).not.toContain("/oeuvres/");
   });
 
   it("renders a collection with its identity, intention and artworks", async () => {

@@ -2,7 +2,7 @@
 
 ## Statut
 
-**Validé — verrouillage Git en attente, aucune implémentation commencée**
+**Terminé — validé par le Product Owner, verrouillé sous le tag `sprint-011` et fusionné dans `main`**
 
 ## 1. Objectif
 
