@@ -95,6 +95,80 @@ test("keeps gallery links reachable by keyboard", async ({ page }) => {
   await expect(page).toHaveURL(/\/collections\/collection-alpha$/);
 });
 
+for (const viewport of [
+  { height: 844, label: "mobile", width: 390 },
+  { height: 1024, label: "tablet", width: 768 },
+  { height: 900, label: "desktop", width: 1440 },
+] as const) {
+  test(`keeps the enriched artwork usable on ${viewport.label}`, async ({
+    page,
+  }) => {
+    await page.setViewportSize(viewport);
+    await page.goto("/collections/collection-alpha/oeuvres/study-01");
+
+    await expect(
+      page.getByRole("heading", {
+        level: 1,
+        name: "Étude fictive 01",
+      }),
+    ).toBeVisible();
+    await expect(page.getByText("Caractéristiques")).toBeVisible();
+    await expect(
+      page.getByText("Acrylique et pigments minéraux"),
+    ).toBeVisible();
+
+    const hasHorizontalOverflow = await page.evaluate(
+      () =>
+        document.documentElement.scrollWidth >
+        document.documentElement.clientWidth,
+    );
+
+    expect(hasHorizontalOverflow).toBe(false);
+  });
+}
+
+test("supports artwork reflow equivalent to 200 percent zoom", async ({
+  page,
+}) => {
+  await page.setViewportSize({ height: 450, width: 720 });
+  await page.goto("/collections/collection-alpha/oeuvres/study-01");
+
+  const hasHorizontalOverflow = await page.evaluate(
+    () =>
+      document.documentElement.scrollWidth >
+      document.documentElement.clientWidth,
+  );
+
+  expect(hasHorizontalOverflow).toBe(false);
+  await expect(
+    page.getByRole("heading", { level: 1, name: "Étude fictive 01" }),
+  ).toBeVisible();
+  await expect(page.getByText("Caractéristiques")).toBeVisible();
+});
+
+test("keeps artwork information available when its media fails", async ({
+  page,
+}) => {
+  await page.route("**/_next/image**", async (route) => {
+    const imageUrl = new URL(route.request().url()).searchParams.get("url");
+
+    if (imageUrl === "/gallery/study-01.webp") {
+      await route.abort();
+      return;
+    }
+
+    await route.continue();
+  });
+  await page.goto("/collections/collection-alpha/oeuvres/study-01");
+
+  await expect(page.getByText("Image indisponible")).toBeVisible();
+  await expect(
+    page.getByRole("heading", { level: 1, name: "Étude fictive 01" }),
+  ).toBeVisible();
+  await expect(page.getByText("Acrylique et pigments minéraux")).toBeVisible();
+  await expect(page.getByText("80 × 120 × 2.5 cm")).toBeVisible();
+});
+
 test("returns a not found page for invalid gallery routes", async ({
   page,
 }) => {

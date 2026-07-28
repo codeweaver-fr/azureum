@@ -1,4 +1,6 @@
 import { notFound } from "next/navigation";
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 import { renderToStaticMarkup } from "react-dom/server";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
@@ -20,6 +22,16 @@ vi.mock("next/navigation", () => ({
     throw new Error("NEXT_NOT_FOUND");
   }),
 }));
+
+const artworkPageSource = readFileSync(
+  fileURLToPath(
+    new URL(
+      "../app/(public)/collections/[collectionSlug]/oeuvres/[artworkSlug]/page.tsx",
+      import.meta.url,
+    ),
+  ),
+  "utf8",
+);
 
 describe("minimal public routes", () => {
   beforeEach(() => {
@@ -75,10 +87,7 @@ describe("minimal public routes", () => {
   it("renders an enriched artwork page in the context of its collection", async () => {
     const [collection] = getGalleryCollections();
     const artworkSlug = collection.artworkSlugs[0];
-    const artwork = getGalleryArtworkBySlugs(
-      collection.slug,
-      artworkSlug,
-    );
+    const artwork = getGalleryArtworkBySlugs(collection.slug, artworkSlug);
 
     expect(artwork).toBeDefined();
 
@@ -104,9 +113,7 @@ describe("minimal public routes", () => {
     expect(markup).toContain(`>${artwork.title}</h1>`);
 
     expect(markup).toContain(collection.title);
-    expect(markup).toContain(
-      `href="/collections/${collection.slug}"`,
-    );
+    expect(markup).toContain(`href="/collections/${collection.slug}"`);
     expect(markup).toContain(
       `>Revenir à la collection ${collection.title}</a>`,
     );
@@ -119,6 +126,61 @@ describe("minimal public routes", () => {
     expect(markup).toContain(artwork.technique);
     expect(markup).toContain(artwork.support);
     expect(markup).toContain(`${expectedDimensions.join(" × ")} cm`);
+
+    const mediaIndex = markup.indexOf(`alt="${artwork.media.alt}"`);
+    const titleIndex = markup.indexOf(`>${artwork.title}</h1>`);
+    const collectionIndex = markup.indexOf(`>${collection.title}</p>`);
+    const characteristicsIndex = markup.indexOf(">Caractéristiques</h2>");
+    const descriptionIndex = markup.indexOf(">Description</h2>");
+    const artisticTextIndex = markup.indexOf(">À propos de l’œuvre</h2>");
+    const returnIndex = markup.indexOf(
+      `>Revenir à la collection ${collection.title}</a>`,
+    );
+
+    expect(mediaIndex).toBeGreaterThan(-1);
+    expect(titleIndex).toBeGreaterThan(mediaIndex);
+    expect(collectionIndex).toBeGreaterThan(titleIndex);
+    expect(characteristicsIndex).toBeGreaterThan(collectionIndex);
+    expect(descriptionIndex).toBeGreaterThan(characteristicsIndex);
+    expect(artisticTextIndex).toBeGreaterThan(descriptionIndex);
+    expect(returnIndex).toBeGreaterThan(artisticTextIndex);
+    expect(markup.match(/<h1/g)).toHaveLength(1);
+    expect(markup).toContain("<dl");
+    expect(markup.match(/<dt>/g)).toHaveLength(4);
+    expect(markup.match(/<dd>/g)).toHaveLength(4);
+  });
+
+  it("formats physical dimensions without an unavailable depth", async () => {
+    const artwork = getGalleryArtworkBySlugs("collection-alpha", "study-02");
+
+    expect(artwork?.dimensions.depthCm).toBeNull();
+
+    const page = await ArtworkPage({
+      params: Promise.resolve({
+        artworkSlug: "study-02",
+        collectionSlug: "collection-alpha",
+      }),
+    });
+    const markup = renderToStaticMarkup(page);
+
+    expect(markup).toContain(">120 × 80 cm</dd>");
+    expect(markup).not.toContain("120 × 80 ×");
+  });
+
+  it("keeps the enriched artwork route server-rendered and non-commercial", () => {
+    expect(artworkPageSource).not.toContain('"use client"');
+    expect(artworkPageSource).not.toContain("'use client'");
+
+    for (const excludedTerm of [
+      "prix",
+      "acheter",
+      "acquérir",
+      "disponibilité",
+    ]) {
+      expect(artworkPageSource.toLocaleLowerCase("fr")).not.toContain(
+        excludedTerm,
+      );
+    }
   });
 
   it("returns a not-found state for an unknown collection", async () => {

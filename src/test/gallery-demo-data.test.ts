@@ -46,6 +46,15 @@ describe("gallery local data contract", () => {
     }
   });
 
+  it("covers artworks with and without a physical depth", () => {
+    expect(
+      galleryArtworks.some((artwork) => artwork.dimensions.depthCm === null),
+    ).toBe(true);
+    expect(
+      galleryArtworks.some((artwork) => artwork.dimensions.depthCm !== null),
+    ).toBe(true);
+  });
+
   it("keeps physical dimensions consistent with artwork orientation", () => {
     for (const artwork of galleryArtworks) {
       const { widthCm, heightCm } = artwork.dimensions;
@@ -67,11 +76,7 @@ describe("gallery local data contract", () => {
   });
 
   it("uses only the supported media orientations", () => {
-    const supportedOrientations = new Set([
-      "portrait",
-      "landscape",
-      "square",
-    ]);
+    const supportedOrientations = new Set(["portrait", "landscape", "square"]);
 
     for (const artwork of galleryArtworks) {
       expect(supportedOrientations.has(artwork.media.orientation)).toBe(true);

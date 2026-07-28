@@ -65,7 +65,7 @@ export const galleryArtworks: readonly GalleryArtwork[] = Object.freeze([
     dimensions: Object.freeze({
       widthCm: 120,
       heightCm: 80,
-      depthCm: 3,
+      depthCm: null,
     }),
     shortDescription:
       "Une composition horizontale traversée par une ligne fine reliant plusieurs volumes éloignés.",

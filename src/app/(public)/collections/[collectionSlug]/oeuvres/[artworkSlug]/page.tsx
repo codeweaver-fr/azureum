@@ -72,19 +72,13 @@ export default async function ArtworkPage({ params }: ArtworkPageProps) {
         <div className={styles.content}>
           <header className={styles.header}>
             <Stack direction="vertical" gap="lg">
-              <div className={styles.collection}>
-                <Text as="p" variant="body-lg">
-                  {collection.title}
-                </Text>
-              </div>
-
               <Heading as="h1" variant="display">
                 {artwork.title}
               </Heading>
 
-              <div className={styles.shortDescription}>
+              <div className={styles.collection}>
                 <Text as="p" variant="body-lg">
-                  {artwork.shortDescription}
+                  {collection.title}
                 </Text>
               </div>
             </Stack>
@@ -124,6 +118,21 @@ export default async function ArtworkPage({ params }: ArtworkPageProps) {
                   <dd>{formattedDimensions}</dd>
                 </div>
               </dl>
+            </Stack>
+          </section>
+
+          <section
+            aria-labelledby="artwork-description-heading"
+            className={styles.shortDescription}
+          >
+            <Stack direction="vertical" gap="lg">
+              <Heading as="h2" id="artwork-description-heading" variant="h2">
+                Description
+              </Heading>
+
+              <Text as="p" variant="body-lg">
+                {artwork.shortDescription}
+              </Text>
             </Stack>
           </section>
 
