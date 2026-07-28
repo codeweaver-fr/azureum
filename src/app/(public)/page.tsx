@@ -82,6 +82,8 @@ export default function Home() {
                   role="listitem"
                   span={{
                     compact: 4,
+                    tablet: 6,
+                    desktop: 6,
                   }}
                 >
                   <Stack direction="vertical" gap="md">

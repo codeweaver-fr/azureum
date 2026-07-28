@@ -184,3 +184,150 @@ test("returns a not found page for invalid gallery routes", async ({
     expect(response?.status()).toBe(404);
   }
 });
+
+for (const viewport of [
+  { width: 390, height: 844, label: "mobile" },
+  { width: 768, height: 1024, label: "tablet" },
+  { width: 1440, height: 900, label: "desktop" },
+] as const) {
+  test(`keeps the public homepage usable on ${viewport.label}`, async ({
+    page,
+  }) => {
+    await page.setViewportSize(viewport);
+
+    await page.goto("/");
+
+    await expect(
+      page.getByRole("heading", {
+        level: 1,
+        name: "AZUREUM",
+      }),
+    ).toBeVisible();
+
+    await expect(
+      page.getByRole("heading", {
+        level: 3,
+        name: "Collection Alpha",
+      }),
+    ).toBeVisible();
+
+    await expect(
+      page.getByRole("heading", {
+        level: 3,
+        name: "Collection Bêta",
+      }),
+    ).toBeVisible();
+
+    await expect(
+      page.getByRole("link", {
+        name: "Découvrir les collections",
+      }),
+    ).toBeVisible();
+
+    const hasHorizontalOverflow = await page.evaluate(
+      () =>
+        document.documentElement.scrollWidth >
+        document.documentElement.clientWidth,
+    );
+
+    expect(hasHorizontalOverflow).toBe(false);
+  });
+}
+
+test("supports homepage reflow equivalent to 200 percent zoom", async ({
+  page,
+}) => {
+  await page.setViewportSize({
+    width: 720,
+    height: 450,
+  });
+
+  await page.goto("/");
+
+  const hasHorizontalOverflow = await page.evaluate(
+    () =>
+      document.documentElement.scrollWidth >
+      document.documentElement.clientWidth,
+  );
+
+  expect(hasHorizontalOverflow).toBe(false);
+
+  await expect(
+    page.getByRole("heading", {
+      level: 1,
+      name: "AZUREUM",
+    }),
+  ).toBeVisible();
+
+  await expect(
+    page.getByRole("link", {
+      name: "Découvrir les collections",
+    }),
+  ).toBeVisible();
+
+  await expect(
+    page.getByRole("heading", {
+      level: 3,
+      name: "Collection Alpha",
+    }),
+  ).toBeVisible();
+
+  await expect(
+    page.getByRole("heading", {
+      level: 3,
+      name: "Collection Bêta",
+    }),
+  ).toBeVisible();
+});
+
+test("keeps homepage navigation reachable by keyboard", async ({ page }) => {
+  await page.goto("/");
+
+  const galleryLink = page.getByRole("link", {
+    name: "Découvrir les collections",
+  });
+
+  await galleryLink.focus();
+
+  await expect(galleryLink).toBeFocused();
+
+  await page.keyboard.press("Enter");
+
+  await expect(page).toHaveURL(/\/collections$/);
+});
+
+test("keeps the public homepage accessible", async ({ page }) => {
+  await page.goto("/");
+
+  await expect(page.locator("main")).toHaveCount(1);
+
+  const skipLink = page.getByRole("link", {
+    name: /contenu principal/i,
+  });
+
+  await expect(skipLink).toBeVisible();
+
+  await skipLink.focus();
+
+  await expect(skipLink).toBeFocused();
+
+  await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
+
+  await expect(
+    page.getByRole("link", {
+      name: "Découvrir Collection Alpha",
+    }),
+  ).toBeVisible();
+
+  await expect(
+    page.getByRole("link", {
+      name: "Découvrir Collection Bêta",
+    }),
+  ).toBeVisible();
+
+  await expect(
+    page.getByRole("link", {
+      name: /design-system/i,
+    }),
+  ).toHaveCount(0);
+});
