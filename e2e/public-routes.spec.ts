@@ -331,3 +331,47 @@ test("keeps the public homepage accessible", async ({ page }) => {
     }),
   ).toHaveCount(0);
 });
+
+test("keeps homepage collection access available when its media fail", async ({
+  page,
+}) => {
+  await page.route("**/_next/image**", async (route) => {
+    const imageUrl = new URL(route.request().url()).searchParams.get("url");
+
+    if (
+      imageUrl === "/gallery/study-01.webp" ||
+      imageUrl === "/gallery/composition-a.webp"
+    ) {
+      await route.abort();
+      return;
+    }
+
+    await route.continue();
+  });
+
+  await page.goto("/");
+
+  await expect(page.getByText("Image indisponible")).toHaveCount(2);
+  await expect(
+    page.getByRole("heading", {
+      level: 3,
+      name: "Collection Alpha",
+    }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", {
+      level: 3,
+      name: "Collection Bêta",
+    }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("link", {
+      name: "Découvrir Collection Alpha",
+    }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("link", {
+      name: "Découvrir Collection Bêta",
+    }),
+  ).toBeVisible();
+});
