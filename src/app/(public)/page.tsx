@@ -1,4 +1,5 @@
 import { Container, Stack } from "@/shared/components/layout";
+import { Link } from "@/shared/components/interactions";
 import { Heading, Text } from "@/shared/components/typography";
 
 export default function Home() {
@@ -14,6 +15,8 @@ export default function Home() {
           David. Découvrez ses collections, sa démarche et l&apos;évolution de
           son univers.
         </Text>
+
+        <Link href="/collections">Découvrir les collections</Link>
       </Stack>
     </Container>
   );

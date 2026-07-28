@@ -76,6 +76,18 @@ describe("minimal public routes", () => {
     expect(homePageSource).not.toContain("'use client'");
   });
 
+  it("provides the official link to the public gallery", () => {
+    const markup = renderToStaticMarkup(<HomePage />);
+
+    expect(markup).toContain(
+      'href="/collections">Découvrir les collections</a>',
+    );
+    expect(markup.match(/href="/g)).toHaveLength(1);
+    expect(markup).not.toContain('href="/david"');
+    expect(markup).not.toContain('href="/chronologie"');
+    expect(markup).not.toContain('href="/design-system"');
+  });
+
   it("renders a collection with its identity, intention and artworks", async () => {
     const [collection] = getGalleryCollections();
     const artworks = getGalleryArtworksByCollectionSlug(collection.slug);
