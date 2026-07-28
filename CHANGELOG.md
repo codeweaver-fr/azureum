@@ -4,6 +4,22 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 
 ## Non publié
 
+### Sprint 012 — Consultation enrichie d'une œuvre
+
+- enrichissement des données locales de démonstration avec l'année, la technique, le support et les dimensions physiques des œuvres ;
+- prise en charge explicite des dimensions avec ou sans profondeur ;
+- ajout d'une description courte distincte du texte artistique ;
+- enrichissement de la fiche publique d'une œuvre sans modification de ses routes ni de sa relation avec sa collection d'origine ;
+- structuration sémantique des caractéristiques matérielles au moyen d'une liste de descriptions ;
+- maintien d'un rendu serveur et utilisation exclusive des primitives et tokens officiels du Design System ;
+- validation mobile, tablette et bureau, sans débordement horizontal et avec un reflow compatible avec un zoom à 200 % ;
+- maintien des informations descriptives essentielles lorsque le média principal est indisponible ;
+- renforcement des tests Vitest et Playwright relatifs à la sémantique, à l'ordre de lecture, à la profondeur optionnelle, au responsive et à l'échec du média ;
+- corrections R1 de l'ordre contractuel de la fiche, du positionnement du lien de retour, des valeurs visuelles locales et de la couverture transversale ;
+- préchargement limité à l'image principale des listes publiques concernées afin de supprimer l'avertissement LCP de Next.js, sans changement visuel ;
+- audit final conforme, sans dépendance, donnée commerciale, API, persistance ou fonctionnalité ultérieure introduite ;
+- Sprint prêt pour validation Product Owner, sans commit final, tag, push ou fusion de clôture à ce stade.
+
 ### Sprint 011 — Galerie publique
 
 - implémentation d'un jeu local, typé, fini et explicitement temporaire de deux collections et six œuvres fictives ;

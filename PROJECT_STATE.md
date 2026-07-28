@@ -2,17 +2,19 @@
 
 ## Phase actuelle
 
-Construction du produit — clôture de la galerie publique de démonstration.
+Construction du produit — validation finale de la consultation enrichie d'une œuvre.
 
 ## Sprint actif
 
-Le Sprint 011 — Galerie publique est **implémenté et validé techniquement — audit final, synchronisation documentaire et verrouillage Git en cours**.
+Le Sprint 012 — Consultation enrichie d'une œuvre est **implémenté et audité — validation Product Owner et verrouillage Git en attente**.
 
-Le Sprint 011 matérialise la consultation publique de deux collections et de six œuvres fictives au moyen d’un jeu local, typé et fini de données de démonstration. Les routes `/collections`, `/collections/[collectionSlug]` et `/collections/[collectionSlug]/oeuvres/[artworkSlug]` permettent désormais la navigation complète entre la liste des collections, une collection, une œuvre et sa collection d’origine.
+Les Incréments 1 à 5 enrichissent le modèle local et la fiche publique d'une œuvre avec son année, sa technique, son support, ses dimensions physiques, une profondeur optionnelle et une description courte distincte du texte artistique.
 
-Les données et médias utilisés restent strictement temporaires, locaux et séparés de toute persistance ou donnée artistique officielle de David Prieur-Gélis. Aucun mécanisme d’acquisition, d’authentification, de gestion éditoriale ou d’extension du Design System n’a été introduit.
+L'Incrément 6 a réalisé l'audit final et la synchronisation documentaire. Les corrections R1 ont rétabli l'ordre contractuel de lecture, supprimé le déplacement visuel du lien de retour, remplacé les valeurs visuelles locales par les tokens officiels, couvert les œuvres avec et sans profondeur, renforcé les validations transversales et préchargé uniquement l'image principale des listes publiques concernées afin de supprimer l'avertissement LCP de Next.js.
 
-Les validations automatiques du Sprint sont conformes : 11 fichiers Vitest et 71 tests réussis, ESLint conforme, TypeScript conforme, build Next.js réussi et 24 tests Playwright réussis.
+Les validations finales sont conformes : formatage, ESLint, TypeScript, 11 fichiers Vitest et 79 tests, build Next.js, 29 tests Playwright et `git diff --check`. Aucun bloqueur indispensable ne reste ouvert.
+
+Le Sprint 012 attend la validation finale du Product Owner et l'autorisation de verrouillage. Aucun commit final, tag, push ou merge de clôture n'a encore été réalisé.
 
 Le Sprint 010 — Application Shell est **Validé, verrouillé et fusionné dans `main`**. Le tag `sprint-010` en constitue la référence historique. Le dépôt est propre et `main` est synchronisée avec `origin/main`.
 
@@ -132,10 +134,12 @@ Chaque page de collection présente exactement trois œuvres rattachées à cett
 
 Les collections inconnues, les œuvres inconnues et les associations collection–œuvre incohérentes utilisent l’état absent de l’App Router. L’ensemble du parcours est validé sur mobile, tablette et bureau, au clavier, sans débordement horizontal et avec un reflow compatible avec un zoom à 200 %.
 
+Le Sprint 012 enrichit la fiche publique d'une œuvre sans modifier les routes ni les relations introduites par le Sprint 011. Les données descriptives restent locales, fictives, typées et immuables. La fiche conserve un rendu serveur, une structure sémantique, un ordre de lecture stable et l'accès aux informations essentielles lorsque le média est indisponible.
+
 ## Base de données
 
 Aucune base de données déployée. Le modèle conceptuel et l'architecture PostgreSQL cible sont validés dans le livrable du Sprint 006 ; aucun schéma physique ni aucune migration ne sont encore créés.
 
 ## Prochaine étape
 
-Exécuter l’audit final du Sprint 011, synchroniser `PROJECT_STATE.md` et `CHANGELOG.md`, faire valider la clôture par le Product Owner, puis réaliser le commit de clôture, le tag `sprint-011`, la Pull Request et la fusion contrôlée dans `main`.
+Faire valider le Sprint 012 par le Product Owner et obtenir l'autorisation explicite de procéder à son verrouillage Git.

@@ -1,0 +1,127 @@
+.artwork {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-64);
+  padding-block: var(--space-48) var(--space-64);
+}
+
+.media {
+  border-radius: var(--radius-standard);
+  overflow: hidden;
+}
+
+.media img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-48);
+}
+
+.header {
+  max-width: var(--size-reading-standard);
+}
+
+.collection {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: fit-content;
+}
+
+.collection::before {
+  color: var(--color-text-secondary);
+  content: "Collection";
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-xs);
+  text-transform: uppercase;
+}
+
+.collection p {
+  border-bottom: var(--border-width-standard) solid var(--color-border-subtle);
+  margin: var(--space-0);
+  padding-bottom: var(--space-8);
+}
+
+.shortDescription {
+  border-left: var(--border-width-strong) solid var(--color-border-default);
+  max-width: var(--size-reading-standard);
+  padding-left: var(--space-24);
+}
+
+.shortDescription p {
+  margin: var(--space-0);
+}
+
+.characteristics {
+  border-block: var(--border-width-standard) solid var(--color-border-subtle);
+  padding-block: var(--space-32);
+}
+
+.characteristicsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-0);
+  margin: var(--space-0);
+  max-width: var(--size-reading-standard);
+}
+
+.characteristic {
+  display: grid;
+  border-bottom: var(--border-width-standard) solid var(--color-border-subtle);
+  gap: var(--space-4);
+  grid-template-columns: minmax(0, 1fr);
+  padding-block: var(--space-16);
+}
+
+.characteristic:first-child {
+  padding-top: var(--space-0);
+}
+
+.characteristic:last-child {
+  border-bottom: none;
+  padding-bottom: var(--space-0);
+}
+
+.characteristic dt {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-xs);
+  text-transform: uppercase;
+}
+
+.characteristic dd {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  margin: var(--space-0);
+  min-width: 0;
+}
+
+.artisticText {
+  max-width: var(--size-reading-standard);
+}
+
+.artisticText p {
+  line-height: var(--line-height-body-lg);
+  margin: var(--space-0);
+}
+
+.footer a::before {
+  content: "← ";
+}
+
+/* DT-10 — Tablette */
+@media (min-width: 768px) {
+  .characteristic {
+    align-items: baseline;
+    gap: var(--space-24);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  }
+}
