@@ -44,7 +44,7 @@ export default async function CollectionPage({ params }: CollectionPageProps) {
         </Stack>
 
         <Grid gap="xl" role="list">
-          {artworks.map((artwork) => {
+          {artworks.map((artwork, artworkIndex) => {
             if (artwork.media.dimensions === null) {
               throw new Error(
                 `Gallery artwork "${artwork.slug}" is missing media dimensions.`,
@@ -65,6 +65,7 @@ export default async function CollectionPage({ params }: CollectionPageProps) {
                   <ArtworkImage
                     alt={artwork.media.alt}
                     height={artwork.media.dimensions.height}
+                    preload={artworkIndex === 0}
                     src={artwork.media.src}
                     width={artwork.media.dimensions.width}
                   />
