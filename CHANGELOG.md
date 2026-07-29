@@ -36,8 +36,9 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
   vérification de la fusion ;
 - conservation du tag publié `sprint-015` comme référence historique antérieure à la
   correction LCP, sans déplacement ;
-- préparation de la révision contrôlée `sprint-015-r1` afin de désigner l'état corrigé
-  après synchronisation documentaire.
+- création et push du tag `sprint-015-r1` sur le commit `d43b8e2`, devenu la référence
+  officielle corrigée du Sprint 015 ;
+- Sprint définitivement clos après synchronisation documentaire.
 
 ### Gouvernance — Exécution incrémentale
 

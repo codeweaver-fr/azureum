@@ -2,8 +2,7 @@
 
 ## Phase actuelle
 
-Construction du produit — entre deux Sprints après la fusion du Sprint 015 et pendant
-la préparation de sa révision contrôlée de clôture.
+Construction du produit — entre deux Sprints après la clôture définitive du Sprint 015.
 
 ## Sprint actif
 
@@ -32,9 +31,9 @@ changement visuel ou fonctionnel.
 Le commit documentaire `0b13359` et le tag `sprint-015` ont précédé la correction LCP
 `f734ef7`. Cette correction a été fusionnée par la Pull Request nº 14 dans le commit
 `6bb96be`. La branche `sprint-015-artistic-content` a été supprimée localement et à
-distance. Le tag publié `sprint-015` demeure inchangé comme référence historique ; la
-révision contrôlée `sprint-015-r1` doit encore être créée après intégration de la
-présente synchronisation documentaire afin de désigner l'état corrigé.
+distance. Le tag publié `sprint-015` demeure inchangé comme référence historique. Le
+tag `sprint-015-r1`, créé et poussé sur le commit `d43b8e2`, constitue la référence
+officielle corrigée. Le Sprint 015 est définitivement clos.
 
 Le Sprint 014 — David et sa démarche est **validé par le Product Owner, verrouillé sous
 le tag `sprint-014`, fusionné dans `main` et définitivement clos**. Sa branche locale et

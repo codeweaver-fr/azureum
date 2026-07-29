@@ -2,7 +2,7 @@
 
 ## Statut
 
-**Validé par le Product Owner et fusionné dans `main` — révision contrôlée de clôture en préparation**
+**Validé par le Product Owner, fusionné dans `main` et définitivement clos sous la référence `sprint-015-r1`**
 
 Le présent document constitue la référence contractuelle du Sprint 015. Toute évolution
 ultérieure doit respecter `docs/GOVERNANCE.md`.
@@ -570,5 +570,6 @@ a ensuite été fusionnée dans `main` par la Pull Request nº 14. Le commit de 
 `sprint-015-artistic-content` a été supprimée après vérification de la fusion.
 
 Conformément à la gouvernance, le tag publié `sprint-015` reste inchangé et constitue la
-référence historique antérieure à la correction. La présente révision documentaire
-prépare `sprint-015-r1`, future référence officielle corrigée du Sprint 015.
+référence historique antérieure à la correction. Le tag `sprint-015-r1`, créé et poussé
+sur le commit de fusion `d43b8e2`, constitue la référence officielle corrigée du Sprint
+015.
