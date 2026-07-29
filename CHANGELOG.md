@@ -4,6 +4,18 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 
 ## Non publié
 
+### Gouvernance — Exécution incrémentale
+
+- formalisation du caractère facultatif du découpage d'un Sprint en incréments ;
+- détermination du nombre d'incréments selon les responsabilités du Sprint et son
+  contrat, sans minimum ni maximum imposé ;
+- définition, pour chaque incrément, d'un objectif, d'un périmètre, des travaux
+  autorisés, des critères de validation, des contrôles et du commit attendu ;
+- distinction entre l'acceptation intermédiaire d'un incrément et la validation
+  Product Owner finale du Sprint ;
+- encadrement des éventuels incréments de clôture, sans fonctionnalité ni décision
+  produit nouvelle.
+
 ### Sprint 013 — Page d'accueil publique
 
 - remplacement de l'état transitoire de `/` par la porte d'entrée publique contractuelle d'AZUREUM ;
@@ -18,7 +30,9 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 - couverture de non-régression du shell public, de la galerie et de `/design-system` ;
 - validation finale de Prettier, ESLint, TypeScript, 11 fichiers Vitest et 85 tests, build Next.js, 36 tests Playwright et `git diff --check` ;
 - maintien explicite de l'exception de sécurité temporaire déjà documentée pour `brace-expansion@1.1.16`, dépendance transitive de développement introduite par `eslint → minimatch`, sans masquage ni nouvelle vulnérabilité ;
-- audit final et verrouillage Git en attente de la validation Product Owner finale.
+- Sprint validé par le Product Owner, verrouillé sous le tag `sprint-013`, fusionné
+  dans `main`, puis définitivement clos après suppression de sa branche locale et
+  distante et vérification de la synchronisation du dépôt.
 
 ### Sprint 012 — Consultation enrichie d'une œuvre
 

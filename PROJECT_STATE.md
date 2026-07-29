@@ -2,17 +2,22 @@
 
 ## Phase actuelle
 
-Construction du produit — Sprint 013 implémenté et en cours de clôture.
+Construction du produit — entre deux Sprints après la clôture du Sprint 013.
 
 ## Sprint actif
 
-Le Sprint 013 — Page d'accueil publique est **implémenté et audité ; sa validation Product Owner finale et son verrouillage Git restent en attente**.
+Aucun Sprint n'est actuellement actif.
+
+Le Sprint 013 — Page d'accueil publique est **validé par le Product Owner, verrouillé
+sous le tag `sprint-013`, fusionné dans `main` et définitivement clos**. Sa branche
+locale et distante a été supprimée.
 
 Les Incréments 1 à 6 ont remplacé l'état transitoire de `/` par la porte d'entrée publique contractuelle d'AZUREUM, ajouté le texte introductif validé, l'accès principal à `/collections`, les aperçus des deux collections publiques existantes et leurs médias locaux, puis vérifié le responsive, l'accessibilité, la résilience des médias et l'absence de régression.
 
 La page reste un Server Component, lit sans mutation les données du module privé `gallery`, utilise exclusivement les composants officiels du Design System et n'introduit aucune nouvelle route, donnée, dépendance, logique métier ou décision de direction artistique.
 
-L'Incrément 7 réalise l'audit final, les contrôles complets et la synchronisation documentaire avant la décision Product Owner de verrouillage.
+L'Incrément 7 a réalisé l'audit final, les contrôles complets et la synchronisation
+documentaire avant la validation Product Owner et le verrouillage du Sprint.
 
 Les validations finales sont conformes : Prettier, ESLint, TypeScript, 11 fichiers Vitest et 85 tests, build Next.js, 36 tests Playwright et `git diff --check`. `pnpm audit` restitue uniquement l'exception de sécurité temporaire déjà documentée pour `brace-expansion@1.1.16`, dépendance transitive de développement introduite par `eslint → minimatch`, sans masquage ni nouvelle vulnérabilité.
 
@@ -146,4 +151,6 @@ Aucune base de données déployée. Le modèle conceptuel et l'architecture Post
 
 ## Prochaine étape
 
-Obtenir la validation Product Owner finale du Sprint 013, puis appliquer la procédure de verrouillage Git définie par `docs/GOVERNANCE.md`. Aucun Sprint suivant n'est ouvert.
+Finaliser la révision de `docs/GOVERNANCE.md` consacrée à l'exécution incrémentale,
+selon le cycle de revue et d'intégration par Pull Request. Aucun Sprint suivant n'est
+ouvert.

@@ -2,7 +2,8 @@
 
 ## Statut
 
-**Implémenté et audité — validation Product Owner finale et verrouillage Git en attente**
+**Validé par le Product Owner, verrouillé sous le tag `sprint-013`, fusionné dans
+`main` et définitivement clos**
 
 Le présent contrat constitue la référence documentaire canonique du Sprint 013. Toute
 évolution ultérieure suit `docs/GOVERNANCE.md`.
