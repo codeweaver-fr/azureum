@@ -2,16 +2,16 @@
 
 ## Phase actuelle
 
-Construction du produit — Sprint 015 en attente de validation Product Owner finale et
-de verrouillage Git.
+Construction du produit — entre deux Sprints après la fusion du Sprint 015 et pendant
+la préparation de sa révision contrôlée de clôture.
 
 ## Sprint actif
 
-Le Sprint 015 — Contenus artistiques est **intégralement implémenté et audité sur sa
-branche dédiée**. Les six incréments ont verrouillé le contrat, ajouté le modèle privé
-et les trois contenus fictifs, matérialisé `/contenus/[contentSlug]`, relié les contenus
-aux œuvres dans les deux sens, puis validé le responsive, l'accessibilité et l'absence
-de régression.
+Le Sprint 015 — Contenus artistiques est **validé par le Product Owner, fusionné dans
+`main` et fonctionnellement terminé**. Les six incréments ont verrouillé le contrat,
+ajouté le modèle privé et les trois contenus fictifs, matérialisé
+`/contenus/[contentSlug]`, relié les contenus aux œuvres dans les deux sens, puis validé
+le responsive, l'accessibilité et l'absence de régression.
 
 La page reste un Server Component, utilise exclusivement le Design System existant et
 ne crée ni index `/contenus`, ni entrée de navigation principale, ni nouveau média. Les
@@ -29,8 +29,12 @@ L'audit final a corrigé l'unique avertissement LCP reproduit par l'intégration
 en préchargeant les deux aperçus de collection visibles au chargement de `/`, sans
 changement visuel ou fonctionnel.
 
-La validation Product Owner finale, les opérations Git de clôture, le tag `sprint-015`,
-la Pull Request, la fusion dans `main` et le nettoyage de branche restent à réaliser.
+Le commit documentaire `0b13359` et le tag `sprint-015` ont précédé la correction LCP
+`f734ef7`. Cette correction a été fusionnée par la Pull Request nº 14 dans le commit
+`6bb96be`. La branche `sprint-015-artistic-content` a été supprimée localement et à
+distance. Le tag publié `sprint-015` demeure inchangé comme référence historique ; la
+révision contrôlée `sprint-015-r1` doit encore être créée après intégration de la
+présente synchronisation documentaire afin de désigner l'état corrigé.
 
 Le Sprint 014 — David et sa démarche est **validé par le Product Owner, verrouillé sous
 le tag `sprint-014`, fusionné dans `main` et définitivement clos**. Sa branche locale et

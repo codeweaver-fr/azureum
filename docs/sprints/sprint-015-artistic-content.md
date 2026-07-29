@@ -2,7 +2,7 @@
 
 ## Statut
 
-**Implémenté et audité — validation Product Owner finale et verrouillage Git en attente**
+**Validé par le Product Owner et fusionné dans `main` — révision contrôlée de clôture en préparation**
 
 Le présent document constitue la référence contractuelle du Sprint 015. Toute évolution
 ultérieure doit respecter `docs/GOVERNANCE.md`.
@@ -536,7 +536,7 @@ Audit documentaire
 → Vérification et nettoyage
 ```
 
-## 23. État avant verrouillage
+## 23. État de clôture
 
 Les six incréments contractuels sont implémentés et audités.
 
@@ -561,6 +561,14 @@ le comportement fonctionnel.
 par `eslint → minimatch`. Cette exception est déjà documentée, n'est pas masquée et
 aucune nouvelle vulnérabilité n'est constatée.
 
-Le Sprint est prêt pour la validation Product Owner finale. Aucun commit de clôture,
-tag, push, Pull Request, fusion ni nettoyage de branche n'est encore réalisé dans le
-cadre de cet incrément.
+Le Sprint a été validé par le Product Owner. Le commit de clôture documentaire
+`0b13359` a été enregistré et le tag `sprint-015` a été créé et poussé sur ce commit.
+
+La correction LCP `f734ef7`, révélée par l'intégration continue après la création du tag,
+a ensuite été fusionnée dans `main` par la Pull Request nº 14. Le commit de fusion
+`6bb96be` constitue l'état fonctionnel corrigé. La branche locale et distante
+`sprint-015-artistic-content` a été supprimée après vérification de la fusion.
+
+Conformément à la gouvernance, le tag publié `sprint-015` reste inchangé et constitue la
+référence historique antérieure à la correction. La présente révision documentaire
+prépare `sprint-015-r1`, future référence officielle corrigée du Sprint 015.
