@@ -2,7 +2,7 @@
 
 ## Statut
 
-**Validé par le Product Owner et verrouillé — implémentation non commencée**
+**Validé par le Product Owner et verrouillé — implémentation en cours**
 
 Le présent document constitue la référence documentaire canonique du Sprint 014. Toute
 évolution ultérieure suit `docs/GOVERNANCE.md`.
@@ -10,7 +10,7 @@ Le présent document constitue la référence documentaire canonique du Sprint 0
 ## 1. Objectif
 
 Le Sprint 014 a pour objectif de concevoir et d'implémenter la page publique `/david`
-comme référence V1 permettant de présenter David Prieur-Gélis, les éléments
+comme référence V1 permettant de présenter David Prieur-Gelis, les éléments
 biographiques utiles, sa démarche artistique et les repères nécessaires à la
 compréhension de son travail.
 
@@ -19,9 +19,10 @@ Il matérialise la responsabilité fonctionnelle de `V-PUB-02 — David et sa d�
 Le Sprint appartient à la catégorie des Sprints fonctionnels définie par
 `docs/GOVERNANCE.md`.
 
-À sa clôture, l'implémentation constitue la référence officielle V1 de la page. Elle
-n'est ni provisoire ni inachevée au motif que son contenu éditorial pourra être enrichi
-ultérieurement. Toute évolution future suit la gouvernance applicable.
+À sa clôture, l'implémentation constitue la référence fonctionnelle V1 de la page. Son
+contenu éditorial demeure une version de travail, destinée à être remplacée ou ajustée
+après recueil des informations et médias officiels auprès de David. Toute évolution
+future suit la gouvernance applicable.
 
 ## 2. Références normatives
 
@@ -48,7 +49,7 @@ visuelle.
 Le Sprint applique les décisions déjà validées suivantes :
 
 - AZUREUM est une galerie d'art numérique premium consacrée durablement à David
-  Prieur-Gélis ;
+Prieur-Gelis ;
 - David est l'unique artiste permanent présenté dans la V1 ;
 - la démarche artistique constitue le principe organisateur du produit ;
 - la fidélité à cette démarche prime sur l'optimisation commerciale ;
@@ -68,7 +69,7 @@ Le Sprint applique les décisions déjà validées suivantes :
 
 La page `/david` doit :
 
-- identifier clairement David Prieur-Gélis comme l'artiste permanent auquel AZUREUM
+- identifier clairement David Prieur-Gelis comme l'artiste permanent auquel AZUREUM
   est consacré ;
 - fournir des éléments biographiques strictement utiles à la compréhension de son
   travail ;
@@ -85,66 +86,68 @@ La page ne doit pas :
 - présenter David comme un produit, une marque générique ou un artiste parmi d'autres ;
 - exposer une capacité de gestion, d'acquisition ou d'administration.
 
-## 5. Contenu éditorial V1
+## 5. Contenu éditorial de travail
 
 ### 5.1 Nature du contenu
 
 Le Sprint ne recherche ni une biographie exhaustive ni un manifeste définitif.
 
-Le contenu V1 doit être suffisamment complet pour remplir la responsabilité de
-`V-PUB-02` et suffisamment borné pour pouvoir être relu, validé et maintenu.
+Le contenu de travail doit être suffisamment complet pour exercer la responsabilité de
+`V-PUB-02` et suffisamment borné pour pouvoir être relu, testé et maintenu.
 
 Il comprend au minimum :
 
-- l'identité publique « David Prieur-Gélis » ;
+- l'identité publique « David Prieur-Gelis » ;
 - une présentation courte de David dans le contexte d'AZUREUM ;
 - un ensemble limité d'éléments biographiques utiles à la compréhension de son
   travail ;
 - une présentation de sa démarche artistique ;
-- des repères relatifs aux expressions, préoccupations, pratiques ou évolutions de son
-  travail, uniquement lorsqu'ils sont confirmés par David ;
+- des repères de travail relatifs aux expressions, préoccupations, pratiques ou
+  évolutions de son travail, retenus par le Product Owner pour exercer la structure
+  éditoriale ;
 - une transition éditoriale vers la découverte de ses collections.
 
-### 5.2 Validation obligatoire
+### 5.2 Validation éditoriale
 
-Avant toute intégration du contenu officiel V1 dans la page, le corpus éditorial doit :
+L'Incrément 3 a pour objectif d'intégrer une première version éditoriale de travail dans
+la page `/david`.
 
-1. être fourni ou formellement approuvé par David ;
-2. être relu par le Product Owner ;
-3. ne contenir aucun fait, citation, intention, influence ou interprétation non
-   confirmé ;
-4. définir explicitement la voix retenue pour la V1, notamment la première ou la
-   troisième personne ;
-5. identifier toute citation directe comme telle et en confirmer l'attribution ;
-6. être enregistré dans le périmètre documentaire de l'incrément éditorial prévu par
-   le présent contrat.
+Cette version de travail est acceptée par le Product Owner, seul valideur pendant la
+phase de construction, afin de permettre la poursuite du Sprint et le verrouillage
+technique de l'incrément. Cette acceptation ne transforme pas le contenu en corpus
+définitif ou officiellement approuvé par David.
 
-L'implémentation de la structure, de la composition, du responsive, de l'accessibilité
-et des éléments techniques peut être réalisée indépendamment de la validation finale du
-corpus.
+David ne participe pas à la validation des contrats, des incréments ou des contenus
+pendant la construction. AZUREUM lui est destiné comme un projet surprise.
 
-Un contenu provisoire explicitement identifié comme non officiel peut être utilisé sur
-la branche du Sprint afin de développer et tester la page. Ce contenu ne peut pas être
-fusionné dans `main` et doit être remplacé par le corpus validé avant la clôture du
-Sprint.
+La validation explicite de l'artiste intervient lors d'une revue de la V1 du projet,
+lorsque l'ensemble est suffisamment abouti pour être présenté comme une expérience
+cohérente, et obligatoirement avant toute mise en production ou remise officielle.
 
-La publication du contenu officiel V1, la validation finale et le verrouillage du
-Sprint restent impossibles tant que David et le Product Owner n'ont pas validé le
-corpus intégré.
+Les éventuelles modifications issues de cette revue font l'objet d'un ou plusieurs
+incréments éditoriaux ou Sprints autorisés. Elles ne remettent pas en cause le
+verrouillage technique de l'Incrément 3.
+
+La fusion dans `main` de la référence fonctionnelle validée par le Product Owner ne vaut
+ni validation éditoriale par David ni autorisation de mise en production ou de remise
+officielle.
 
 ### 5.3 Fidélité éditoriale
 
-L'implémentation reproduit fidèlement le corpus validé. Elle ne complète, ne réécrit et
-n'interprète aucun passage pour améliorer artificiellement le ton, la narration ou le
-référencement.
+L'implémentation reproduit fidèlement la version de travail acceptée par le Product
+Owner. Elle ne complète, ne réécrit et n'interprète aucun passage pendant son
+intégration.
 
 Les corrections strictement typographiques peuvent être proposées pendant la revue,
-mais toute modification de sens requiert une nouvelle validation de David et du Product
-Owner avant intégration.
+mais toute modification de sens requiert une nouvelle validation du Product Owner avant
+intégration. Après la présentation à David, toute modification de sens issue de ses
+retours suit le processus d'évolution éditoriale prévu par la gouvernance.
 
 ## 6. Évolutivité éditoriale
 
-Le contenu validé pour ce Sprint constitue le contenu officiel V1 à sa clôture.
+Le contenu accepté pour ce Sprint constitue un jeu éditorial de travail. Il permet de
+valider la fonctionnalité sans prétendre constituer le contenu officiel ou définitif de
+David.
 
 Peuvent évoluer ultérieurement, selon `docs/GOVERNANCE.md`, sans remettre en cause la
 responsabilité fonctionnelle de `V-PUB-02` :
@@ -168,9 +171,9 @@ modifier implicitement les responsabilités des autres vues.
 Le Sprint comprend uniquement :
 
 - la validation du présent contrat ;
-- la constitution et la validation du corpus éditorial V1 avant sa publication ;
+- la constitution et l'acceptation Product Owner d'un contenu éditorial de travail ;
 - le remplacement du contenu structurel actuel de `/david` ;
-- l'intégration fidèle du corpus validé ;
+- l'intégration fidèle de la version de travail acceptée ;
 - un accès explicite aux collections publiques existantes ;
 - l'intégration au shell et à la navigation existants ;
 - l'utilisation exclusive des composants et tokens officiels du Design System ;
@@ -182,9 +185,9 @@ Le Sprint comprend uniquement :
 
 Une fois implémentée :
 
-- `/david` ne présente plus un contenu structurel ou transitoire ;
-- la page possède un unique `h1` identifiant David Prieur-Gélis ;
-- le visiteur accède au contenu éditorial V1 validé ;
+- `/david` ne présente plus de simples placeholders structurels ;
+- la page possède un unique `h1` identifiant David Prieur-Gelis ;
+- le visiteur accède à une première composition éditoriale complète ;
 - la hiérarchie distingue clairement la présentation, les éléments biographiques
   utiles, la démarche et les repères retenus ;
 - le contenu permet de comprendre la relation entre David, sa démarche et les
@@ -192,7 +195,7 @@ Une fois implémentée :
 - un lien explicite permet de rejoindre `/collections` ;
 - la navigation publique persistante conserve son fonctionnement et son état actif ;
 - le contenu reste intégralement compréhensible sans média ;
-- aucun fait ou propos non validé n'est présenté comme officiel ;
+- aucun contenu de travail n'est documenté comme un corpus définitif approuvé par David ;
 - aucune fonction commerciale, privée ou administrative n'est introduite.
 
 ## 9. Liens et relations avec les autres vues
@@ -209,15 +212,14 @@ Le Sprint autorise uniquement un accès éditorial propre à la page vers :
 /collections
 ```
 
-Le libellé exact de ce lien doit être validé avec le corpus éditorial V1 avant
-implémentation.
+Le libellé exact de ce lien doit être accepté par le Product Owner avant implémentation.
 
 La navigation persistante existante reste inchangée. Aucun lien direct vers une œuvre,
 un contenu inexistant, une route privée ou `/design-system` n'est ajouté.
 
 ## 10. Données et médias
 
-Le contenu éditorial officiel reste local et statique dans ce Sprint.
+Le contenu éditorial de travail reste local et statique dans ce Sprint.
 
 Le Sprint n'introduit :
 
@@ -234,8 +236,8 @@ pour remplir la responsabilité fonctionnelle V1.
 
 Un média ne peut être intégré que s'il est :
 
-- fourni ou approuvé par David ;
-- autorisé pour cet usage ;
+- disponible légitimement pour le projet et autorisé pour cet usage ;
+- validé par le Product Owner ;
 - accompagné de son statut informatif ou décoratif ;
 - accompagné d'une alternative textuelle validée lorsqu'il est informatif ;
 - ajouté explicitement au périmètre avant l'implémentation qui l'utilise.
@@ -297,7 +299,7 @@ Sont explicitement exclus :
 
 - une biographie exhaustive ;
 - un manifeste définitif ;
-- toute information non confirmée par David ;
+- toute information refusée par le Product Owner pour la version de travail ;
 - toute citation non validée ;
 - la chronologie complète de `V-PUB-06` ;
 - les pages de contenus artistiques de `V-PUB-05` ;
@@ -345,7 +347,7 @@ Tout autre fichier nécessite une non-conformité démontrée ou un arbitrage Pr
 Le Sprint doit produire :
 
 - le présent contrat validé et verrouillé ;
-- un corpus éditorial V1 fourni ou approuvé par David et validé par le Product Owner ;
+- un contenu éditorial de travail accepté par le Product Owner ;
 - la page publique `/david` conforme à `V-PUB-02` ;
 - son intégration au shell et au Design System existants ;
 - les éventuels médias officiels explicitement validés ;
@@ -359,16 +361,16 @@ Le Sprint doit produire :
 ### Fonctionnel et éditorial
 
 - `/david` remplit la responsabilité de `V-PUB-02` ;
-- David Prieur-Gélis est clairement identifié ;
-- seuls des éléments biographiques utiles et validés sont publiés ;
-- la démarche artistique est présentée à partir du corpus approuvé ;
+- David Prieur-Gelis est clairement identifié ;
+- seuls des éléments biographiques utiles retenus pour exercer la page sont intégrés ;
+- la démarche artistique est présentée à partir de la version de travail acceptée ;
 - les repères nécessaires à la compréhension du travail sont présents ;
-- le contenu est officiellement validé par David et le Product Owner ;
-- aucun fait, propos, citation ou média non validé n'est publié ;
+- le contenu de travail est accepté par le Product Owner ;
+- aucun contenu refusé par le Product Owner n'est intégré ;
 - un accès explicite conduit à `/collections` ;
 - la page reste complète et compréhensible sans média ;
-- le contenu n'est pas présenté comme définitif pour toutes les versions futures, mais
-  il constitue bien la référence officielle V1.
+- l'implémentation constitue la référence fonctionnelle V1, sans présenter son contenu
+  éditorial comme définitif ou approuvé par David.
 
 ### Structure et architecture
 
@@ -403,9 +405,8 @@ Le Sprint doit produire :
 
 Avant clôture :
 
-- validation explicite du corpus éditorial par David ;
-- validation Product Owner du corpus éditorial ;
-- revue de fidélité entre le corpus validé et le rendu ;
+- acceptation Product Owner du contenu éditorial de travail ;
+- revue de fidélité entre la version de travail acceptée et le rendu ;
 - Prettier ;
 - ESLint ;
 - TypeScript ;
@@ -418,7 +419,7 @@ Avant clôture :
 - contrôle des erreurs et avertissements navigateur ;
 - `git diff --check` ;
 - `pnpm audit`, avec restitution exacte de toute exception documentée qui subsiste ;
-- audit de conformité entre contrat, corpus éditorial, implémentation, tests,
+- audit de conformité entre contrat, contenu éditorial de travail, implémentation, tests,
   `PROJECT_STATE.md`, `CHANGELOG.md` et historique Git.
 
 ## 18. Exécution incrémentale
@@ -427,21 +428,21 @@ Avant clôture :
 
 **Objectif**
 
-Verrouiller le contrat et définir le cadre de constitution et de validation du corpus
-éditorial V1 avant tout code.
+Verrouiller le contrat et définir le cadre de constitution et d'acceptation du contenu
+éditorial de travail avant tout code.
 
 **Travaux autorisés**
 
 - revue et verrouillage du présent contrat ;
-- rédaction ou intégration du corpus fourni ;
-- préparation de la validation par David et le Product Owner ;
+- rédaction ou intégration du contenu de travail ;
+- préparation de son acceptation par le Product Owner ;
 - identification des arbitrages éditoriaux restant ouverts ;
 - inventaire des éventuels médias officiels proposés.
 
 **Critères de validation**
 
 - le contrat ne contient plus d'arbitrage fonctionnel ouvert ;
-- le processus de validation du corpus est explicite ;
+- le statut provisoire du contenu et son processus d'acceptation sont explicites ;
 - chaque information ou média déjà retenu possède un statut identifiable ;
 - les arbitrages éditoriaux encore ouverts ne sont pas présentés comme validés ;
 - aucun fichier de production n'est modifié.
@@ -457,7 +458,7 @@ docs(sprint-014): lock David approach contract
 **Objectif**
 
 Construire la structure et la composition technique de la page indépendamment de
-l'intégration du corpus officiel.
+l'intégration du contenu éditorial de travail.
 
 **Travaux autorisés**
 
@@ -480,35 +481,36 @@ l'intégration du corpus officiel.
 feat(david): establish semantic presentation structure
 ```
 
-### Incrément 3 — Contenu officiel, parcours public et médias validés
+### Incrément 3 — Contenu éditorial de travail et parcours public
 
 **Objectif**
 
-Intégrer fidèlement le corpus officiel, relier la page aux collections et intégrer
-uniquement les éventuels médias officiels validés.
+Intégrer fidèlement la version éditoriale de travail acceptée par le Product Owner et
+relier la page aux collections.
 
 **Travaux autorisés**
 
-- validation explicite du corpus par David et le Product Owner ;
-- intégration fidèle du corpus validé ;
+- acceptation explicite de la version de travail par le Product Owner ;
+- intégration fidèle de cette version ;
 - lien éditorial vers `/collections` ;
 - état actif de la navigation existante ;
-- média validé et son accessibilité, s'il existe ;
-- tests ciblés du parcours et du média.
+- absence de média tant qu'aucun média officiel n'est disponible et autorisé ;
+- tests ciblés du contenu et du parcours.
 
 **Critères de validation**
 
-- le rendu reproduit le corpus validé sans ajout ni altération de sens ;
+- le rendu reproduit la version de travail acceptée par le Product Owner sans ajout ni
+  altération de sens ;
 - le lien conduit à `/collections` avec le libellé validé ;
 - aucun lien direct vers une œuvre n'est ajouté ;
 - la navigation persistante n'est pas modifiée ;
-- en l'absence de média validé, aucun substitut fictif n'est introduit ;
-- la page reste complète lorsque le média est absent ou indisponible.
+- aucun média fictif n'est introduit pour représenter David ;
+- la page reste complète sans média.
 
 **Commit attendu**
 
 ```text
-feat(david): publish validated artist presentation
+feat(david): integrate working editorial presentation
 ```
 
 ### Incrément 4 — Responsive et accessibilité
@@ -547,7 +549,7 @@ Démontrer la conformité globale du Sprint et préparer son verrouillage.
 **Travaux autorisés**
 
 - tests transversaux et contrôles complets ;
-- audit contrat, corpus, code et tests ;
+- audit contrat, contenu de travail, code et tests ;
 - corrections limitées aux non-conformités démontrées ;
 - synchronisation de `PROJECT_STATE.md`, `CHANGELOG.md` et du présent contrat ;
 - préparation du rapport final.
@@ -555,7 +557,7 @@ Démontrer la conformité globale du Sprint et préparer son verrouillage.
 **Critères de validation**
 
 - tous les contrôles de la section 17 sont conformes ;
-- le corpus validé et le rendu sont fidèles ;
+- la version de travail acceptée et le rendu sont fidèles ;
 - aucune régression n'est présente ;
 - la documentation correspond à l'état réel ;
 - aucune modification hors périmètre n'est présente.
@@ -578,8 +580,8 @@ Rédaction du contrat
 → Arbitrages documentés
 → Validation et verrouillage du contrat
 → Implémentation de la structure technique
-→ Validation du corpus éditorial par David et le Product Owner
-→ Intégration du contenu officiel
+→ Acceptation du contenu éditorial de travail par le Product Owner
+→ Intégration du contenu éditorial de travail
 → Poursuite de l'implémentation incrémentale
 → Revue et acceptation de chaque incrément
 → Audit final
@@ -592,21 +594,26 @@ Rédaction du contrat
 → Vérification et nettoyage de branche
 ```
 
-## 20. Points nécessitant un arbitrage avant intégration du contenu officiel
+La présentation de la V1 à David ne constitue pas une étape de clôture du Sprint 014.
+Elle intervient ultérieurement, lorsque le projet est suffisamment abouti pour être
+présenté dans son ensemble, et avant toute mise en production ou remise officielle. Les
+éventuels ajustements éditoriaux qui en résultent sont intégrés dans un incrément ou un
+Sprint autorisé conformément à `docs/GOVERNANCE.md`.
+
+## 20. Points nécessitant un arbitrage avant intégration du contenu de travail
 
 Les éléments suivants peuvent être préparés parallèlement à la structure technique, mais
-doivent être décidés avant l'Incrément 3 :
+doivent être décidés par le Product Owner avant l'Incrément 3 :
 
-1. le corpus éditorial V1 exact ;
+1. la version éditoriale de travail exacte ;
 2. la voix éditoriale, à la première ou à la troisième personne ;
 3. les éléments biographiques utiles retenus ;
 4. les formulations décrivant la démarche et les repères artistiques ;
 5. le libellé exact du lien vers `/collections` ;
-6. la présence ou l'absence d'un média officiel ;
-7. si un média est retenu, son fichier, son droit d'usage, son statut accessible et son
-   alternative textuelle.
+6. l'absence de média tant qu'aucun média officiel n'est disponible et autorisé.
 
-Ces arbitrages portent sur le contenu officiel de la V1. Ils ne peuvent être déduits,
-inventés ou complétés pendant son intégration. Leur absence n'interdit pas
-l'implémentation technique de l'Incrément 2, mais interdit l'intégration officielle, la
-fusion dans `main` et la clôture du Sprint.
+Ces arbitrages portent sur le contenu éditorial de travail. Leur absence n'interdit pas
+l'implémentation technique de l'Incrément 2, mais interdit l'Incrément 3. L'acceptation
+du Product Owner permet le verrouillage et la clôture du Sprint. La collecte des contenus
+officiels auprès de David, leur validation et le traitement de ses retours interviennent
+ultérieurement, avant toute mise en production ou remise officielle.
