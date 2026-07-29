@@ -35,7 +35,7 @@ Les décisions techniques du Sprint 006 présentées ici synthétisent le docume
 
 ## Produit
 
-- AZUREUM est une galerie d'art numérique premium consacrée à David Prieur-Gélis.
+- AZUREUM est une galerie d'art numérique premium consacrée à David Prieur-Gelis.
 - David demeure l'unique artiste, auteur, propriétaire initial et vendeur des œuvres dans la V1.
 - La démarche artistique structure le produit ; l'acquisition s'y intègre sans devenir l'axe principal.
 - AZUREUM n'est pas une marketplace multi-artistes.

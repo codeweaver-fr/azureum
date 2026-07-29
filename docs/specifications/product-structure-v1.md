@@ -95,9 +95,9 @@ Une personne doit pouvoir passer de la découverte d'un exemplaire disponible à
 
 ### PS-04 — Séparation des identités, rôles et responsabilités
 
-AZUREUM distingue l'identité artistique de David Prieur-Gélis, les utilisateurs, les rôles et les responsabilités opérationnelles. Les rôles Artiste et Administrateur portent des autorisations distinctes et peuvent être cumulés par un même utilisateur sans être confondus.
+AZUREUM distingue l'identité artistique de David Prieur-Gelis, les utilisateurs, les rôles et les responsabilités opérationnelles. Les rôles Artiste et Administrateur portent des autorisations distinctes et peuvent être cumulés par un même utilisateur sans être confondus.
 
-L'attribution d'un rôle ne modifie ni l'identité de l'artiste, ni l'attribution des œuvres, ni les qualités d'auteur, de propriétaire initial ou de vendeur exclusivement attachées à David Prieur-Gélis dans la V1.
+L'attribution d'un rôle ne modifie ni l'identité de l'artiste, ni l'attribution des œuvres, ni les qualités d'auteur, de propriétaire initial ou de vendeur exclusivement attachées à David Prieur-Gelis dans la V1.
 
 ### PS-05 — Accès légitime sans solution imposée
 
@@ -361,7 +361,7 @@ Le parcours distingue la déclaration historique, les compléments, les interven
 | Utilisateur avec rôle Artiste | Collections, contenus et œuvres de David ; exemplaires et conditions ; acquisitions, remises et anomalies relevant de ce rôle | Maintenir l'univers artistique, définir les conditions, publier ou archiver les œuvres, suivre les exemplaires, enregistrer une vente externe, contribuer au traitement prévu par ce rôle |
 | Utilisateur avec rôle Administrateur | Acquisitions, paiements, événements et anomalies nécessaires à la supervision ; éléments concernés par une opération administrative exceptionnelle | Superviser, effectuer les interventions autorisées, motiver et tracer ses décisions, clôturer administrativement une anomalie, réaliser une suppression définitive exceptionnelle |
 
-Cette répartition décrit la visibilité fonctionnelle. Elle ne définit aucun mécanisme d'autorisation. Un même utilisateur peut cumuler les deux rôles. Dans tous les cas, David Prieur-Gélis demeure l'unique artiste présenté et l'unique auteur des œuvres dans AZUREUM V1.
+Cette répartition décrit la visibilité fonctionnelle. Elle ne définit aucun mécanisme d'autorisation. Un même utilisateur peut cumuler les deux rôles. Dans tous les cas, David Prieur-Gelis demeure l'unique artiste présenté et l'unique auteur des œuvres dans AZUREUM V1.
 
 ## 10. États perceptibles
 
@@ -418,7 +418,7 @@ Le document est validable lorsque :
 - les espaces privés restent distincts de la navigation publique ;
 - toute œuvre est créée, maintenue et présentée dans exactement une collection ;
 - l'archivage d'une œuvre préserve son identité et son histoire, tandis que sa suppression définitive reste une opération administrative exceptionnelle ;
-- le cumul des rôles n'altère jamais l'identité artistique ni les qualités exclusivement attachées à David Prieur-Gélis ;
+- le cumul des rôles n'altère jamais l'identité artistique ni les qualités exclusivement attachées à David Prieur-Gelis ;
 - l'acquisition reste rattachée à l'œuvre et à l'exemplaire concernés ;
 - les informations non publiques ne sont affectées qu'aux acteurs concernés ;
 - les situations importantes produisent un état perceptible non ambigu ;

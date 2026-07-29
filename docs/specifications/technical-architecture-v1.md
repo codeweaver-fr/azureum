@@ -96,7 +96,7 @@ Les questions encore ouvertes ne constituent pas un troisième statut de décisi
 L'architecture doit notamment préserver :
 
 - la primauté de l'expérience artistique sur l'acquisition ;
-- une V1 consacrée exclusivement à David Prieur-Gélis ;
+- une V1 consacrée exclusivement à David Prieur-Gelis ;
 - les œuvres uniques et éditions limitées, avec identité propre de chaque exemplaire ;
 - l'appartenance obligatoire de toute œuvre à exactement une collection ;
 - une seule réservation active par exemplaire ;

@@ -2,7 +2,7 @@
 
 ## Statut
 
-**Validé par le Product Owner et verrouillé — implémentation en cours**
+**Implémenté et audité — validation Product Owner finale et verrouillage Git en attente**
 
 Le présent document constitue la référence documentaire canonique du Sprint 014. Toute
 évolution ultérieure suit `docs/GOVERNANCE.md`.
@@ -617,3 +617,24 @@ l'implémentation technique de l'Incrément 2, mais interdit l'Incrément 3. L'a
 du Product Owner permet le verrouillage et la clôture du Sprint. La collecte des contenus
 officiels auprès de David, leur validation et le traitement de ses retours interviennent
 ultérieurement, avant toute mise en production ou remise officielle.
+
+## 21. État de clôture
+
+Les cinq incréments contractuels sont implémentés et audités.
+
+Les contrôles finaux sont conformes :
+
+- Prettier ;
+- ESLint ;
+- TypeScript ;
+- 11 fichiers Vitest et 86 tests ;
+- build Next.js ;
+- 41 tests Playwright ;
+- `git diff --check`.
+
+`pnpm audit` restitue une vulnérabilité haute connue et temporairement acceptée :
+`brace-expansion@1.1.16`, introduite transitivement dans l'outillage de développement
+par `eslint → minimatch`. Cette exception est déjà documentée, n'est pas masquée et
+aucune nouvelle vulnérabilité n'est constatée.
+
+Le Sprint est prêt pour la validation Product Owner finale et le verrouillage Git.

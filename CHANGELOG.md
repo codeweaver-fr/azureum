@@ -16,6 +16,31 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 - encadrement des éventuels incréments de clôture, sans fonctionnalité ni décision
   produit nouvelle.
 
+### Sprint 014 — David et sa démarche
+
+- remplacement de l'état structurel de `/david` par une présentation éditoriale
+  complète conforme à `V-PUB-02` ;
+- intégration d'un contenu éditorial de travail accepté par le Product Owner, sans le
+  présenter comme définitif ou officiellement approuvé par David ;
+- ajout de l'accès éditorial « Découvrir les collections » vers `/collections` au moyen
+  du composant officiel `Link` ;
+- maintien du rendu serveur, du shell public et du Design System existants, sans
+  nouvelle route, dépendance, API, donnée persistée ou fonctionnalité commerciale ;
+- absence volontaire de média tant qu'aucun portrait ou média officiel n'est disponible
+  et autorisé ;
+- validation responsive sur mobile, tablette et bureau, sans débordement horizontal et
+  avec un reflow compatible avec un zoom à 200 % ;
+- validation du clavier, du focus visible, du skip link, des landmarks, de la hiérarchie
+  des titres et de l'état actif de la navigation ;
+- harmonisation de l'orthographe publique officielle « David Prieur-Gelis » dans les
+  références vivantes du projet ;
+- validation finale de Prettier, ESLint, TypeScript, 11 fichiers Vitest et 86 tests,
+  build Next.js, 41 tests Playwright et `git diff --check` ;
+- maintien explicite de l'exception de sécurité temporaire déjà documentée pour
+  `brace-expansion@1.1.16`, dépendance transitive de développement introduite par
+  `eslint → minimatch`, sans masquage ni nouvelle vulnérabilité ;
+- Sprint prêt pour la validation Product Owner finale et le verrouillage Git.
+
 ### Sprint 013 — Page d'accueil publique
 
 - remplacement de l'état transitoire de `/` par la porte d'entrée publique contractuelle d'AZUREUM ;
@@ -219,7 +244,7 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 - ajout des collections obligatoires avec une cardinalité d'une collection par œuvre ;
 - distinction entre archivage et suppression définitive exceptionnelle ;
 - formalisation des rôles Artiste et Administrateur et de leur cumul possible ;
-- séparation entre responsabilités opérationnelles et qualités artistiques ou juridiques exclusivement attachées à David Prieur-Gélis ;
+- séparation entre responsabilités opérationnelles et qualités artistiques ou juridiques exclusivement attachées à David Prieur-Gelis ;
 - conservation de la validation initiale du Sprint 004 et de son tag `sprint-004`.
 
 ### Sprint 004 — Règles métier de la V1

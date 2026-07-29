@@ -164,7 +164,7 @@ L'acquisition d'une œuvre constitue une conséquence possible de cette expérie
 
 ## 4.2 Unicité de l'artiste
 
-La V1 est entièrement consacrée à David Prieur-Gélis.
+La V1 est entièrement consacrée à David Prieur-Gelis.
 
 Toutes les œuvres présentées relèvent de sa démarche artistique.
 
@@ -211,7 +211,7 @@ Les définitions suivantes s'appliquent à l'ensemble de la documentation AZUREU
 
 ## 5.1 Œuvre
 
-Création artistique de David Prieur-Gélis pouvant être présentée dans AZUREUM.
+Création artistique de David Prieur-Gelis pouvant être présentée dans AZUREUM.
 
 Une œuvre possède une identité propre qui demeure indépendante :
 
@@ -361,7 +361,7 @@ Ensemble d'autorisations permettant d'exercer les responsabilités de gestion ar
 
 Le rôle Artiste ne désigne ni l'auteur des œuvres ni l'identité artistique présentée par la plateforme.
 
-Dans AZUREUM V1, toutes les œuvres demeurent exclusivement attribuées à David Prieur-Gélis, quel que soit l'utilisateur auquel le rôle Artiste est attribué.
+Dans AZUREUM V1, toutes les œuvres demeurent exclusivement attribuées à David Prieur-Gelis, quel que soit l'utilisateur auquel le rôle Artiste est attribué.
 
 ---
 
@@ -459,7 +459,7 @@ Une œuvre ne change jamais d'identité au cours de son cycle de vie.
 
 ## RM-ŒUV-02 — Auteur
 
-Toute œuvre présentée dans AZUREUM V1 est une création de David Prieur-Gélis.
+Toute œuvre présentée dans AZUREUM V1 est une création de David Prieur-Gelis.
 
 La présence de plusieurs artistes est hors périmètre.
 
@@ -1399,13 +1399,13 @@ Une même personne peut exercer plusieurs ensembles de responsabilités lorsque 
 
 Le cumul de plusieurs rôles ne fusionne pas leurs responsabilités : chaque opération est exercée au titre du rôle qui l'autorise.
 
-L'identité artistique, la qualité d'auteur, la propriété des œuvres et des exemplaires avant leur acquisition, ainsi que la qualité de vendeur demeurent exclusivement attachées à David Prieur-Gélis, conformément aux règles métier applicables. Ces qualités ne peuvent être transférées par l'attribution d'un rôle.
+L'identité artistique, la qualité d'auteur, la propriété des œuvres et des exemplaires avant leur acquisition, ainsi que la qualité de vendeur demeurent exclusivement attachées à David Prieur-Gelis, conformément aux règles métier applicables. Ces qualités ne peuvent être transférées par l'attribution d'un rôle.
 
 ---
 
 ## 12.2 Gestion artistique
 
-Les responsabilités de gestion artistique portent sur les œuvres de David Prieur-Gélis et sur la présentation de sa démarche.
+Les responsabilités de gestion artistique portent sur les œuvres de David Prieur-Gelis et sur la présentation de sa démarche.
 
 Elles comprennent :
 
@@ -1418,7 +1418,7 @@ Elles comprennent :
 
 Ces responsabilités peuvent être exercées par tout utilisateur auquel le rôle Artiste est attribué.
 
-Cette attribution ne modifie ni l'identité de l'artiste présenté, ni l'attribution des œuvres à David Prieur-Gélis.
+Cette attribution ne modifie ni l'identité de l'artiste présenté, ni l'attribution des œuvres à David Prieur-Gelis.
 
 ---
 
@@ -1762,7 +1762,7 @@ Cette identité ne peut être modifiée au cours de son cycle de vie.
 
 ## INV-02 — Auteur
 
-Toutes les œuvres présentées dans AZUREUM V1 sont créées par David Prieur-Gélis.
+Toutes les œuvres présentées dans AZUREUM V1 sont créées par David Prieur-Gelis.
 
 La gestion de plusieurs artistes est hors périmètre de la V1.
 
@@ -1818,7 +1818,7 @@ Chaque responsabilité opérationnelle appartient à un rôle clairement identif
 
 Une responsabilité ne peut être exercée par un utilisateur auquel le rôle correspondant n'est pas attribué.
 
-L'attribution d'un rôle ne transfère aucune des qualités artistiques ou juridiques exclusivement attachées à David Prieur-Gélis.
+L'attribution d'un rôle ne transfère aucune des qualités artistiques ou juridiques exclusivement attachées à David Prieur-Gelis.
 
 ---
 
@@ -1881,7 +1881,7 @@ Toute fonctionnalité mentionnée ci-dessous ne pourra être introduite qu'au tr
 
 ## HP-01 — Multi-artistes
 
-La V1 est exclusivement dédiée aux œuvres de David Prieur-Gélis.
+La V1 est exclusivement dédiée aux œuvres de David Prieur-Gelis.
 
 La gestion de plusieurs artistes est exclue.
 
