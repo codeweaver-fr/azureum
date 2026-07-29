@@ -39,7 +39,9 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 - maintien explicite de l'exception de sécurité temporaire déjà documentée pour
   `brace-expansion@1.1.16`, dépendance transitive de développement introduite par
   `eslint → minimatch`, sans masquage ni nouvelle vulnérabilité ;
-- Sprint prêt pour la validation Product Owner finale et le verrouillage Git.
+- Sprint validé par le Product Owner, verrouillé sous le tag `sprint-014`, fusionné dans
+  `main`, puis définitivement clos après suppression de sa branche locale et distante
+  et vérification de la synchronisation du dépôt.
 
 ### Sprint 013 — Page d'accueil publique
 

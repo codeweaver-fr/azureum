@@ -2,14 +2,17 @@
 
 ## Phase actuelle
 
-Construction du produit — Sprint 014 en préparation de clôture.
+Construction du produit — entre deux Sprints après la clôture du Sprint 014.
 
 ## Sprint actif
 
-Le Sprint 014 — David et sa démarche est **actif, implémenté et audité**. Les
-Incréments 1 à 4 sont acceptés et enregistrés. L'Incrément 5 a réalisé les contrôles
-finaux et la synchronisation documentaire ; la validation Product Owner finale et le
-verrouillage Git restent en attente.
+Le Sprint 014 — David et sa démarche est **validé par le Product Owner, verrouillé sous
+le tag `sprint-014`, fusionné dans `main` et définitivement clos**. Sa branche locale et
+distante a été supprimée.
+
+Les cinq incréments ont verrouillé le contrat, remplacé l'état structurel de `/david`
+par une présentation éditoriale complète, intégré le contenu de travail et son accès aux
+collections, puis validé le responsive, l'accessibilité et l'absence de régression.
 
 La page `/david` remplit la responsabilité fonctionnelle de `V-PUB-02` au moyen d'une
 structure éditoriale complète, d'un contenu de travail accepté par le Product Owner et
@@ -175,6 +178,5 @@ Aucune base de données déployée. Le modèle conceptuel et l'architecture Post
 
 ## Prochaine étape
 
-Obtenir la validation Product Owner finale du Sprint 014, enregistrer la clôture
-documentaire, puis appliquer le cycle de verrouillage, de Pull Request, de fusion et de
-nettoyage prévu par `docs/GOVERNANCE.md`. Aucun Sprint suivant n'est ouvert.
+Définir et valider le contrat du prochain Sprint conformément à
+`docs/GOVERNANCE.md`. Aucun Sprint suivant n'est actuellement ouvert.
