@@ -28,6 +28,11 @@ const homePageSource = readFileSync(
   "utf8",
 );
 
+const davidPageSource = readFileSync(
+  fileURLToPath(new URL("../app/(public)/david/page.tsx", import.meta.url)),
+  "utf8",
+);
+
 const artworkPageSource = readFileSync(
   fileURLToPath(
     new URL(
@@ -45,7 +50,7 @@ describe("minimal public routes", () => {
 
   it.each([
     ["home", HomePage, "AZUREUM"],
-    ["David", DavidPage, "David"],
+    ["David", DavidPage, "David Prieur-Gélis"],
     ["collections", CollectionsPage, "Collections"],
     ["timeline", TimelinePage, "Évolution dans le temps"],
   ])("renders the %s page with its own h1", (_, Page, heading) => {
@@ -53,6 +58,31 @@ describe("minimal public routes", () => {
 
     expect(markup).toContain("<h1");
     expect(markup).toContain(`>${heading}</h1>`);
+  });
+
+  it("renders the provisional semantic structure of the David page", () => {
+    const markup = renderToStaticMarkup(<DavidPage />);
+
+    expect(markup.match(/<h1/g)).toHaveLength(1);
+    expect(markup).toContain(">David Prieur-Gélis</h1>");
+    expect(markup).toContain(
+      "Contenu éditorial provisoire — en attente de validation par David et le Product Owner.",
+    );
+
+    for (const heading of [
+      "Présentation",
+      "Repères biographiques",
+      "Démarche artistique",
+      "Repères artistiques",
+    ]) {
+      expect(markup).toContain(`>${heading}</h2>`);
+    }
+
+    expect(markup.match(/<h2/g)).toHaveLength(4);
+    expect(markup).not.toContain("href=");
+    expect(markup).not.toContain("<img");
+    expect(davidPageSource).not.toContain('"use client"');
+    expect(davidPageSource).not.toContain("'use client'");
   });
 
   it("renders the official semantic structure of the public homepage", () => {
