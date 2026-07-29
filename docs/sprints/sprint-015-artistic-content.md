@@ -2,7 +2,7 @@
 
 ## Statut
 
-**Validé par le Product Owner et verrouillé avant implémentation**
+**Implémenté et audité — validation Product Owner finale et verrouillage Git en attente**
 
 Le présent document constitue la référence contractuelle du Sprint 015. Toute évolution
 ultérieure doit respecter `docs/GOVERNANCE.md`.
@@ -535,3 +535,27 @@ Audit documentaire
 → Fusion dans main
 → Vérification et nettoyage
 ```
+
+## 23. État avant verrouillage
+
+Les six incréments contractuels sont implémentés et audités.
+
+Les contrôles finaux sont conformes :
+
+- Prettier ;
+- ESLint ;
+- TypeScript ;
+- 12 fichiers Vitest et 105 tests ;
+- build Next.js ;
+- 52 tests Playwright ;
+- contrôle des frontières d'import ;
+- `git diff --check`.
+
+`pnpm audit` restitue une vulnérabilité haute connue et temporairement acceptée :
+`brace-expansion@1.1.16`, introduite transitivement dans l'outillage de développement
+par `eslint → minimatch`. Cette exception est déjà documentée, n'est pas masquée et
+aucune nouvelle vulnérabilité n'est constatée.
+
+Le Sprint est prêt pour la validation Product Owner finale. Aucun commit de clôture,
+tag, push, Pull Request, fusion ni nettoyage de branche n'est encore réalisé dans le
+cadre de cet incrément.

@@ -4,6 +4,32 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 
 ## Non publié
 
+### Sprint 015 — Contenus artistiques
+
+- ajout d'un module privé, local et typé pour trois contenus artistiques fictifs de
+  types texte, exposition et installation ;
+- ajout de relations explicites plusieurs-à-plusieurs entre les contenus et les œuvres
+  fictives existantes, sans copie ni mutation du module `gallery` ;
+- implémentation de la route publique dynamique `/contenus/[contentSlug]` et de son état
+  absent pour les slugs inconnus ;
+- présentation conditionnelle du type, du résumé, du corps éditorial, du média, de la
+  période, du lieu et des œuvres associées ;
+- ajout des accès contextuels réciproques entre les fiches d'œuvre et les contenus
+  associés, sans index `/contenus` ni modification de la navigation principale ;
+- maintien du rendu serveur et utilisation exclusive du Design System existant, sans
+  nouveau média, composant public, token, dépendance ou API ;
+- validation mobile, tablette et bureau, sans débordement horizontal et avec un reflow
+  compatible avec un zoom à 200 % ;
+- validation du clavier, du focus visible, du skip link, des landmarks, de la hiérarchie
+  des titres, du fallback média et de l'absence de message navigateur inattendu ;
+- validation finale de Prettier, ESLint, TypeScript, 12 fichiers Vitest et 105 tests,
+  build Next.js, 52 tests Playwright, contrôle des frontières d'import et
+  `git diff --check` ;
+- maintien explicite de l'exception de sécurité temporaire déjà documentée pour
+  `brace-expansion@1.1.16`, dépendance transitive de développement introduite par
+  `eslint → minimatch`, sans masquage ni nouvelle vulnérabilité ;
+- Sprint prêt pour la validation Product Owner finale et le verrouillage Git.
+
 ### Gouvernance — Exécution incrémentale
 
 - formalisation du caractère facultatif du découpage d'un Sprint en incréments ;
