@@ -2,7 +2,7 @@
 
 ## Statut
 
-**Implémenté et audité — validation Product Owner finale et verrouillage Git en attente**
+**Validé par le Product Owner, verrouillé et fusionné dans `main`**
 
 Le présent document constitue la référence documentaire canonique du Sprint 014. Toute
 évolution ultérieure suit `docs/GOVERNANCE.md`.
@@ -637,4 +637,5 @@ Les contrôles finaux sont conformes :
 par `eslint → minimatch`. Cette exception est déjà documentée, n'est pas masquée et
 aucune nouvelle vulnérabilité n'est constatée.
 
-Le Sprint est prêt pour la validation Product Owner finale et le verrouillage Git.
+Le Sprint est validé par le Product Owner, verrouillé sous le tag `sprint-014`, fusionné
+dans `main` et définitivement clos. Sa branche locale et distante a été supprimée.
