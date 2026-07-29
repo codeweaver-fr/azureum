@@ -80,6 +80,30 @@ export function TimelinePresentation({ markers }: TimelinePresentationProps) {
                       </Stack>
                     </section>
                   ) : null}
+
+                  {marker.contents.length > 0 ? (
+                    <section aria-labelledby={`${marker.id}-contents-heading`}>
+                      <Stack direction="vertical" gap="sm">
+                        <Heading
+                          as="h3"
+                          id={`${marker.id}-contents-heading`}
+                          variant="h2"
+                        >
+                          Contenus associés
+                        </Heading>
+
+                        <ul>
+                          {marker.contents.map((content) => (
+                            <li key={content.slug}>
+                              <Link href={`/contenus/${content.slug}`}>
+                                {content.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </Stack>
+                    </section>
+                  ) : null}
                 </Stack>
               </li>
             ))}
