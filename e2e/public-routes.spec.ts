@@ -13,8 +13,16 @@ const publicRoutes = [
     path: "/collections/collection-alpha/oeuvres/study-01",
   },
   {
-    heading: "Contenu artistique",
-    path: "/contenus/contenu-test",
+    heading: "Texte fictif — Équilibres silencieux",
+    path: "/contenus/equilibres-silencieux",
+  },
+  {
+    heading: "Exposition fictive — Formes en dialogue",
+    path: "/contenus/formes-en-dialogue",
+  },
+  {
+    heading: "Installation fictive — Seuils provisoires",
+    path: "/contenus/seuils-provisoires",
   },
   {
     heading: "Évolution dans le temps",
@@ -492,5 +500,212 @@ test("keeps the David presentation accessible from the keyboard", async ({
   await expect(collectionsLink).not.toHaveCSS("outline-style", "none");
   await page.keyboard.press("Enter");
   await expect(page).toHaveURL(/\/collections$/);
+  expect(unexpectedConsoleMessages).toEqual([]);
+});
+
+const artisticContentViewports = [
+  { height: 844, label: "mobile", width: 390 },
+  { height: 1024, label: "tablet", width: 768 },
+  { height: 900, label: "desktop", width: 1440 },
+] as const;
+
+for (const viewport of artisticContentViewports) {
+  test(`keeps artistic content usable on ${viewport.label}`, async ({
+    page,
+  }) => {
+    await page.setViewportSize(viewport);
+    await page.goto("/contenus/formes-en-dialogue");
+
+    await expect(
+      page.getByRole("heading", {
+        level: 1,
+        name: "Exposition fictive — Formes en dialogue",
+      }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", {
+        level: 2,
+        name: "Œuvres associées",
+      }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("link", {
+        name: "Étude fictive 02",
+      }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("link", {
+        name: "Composition fictive A",
+      }),
+    ).toBeVisible();
+
+    const hasHorizontalOverflow = await page.evaluate(
+      () =>
+        document.documentElement.scrollWidth >
+        document.documentElement.clientWidth,
+    );
+
+    expect(hasHorizontalOverflow).toBe(false);
+  });
+}
+
+test("supports artistic content reflow equivalent to 200 percent zoom", async ({
+  page,
+}) => {
+  await page.setViewportSize({ height: 450, width: 720 });
+  await page.goto("/contenus/formes-en-dialogue");
+
+  const hasHorizontalOverflow = await page.evaluate(
+    () =>
+      document.documentElement.scrollWidth >
+      document.documentElement.clientWidth,
+  );
+
+  expect(hasHorizontalOverflow).toBe(false);
+  await expect(
+    page.getByRole("heading", {
+      level: 1,
+      name: "Exposition fictive — Formes en dialogue",
+    }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("link", {
+      name: "Composition fictive A",
+    }),
+  ).toBeVisible();
+});
+
+test("navigates by keyboard between an artwork and its artistic context", async ({
+  page,
+}) => {
+  const unexpectedConsoleMessages: string[] = [];
+
+  page.on("console", (message) => {
+    if (message.type() === "error" || message.type() === "warning") {
+      unexpectedConsoleMessages.push(`${message.type()}: ${message.text()}`);
+    }
+  });
+  page.on("pageerror", (error) => {
+    unexpectedConsoleMessages.push(`pageerror: ${error.message}`);
+  });
+
+  await page.setViewportSize({ height: 900, width: 1440 });
+  await page.goto("/collections/collection-alpha/oeuvres/study-02");
+
+  await expect(
+    page.getByRole("heading", {
+      level: 2,
+      name: "Contenus associés",
+    }),
+  ).toBeVisible();
+
+  const contentLink = page.getByRole("link", {
+    name: "Exposition fictive — Formes en dialogue",
+  });
+
+  await contentLink.focus();
+  await expect(contentLink).toBeFocused();
+  await expect(contentLink).not.toHaveCSS("outline-style", "none");
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/\/contenus\/formes-en-dialogue$/);
+
+  const artworkLink = page.getByRole("link", {
+    name: "Étude fictive 02",
+  });
+
+  await artworkLink.focus();
+  await expect(artworkLink).toBeFocused();
+  await expect(artworkLink).not.toHaveCSS("outline-style", "none");
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(
+    /\/collections\/collection-alpha\/oeuvres\/study-02$/,
+  );
+
+  expect(unexpectedConsoleMessages).toEqual([]);
+});
+
+test("keeps artistic content accessible when its media fails", async ({
+  page,
+}) => {
+  await page.route("**/_next/image**", async (route) => {
+    const imageUrl = new URL(route.request().url()).searchParams.get("url");
+
+    if (imageUrl === "/gallery/composition-a.webp") {
+      await route.abort();
+      return;
+    }
+
+    await route.continue();
+  });
+
+  await page.goto("/contenus/formes-en-dialogue");
+
+  await expect(page.getByText("Image indisponible")).toBeVisible();
+  await expect(
+    page.getByRole("heading", {
+      level: 1,
+      name: "Exposition fictive — Formes en dialogue",
+    }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("link", {
+      name: "Composition fictive A",
+    }),
+  ).toBeVisible();
+});
+
+test("keeps artistic content semantics and skip navigation accessible", async ({
+  page,
+}) => {
+  await page.goto("/contenus/equilibres-silencieux");
+
+  await expect(page.locator("main")).toHaveCount(1);
+  await expect(page.getByRole("article")).toHaveCount(1);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
+  await expect(page.getByRole("heading", { level: 2 })).toHaveCount(2);
+
+  await page.keyboard.press("Tab");
+
+  const skipLink = page.getByRole("link", {
+    name: "Aller au contenu principal",
+  });
+
+  await expect(skipLink).toBeFocused();
+  await expect(skipLink).not.toHaveCSS("outline-style", "none");
+  await page.keyboard.press("Enter");
+  await expect(page.locator("main")).toBeFocused();
+});
+
+test("returns a not found page for an unknown artistic content", async ({
+  page,
+}) => {
+  const response = await page.goto("/contenus/contenu-inconnu");
+
+  expect(response?.status()).toBe(404);
+});
+
+test("emits no unexpected browser message on artistic content pages", async ({
+  page,
+}) => {
+  const unexpectedConsoleMessages: string[] = [];
+
+  page.on("console", (message) => {
+    if (message.type() === "error" || message.type() === "warning") {
+      unexpectedConsoleMessages.push(`${message.type()}: ${message.text()}`);
+    }
+  });
+  page.on("pageerror", (error) => {
+    unexpectedConsoleMessages.push(`pageerror: ${error.message}`);
+  });
+
+  for (const path of [
+    "/contenus/equilibres-silencieux",
+    "/contenus/formes-en-dialogue",
+    "/contenus/seuils-provisoires",
+  ]) {
+    await page.goto(path);
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+  }
+
   expect(unexpectedConsoleMessages).toEqual([]);
 });
