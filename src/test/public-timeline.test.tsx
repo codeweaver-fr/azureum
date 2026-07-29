@@ -6,7 +6,7 @@ import { describe, expect, it } from "vitest";
 import TimelinePage, {
   TimelinePresentation,
 } from "@/app/(public)/chronologie/page";
-import { getTimelineMarkers } from "@/modules/timeline/queries";
+import { getResolvedTimelineMarkers } from "@/modules/timeline/queries";
 
 const timelinePageSource = readFileSync(
   fileURLToPath(
@@ -18,6 +18,7 @@ const timelinePageSource = readFileSync(
 function decodeHtmlEntities(value: string): string {
   return value
     .replaceAll("&#x27;", "'")
+    .replaceAll("&#x2F;", "/")
     .replaceAll("&quot;", '"')
     .replaceAll("&amp;", "&")
     .replaceAll("&lt;", "<")
@@ -38,12 +39,12 @@ describe("public timeline", () => {
   });
 
   it("renders the three markers from oldest to newest", () => {
-    const markers = getTimelineMarkers();
+    const markers = getResolvedTimelineMarkers();
     const markup = renderToStaticMarkup(<TimelinePage />);
     const decodedMarkup = decodeHtmlEntities(markup);
 
     expect(markers).toHaveLength(3);
-    expect(decodedMarkup.match(/<li/g)).toHaveLength(3);
+    expect(decodedMarkup.match(/<ol/g)).toHaveLength(1);
 
     const year2023Index = decodedMarkup.indexOf(">2023<");
     const year2024Index = decodedMarkup.indexOf(">2024<");
@@ -60,12 +61,70 @@ describe("public timeline", () => {
     }
   });
 
-  it("uses a semantic ordered list", () => {
+  it("uses a semantic ordered list for chronological markers", () => {
     const markup = renderToStaticMarkup(<TimelinePage />);
 
     expect(markup).toContain("<ol>");
     expect(markup).toContain("<li");
     expect(markup).toContain("</ol>");
+  });
+
+  it("renders every explicitly associated artwork", () => {
+    const markers = getResolvedTimelineMarkers();
+    const markup = decodeHtmlEntities(renderToStaticMarkup(<TimelinePage />));
+
+    const artworks = markers.flatMap((marker) => marker.artworks);
+
+    expect(artworks.length).toBeGreaterThan(0);
+
+    for (const artwork of artworks) {
+      expect(markup).toContain(`>${artwork.title}</a>`);
+      expect(markup).toContain(
+        `href="/collections/${artwork.collectionSlug}/oeuvres/${artwork.slug}"`,
+      );
+    }
+  });
+
+  it("renders only the artworks explicitly associated with each marker", () => {
+    const markers = getResolvedTimelineMarkers();
+    const markup = decodeHtmlEntities(renderToStaticMarkup(<TimelinePage />));
+
+    const expectedArtworkLinks = markers.reduce(
+      (total, marker) => total + marker.artworks.length,
+      0,
+    );
+
+    const renderedArtworkLinks =
+      markup.match(/href="\/collections\/[^"]+\/oeuvres\/[^"]+"/g) ?? [];
+
+    expect(renderedArtworkLinks).toHaveLength(expectedArtworkLinks);
+  });
+
+  it("does not render artistic content links during increment 4", () => {
+    const markup = renderToStaticMarkup(<TimelinePage />);
+
+    expect(markup).not.toContain('href="/contenus/');
+    expect(markup).not.toContain(">Contenus associés<");
+  });
+
+  it("does not render an artwork section for a marker without artworks", () => {
+    const [firstMarker] = getResolvedTimelineMarkers();
+
+    if (firstMarker === undefined) {
+      throw new Error("Expected at least one resolved timeline marker.");
+    }
+
+    const markerWithoutArtworks = Object.freeze({
+      ...firstMarker,
+      artworks: Object.freeze([]),
+    });
+
+    const markup = renderToStaticMarkup(
+      <TimelinePresentation markers={[markerWithoutArtworks]} />,
+    );
+
+    expect(markup).not.toContain(">Œuvres associées</h3>");
+    expect(markup).not.toContain("/oeuvres/");
   });
 
   it("renders a neutral empty state without timeline items", () => {
@@ -78,15 +137,7 @@ describe("public timeline", () => {
     );
     expect(markup).not.toContain("<ol>");
     expect(markup).not.toContain("<li");
-  });
-
-  it("does not render resource links during increment 3", () => {
-    const markup = renderToStaticMarkup(<TimelinePage />);
-
     expect(markup).not.toContain("<a");
-    expect(markup).not.toContain('href="');
-    expect(markup).not.toContain("/oeuvres/");
-    expect(markup).not.toContain("/contenus/");
   });
 
   it("remains a server component", () => {
@@ -94,8 +145,10 @@ describe("public timeline", () => {
     expect(timelinePageSource).not.toContain("'use client'");
   });
 
-  it("uses the timeline module ordering instead of sorting in the page", () => {
-    expect(timelinePageSource).toContain("getTimelineMarkers()");
+  it("uses resolved timeline data instead of resolving resources in the page", () => {
+    expect(timelinePageSource).toContain("getResolvedTimelineMarkers()");
+    expect(timelinePageSource).not.toContain("getGalleryArtworkBySlugs");
+    expect(timelinePageSource).not.toContain("getArtisticContentBySlug");
     expect(timelinePageSource).not.toContain(".sort(");
   });
 });

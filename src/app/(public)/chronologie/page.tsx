@@ -1,11 +1,12 @@
-import { getTimelineMarkers } from "@/modules/timeline/queries";
+import { getResolvedTimelineMarkers } from "@/modules/timeline/queries";
+import { Link } from "@/shared/components/interactions";
 import { Container, Stack } from "@/shared/components/layout";
 import { Heading, Text } from "@/shared/components/typography";
 
-import type { TimelineMarker } from "@/modules/timeline/types";
+import type { ResolvedTimelineMarker } from "@/modules/timeline/types";
 
 type TimelinePresentationProps = Readonly<{
-  markers: readonly TimelineMarker[];
+  markers: readonly ResolvedTimelineMarker[];
 }>;
 
 export function TimelinePresentation({ markers }: TimelinePresentationProps) {
@@ -31,24 +32,54 @@ export function TimelinePresentation({ markers }: TimelinePresentationProps) {
           <ol>
             {markers.map((marker) => (
               <li key={marker.id}>
-                <Stack direction="vertical" gap="sm">
-                  <Text as="p" variant="body">
-                    {marker.year}
-                  </Text>
-
-                  {marker.period.length > 0 ? (
+                <Stack direction="vertical" gap="lg">
+                  <Stack direction="vertical" gap="sm">
                     <Text as="p" variant="body">
-                      {marker.period}
+                      {marker.year}
                     </Text>
+
+                    {marker.period.length > 0 ? (
+                      <Text as="p" variant="body">
+                        {marker.period}
+                      </Text>
+                    ) : null}
+
+                    <Heading as="h2" variant="h2">
+                      {marker.title}
+                    </Heading>
+
+                    <Text as="p" variant="body">
+                      {marker.summary}
+                    </Text>
+                  </Stack>
+
+                  {marker.artworks.length > 0 ? (
+                    <section aria-labelledby={`${marker.id}-artworks-heading`}>
+                      <Stack direction="vertical" gap="sm">
+                        <Heading
+                          as="h3"
+                          id={`${marker.id}-artworks-heading`}
+                          variant="h2"
+                        >
+                          Œuvres associées
+                        </Heading>
+
+                        <ul>
+                          {marker.artworks.map((artwork) => (
+                            <li
+                              key={`${artwork.collectionSlug}/${artwork.slug}`}
+                            >
+                              <Link
+                                href={`/collections/${artwork.collectionSlug}/oeuvres/${artwork.slug}`}
+                              >
+                                {artwork.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </Stack>
+                    </section>
                   ) : null}
-
-                  <Heading as="h2" variant="h2">
-                    {marker.title}
-                  </Heading>
-
-                  <Text as="p" variant="body">
-                    {marker.summary}
-                  </Text>
                 </Stack>
               </li>
             ))}
@@ -60,7 +91,7 @@ export function TimelinePresentation({ markers }: TimelinePresentationProps) {
 }
 
 export default function TimelinePage() {
-  const markers = getTimelineMarkers();
+  const markers = getResolvedTimelineMarkers();
 
   return <TimelinePresentation markers={markers} />;
 }
