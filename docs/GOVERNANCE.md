@@ -16,6 +16,38 @@ Chaque Sprint doit posséder :
 - une documentation mise à jour ;
 - un état final propre et reproductible.
 
+## Exécution incrémentale
+
+Le nombre d'incréments dépend des responsabilités du Sprint et est déterminé par son
+contrat. La gouvernance n'impose aucun nombre minimal ou maximal. Un Sprint peut ne pas
+être découpé en incréments lorsque son périmètre ne le justifie pas.
+
+Lorsqu'un Sprint est découpé en incréments, son contrat définit pour chacun :
+
+- un objectif unique ;
+- un périmètre borné ;
+- les travaux autorisés ;
+- les critères de validation ;
+- les contrôles proportionnés à son périmètre ;
+- le commit Git attendu.
+
+Un incrément ne commence qu'après la revue, l'acceptation du résultat et l'enregistrement
+du précédent dans un commit dédié. Chaque commit d'incrément porte une seule intention
+et contient uniquement les fichiers nécessaires à cette intention.
+
+Cette acceptation intermédiaire ne remplace pas la validation Product Owner finale du
+Sprint prévue par la procédure de verrouillage.
+
+Une non-conformité découverte pendant la revue est corrigée dans l'incrément concerné
+avant son acceptation. Une idée, une amélioration ou un besoin appartenant à un
+périmètre ultérieur est différé et ne peut pas être introduit implicitement.
+
+Lorsque le contrat prévoit un incrément dédié à la clôture, celui-ci réalise
+exclusivement l'audit transversal, les contrôles complets, la synchronisation
+documentaire et la préparation du verrouillage. Il ne crée aucune fonctionnalité,
+aucune API, aucun token ni aucune décision produit nouvelle. Une correction applicative
+n'y est autorisée que lorsqu'elle répond à une non-conformité réelle et démontrée.
+
 ## Stabilité du canon
 
 Les documents canoniques constituent la référence officielle du projet. Toute évolution
