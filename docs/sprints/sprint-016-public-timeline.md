@@ -2,11 +2,10 @@
 
 ## Statut
 
-**Brouillon non normatif — validation Product Owner requise avant implémentation**
+**Validé par le Product Owner et verrouillé avant implémentation**
 
-Le présent document prépare le contrat du Sprint 016. Il ne devient une référence
-opérationnelle qu'après sa validation explicite par le Product Owner et son verrouillage
-conformément à `docs/GOVERNANCE.md`.
+Le présent document constitue la référence opérationnelle du Sprint 016. Toute
+évolution ultérieure doit respecter `docs/GOVERNANCE.md`.
 
 ## 1. Objectif
 
