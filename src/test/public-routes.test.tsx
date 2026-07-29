@@ -28,6 +28,11 @@ const homePageSource = readFileSync(
   "utf8",
 );
 
+const davidPageSource = readFileSync(
+  fileURLToPath(new URL("../app/(public)/david/page.tsx", import.meta.url)),
+  "utf8",
+);
+
 const artworkPageSource = readFileSync(
   fileURLToPath(
     new URL(
@@ -45,7 +50,7 @@ describe("minimal public routes", () => {
 
   it.each([
     ["home", HomePage, "AZUREUM"],
-    ["David", DavidPage, "David"],
+    ["David", DavidPage, "David Prieur-Gelis"],
     ["collections", CollectionsPage, "Collections"],
     ["timeline", TimelinePage, "Évolution dans le temps"],
   ])("renders the %s page with its own h1", (_, Page, heading) => {
@@ -53,6 +58,40 @@ describe("minimal public routes", () => {
 
     expect(markup).toContain("<h1");
     expect(markup).toContain(`>${heading}</h1>`);
+  });
+
+  it("renders the validated editorial presentation of the David page", () => {
+    const markup = renderToStaticMarkup(<DavidPage />);
+
+    expect(markup.match(/<h1/g)).toHaveLength(1);
+    expect(markup).toContain(">David Prieur-Gelis</h1>");
+
+    for (const heading of [
+      "Présentation",
+      "Repères biographiques",
+      "Démarche artistique",
+      "Repères artistiques",
+    ]) {
+      expect(markup).toContain(`>${heading}</h2>`);
+    }
+
+    expect(markup.match(/<h2/g)).toHaveLength(4);
+    expect(markup).toContain("artiste pluridisciplinaire");
+    expect(markup).toContain("<em>RANDOM</em>");
+    expect(markup).toContain("<em>Sors tes couverts</em>");
+    expect(markup).toContain("<em>Les Arts d&#x27;Azur</em>");
+    expect(markup).not.toContain("Contenu éditorial provisoire");
+    expect(markup).toContain(
+      'href="/collections">Découvrir les collections</a>',
+    );
+    expect(markup).not.toContain("/oeuvres/");
+    expect(markup).not.toContain("<img");
+    expect(davidPageSource).toContain(
+      'from "@/shared/components/interactions"',
+    );
+    expect(davidPageSource).not.toContain('from "next/link"');
+    expect(davidPageSource).not.toContain('"use client"');
+    expect(davidPageSource).not.toContain("'use client'");
   });
 
   it("renders the official semantic structure of the public homepage", () => {

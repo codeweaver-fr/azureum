@@ -2,11 +2,29 @@
 
 ## Phase actuelle
 
-Construction du produit — entre deux Sprints après la clôture du Sprint 013.
+Construction du produit — Sprint 014 en préparation de clôture.
 
 ## Sprint actif
 
-Aucun Sprint n'est actuellement actif.
+Le Sprint 014 — David et sa démarche est **actif, implémenté et audité**. Les
+Incréments 1 à 4 sont acceptés et enregistrés. L'Incrément 5 a réalisé les contrôles
+finaux et la synchronisation documentaire ; la validation Product Owner finale et le
+verrouillage Git restent en attente.
+
+La page `/david` remplit la responsabilité fonctionnelle de `V-PUB-02` au moyen d'une
+structure éditoriale complète, d'un contenu de travail accepté par le Product Owner et
+d'un accès explicite aux collections. Ce contenu permet de valider la fonctionnalité
+sans prétendre constituer le corpus définitif ou officiellement approuvé par David.
+
+La page demeure un Server Component, utilise exclusivement le Design System existant,
+n'introduit aucun média fictif représentant David et reste conforme sur mobile,
+tablette, bureau et avec un reflow équivalent à 200 %.
+
+Les validations finales sont conformes : Prettier, ESLint, TypeScript, 11 fichiers
+Vitest et 86 tests, build Next.js, 41 tests Playwright et `git diff --check`. `pnpm
+audit` restitue uniquement l'exception de sécurité temporaire déjà documentée pour
+`brace-expansion@1.1.16`, dépendance transitive de développement introduite par
+`eslint → minimatch`, sans masquage ni nouvelle vulnérabilité.
 
 Le Sprint 013 — Page d'accueil publique est **validé par le Product Owner, verrouillé
 sous le tag `sprint-013`, fusionné dans `main` et définitivement clos**. Sa branche
@@ -59,7 +77,7 @@ La référence métier officielle de la V1 est `docs/specifications/business-rul
 
 ## Produit
 
-AZUREUM est une galerie d'art numérique premium consacrée durablement à David Prieur-Gélis.
+AZUREUM est une galerie d'art numérique premium consacrée durablement à David Prieur-Gelis.
 
 La démarche artistique de David structure prioritairement le produit. L'acquisition des œuvres s'intègre à l'expérience sans la définir.
 
@@ -91,7 +109,7 @@ Le périmètre fonctionnel de la V1 est validé dans `docs/specifications/functi
 - le Sprint 003 est verrouillé ;
 - la révision contrôlée `sprint-003-r1` est validée par le Product Owner ;
 - la déclaration d'état à réception et le signalement d'anomalie font partie du périmètre fonctionnel de la V1 ;
-- David Prieur-Gélis est l'artiste permanent et le sujet de la vision d'AZUREUM ;
+- David Prieur-Gelis est l'artiste permanent et le sujet de la vision d'AZUREUM ;
 - la fidélité à sa démarche artistique prime sur l'optimisation commerciale.
 - le contenu métier du Sprint 004 est validé et son modèle métier est stabilisé ;
 - les règles conditionnelles `RM-LEG-01` à `RM-LEG-05` devront faire l'objet d'une vérification juridique, fiscale et contractuelle adaptée avant toute mise en exploitation d'AZUREUM.
@@ -100,7 +118,7 @@ Le périmètre fonctionnel de la V1 est validé dans `docs/specifications/functi
 - l'archivage d'une œuvre ne supprime ni son identité ni son historique ;
 - la suppression définitive d'une œuvre est exceptionnelle et relève du rôle Administrateur ;
 - les rôles Artiste et Administrateur portent les responsabilités opérationnelles et peuvent être cumulés par un même utilisateur ;
-- l'identité artistique, la qualité d'auteur, la propriété initiale et la qualité de vendeur demeurent exclusivement attachées à David Prieur-Gélis.
+- l'identité artistique, la qualité d'auteur, la propriété initiale et la qualité de vendeur demeurent exclusivement attachées à David Prieur-Gelis.
 - la structure fonctionnelle et les parcours de la V1 sont validés dans le cadre de la révision `sprint-005-r1` ;
 - la découverte publique est éditoriale et structurée par les collections, sans recherche ni filtrage exigés en V1 ;
 - les espaces privés ne participent pas à la navigation publique.
@@ -145,12 +163,18 @@ Le Sprint 012 enrichit la fiche publique d'une œuvre sans modifier les routes n
 
 Le Sprint 013 remplace l'état transitoire de `/` par la page d'accueil publique contractuelle d'AZUREUM. Elle introduit l'univers de David, propose l'accès principal à `/collections`, présente les deux collections publiques existantes et conserve un rendu serveur fondé exclusivement sur le Design System et les données immuables du module privé `gallery`.
 
+Le Sprint 014 remplace l'état structurel de `/david` par la référence fonctionnelle V1
+de la présentation de David et de sa démarche. Le contenu éditorial intégré reste un
+contenu de travail accepté par le Product Owner. Les contenus et médias officiels seront
+recueillis ultérieurement auprès de David avant toute mise en production ou remise
+officielle.
+
 ## Base de données
 
 Aucune base de données déployée. Le modèle conceptuel et l'architecture PostgreSQL cible sont validés dans le livrable du Sprint 006 ; aucun schéma physique ni aucune migration ne sont encore créés.
 
 ## Prochaine étape
 
-Finaliser la révision de `docs/GOVERNANCE.md` consacrée à l'exécution incrémentale,
-selon le cycle de revue et d'intégration par Pull Request. Aucun Sprint suivant n'est
-ouvert.
+Obtenir la validation Product Owner finale du Sprint 014, enregistrer la clôture
+documentaire, puis appliquer le cycle de verrouillage, de Pull Request, de fusion et de
+nettoyage prévu par `docs/GOVERNANCE.md`. Aucun Sprint suivant n'est ouvert.

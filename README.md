@@ -1,6 +1,6 @@
 # AZUREUM
 
-AZUREUM est une galerie d'art numérique premium consacrée à David Prieur-Gélis. Sa mission est de faire découvrir, comprendre et transmettre sa démarche artistique dans un environnement numérique où l'acquisition des œuvres s'intègre naturellement à l'expérience, sans jamais la définir.
+AZUREUM est une galerie d'art numérique premium consacrée à David Prieur-Gelis. Sa mission est de faire découvrir, comprendre et transmettre sa démarche artistique dans un environnement numérique où l'acquisition des œuvres s'intègre naturellement à l'expérience, sans jamais la définir.
 
 ## État du projet
 

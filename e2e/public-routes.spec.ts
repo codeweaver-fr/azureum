@@ -375,3 +375,122 @@ test("keeps homepage collection access available when its media fail", async ({
     }),
   ).toBeVisible();
 });
+
+const davidViewports = [
+  { height: 844, label: "mobile", width: 390 },
+  { height: 1024, label: "tablet", width: 768 },
+  { height: 900, label: "desktop", width: 1440 },
+] as const;
+
+for (const viewport of davidViewports) {
+  test(`keeps the David presentation usable on ${viewport.label}`, async ({
+    page,
+  }) => {
+    await page.setViewportSize(viewport);
+    await page.goto("/david");
+
+    await expect(
+      page.getByRole("heading", {
+        exact: true,
+        level: 1,
+        name: "David Prieur-Gelis",
+      }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("link", {
+        name: "Découvrir les collections",
+      }),
+    ).toBeVisible();
+
+    const hasHorizontalOverflow = await page.evaluate(
+      () =>
+        document.documentElement.scrollWidth >
+        document.documentElement.clientWidth,
+    );
+
+    expect(hasHorizontalOverflow).toBe(false);
+
+    const menuButton = page.getByRole("button", { name: "Menu" });
+
+    if (await menuButton.isVisible()) {
+      await menuButton.click();
+    }
+
+    await expect(
+      page
+        .getByRole("navigation", { name: "Navigation principale" })
+        .getByRole("link", { name: "David" }),
+    ).toHaveAttribute("aria-current", "page");
+  });
+}
+
+test("supports David presentation reflow equivalent to 200 percent zoom", async ({
+  page,
+}) => {
+  await page.setViewportSize({ height: 450, width: 720 });
+  await page.goto("/david");
+
+  const hasHorizontalOverflow = await page.evaluate(
+    () =>
+      document.documentElement.scrollWidth >
+      document.documentElement.clientWidth,
+  );
+
+  expect(hasHorizontalOverflow).toBe(false);
+  await expect(
+    page.getByRole("heading", {
+      exact: true,
+      level: 1,
+      name: "David Prieur-Gelis",
+    }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("link", {
+      name: "Découvrir les collections",
+    }),
+  ).toBeVisible();
+});
+
+test("keeps the David presentation accessible from the keyboard", async ({
+  page,
+}) => {
+  const unexpectedConsoleMessages: string[] = [];
+
+  page.on("console", (message) => {
+    if (message.type() === "error" || message.type() === "warning") {
+      unexpectedConsoleMessages.push(`${message.type()}: ${message.text()}`);
+    }
+  });
+  page.on("pageerror", (error) => {
+    unexpectedConsoleMessages.push(`pageerror: ${error.message}`);
+  });
+
+  await page.setViewportSize({ height: 900, width: 1440 });
+  await page.goto("/david");
+
+  await expect(page.locator("main")).toHaveCount(1);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
+  await expect(page.getByRole("heading", { level: 2 })).toHaveCount(4);
+
+  await page.keyboard.press("Tab");
+
+  const skipLink = page.getByRole("link", {
+    name: "Aller au contenu principal",
+  });
+
+  await expect(skipLink).toBeFocused();
+  await expect(skipLink).not.toHaveCSS("outline-style", "none");
+  await page.keyboard.press("Enter");
+  await expect(page.locator("main")).toBeFocused();
+
+  const collectionsLink = page.getByRole("link", {
+    name: "Découvrir les collections",
+  });
+
+  await collectionsLink.focus();
+  await expect(collectionsLink).toBeFocused();
+  await expect(collectionsLink).not.toHaveCSS("outline-style", "none");
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/\/collections$/);
+  expect(unexpectedConsoleMessages).toEqual([]);
+});

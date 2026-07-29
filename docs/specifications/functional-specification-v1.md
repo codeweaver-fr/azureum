@@ -49,7 +49,7 @@ En cas d’écart, le cahier des charges doit être corrigé ou la décision con
 
 Le Sprint 003 doit respecter les décisions suivantes :
 
-- AZUREUM est une galerie d’art numérique premium consacrée durablement à David Prieur-Gélis ;
+- AZUREUM est une galerie d’art numérique premium consacrée durablement à David Prieur-Gelis ;
 - David est l’unique artiste permanent présenté par le produit ;
 - AZUREUM n’est pas destiné à devenir une marketplace multi-artistes ;
 - la démarche artistique de David constitue le principe organisateur du produit ;
@@ -63,7 +63,7 @@ Ces décisions constituent des contraintes d’entrée. Le Sprint 003 doit en d�
 
 ## 3. Périmètre fonctionnel de la V1
 
-La V1 d’AZUREUM doit constituer une version cohérente, exploitable et autonome du produit. Elle doit permettre de présenter la démarche artistique de David Prieur-Gélis, de découvrir ses œuvres dans leur contexte et d’en permettre l’acquisition à prix fixe.
+La V1 d’AZUREUM doit constituer une version cohérente, exploitable et autonome du produit. Elle doit permettre de présenter la démarche artistique de David Prieur-Gelis, de découvrir ses œuvres dans leur contexte et d’en permettre l’acquisition à prix fixe.
 
 Son périmètre fonctionnel couvre quatre responsabilités principales.
 
@@ -130,7 +130,7 @@ Une même personne peut correspondre à plusieurs acteurs selon le contexte.
 
 ### ACT-01 — Visiteur
 
-Personne qui accède à AZUREUM pour découvrir David Prieur-Gélis, sa démarche artistique, ses œuvres, ses textes, ses expositions et les autres éléments publics de son univers.
+Personne qui accède à AZUREUM pour découvrir David Prieur-Gelis, sa démarche artistique, ses œuvres, ses textes, ses expositions et les autres éléments publics de son univers.
 
 Le visiteur n’a pas nécessairement l’intention d’acquérir une œuvre.
 
@@ -142,7 +142,7 @@ Un acquéreur peut également agir comme visiteur lorsqu’il découvre le trava
 
 La V1 ne doit pas imposer de compte persistant pour acquérir ou suivre une œuvre. Elle doit néanmoins permettre d’établir la légitimité de l’accès aux informations non publiques, sans prescrire le mécanisme correspondant.
 
-### ACT-03 — David Prieur-Gélis
+### ACT-03 — David Prieur-Gelis
 
 Artiste permanent auquel AZUREUM est consacré.
 
@@ -216,7 +216,7 @@ L’acquéreur a besoin de recevoir les éléments permettant d’attester l’a
 
 L’acquéreur a besoin de pouvoir déclarer l’état apparent de l’œuvre reçue et signaler une anomalie relative à sa réception.
 
-### 5.3 Besoins de David Prieur-Gélis
+### 5.3 Besoins de David Prieur-Gelis
 
 #### BES-DAV-01 — Préserver la fidélité de la présentation
 
@@ -272,7 +272,7 @@ Chaque capacité doit répondre à au moins un besoin validé dans la section pr
 
 | Identifiant | Capacité | Besoins couverts |
 |---|---|---|
-| CAP-ART-01 | Présenter David Prieur-Gélis et les éléments permettant d’appréhender sa démarche artistique. | BES-VIS-01, BES-DAV-01 |
+| CAP-ART-01 | Présenter David Prieur-Gelis et les éléments permettant d’appréhender sa démarche artistique. | BES-VIS-01, BES-DAV-01 |
 | CAP-ART-02 | Présenter chaque œuvre avec les informations artistiques et descriptives nécessaires à sa découverte. | BES-VIS-03, BES-VIS-04, BES-DAV-01 |
 | CAP-ART-03 | Présenter les textes, expositions, installations, événements et ensembles qui participent à l’univers artistique de David. | BES-VIS-02, BES-DAV-02 |
 | CAP-ART-04 | Établir des relations explicites entre les œuvres et les éléments qui les contextualisent. | BES-VIS-01, BES-VIS-03, BES-DAV-01 |
@@ -391,7 +391,7 @@ Un cas d’usage décrit une situation fonctionnelle dans laquelle un acteur mob
 
 #### CU-DAV-01 — Faire évoluer la présentation du travail artistique
 
-- **Acteur principal :** David Prieur-Gélis
+- **Acteur principal :** David Prieur-Gelis
 - **Objectif :** maintenir la présentation de sa démarche artistique.
 - **Condition préalable :** David est autorisé à intervenir sur les contenus concernés.
 - **Déclencheur :** une œuvre, un texte, une exposition, un événement ou une relation entre ces éléments doit être ajouté ou actualisé.
@@ -401,7 +401,7 @@ Un cas d’usage décrit une situation fonctionnelle dans laquelle un acteur mob
 
 #### CU-DAV-02 — Définir les conditions d’acquisition d’une œuvre
 
-- **Acteur principal :** David Prieur-Gélis
+- **Acteur principal :** David Prieur-Gelis
 - **Objectif :** déterminer si une œuvre peut être acquise, à quel prix et selon quelles conditions fonctionnelles.
 - **Condition préalable :** l’œuvre existe dans AZUREUM et David est autorisé à intervenir.
 - **Déclencheur :** le prix, la disponibilité ou une condition fonctionnelle applicable à l’œuvre doit être défini ou actualisé.
@@ -411,7 +411,7 @@ Un cas d’usage décrit une situation fonctionnelle dans laquelle un acteur mob
 
 #### CU-DAV-03 — Suivre les acquisitions de ses œuvres
 
-- **Acteur principal :** David Prieur-Gélis
+- **Acteur principal :** David Prieur-Gelis
 - **Objectif :** connaître les acquisitions concernant ses œuvres.
 - **Condition préalable :** David est autorisé à consulter les informations concernées.
 - **Déclencheur :** David souhaite connaître l’état d’une acquisition.
@@ -945,7 +945,7 @@ Les critères ci-dessous ont été satisfaits lors de la validation initiale du 
 ### 10.4 Respect des décisions héritées
 
 - [x] Le cahier des charges reste cohérent avec la vision verrouillée du Sprint 002.
-- [x] David Prieur-Gélis demeure l’unique artiste permanent concerné par le produit.
+- [x] David Prieur-Gelis demeure l’unique artiste permanent concerné par le produit.
 - [x] La démarche artistique reste le principe organisateur d’AZUREUM.
 - [x] L’acquisition est intégrée à l’expérience sans la définir.
 - [x] Aucune exigence ne transforme AZUREUM en marketplace ou en produit générique multi-artistes.
