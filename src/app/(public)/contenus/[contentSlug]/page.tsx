@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getArtisticContentBySlug } from "@/modules/artistic-content/queries";
 import type { ArtisticContentType } from "@/modules/artistic-content/types";
 import { getGalleryArtworkBySlugs } from "@/modules/gallery/queries";
+import { Link } from "@/shared/components/interactions";
 import { Container, Stack } from "@/shared/components/layout";
 import { ArtworkImage } from "@/shared/components/media";
 import { Heading, Text } from "@/shared/components/typography";
@@ -50,6 +51,21 @@ export default async function ArtisticContentPage({
       `Gallery artwork "${mediaArtwork.slug}" is missing media dimensions.`,
     );
   }
+
+  const associatedArtworks = content.associatedArtworks.map((reference) => {
+    const artwork = getGalleryArtworkBySlugs(
+      reference.collectionSlug,
+      reference.artworkSlug,
+    );
+
+    if (artwork === undefined) {
+      throw new Error(
+        `Artistic content "${content.slug}" references unknown artwork "${reference.collectionSlug}/${reference.artworkSlug}".`,
+      );
+    }
+
+    return artwork;
+  });
 
   const hasContext = content.period !== null || content.location !== null;
 
@@ -126,6 +142,28 @@ export default async function ArtisticContentPage({
               ))}
             </Stack>
           </section>
+
+          {associatedArtworks.length > 0 ? (
+            <section aria-labelledby="associated-artworks-heading">
+              <Stack direction="vertical" gap="lg">
+                <Heading as="h2" id="associated-artworks-heading" variant="h2">
+                  Œuvres associées
+                </Heading>
+
+                <ul>
+                  {associatedArtworks.map((artwork) => (
+                    <li key={`${artwork.collectionSlug}/${artwork.slug}`}>
+                      <Link
+                        href={`/collections/${artwork.collectionSlug}/oeuvres/${artwork.slug}`}
+                      >
+                        {artwork.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </Stack>
+            </section>
+          ) : null}
         </Stack>
       </article>
     </Container>

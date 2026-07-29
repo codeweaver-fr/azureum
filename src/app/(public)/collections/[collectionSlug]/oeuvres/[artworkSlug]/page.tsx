@@ -1,5 +1,7 @@
 import { notFound } from "next/navigation";
 
+import { getArtisticContentsByArtwork } from "@/modules/artistic-content/queries";
+import type { ArtisticContentType } from "@/modules/artistic-content/types";
 import {
   getGalleryArtworkBySlugs,
   getGalleryCollectionBySlug,
@@ -23,6 +25,14 @@ interface ArtworkDimensions {
   heightCm: number;
   depthCm: number | null;
 }
+
+const contentTypeLabels: Record<ArtisticContentType, string> = {
+  text: "Texte",
+  exhibition: "Exposition",
+  installation: "Installation",
+  event: "Événement",
+  ensemble: "Ensemble",
+};
 
 function formatArtworkDimensions({
   widthCm,
@@ -51,6 +61,17 @@ export default async function ArtworkPage({ params }: ArtworkPageProps) {
   if (artwork.media.dimensions === null) {
     throw new Error(
       `Gallery artwork "${artwork.slug}" is missing media dimensions.`,
+    );
+  }
+
+  const associatedContents = getArtisticContentsByArtwork(
+    collectionSlug,
+    artworkSlug,
+  );
+
+  if (associatedContents === undefined) {
+    throw new Error(
+      `Unable to resolve artistic contents for gallery artwork "${collectionSlug}/${artworkSlug}".`,
     );
   }
 
@@ -150,6 +171,31 @@ export default async function ArtworkPage({ params }: ArtworkPageProps) {
               </Text>
             </Stack>
           </section>
+
+          {associatedContents.length > 0 ? (
+            <section aria-labelledby="associated-contents-heading">
+              <Stack direction="vertical" gap="lg">
+                <Heading as="h2" id="associated-contents-heading" variant="h2">
+                  Contenus associés
+                </Heading>
+
+                <ul>
+                  {associatedContents.map((content) => (
+                    <li key={content.slug}>
+                      <Stack direction="vertical" gap="xs">
+                        <Text as="p" variant="sm">
+                          {contentTypeLabels[content.type]}
+                        </Text>
+                        <Link href={`/contenus/${content.slug}`}>
+                          {content.title}
+                        </Link>
+                      </Stack>
+                    </li>
+                  ))}
+                </ul>
+              </Stack>
+            </section>
+          ) : null}
 
           <footer className={styles.footer}>
             <Link href={`/collections/${collection.slug}`}>

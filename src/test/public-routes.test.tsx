@@ -340,9 +340,46 @@ describe("minimal public routes", () => {
         expect(markup).not.toContain("<img");
       }
 
-      expect(markup).not.toContain("/oeuvres/");
+      expect(markup).toContain(">Œuvres associées</h2>");
+
+      for (const reference of content.associatedArtworks) {
+        const artwork = getGalleryArtworkBySlugs(
+          reference.collectionSlug,
+          reference.artworkSlug,
+        );
+
+        expect(artwork).toBeDefined();
+        expect(markup).toContain(
+          `href="/collections/${reference.collectionSlug}/oeuvres/${reference.artworkSlug}"`,
+        );
+        expect(markup).toContain(`>${artwork?.title}</a>`);
+      }
+
+      expect(
+        markup.match(/href="\/collections\/[^"]+\/oeuvres\/[^"]+"/g),
+      ).toHaveLength(content.associatedArtworks.length);
       expect(markup).not.toContain("/contenus/");
     }
+  });
+
+  it("renders no artwork outside a content's declared relations", async () => {
+    const content = artisticContents[0];
+    const page = await ArtisticContentPage({
+      params: Promise.resolve({
+        contentSlug: content.slug,
+      }),
+    });
+    const markup = renderToStaticMarkup(page);
+
+    expect(markup).not.toContain(
+      'href="/collections/collection-beta/oeuvres/composition-a"',
+    );
+    expect(markup).not.toContain(
+      'href="/collections/collection-beta/oeuvres/composition-b"',
+    );
+    expect(markup).not.toContain(
+      'href="/collections/collection-beta/oeuvres/composition-c"',
+    );
   });
 
   it("keeps the artistic content page server-rendered", () => {
@@ -426,6 +463,56 @@ describe("minimal public routes", () => {
     expect(markup).toContain("<dl");
     expect(markup.match(/<dt>/g)).toHaveLength(4);
     expect(markup.match(/<dd>/g)).toHaveLength(4);
+  });
+
+  it("renders exactly the two artistic contents associated with study-02", async () => {
+    const page = await ArtworkPage({
+      params: Promise.resolve({
+        artworkSlug: "study-02",
+        collectionSlug: "collection-alpha",
+      }),
+    });
+    const markup = renderToStaticMarkup(page);
+
+    expect(markup).toContain(">Contenus associés</h2>");
+    expect(markup).toContain(
+      'href="/contenus/equilibres-silencieux">Texte fictif — Équilibres silencieux</a>',
+    );
+    expect(markup).toContain(
+      'href="/contenus/formes-en-dialogue">Exposition fictive — Formes en dialogue</a>',
+    );
+    expect(markup).toContain(">Texte</p>");
+    expect(markup).toContain(">Exposition</p>");
+    expect(markup.match(/href="\/contenus\/[^"]+"/g)).toHaveLength(2);
+  });
+
+  it("renders only the declared artistic content for study-01", async () => {
+    const page = await ArtworkPage({
+      params: Promise.resolve({
+        artworkSlug: "study-01",
+        collectionSlug: "collection-alpha",
+      }),
+    });
+    const markup = renderToStaticMarkup(page);
+
+    expect(markup).toContain(
+      'href="/contenus/equilibres-silencieux">Texte fictif — Équilibres silencieux</a>',
+    );
+    expect(markup).toContain(">Texte</p>");
+    expect(markup.match(/href="\/contenus\/[^"]+"/g)).toHaveLength(1);
+  });
+
+  it("renders no associated-content section for composition-c", async () => {
+    const page = await ArtworkPage({
+      params: Promise.resolve({
+        artworkSlug: "composition-c",
+        collectionSlug: "collection-beta",
+      }),
+    });
+    const markup = renderToStaticMarkup(page);
+
+    expect(markup).not.toContain(">Contenus associés</h2>");
+    expect(markup).not.toContain('href="/contenus/');
   });
 
   it("formats physical dimensions without an unavailable depth", async () => {
