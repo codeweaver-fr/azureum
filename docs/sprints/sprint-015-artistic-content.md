@@ -551,6 +551,11 @@ Les contrôles finaux sont conformes :
 - contrôle des frontières d'import ;
 - `git diff --check`.
 
+L'audit final a également confirmé que les deux aperçus de collection visibles au
+chargement de la page d'accueil doivent être préchargés. Cette correction minimale
+supprime l'avertissement LCP observé en intégration continue sans modifier le rendu ni
+le comportement fonctionnel.
+
 `pnpm audit` restitue une vulnérabilité haute connue et temporairement acceptée :
 `brace-expansion@1.1.16`, introduite transitivement dans l'outillage de développement
 par `eslint → minimatch`. Cette exception est déjà documentée, n'est pas masquée et

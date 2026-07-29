@@ -25,6 +25,10 @@ temporaire déjà documentée pour `brace-expansion@1.1.16`, dépendance transit
 développement introduite par `eslint → minimatch`, sans masquage ni nouvelle
 vulnérabilité.
 
+L'audit final a corrigé l'unique avertissement LCP reproduit par l'intégration continue
+en préchargeant les deux aperçus de collection visibles au chargement de `/`, sans
+changement visuel ou fonctionnel.
+
 La validation Product Owner finale, les opérations Git de clôture, le tag `sprint-015`,
 la Pull Request, la fusion dans `main` et le nettoyage de branche restent à réaliser.
 

@@ -22,6 +22,9 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
   compatible avec un zoom à 200 % ;
 - validation du clavier, du focus visible, du skip link, des landmarks, de la hiérarchie
   des titres, du fallback média et de l'absence de message navigateur inattendu ;
+- correction de l'avertissement LCP observé en intégration continue par le préchargement
+  des deux aperçus de collection visibles au chargement de la page d'accueil, sans
+  changement visuel ou fonctionnel ;
 - validation finale de Prettier, ESLint, TypeScript, 12 fichiers Vitest et 105 tests,
   build Next.js, 52 tests Playwright, contrôle des frontières d'import et
   `git diff --check` ;

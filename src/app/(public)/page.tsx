@@ -52,7 +52,7 @@ export default function Home() {
           </Heading>
 
           <Grid gap="xl" role="list">
-            {homepageCollections.map((collection, collectionIndex) => {
+            {homepageCollections.map((collection) => {
               const previewArtwork = getGalleryArtworkBySlugs(
                 collection.slug,
                 collection.previewArtworkSlug,
@@ -90,7 +90,7 @@ export default function Home() {
                     <ArtworkImage
                       alt={previewArtwork.media.alt}
                       height={previewArtwork.media.dimensions.height}
-                      preload={collectionIndex === 0}
+                      preload
                       src={previewArtwork.media.src}
                       width={previewArtwork.media.dimensions.width}
                     />
