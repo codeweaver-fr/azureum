@@ -355,6 +355,10 @@ la continuité sans imposer une signature plus forte que le contenu.
 
 La direction d'expérience reste valable en mobile, tablette et bureau.
 
+Une largeur différente ne produit pas une version diminuée de l'expérience. Elle peut
+transformer la composition, mais conserve la même hiérarchie, le même accès au contenu
+et la même attention portée aux œuvres.
+
 Elle respecte les règles `RSP-*` du Design System :
 
 - approche mobile-first ;
@@ -369,6 +373,10 @@ Le manifeste ne définit aucun nouveau point de rupture.
 ## 20. Accessibilité
 
 L'accessibilité participe directement à la qualité premium de l'expérience.
+
+Elle ne constitue ni une concession esthétique, ni une vérification ajoutée après la
+conception. Une proposition qui ne peut préserver les usages accessibles ne répond pas
+à l'intention d'AZUREUM.
 
 Toute proposition préserve :
 
@@ -398,6 +406,10 @@ L'expérience évite :
 
 L'immersion demeure proportionnée à la finalité du produit.
 
+La performance perçue ne remplace aucun contrôle technique et ne crée aucun seuil. Elle
+exprime l'exigence selon laquelle la mise en scène ne doit jamais retarder la rencontre
+avec les œuvres ou rendre l'interface instable.
+
 ## 22. Langages et effets interdits
 
 Sont incompatibles avec l'expérience publique V1 :
@@ -418,6 +430,10 @@ La technologie soutient l'expérience et les œuvres ; elle ne devient jamais le
 WebGL, animation ou transition ne peuvent être justifiés par leur seule possibilité
 technique ou leur capacité à produire un effet « wow ».
 
+Ces exclusions qualifient des langages et des usages, non une liste de technologies
+interdites par principe. Une solution reste évaluée selon sa finalité, sa proportion et
+sa compatibilité avec le présent manifeste et les fondations existantes.
+
 ## 23. Critères de rejet
 
 Une proposition est rejetée si elle :
@@ -437,6 +453,10 @@ Une proposition est rejetée si elle :
 
 La qualité graphique ou technique d'une proposition ne permet pas de déroger à ces
 critères.
+
+Tout rejet identifie le principe du manifeste, la règle canonique ou l'arbitrage Product
+Owner auquel la proposition contrevient. Une préférence esthétique, une habitude ou le
+caractère inhabituel d'une proposition ne constituent pas seuls un motif de rejet.
 
 ## 24. Relation avec le Design System
 
@@ -463,6 +483,9 @@ Le manifeste ne décide pas :
 
 Ces décisions nécessitent des Sprints autorisés, des propositions comparables et les
 arbitrages prévus par la gouvernance.
+
+Leur présence dans cet inventaire n'annonce ni leur réalisation, ni leur priorité, ni
+leur acceptation future.
 
 ## 26. Critères d'acceptation
 
