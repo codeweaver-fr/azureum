@@ -41,9 +41,14 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 - conservation du tag publié `sprint-016` sur le commit
   `5d763424382725d41deb5d710ecd25627c5ae85c` comme référence historique initiale,
   sans déplacement ;
-- validation Product Owner finale de `sprint-016-r1` comme future référence corrigée,
-  dont la publication de branche, la création du tag R1, la Pull Request et la fusion
-  dans `main` restent à effectuer.
+- validation Product Owner finale et verrouillage de la référence corrigée sous le tag
+  publié `sprint-016-r1`, qui cible le commit documentaire
+  `e4ff2303c7f21321827b976cbf59a8ef77cc8c37` ;
+- fusion de la Pull Request nº 17 dans `main` par le commit
+  `39e5c6f58d82d408544fead5fe274f5714a4f618`, puis suppression locale et distante des
+  branches `sprint-016-r1-public-timeline` et `sprint-016-public-timeline` ;
+- clôture définitive du Sprint 016-r1 et préparation du Sprint 017 — Direction
+  artistique et expérience publique V1.
 
 ### Sprint 015 — Contenus artistiques
 
