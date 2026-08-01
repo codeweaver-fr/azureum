@@ -259,6 +259,10 @@ elles atteignent une qualité et une cohérence équivalentes avec une intensit�
 Le mouvement explique une relation, confirme un changement, guide l'attention ou
 accompagne la contemplation.
 
+Il n'est jamais attendu pour lui-même. Son absence ne constitue pas un manque lorsque
+la composition, la hiérarchie et le rythme suffisent à rendre l'expérience claire et
+cohérente.
+
 Il reste :
 
 - discret ;
@@ -269,6 +273,10 @@ Il reste :
 
 Sont exclus les chorégraphies longues, parallaxes importantes, mouvements décoratifs et
 effets spectaculaires sans bénéfice éditorial.
+
+L'accès au contenu, la compréhension et l'action ne dépendent jamais de l'exécution d'un
+mouvement. La réduction ou la suppression de celui-ci préserve le sens, l'ordre de
+lecture et la continuité.
 
 Le présent manifeste ne définit aucune animation de production.
 
@@ -287,12 +295,25 @@ Les vues forment une expérience commune par :
 La continuité ne signifie pas uniformité. Chaque vue conserve sa responsabilité et son
 intensité propres.
 
+Le visiteur doit pouvoir comprendre ce qui change, ce qui demeure relié et comment
+poursuivre sa découverte. Cette continuité préserve le contexte entre David, les
+collections, les œuvres, les contenus et leur évolution dans le temps, sans imposer un
+ordre unique de consultation.
+
+Elle s'appuie exclusivement sur les parcours et destinations déjà validés. Elle ne crée
+ni nouvelle navigation, ni nouvelle relation fonctionnelle.
+
 ## 18. Responsabilités sensibles des vues
+
+La responsabilité sensible décrit la contribution de chaque vue à l'expérience globale.
+Elle complète sa responsabilité fonctionnelle sans la modifier et ne prescrit aucune
+composition particulière.
 
 ### 18.1 Accueil
 
 L'accueil porte la signature des dix premières secondes. Il introduit l'univers de David
-et donne immédiatement accès aux collections.
+et donne immédiatement accès aux collections. Il éveille la curiosité sans retarder la
+découverte.
 
 ### 18.2 David et sa démarche
 
@@ -302,7 +323,8 @@ David, sans inventer de contenu ou de média.
 ### 18.3 Collections
 
 La vue fait découvrir des ensembles artistiques sans adopter le vocabulaire répétitif
-d'une interface SaaS.
+d'une interface SaaS. Elle permet d'embrasser la diversité du travail avant d'entrer
+dans l'intention propre à une collection.
 
 ### 18.4 Collection
 
@@ -311,8 +333,8 @@ avec une respiration qui permet leur comparaison sans les uniformiser.
 
 ### 18.5 Œuvre
 
-La fiche d'œuvre constitue le sommet de la mise en scène publique. L'œuvre domine ; ses
-caractéristiques et contextes accompagnent sa compréhension.
+La fiche d'œuvre porte la composition publique la plus affirmée. L'œuvre domine ; ses
+caractéristiques et contextes accompagnent sa compréhension sans rivaliser avec elle.
 
 ### 18.6 Contenu artistique
 
@@ -321,7 +343,8 @@ La vue privilégie la lecture, la contextualisation et les relations avec les œ
 ### 18.7 Évolution dans le temps
 
 La chronologie rend le temps et la progression perceptibles sans devenir une frise
-décorative conventionnelle.
+décorative conventionnelle. Elle relie les repères sans transformer l'évolution du
+travail en récit imposé.
 
 ### 18.8 Shell public
 
