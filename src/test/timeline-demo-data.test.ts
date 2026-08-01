@@ -122,14 +122,38 @@ describe("timeline demo data", () => {
   });
 
   it("exposes immutable timeline collections", () => {
+    const resolvedMarkers = getResolvedTimelineMarkers();
+
     expect(Object.isFrozen(timelineMarkers)).toBe(true);
     expect(Object.isFrozen(getTimelineMarkers())).toBe(true);
-    expect(Object.isFrozen(getResolvedTimelineMarkers())).toBe(true);
+    expect(Object.isFrozen(resolvedMarkers)).toBe(true);
 
     for (const marker of timelineMarkers) {
       expect(Object.isFrozen(marker)).toBe(true);
       expect(Object.isFrozen(marker.artworkReferences)).toBe(true);
       expect(Object.isFrozen(marker.contentReferences)).toBe(true);
+
+      for (const reference of marker.artworkReferences) {
+        expect(Object.isFrozen(reference)).toBe(true);
+      }
+
+      for (const reference of marker.contentReferences) {
+        expect(Object.isFrozen(reference)).toBe(true);
+      }
+    }
+
+    for (const marker of resolvedMarkers) {
+      expect(Object.isFrozen(marker)).toBe(true);
+      expect(Object.isFrozen(marker.artworks)).toBe(true);
+      expect(Object.isFrozen(marker.contents)).toBe(true);
+
+      for (const artwork of marker.artworks) {
+        expect(Object.isFrozen(artwork)).toBe(true);
+      }
+
+      for (const content of marker.contents) {
+        expect(Object.isFrozen(content)).toBe(true);
+      }
     }
   });
 });
