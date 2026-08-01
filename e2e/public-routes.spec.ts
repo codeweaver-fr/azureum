@@ -1,5 +1,21 @@
 import { expect, test } from "@playwright/test";
 
+import type { Locator, Page } from "@playwright/test";
+
+async function focusWithKeyboard(page: Page, target: Locator) {
+  for (let attempt = 0; attempt < 20; attempt += 1) {
+    await page.keyboard.press("Tab");
+
+    if (
+      await target.evaluate((element) => element === document.activeElement)
+    ) {
+      return;
+    }
+  }
+
+  throw new Error("Expected the target to be reachable with the Tab key.");
+}
+
 const publicRoutes = [
   { heading: "AZUREUM", path: "/" },
   { heading: "David", path: "/david" },
@@ -706,6 +722,229 @@ test("emits no unexpected browser message on artistic content pages", async ({
     await page.goto(path);
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
   }
+
+  expect(unexpectedConsoleMessages).toEqual([]);
+});
+
+const timelineViewports = [
+  { height: 844, label: "mobile", width: 390 },
+  { height: 1024, label: "tablet", width: 768 },
+  { height: 900, label: "desktop", width: 1440 },
+] as const;
+
+for (const viewport of timelineViewports) {
+  test(`keeps the public timeline usable on ${viewport.label}`, async ({
+    page,
+  }) => {
+    await page.setViewportSize(viewport);
+    await page.goto("/chronologie");
+
+    await expect(
+      page.getByRole("heading", {
+        level: 1,
+        name: "Évolution dans le temps",
+      }),
+    ).toBeVisible();
+
+    await expect(page.locator("main ol")).toBeVisible();
+    await expect(page.locator("main ol")).toHaveCount(1);
+
+    await expect(
+      page.getByRole("link", {
+        name: "Étude fictive 01",
+      }),
+    ).toBeVisible();
+
+    await expect(
+      page.getByRole("link", {
+        name: "Texte fictif — Équilibres silencieux",
+      }),
+    ).toBeVisible();
+
+    const resourceLinks = page.locator("main ol a");
+    const resourceLinkCount = await resourceLinks.count();
+
+    expect(resourceLinkCount).toBeGreaterThan(0);
+
+    for (let index = 0; index < resourceLinkCount; index += 1) {
+      await expect(resourceLinks.nth(index)).toBeVisible();
+    }
+
+    const hasHorizontalOverflow = await page.evaluate(
+      () =>
+        document.documentElement.scrollWidth >
+        document.documentElement.clientWidth,
+    );
+
+    expect(hasHorizontalOverflow).toBe(false);
+  });
+}
+
+test("supports timeline reflow equivalent to 200 percent zoom", async ({
+  page,
+}) => {
+  await page.setViewportSize({
+    height: 450,
+    width: 720,
+  });
+
+  await page.goto("/chronologie");
+
+  const hasHorizontalOverflow = await page.evaluate(
+    () =>
+      document.documentElement.scrollWidth >
+      document.documentElement.clientWidth,
+  );
+
+  expect(hasHorizontalOverflow).toBe(false);
+
+  await expect(
+    page.getByRole("heading", {
+      level: 1,
+      name: "Évolution dans le temps",
+    }),
+  ).toBeVisible();
+
+  await expect(
+    page.getByRole("link", {
+      name: "Étude fictive 01",
+    }),
+  ).toBeVisible();
+
+  await expect(
+    page.getByRole("link", {
+      name: "Texte fictif — Équilibres silencieux",
+    }),
+  ).toBeVisible();
+
+  const resourceLinks = page.locator("main ol a");
+  const resourceLinkCount = await resourceLinks.count();
+
+  expect(resourceLinkCount).toBeGreaterThan(0);
+
+  for (let index = 0; index < resourceLinkCount; index += 1) {
+    await expect(resourceLinks.nth(index)).toBeVisible();
+  }
+});
+
+test("keeps the public timeline semantics and skip navigation accessible", async ({
+  page,
+}) => {
+  await page.setViewportSize({
+    height: 900,
+    width: 1440,
+  });
+
+  await page.goto("/chronologie");
+
+  await expect(page.locator("main")).toHaveCount(1);
+  await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
+  await expect(page.locator("main ol")).toBeVisible();
+  await expect(page.locator("main ol")).toHaveCount(1);
+  await expect(
+    page
+      .getByRole("navigation", { name: "Navigation principale" })
+      .getByRole("link", { name: "Évolution dans le temps" }),
+  ).toHaveAttribute("aria-current", "page");
+
+  await page.keyboard.press("Tab");
+
+  const skipLink = page.getByRole("link", {
+    name: "Aller au contenu principal",
+  });
+
+  await expect(skipLink).toBeFocused();
+  await expect(skipLink).not.toHaveCSS("outline-style", "none");
+
+  await page.keyboard.press("Enter");
+
+  await expect(page.locator("main")).toBeFocused();
+});
+
+test("keeps timeline resource links reachable by keyboard", async ({
+  page,
+}) => {
+  await page.setViewportSize({
+    height: 900,
+    width: 1440,
+  });
+
+  await page.goto("/chronologie");
+
+  const artworkLink = page.getByRole("link", {
+    name: "Étude fictive 01",
+  });
+
+  await focusWithKeyboard(page, artworkLink);
+
+  await expect(artworkLink).toBeFocused();
+  await expect(artworkLink).not.toHaveCSS("outline-style", "none");
+
+  await page.keyboard.press("Enter");
+
+  await expect(page).toHaveURL(
+    /\/collections\/collection-alpha\/oeuvres\/study-01$/,
+  );
+
+  await page.goto("/chronologie");
+
+  const contentLink = page.getByRole("link", {
+    name: "Texte fictif — Équilibres silencieux",
+  });
+
+  await focusWithKeyboard(page, contentLink);
+
+  await expect(contentLink).toBeFocused();
+  await expect(contentLink).not.toHaveCSS("outline-style", "none");
+
+  await page.keyboard.press("Enter");
+
+  await expect(page).toHaveURL(/\/contenus\/equilibres-silencieux$/);
+});
+
+test("presents the timeline years in chronological order", async ({ page }) => {
+  await page.goto("/chronologie");
+
+  const timelineText = await page.locator("main").innerText();
+
+  const year2023Index = timelineText.indexOf("2023");
+  const year2024Index = timelineText.indexOf("2024");
+  const year2025Index = timelineText.indexOf("2025");
+
+  expect(year2023Index).toBeGreaterThan(-1);
+  expect(year2024Index).toBeGreaterThan(year2023Index);
+  expect(year2025Index).toBeGreaterThan(year2024Index);
+});
+
+test("emits no unexpected browser message on the public timeline", async ({
+  page,
+}) => {
+  const unexpectedConsoleMessages: string[] = [];
+
+  page.on("console", (message) => {
+    if (message.type() === "error" || message.type() === "warning") {
+      unexpectedConsoleMessages.push(`${message.type()}: ${message.text()}`);
+    }
+  });
+
+  page.on("pageerror", (error) => {
+    unexpectedConsoleMessages.push(`pageerror: ${error.message}`);
+  });
+
+  await page.goto("/chronologie");
+
+  await expect(
+    page.getByRole("heading", {
+      level: 1,
+      name: "Évolution dans le temps",
+    }),
+  ).toBeVisible();
+
+  await expect(
+    page.getByRole("link", {
+      name: "Étude fictive 01",
+    }),
+  ).toBeVisible();
 
   expect(unexpectedConsoleMessages).toEqual([]);
 });

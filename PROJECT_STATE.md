@@ -2,9 +2,59 @@
 
 ## Phase actuelle
 
-Construction du produit — entre deux Sprints après la clôture définitive du Sprint 015.
+Révision contrôlée du Sprint 016 — préparation de la référence corrigée
+`sprint-016-r1`.
 
 ## Sprint actif
+
+Le Sprint 016 — Évolution dans le temps a introduit le module privé `timeline`, trois
+repères fictifs ordonnés de 2023 à 2025, la route publique `/chronologie`, les relations
+explicites vers les œuvres et les contenus artistiques, l'état vide ainsi que les
+validations responsive et d'accessibilité.
+
+Le tag historique `sprint-016`, publié sur le commit
+`5d763424382725d41deb5d710ecd25627c5ae85c` avant une clôture conforme, reste inchangé.
+Il constitue la référence historique initiale, mais conserve les imperfections relevées
+par l'audit postérieur : le champ facultatif `period` n'était pas réellement modélisé
+comme tel, la clôture documentaire n'avait pas été synchronisée et la vulnérabilité
+transitive `brace-expansion@1.1.16` était devenue corrigeable. La racine Turbopack
+dépendait en outre du répertoire courant du processus et pouvait donc désigner
+incorrectement `src/app`.
+
+La révision contrôlée `sprint-016-r1` est actuellement en préparation sur la branche
+locale active `sprint-016-r1-public-timeline`, qui n'est pas encore publiée. La
+correction fonctionnelle `071b3eae16d03fbad8af67e976a1708698de638e` représente
+désormais `period` par `string | null`, utilise `null` pour son absence et couvre ce
+comportement par des tests. La correction de sécurité
+`7b50407aae486f4ba964c49cd62e5dccdd7df847` résout normalement `brace-expansion` vers
+`1.1.17`, sans override ni modification de `package.json`. La correction de build
+`1d87b42c35499cd1b57d0b998c9b87e4af9c9cf8` stabilise la racine Turbopack à partir du
+répertoire de `next.config.ts`, indépendamment du répertoire de lancement.
+
+Les preuves contractuelles ont été renforcées par les commits
+`3ce90b506bc701f603e81a4a0f609b831d6e5821` pour l'immuabilité profonde du graphe
+chronologique, `faafe47d5cbc290bb0b3dfd9e876d391b7216686` pour les trois repères
+réellement rendus et `d18b090915e0a4df9e3d11719bfe6f021dcad9c5` pour la couverture
+responsive, le parcours clavier, le focus et l'état actif de la navigation. Les six
+incréments du Sprint 016-r1 ont été revus séparément. Les Incréments 1 et 4 ont été
+validés sans modification ; les corrections ciblées des Incréments 2, 3 et 5 sont
+enregistrées ; l'Incrément 6 est techniquement conforme après la présente
+synchronisation documentaire.
+
+Les contrôles de la R1 sont conformes : Prettier, ESLint, TypeScript, 14 fichiers
+Vitest et 129 tests, build Next.js, 60 tests Playwright, `pnpm audit` avec zéro
+vulnérabilité et `git diff --check`.
+
+Deux avertissements LCP avaient été observés antérieurement sur
+`/gallery/composition-b.webp` et `/gallery/composition-c.webp`. Ils n'ont pas été
+reproduits pendant la validation finale actuelle, ne concernent pas `/chronologie` et ne
+résultent pas des corrections de la R1. Aucune correction LCP n'est requise dans cette
+révision.
+
+La R1 est validée par le Product Owner mais n'est pas encore intégrée dans
+`origin/main`. La publication de la branche, la création du tag `sprint-016-r1`, la Pull
+Request, la fusion dans `main` et le nettoyage restent à effectuer. Le Sprint 016 R1 ne
+doit donc pas encore être considéré comme définitivement clos.
 
 Le Sprint 015 — Contenus artistiques est **validé par le Product Owner, fusionné dans
 `main` et fonctionnellement terminé**. Les six incréments ont verrouillé le contrat,
@@ -173,7 +223,7 @@ Le périmètre fonctionnel de la V1 est validé dans `docs/specifications/functi
 
 Les cinq jalons du socle sont préparés : Next.js App Router, TypeScript, pnpm, ESLint, Prettier, structure modulaire minimale, Vitest, Playwright, GitHub Actions, variables d'environnement documentées, Supabase local et guide développeur, sans logique métier ni interface produit définitive.
 
-Le runtime Node.js `24.18.0` et pnpm `10.34.5` sont validés par une installation figée, le lint, la vérification TypeScript et le build. L’audit de sécurité du Sprint 009 conserve temporairement `brace-expansion@1.1.16`, dépendance transitive de l’outillage ESLint concernée par `GHSA-mh99-v99m-4gvg` / `CVE-2026-14257`. Cette exception n’est pas masquée et doit être réévaluée lors des mises à jour de la chaîne ESLint/Next.js.
+Le runtime Node.js `24.18.0` et pnpm `10.34.5` sont validés par une installation figée, le lint, la vérification TypeScript et le build. L'audit de sécurité du Sprint 009 avait conservé temporairement `brace-expansion@1.1.16`, dépendance transitive de l'outillage ESLint concernée par `GHSA-mh99-v99m-4gvg` / `CVE-2026-14257`. La révision contrôlée `sprint-016-r1` résout cette occurrence vers `1.1.17` sans masquage ni override ; `pnpm audit` retourne désormais zéro vulnérabilité.
 
 Les scripts de formatage et de contrôle statique sont opérationnels. Les frontières `modules`, `shared`, `server`, `styles` et `test` sont documentées sans implémentation prématurée.
 
@@ -207,5 +257,7 @@ Aucune base de données déployée. Le modèle conceptuel et l'architecture Post
 
 ## Prochaine étape
 
-Définir et valider le contrat du prochain Sprint conformément à
-`docs/GOVERNANCE.md`. Aucun Sprint suivant n'est actuellement ouvert.
+Finaliser la révision contrôlée `sprint-016-r1` conformément à
+`docs/GOVERNANCE.md` : publication de la branche, création du tag R1, Pull Request,
+fusion dans `main` et nettoyage. Aucun Sprint suivant ne doit être ouvert avant cette
+clôture.
