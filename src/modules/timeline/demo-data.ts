@@ -52,7 +52,7 @@ export const timelineMarkers: readonly TimelineMarker[] = Object.freeze([
   Object.freeze({
     id: "demo-2025-selection-preparation",
     year: 2025,
-    period: "Présentation — période fictive",
+    period: null,
     title: "Préparation d'une sélection — repère fictif",
     summary:
       "Constitution fictive d'un ensemble de démonstration reliant œuvres et contenus artistiques.",

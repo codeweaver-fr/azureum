@@ -57,9 +57,34 @@ describe("public timeline", () => {
 
     for (const marker of markers) {
       expect(decodedMarkup).toContain(`>${marker.title}</h2>`);
-      expect(decodedMarkup).toContain(marker.period);
+
+      if (marker.period !== null) {
+        expect(decodedMarkup).toContain(marker.period);
+      }
+
       expect(decodedMarkup).toContain(marker.summary);
     }
+  });
+
+  it("does not render an empty period for a marker without one", () => {
+    const [firstMarker] = getResolvedTimelineMarkers();
+
+    if (firstMarker === undefined) {
+      throw new Error("Expected at least one resolved timeline marker.");
+    }
+
+    const markerWithoutPeriod = Object.freeze({
+      ...firstMarker,
+      period: null,
+      artworks: Object.freeze([]),
+      contents: Object.freeze([]),
+    });
+
+    const markup = renderToStaticMarkup(
+      <TimelinePresentation markers={[markerWithoutPeriod]} />,
+    );
+
+    expect(markup.match(/<p/g)).toHaveLength(3);
   });
 
   it("uses a semantic ordered list for chronological markers", () => {

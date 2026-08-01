@@ -13,7 +13,7 @@ export type TimelineContentReference = Readonly<{
 export type TimelineMarker = Readonly<{
   id: string;
   year: number;
-  period: string;
+  period: string | null;
   title: string;
   summary: string;
   artworkReferences: readonly TimelineArtworkReference[];
@@ -23,7 +23,7 @@ export type TimelineMarker = Readonly<{
 export type ResolvedTimelineMarker = Readonly<{
   id: string;
   year: number;
-  period: string;
+  period: string | null;
   title: string;
   summary: string;
   artworks: readonly GalleryArtwork[];

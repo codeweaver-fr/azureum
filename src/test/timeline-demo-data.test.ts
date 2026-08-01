@@ -62,7 +62,7 @@ describe("timeline demo data", () => {
     const emptyMarker: TimelineMarker = Object.freeze({
       id: "empty-marker",
       year: 2026,
-      period: "Période fictive",
+      period: null,
       title: "Repère fictif vide",
       summary: "Repère utilisé pour vérifier la résolution sans ressource.",
       artworkReferences: Object.freeze([]),
@@ -72,7 +72,7 @@ describe("timeline demo data", () => {
     expect(resolveTimelineMarker(emptyMarker)).toEqual({
       id: "empty-marker",
       year: 2026,
-      period: "Période fictive",
+      period: null,
       title: "Repère fictif vide",
       summary: "Repère utilisé pour vérifier la résolution sans ressource.",
       artworks: [],

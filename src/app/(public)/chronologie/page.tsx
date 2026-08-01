@@ -38,7 +38,7 @@ export function TimelinePresentation({ markers }: TimelinePresentationProps) {
                       {marker.year}
                     </Text>
 
-                    {marker.period.length > 0 ? (
+                    {marker.period !== null ? (
                       <Text as="p" variant="body">
                         {marker.period}
                       </Text>
