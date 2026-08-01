@@ -142,10 +142,16 @@ L'expérience publique est :
 - accessible et performante dès sa conception.
 
 La direction artistique est un moyen au service de ces principes, jamais leur finalité.
+La personnalité d'AZUREUM naît de leur combinaison constante, non d'un effet isolé ou
+d'un procédé répété sur toutes les vues.
 
 ## 10. Grammaire de composition
 
 La composition s'adapte à la nature du contenu dans une grammaire commune.
+
+Cette grammaire organise des relations reconnaissables entre l'œuvre, le contexte,
+l'espace et les actions. Elle donne une cohérence à l'ensemble sans transformer chaque
+vue en déclinaison d'un même modèle.
 
 Cette grammaire privilégie :
 
@@ -170,6 +176,9 @@ La hiérarchie générale accorde la priorité :
 Cette hiérarchie s'adapte aux vues sans masquer les informations nécessaires ni créer
 de dépendance à la position, à la taille ou à la couleur seules.
 
+Elle rend le point d'entrée de chaque vue immédiatement compréhensible, puis permet au
+regard de rejoindre le contexte et les actions sans concurrencer le sujet principal.
+
 ## 12. Rythme, densité et respiration
 
 L'expérience est silencieuse à équilibrée. Elle ménage des espaces de respiration
@@ -183,10 +192,14 @@ Le rythme alterne :
 - des transitions de densité adaptées au contenu ;
 - des moments de tension maîtrisée.
 
+Cette alternance accompagne la progression du visiteur. Elle permet d'identifier ce qui
+demande une attention immédiate, ce qui invite à s'attarder et ce qui prépare la suite
+de la découverte.
+
 La respiration ne doit pas produire de vide incompréhensible. La densité ne doit pas
 produire de fatigue, de surcharge ou de vocabulaire de tableau de bord.
 
-## 13. Palette et lumière
+## 13. Palette et contrastes
 
 Le manifeste n'ajoute aucune couleur au Design System.
 
@@ -197,8 +210,9 @@ Les rôles sensibles retenus sont :
 - l'or fumé intervient comme détail premium rare et discret ;
 - la terre cuite intervient comme accent éditorial ponctuel.
 
-La lumière est exprimée par les contrastes, les surfaces, l'espace et la relation avec
-les médias. Elle ne repose pas sur des effets décoratifs, métalliques ou artificiels.
+Les contrastes, les surfaces, l'espace et leur relation avec les médias contribuent à
+la clarté et à l'atmosphère de l'expérience. Ils ne cherchent pas à simuler des effets
+décoratifs, métalliques ou artificiels.
 
 Tout usage colorimétrique reste soumis aux rôles et exigences de contraste du Design
 System.
@@ -207,6 +221,10 @@ System.
 
 La typographie contribue à la signature d'AZUREUM par sa hiérarchie, ses proportions et
 son rythme.
+
+Elle distingue les moments éditoriaux, qui ouvrent un espace de lecture et de
+contemplation, des moments fonctionnels, qui orientent et rendent l'action immédiatement
+compréhensible.
 
 Elle respecte les familles, échelles, poids et rôles existants. Elle ne crée aucune
 nouvelle police ou valeur. La typographie éditoriale porte les titres et les moments de
@@ -219,6 +237,10 @@ La force typographique ne doit jamais devenir décorative au détriment de la le
 
 La présentation protège l'intégrité et la primauté des œuvres.
 
+Révéler une œuvre signifie lui donner les conditions nécessaires pour être regardée,
+identifiée et située dans la démarche de David. Cette révélation ne suppose aucun effet
+spectaculaire ni aucune mise en scène obligatoire.
+
 Elle repose sur :
 
 - le respect des ratios ;
@@ -228,9 +250,9 @@ Elle repose sur :
 - une révélation adaptée au contexte de consultation ;
 - des informations secondaires qui accompagnent sans concurrencer.
 
-La fiche d'œuvre peut rester la vue la plus spectaculaire, car l'œuvre constitue le cœur
-du produit. Les autres vues ne l'imitent pas artificiellement ; elles atteignent une
-qualité et une cohérence équivalentes avec une intensité adaptée.
+La fiche d'œuvre peut rester la vue dont la composition est la plus affirmée, car
+l'œuvre constitue le cœur du produit. Les autres vues ne l'imitent pas artificiellement ;
+elles atteignent une qualité et une cohérence équivalentes avec une intensité adaptée.
 
 ## 16. Mouvement et transitions
 
