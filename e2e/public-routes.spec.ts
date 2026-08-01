@@ -1,5 +1,21 @@
 import { expect, test } from "@playwright/test";
 
+import type { Locator, Page } from "@playwright/test";
+
+async function focusWithKeyboard(page: Page, target: Locator) {
+  for (let attempt = 0; attempt < 20; attempt += 1) {
+    await page.keyboard.press("Tab");
+
+    if (
+      await target.evaluate((element) => element === document.activeElement)
+    ) {
+      return;
+    }
+  }
+
+  throw new Error("Expected the target to be reachable with the Tab key.");
+}
+
 const publicRoutes = [
   { heading: "AZUREUM", path: "/" },
   { heading: "David", path: "/david" },
@@ -745,6 +761,15 @@ for (const viewport of timelineViewports) {
       }),
     ).toBeVisible();
 
+    const resourceLinks = page.locator("main ol a");
+    const resourceLinkCount = await resourceLinks.count();
+
+    expect(resourceLinkCount).toBeGreaterThan(0);
+
+    for (let index = 0; index < resourceLinkCount; index += 1) {
+      await expect(resourceLinks.nth(index)).toBeVisible();
+    }
+
     const hasHorizontalOverflow = await page.evaluate(
       () =>
         document.documentElement.scrollWidth >
@@ -791,6 +816,15 @@ test("supports timeline reflow equivalent to 200 percent zoom", async ({
       name: "Texte fictif — Équilibres silencieux",
     }),
   ).toBeVisible();
+
+  const resourceLinks = page.locator("main ol a");
+  const resourceLinkCount = await resourceLinks.count();
+
+  expect(resourceLinkCount).toBeGreaterThan(0);
+
+  for (let index = 0; index < resourceLinkCount; index += 1) {
+    await expect(resourceLinks.nth(index)).toBeVisible();
+  }
 });
 
 test("keeps the public timeline semantics and skip navigation accessible", async ({
@@ -807,6 +841,11 @@ test("keeps the public timeline semantics and skip navigation accessible", async
   await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
   await expect(page.locator("main ol")).toBeVisible();
   await expect(page.locator("main ol")).toHaveCount(1);
+  await expect(
+    page
+      .getByRole("navigation", { name: "Navigation principale" })
+      .getByRole("link", { name: "Évolution dans le temps" }),
+  ).toHaveAttribute("aria-current", "page");
 
   await page.keyboard.press("Tab");
 
@@ -836,7 +875,7 @@ test("keeps timeline resource links reachable by keyboard", async ({
     name: "Étude fictive 01",
   });
 
-  await artworkLink.focus();
+  await focusWithKeyboard(page, artworkLink);
 
   await expect(artworkLink).toBeFocused();
   await expect(artworkLink).not.toHaveCSS("outline-style", "none");
@@ -853,7 +892,7 @@ test("keeps timeline resource links reachable by keyboard", async ({
     name: "Texte fictif — Équilibres silencieux",
   });
 
-  await contentLink.focus();
+  await focusWithKeyboard(page, contentLink);
 
   await expect(contentLink).toBeFocused();
   await expect(contentLink).not.toHaveCSS("outline-style", "none");
