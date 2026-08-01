@@ -630,3 +630,83 @@ Audit documentaire
 → Fusion dans main
 → Vérification et nettoyage
 ```
+
+## 23. Révision contrôlée `sprint-016-r1`
+
+### 23.1 Origine et portée
+
+Le tag historique `sprint-016`, publié sur le commit
+`5d763424382725d41deb5d710ecd25627c5ae85c`, reste inchangé. Il conserve la trace de
+la référence initiale du Sprint 016.
+
+Un audit postérieur à cette publication a établi les non-conformités suivantes :
+
+- le champ contractuellement facultatif `period` n'était pas représenté comme tel dans
+  le modèle TypeScript ;
+- la clôture documentaire initiale n'avait pas été synchronisée ;
+- la vulnérabilité transitive affectant `brace-expansion@1.1.16` était devenue
+  corrigeable dans la branche majeure compatible ;
+- la racine Turbopack dépendait de `process.cwd()` et pouvait donc désigner
+  incorrectement `src/app` selon le répertoire de lancement.
+
+Ces constats ne modifient ni la responsabilité `V-PUB-06`, ni le périmètre fonctionnel,
+ni les décisions produit du présent contrat.
+
+### 23.2 Corrections préparées
+
+La révision contrôlée `sprint-016-r1` prépare les corrections suivantes :
+
+- représentation explicite de `period` par `string | null` ;
+- utilisation exclusive de `null` pour l'absence de période et adaptation du rendu
+  conditionnel ;
+- ajout des tests associés à l'absence de période ;
+- résolution normale de `brace-expansion` vers `1.1.17`, sans override ni modification
+  de `package.json` ;
+- stabilisation de `turbopack.root` à partir du répertoire de `next.config.ts`, sans
+  chemin absolu local ni modification de dépendance ;
+- preuve de l'immuabilité profonde des données chronologiques sources et résolues ;
+- preuve que la consultation rend exactement les trois repères contractuels ;
+- preuve complète du responsive, du reflow, du parcours clavier, du focus et de l'état
+  actif de la navigation ;
+- synchronisation de la documentation de clôture.
+
+La correction fonctionnelle est enregistrée dans le commit
+`071b3eae16d03fbad8af67e976a1708698de638e`. La correction de sécurité est enregistrée
+dans le commit `7b50407aae486f4ba964c49cd62e5dccdd7df847`. La correction Turbopack est
+enregistrée dans le commit `1d87b42c35499cd1b57d0b998c9b87e4af9c9cf8`. La preuve
+d'immuabilité profonde est enregistrée dans le commit
+`3ce90b506bc701f603e81a4a0f609b831d6e5821`. La preuve des trois repères réellement
+rendus est enregistrée dans le commit `faafe47d5cbc290bb0b3dfd9e876d391b7216686`.
+La preuve responsive et d'accès clavier complet est enregistrée dans le commit
+`d18b090915e0a4df9e3d11719bfe6f021dcad9c5`.
+
+### 23.3 Contrôles de la révision
+
+Les contrôles exécutés sur la révision sont conformes :
+
+- Prettier, ESLint et TypeScript ;
+- 14 fichiers Vitest et 129 tests ;
+- build Next.js ;
+- 60 tests Playwright ;
+- `pnpm audit` avec zéro vulnérabilité ;
+- `git diff --check`.
+
+Les Incréments 1 à 5 ont été revus séparément. Les Incréments 1 et 4 ont été validés
+sans modification ; les corrections ciblées des Incréments 2, 3 et 5 sont enregistrées
+dans les commits de preuve précités. L'Incrément 6 est techniquement conforme après la
+présente synchronisation documentaire.
+
+Deux avertissements LCP avaient été observés antérieurement sur les médias
+`/gallery/composition-b.webp` et `/gallery/composition-c.webp`. Ils n'ont pas été
+reproduits pendant la validation finale actuelle, ne concernent pas `/chronologie` et
+ne sont pas provoqués par les corrections de la R1. Aucune correction LCP n'est requise
+dans le Sprint 016-r1.
+
+### 23.4 État de la révision
+
+La révision `sprint-016-r1` est validée par le Product Owner et prête pour son
+verrouillage Git. La publication de la branche, la création du tag `sprint-016-r1`, la
+Pull Request, la fusion dans `main` et le nettoyage de la branche restent à effectuer.
+
+Tant que cette séquence n'est pas achevée, le tag historique `sprint-016` reste la seule
+référence publiée du Sprint 016 et la révision R1 n'est pas intégrée dans `origin/main`.

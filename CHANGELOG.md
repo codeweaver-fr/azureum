@@ -4,6 +4,47 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 
 ## Non publié
 
+### Révision contrôlée Sprint 016-r1 — Évolution dans le temps
+
+- ajout du module privé, local et typé `timeline` ;
+- ajout de trois repères fictifs ordonnés de 2023 à 2025 ;
+- implémentation de la route publique `/chronologie` et de son état vide neutre ;
+- ajout de relations temporelles explicites vers les œuvres et les contenus artistiques
+  au moyen de leurs liens canoniques, sans relation déduite ;
+- maintien du rendu serveur et validation du responsive, du reflow, de l'accessibilité,
+  de la navigation clavier et de l'absence de régression ;
+- correction du champ facultatif `period`, désormais représenté par `string | null`,
+  avec `null` comme unique représentation de son absence et tests associés ;
+- résolution normale de la vulnérabilité transitive en remplaçant
+  `brace-expansion@1.1.16` par `brace-expansion@1.1.17`, sans override ni modification
+  de `package.json` ;
+- stabilisation de la racine Turbopack à partir du répertoire de `next.config.ts`, en
+  remplacement de la valeur dépendante de `process.cwd()`, sans chemin absolu local ni
+  modification de dépendance ;
+- renforcement des preuves contractuelles par la vérification de l'immuabilité profonde
+  du graphe chronologique, des trois repères réellement rendus et de l'accès responsive
+  complet au clavier, avec contrôle du focus et de l'état actif de la navigation ;
+- enregistrement des six corrections techniques et de preuve dans les commits
+  `071b3eae16d03fbad8af67e976a1708698de638e`,
+  `7b50407aae486f4ba964c49cd62e5dccdd7df847`,
+  `1d87b42c35499cd1b57d0b998c9b87e4af9c9cf8`,
+  `3ce90b506bc701f603e81a4a0f609b831d6e5821`,
+  `faafe47d5cbc290bb0b3dfd9e876d391b7216686` et
+  `d18b090915e0a4df9e3d11719bfe6f021dcad9c5` ;
+- validation de Prettier, ESLint, TypeScript, 14 fichiers Vitest et 129 tests, build
+  Next.js, 60 tests Playwright, `pnpm audit` avec zéro vulnérabilité et
+  `git diff --check` ;
+- conservation de la trace de deux avertissements LCP observés antérieurement sur
+  `/gallery/composition-b.webp` et `/gallery/composition-c.webp`, non reproduits pendant
+  la validation finale actuelle et sans lien avec `/chronologie` ; aucune correction
+  LCP n'est requise dans la R1 ;
+- conservation du tag publié `sprint-016` sur le commit
+  `5d763424382725d41deb5d710ecd25627c5ae85c` comme référence historique initiale,
+  sans déplacement ;
+- validation Product Owner finale de `sprint-016-r1` comme future référence corrigée,
+  dont la publication de branche, la création du tag R1, la Pull Request et la fusion
+  dans `main` restent à effectuer.
+
 ### Sprint 015 — Contenus artistiques
 
 - ajout d'un module privé, local et typé pour trois contenus artistiques fictifs de
