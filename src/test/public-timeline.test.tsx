@@ -46,6 +46,7 @@ describe("public timeline", () => {
 
     expect(markers).toHaveLength(3);
     expect(decodedMarkup.match(/<ol>[\s\S]*?<\/ol>/g)).toHaveLength(1);
+    expect(decodedMarkup.match(/<h2/g)).toHaveLength(3);
 
     const year2023Index = decodedMarkup.indexOf(">2023<");
     const year2024Index = decodedMarkup.indexOf(">2024<");
