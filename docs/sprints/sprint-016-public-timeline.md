@@ -2,7 +2,7 @@
 
 ## Statut
 
-**Validé par le Product Owner et verrouillé avant implémentation**
+**Définitivement clôturé sous la référence `sprint-016-r1`**
 
 Le présent document constitue la référence opérationnelle du Sprint 016. Toute
 évolution ultérieure doit respecter `docs/GOVERNANCE.md`.
@@ -704,9 +704,14 @@ dans le Sprint 016-r1.
 
 ### 23.4 État de la révision
 
-La révision `sprint-016-r1` est validée par le Product Owner et prête pour son
-verrouillage Git. La publication de la branche, la création du tag `sprint-016-r1`, la
-Pull Request, la fusion dans `main` et le nettoyage de la branche restent à effectuer.
+La révision `sprint-016-r1` a été validée par le Product Owner et verrouillée sous le tag
+publié `sprint-016-r1`, qui cible le commit documentaire
+`e4ff2303c7f21321827b976cbf59a8ef77cc8c37`. La Pull Request nº 17 a été fusionnée dans
+`main` par le commit `39e5c6f58d82d408544fead5fe274f5714a4f618`.
 
-Tant que cette séquence n'est pas achevée, le tag historique `sprint-016` reste la seule
-référence publiée du Sprint 016 et la révision R1 n'est pas intégrée dans `origin/main`.
+Les branches `sprint-016-r1-public-timeline` et `sprint-016-public-timeline` ont été
+supprimées localement et à distance après synchronisation de `main` avec `origin/main`.
+Le tag historique `sprint-016` demeure inchangé sur le commit
+`5d763424382725d41deb5d710ecd25627c5ae85c`. Le Sprint 016-r1 est définitivement clos.
+Le prochain chantier est l'ouverture du Sprint 017 — Direction artistique et expérience
+publique V1.

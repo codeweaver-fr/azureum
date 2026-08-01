@@ -2,10 +2,10 @@
 
 ## Phase actuelle
 
-Révision contrôlée du Sprint 016 — préparation de la référence corrigée
-`sprint-016-r1`.
+Préparation du Sprint 017 — Direction artistique et expérience publique V1, après la
+clôture définitive du Sprint 016-r1.
 
-## Sprint actif
+## Dernier Sprint clôturé
 
 Le Sprint 016 — Évolution dans le temps a introduit le module privé `timeline`, trois
 repères fictifs ordonnés de 2023 à 2025, la route publique `/chronologie`, les relations
@@ -21,8 +21,7 @@ transitive `brace-expansion@1.1.16` était devenue corrigeable. La racine Turbop
 dépendait en outre du répertoire courant du processus et pouvait donc désigner
 incorrectement `src/app`.
 
-La révision contrôlée `sprint-016-r1` est actuellement en préparation sur la branche
-locale active `sprint-016-r1-public-timeline`, qui n'est pas encore publiée. La
+La révision contrôlée `sprint-016-r1` constitue désormais la référence corrigée. La
 correction fonctionnelle `071b3eae16d03fbad8af67e976a1708698de638e` représente
 désormais `period` par `string | null`, utilise `null` pour son absence et couvre ce
 comportement par des tests. La correction de sécurité
@@ -51,10 +50,13 @@ reproduits pendant la validation finale actuelle, ne concernent pas `/chronologi
 résultent pas des corrections de la R1. Aucune correction LCP n'est requise dans cette
 révision.
 
-La R1 est validée par le Product Owner mais n'est pas encore intégrée dans
-`origin/main`. La publication de la branche, la création du tag `sprint-016-r1`, la Pull
-Request, la fusion dans `main` et le nettoyage restent à effectuer. Le Sprint 016 R1 ne
-doit donc pas encore être considéré comme définitivement clos.
+La R1 a été validée par le Product Owner et verrouillée sous le tag publié
+`sprint-016-r1`, qui cible le commit documentaire
+`e4ff2303c7f21321827b976cbf59a8ef77cc8c37`. La Pull Request nº 17 a été fusionnée dans
+`main` par le commit `39e5c6f58d82d408544fead5fe274f5714a4f618`. Les branches
+`sprint-016-r1-public-timeline` et `sprint-016-public-timeline` ont été supprimées
+localement et à distance après synchronisation de `main` avec `origin/main`. Le Sprint
+016-r1 est définitivement clos.
 
 Le Sprint 015 — Contenus artistiques est **validé par le Product Owner, fusionné dans
 `main` et fonctionnellement terminé**. Les six incréments ont verrouillé le contrat,
@@ -257,7 +259,6 @@ Aucune base de données déployée. Le modèle conceptuel et l'architecture Post
 
 ## Prochaine étape
 
-Finaliser la révision contrôlée `sprint-016-r1` conformément à
-`docs/GOVERNANCE.md` : publication de la branche, création du tag R1, Pull Request,
-fusion dans `main` et nettoyage. Aucun Sprint suivant ne doit être ouvert avant cette
-clôture.
+Ouvrir le Sprint 017 — Direction artistique et expérience publique V1 conformément à
+`docs/GOVERNANCE.md`, en commençant par son contrat documentaire. Aucun travail de
+direction artistique ou d'implémentation n'est encore engagé.
