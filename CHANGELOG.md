@@ -23,8 +23,14 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 - conservation d'une réserve historique de méthode : le commit de l'Incrément 2 a créé
   le manifeste complet avant les raffinements dédiés des Incréments 3 à 5, sans impact
   sur la conformité du résultat final et sans réécriture de l'historique Git ;
-- préparation de la clôture documentaire du Sprint 017, sans tag, Pull Request, fusion
-  ni publication dans `main` à ce stade.
+- clôture documentaire par le commit
+  `4760ce9748abc4d5e24a7370ca2adda3f2a5eb1e` ;
+- fusion de la Pull Request nº 19 dans `main` par le commit
+  `2a83a69ff7ba298cbca40f3bf1449ed06000b921`, après réussite du contrôle GitHub Actions
+  `Validate` ;
+- publication du tag `sprint-017` sur la référence officielle du Sprint, puis suppression
+  locale et distante de la branche `sprint-017-public-experience-direction` ;
+- clôture définitive du Sprint 017.
 
 ### Révision contrôlée Sprint 016-r1 — Évolution dans le temps
 

@@ -11,7 +11,7 @@ techniques.
 
 ## 1. Statut
 
-**Validé par le Product Owner — verrouillage documentaire en cours**
+**Validé par le Product Owner, verrouillé et intégré au canon**
 
 Le présent document ne devient une référence canonique qu'après sa validation, son
 verrouillage et son intégration conformément à `docs/GOVERNANCE.md`.
@@ -528,9 +528,9 @@ critères de rejet proviennent des arbitrages Product Owner du Sprint 017.
 
 ## 28. Version et évolution
 
-Le présent document constitue la version validée par le Product Owner du Manifeste de
-l'expérience publique V1 d'AZUREUM. Son verrouillage documentaire est en cours ; il
-n'est pas encore intégré dans `main` et ne constitue pas encore une référence canonique.
+Le présent document constitue la version validée par le Product Owner, verrouillée et
+intégrée dans `main` du Manifeste de l'expérience publique V1 d'AZUREUM. Il constitue
+une référence canonique du projet sous le tag `sprint-017`.
 
 Après son verrouillage et son intégration, toute évolution suit `docs/GOVERNANCE.md`.
 Une proposition, un audit, une maquette ou une implémentation ne peut modifier
