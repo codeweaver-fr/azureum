@@ -2,10 +2,10 @@
 
 ## Phase actuelle
 
-Clôture documentaire du Sprint 017 — Direction artistique et expérience publique V1,
-après validation Product Owner du manifeste.
+Sprint 017 — Direction artistique et expérience publique V1 définitivement clôturé.
+Le projet est prêt pour l'ouverture du Sprint suivant.
 
-## Sprint actif
+## Dernier Sprint clôturé
 
 Le contrat du Sprint 017 est verrouillé par le commit
 `33705e2afa993124ef6ec063f770c28553e3fcab`. Les Incréments 2 à 5 ont défini puis
@@ -23,10 +23,12 @@ avant les raffinements dédiés des Incréments 3 à 5. Cet écart ne remet pas 
 résultat final, ne constitue pas une non-conformité du manifeste et ne justifie aucune
 réécriture de l'historique Git.
 
-Le Sprint 017 est prêt pour sa clôture documentaire. Aucun tag Sprint 017, aucune Pull
-Request, aucune fusion et aucune publication dans `main` n'ont encore été réalisés.
+Le Sprint 017 a été intégré dans `main` par la Pull Request nº 19 et le commit de fusion
+`2a83a69ff7ba298cbca40f3bf1449ed06000b921`, après réussite du contrôle GitHub Actions
+`Validate`. Le tag `sprint-017` désigne cette référence officielle. La branche de travail
+a été supprimée localement et à distance.
 
-## Dernier Sprint clôturé
+## Sprint précédent clôturé
 
 Le Sprint 016 — Évolution dans le temps a introduit le module privé `timeline`, trois
 repères fictifs ordonnés de 2023 à 2025, la route publique `/chronologie`, les relations
@@ -280,6 +282,5 @@ Aucune base de données déployée. Le modèle conceptuel et l'architecture Post
 
 ## Prochaine étape
 
-Finaliser la clôture documentaire du Sprint 017 conformément à `docs/GOVERNANCE.md`,
-puis attendre les autorisations Product Owner requises avant toute publication de la
-branche, création de tag, Pull Request ou fusion dans `main`.
+Ouvrir le Sprint suivant conformément à `docs/GOVERNANCE.md`, à partir de la référence
+officielle `sprint-017` et d'un contrat validé avant toute implémentation.
