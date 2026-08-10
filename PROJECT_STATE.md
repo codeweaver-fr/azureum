@@ -2,8 +2,29 @@
 
 ## Phase actuelle
 
-Préparation du Sprint 017 — Direction artistique et expérience publique V1, après la
-clôture définitive du Sprint 016-r1.
+Clôture documentaire du Sprint 017 — Direction artistique et expérience publique V1,
+après validation Product Owner du manifeste.
+
+## Sprint actif
+
+Le contrat du Sprint 017 est verrouillé par le commit
+`33705e2afa993124ef6ec063f770c28553e3fcab`. Les Incréments 2 à 5 ont défini puis
+verrouillé la vision et l'expérience émotionnelle, la grammaire de l'expérience, le
+mouvement et la continuité publique, puis les contraintes et critères de rejet :
+
+- `f4095dccf91038b6cf52bb02ffe603bdde1a625d` — vision et intention émotionnelle ;
+- `1a4ba6b4eb5c1205e35eb7f180a41c885956511c` — grammaire de l'expérience publique ;
+- `84aa7f9db2e9744c7aab8b5d6d361f9a0c7f57a8` — mouvement et continuité publique ;
+- `c9fda95bf21b1caff27a843e3b882547e9869928` — contraintes et critères de rejet.
+
+Le manifeste a été audité et validé par le Product Owner. L'audit final a relevé un
+écart historique de méthode : le commit de l'Incrément 2 a créé le manifeste complet
+avant les raffinements dédiés des Incréments 3 à 5. Cet écart ne remet pas en cause le
+résultat final, ne constitue pas une non-conformité du manifeste et ne justifie aucune
+réécriture de l'historique Git.
+
+Le Sprint 017 est prêt pour sa clôture documentaire. Aucun tag Sprint 017, aucune Pull
+Request, aucune fusion et aucune publication dans `main` n'ont encore été réalisés.
 
 ## Dernier Sprint clôturé
 
@@ -259,6 +280,6 @@ Aucune base de données déployée. Le modèle conceptuel et l'architecture Post
 
 ## Prochaine étape
 
-Ouvrir le Sprint 017 — Direction artistique et expérience publique V1 conformément à
-`docs/GOVERNANCE.md`, en commençant par son contrat documentaire. Aucun travail de
-direction artistique ou d'implémentation n'est encore engagé.
+Finaliser la clôture documentaire du Sprint 017 conformément à `docs/GOVERNANCE.md`,
+puis attendre les autorisations Product Owner requises avant toute publication de la
+branche, création de tag, Pull Request ou fusion dans `main`.
