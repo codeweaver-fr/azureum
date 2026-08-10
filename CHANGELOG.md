@@ -4,6 +4,28 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 
 ## Non publié
 
+### Sprint 017 — Direction artistique et expérience publique V1
+
+- verrouillage du contrat documentaire par le commit
+  `33705e2afa993124ef6ec063f770c28553e3fcab` ;
+- définition de la vision, du principe directeur, de l'expérience émotionnelle et du
+  premium AZUREUM dans le commit `f4095dccf91038b6cf52bb02ffe603bdde1a625d` ;
+- définition de la grammaire commune de composition, de hiérarchie, de rythme, de
+  palette, de typographie et de présentation des œuvres dans le commit
+  `1a4ba6b4eb5c1205e35eb7f180a41c885956511c` ;
+- définition des principes de mouvement, de continuité et des responsabilités sensibles
+  des vues publiques dans le commit `84aa7f9db2e9744c7aab8b5d6d361f9a0c7f57a8` ;
+- définition des exigences transversales, des langages interdits, des critères de rejet
+  et des décisions différées dans le commit
+  `c9fda95bf21b1caff27a843e3b882547e9869928` ;
+- validation Product Owner du manifeste après audit de sa cohérence avec le contrat, la
+  gouvernance, les spécifications canoniques et le Design System ;
+- conservation d'une réserve historique de méthode : le commit de l'Incrément 2 a créé
+  le manifeste complet avant les raffinements dédiés des Incréments 3 à 5, sans impact
+  sur la conformité du résultat final et sans réécriture de l'historique Git ;
+- préparation de la clôture documentaire du Sprint 017, sans tag, Pull Request, fusion
+  ni publication dans `main` à ce stade.
+
 ### Révision contrôlée Sprint 016-r1 — Évolution dans le temps
 
 - ajout du module privé, local et typé `timeline` ;

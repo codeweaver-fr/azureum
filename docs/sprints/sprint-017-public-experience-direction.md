@@ -252,7 +252,7 @@ modifier leur responsabilité fonctionnelle :
 
 Le Sprint est acceptable si :
 
-- les huit arbitrages Product Owner sont explicitement couverts ;
+- les neuf arbitrages Product Owner sont explicitement couverts ;
 - la définition du premium et le principe directeur sont explicites ;
 - le ressenti et la progression émotionnelle sont définis ;
 - la relation entre David, AZUREUM et les œuvres est non ambiguë ;

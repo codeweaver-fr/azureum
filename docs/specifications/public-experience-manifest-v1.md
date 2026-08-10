@@ -11,7 +11,7 @@ techniques.
 
 ## 1. Statut
 
-**Brouillon non normatif — validation Product Owner requise avant verrouillage**
+**Validé par le Product Owner — verrouillage documentaire en cours**
 
 Le présent document ne devient une référence canonique qu'après sa validation, son
 verrouillage et son intégration conformément à `docs/GOVERNANCE.md`.
@@ -492,7 +492,7 @@ leur acceptation future.
 Le manifeste est acceptable si :
 
 - sa vision et son principe directeur sont non ambigus ;
-- les huit arbitrages Product Owner sont couverts ;
+- les neuf arbitrages Product Owner sont couverts ;
 - l'expérience émotionnelle et sa progression sont définies ;
 - le premium est défini sans ornementation conventionnelle ;
 - la relation entre David, AZUREUM et les œuvres est explicite ;
@@ -528,8 +528,10 @@ critères de rejet proviennent des arbitrages Product Owner du Sprint 017.
 
 ## 28. Version et évolution
 
-Le présent document prépare le Manifeste de l'expérience publique V1 d'AZUREUM.
+Le présent document constitue la version validée par le Product Owner du Manifeste de
+l'expérience publique V1 d'AZUREUM. Son verrouillage documentaire est en cours ; il
+n'est pas encore intégré dans `main` et ne constitue pas encore une référence canonique.
 
-Après validation et verrouillage, toute évolution suit `docs/GOVERNANCE.md`. Une
-proposition, un audit, une maquette ou une implémentation ne peut modifier implicitement
-ses principes.
+Après son verrouillage et son intégration, toute évolution suit `docs/GOVERNANCE.md`.
+Une proposition, un audit, une maquette ou une implémentation ne peut modifier
+implicitement ses principes.
