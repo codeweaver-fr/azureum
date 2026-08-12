@@ -2,11 +2,11 @@
 
 ## 1. Statut
 
-**Brouillon non normatif — Incrément 5 en cours de revue Product Owner**
+**Brouillon non normatif — Incrément 6 en cours de revue Product Owner**
 
-Le présent document est créé dans le cadre du Sprint 018. Les Incréments 2 à 4 sont
-verrouillés. Les principes de mouvement et de continuité de l'Incrément 5 restent
-soumis à la revue du Product Owner.
+Le présent document est créé dans le cadre du Sprint 018. Les Incréments 2 à 5 sont
+verrouillés. La consolidation de l'Incrément 6 reste soumise à la revue du Product
+Owner.
 
 Il ne constitue encore ni une conception validée, ni une maquette, ni une instruction
 d'implémentation. Aucun constat, aucune limite et aucun risque consigné dans cet audit
@@ -2287,5 +2287,224 @@ L'Incrément 5 ne définit pas :
 - les priorités ou lots d'implémentation ;
 - le découpage des futurs Sprints.
 
-Les principes de mouvement et de continuité restent non normatifs jusqu'à la validation
-de l'Incrément 5 par le Product Owner.
+Les principes de mouvement et de continuité sont validés et verrouillés. Ils ne
+constituent aucune autorisation d'implémenter un mouvement.
+
+## 63. Cadre de consolidation de l'Incrément 6
+
+La présente consolidation ne crée aucune conception. Elle réunit les constats,
+intentions, compositions et principes validés afin d'expliciter leur cohérence, leur
+statut et leur traçabilité.
+
+Les sections précédentes conservent la chronologie documentaire du Sprint. Ainsi, un
+sujet indiqué comme différé à la fin d'un incrément peut avoir été traité dans un
+incrément ultérieur. Le registre ci-dessous établit son statut actuel sans réécrire cet
+historique.
+
+Les statuts consolidés sont :
+
+- **validé** : décision acceptée par le Product Owner et verrouillée dans un incrément ;
+- **non retenu** : proposition comparée puis explicitement rejetée ;
+- **ambiguïté héritée** : limite de l'existant qui ne peut être résolue sans autorisation
+  distincte ;
+- **différé** : sujet volontairement laissé à un incrément ou Sprint ultérieur ;
+- **à observer** : capacité à évaluer ultérieurement, sans besoin du Design System
+  validé.
+
+## 64. Matrice consolidée des huit responsabilités
+
+| Responsabilité | Base factuelle préservée | Intention et premier foyer validés | Composition et responsive validés | Médias | Mouvement et continuité | Statut |
+| --- | --- | --- | --- | --- | --- | --- |
+| Accueil — `V-PUB-01` | Introduction, accès aux collections et médias de démonstration existants | Entrer dans l'univers de David ; univers artistique en premier | Entrée artistique puis exploration ; flux unique mobile, champ plus ouvert tablette et bureau | Ratios préservés ; remplacement futur sans inversion de hiérarchie | Relation univers-collections éventuellement accompagnée ; contenu et accès complets sans mouvement | Validé |
+| David — `V-PUB-02` | Corpus éditorial de travail et accès aux collections existants | Favoriser une proximité progressive ; David et sa démarche en premier | Progression éditoriale ; lecture continue mobile, dialogue plus ouvert sur les grandes largeurs | Aucun média nouveau présumé ; tout média reste subordonné au propos | Orientation entre séquences seulement si utile ; lecture intégralement immobile | Validé |
+| Collections — `V-PUB-03` | Ensembles, intentions, aperçus et accès existants | Faire percevoir la diversité ; identité des ensembles en premier | Champ pluriel distinct ; séquentiel mobile, relations plus larges ensuite | Ratios hétérogènes protégés ; aucune uniformité par recadrage | Confirmation éventuelle d'un foyer interactif ; diversité immédiatement présente | Validé |
+| Collection — `V-PUB-07` | Intention et œuvres existantes ; contenu de collection non observable | Relier les œuvres sans les uniformiser ; ensemble des œuvres en premier | Champ éditorial à rythme maîtrisé ; séquence mobile, rythme relationnel plus ample ensuite | Rythme issu des œuvres et de leurs ratios ; aucun recadrage destructif | Continuité éventuelle vers l'œuvre choisie ; champ et accès complets sans mouvement | Validé |
+| Œuvre — `V-PUB-04` | Média, identité, caractéristiques, relations et retour existants | Concentrer la contemplation ; œuvre individuelle en premier | Révélation puis contextualisation ; séquentielle mobile, simultanéité possible si subordonnée | Œuvre intégrale, ratio protégé, contexte non concurrent | Confirmation éventuelle de l'œuvre choisie ; œuvre immédiatement complète et immobile | Validé |
+| Contenu — `V-PUB-05` | Propos, corps, média et relations conditionnels existants | Approfondir par la lecture ; propos principal en premier | Continuité éditoriale ; lecture séquentielle puis dialogue secondaire possible | Aucun emplacement vide si le média est absent ; ratio préservé | Clarification éventuelle d'une relation ; lecture et liens complets sans mouvement | Validé |
+| Évolution — `V-PUB-06` | Trois repères fictifs ordonnés et ressources explicites existants | Rendre la progression perceptible ; ordre temporel en premier | Séquence temporelle ordonnée ; relations spatiales plus amples selon la largeur | Aucun média nouveau ; ressources d'accompagnement uniquement | Orientation éventuelle entre repères ; ordre et associations intégralement statiques | Validé |
+| Shell public | Header, navigation, skip link, `main` et footer existants | Maintenir identité et localisation ; contenu de chaque vue en premier | Encadrement stable et discret sur toutes les largeurs | Aucun média artistique propre | Confirmation éventuelle d'un état ; navigation, focus et localisation complets sans mouvement | Validé |
+
+La matrice confirme une grammaire commune sans uniformisation : sujet principal
+identifiable, contexte subordonné, actions existantes disponibles, shell discret,
+respiration adaptée et ordre sémantique préservé. Les différences de densité et de
+composition proviennent de la responsabilité propre à chaque vue.
+
+## 65. Cohérence de la progression conceptuelle
+
+```text
+Accueil
+→ entrée dans l'univers artistique
+
+Collections
+→ perception et exploration de la diversité des ensembles
+
+Collection
+→ rencontre avec les œuvres comme ensemble cohérent
+
+Œuvre
+→ concentration sur une œuvre individuelle
+```
+
+Cette progression passe d'une ouverture large à une attention concentrée. Elle est
+cohérente avec :
+
+- l'univers artistique premier sur l'accueil ;
+- la pluralité perceptible des collections ;
+- le rythme relationnel du champ d'œuvres de la collection ;
+- la révélation puis contextualisation d'une œuvre individuelle.
+
+Elle décrit une relation d'attention. Elle ne crée ni route, ni navigation, ni ordre
+obligatoire, ni stratégie d'implémentation.
+
+Les autres responsabilités s'y articulent sans être insérées dans un parcours imposé :
+David apporte la démarche, les contenus approfondissent le contexte, l'évolution rend
+le temps perceptible et le shell maintient une continuité discrète.
+
+## 66. Registre consolidé des décisions Product Owner
+
+| Incrément | Domaine | Décision validée | Conséquence actuelle |
+| --- | --- | --- | --- |
+| 2 | Méthode d'audit | Distinguer faits, conformités, forces, limites, risques et interprétations | Les constats ne deviennent ni défauts ni recommandations |
+| 2 | Périmètre | Auditer les sept responsabilités `V-PUB` et le shell | Les huit responsabilités constituent le périmètre consolidé |
+| 2 | Preuves | Ne produire aucune capture lorsqu'elle n'apporte pas de preuve utile | L'audit repose sur le dépôt, les tests et les références |
+| 2 | Ambiguïtés | Transmettre les ambiguïtés sans autoriser leur résolution | Elles restent séparées dans le registre actuel |
+| 3 | Intentions | Valider l'intention sensible et la hiérarchie d'attention des huit responsabilités | Chaque vue possède une contribution propre sans modification fonctionnelle |
+| 3 | Accueil | L'univers artistique constitue le premier foyer d'attention | L'identité et la promesse soutiennent l'entrée sans devenir le sujet |
+| 3 | Collection | L'ensemble des œuvres constitue le premier foyer d'attention | Le contexte ne devient pas un écran préalable |
+| 3 | Progression | Valider la relation Accueil → Collections → Collection → Œuvre | Cette relation reste conceptuelle et non fonctionnelle |
+| 4 | Compositions | Valider les huit compositions et leurs transformations mobile, tablette et bureau | Les hiérarchies restent complètes sur toutes les largeurs |
+| 4 | Médias | Protéger ratios, lisibilité et remplacement futur des médias | Aucun recadrage destructif ni média nouveau n'est autorisé |
+| 4 | Collection | Retenir le champ éditorial à rythme maîtrisé | Le rythme provient des œuvres et ne devient pas une mise en scène autonome |
+| 4 | Œuvre | Retenir la révélation puis contextualisation | L'œuvre précède perceptivement le contexte sans imposer un empilement littéral |
+| 4 | Design System | Garder deux capacités comme points à observer seulement | Aucun besoin, token, composant, état ou variante n'est validé |
+| 5 | Mouvement | Le mouvement est facultatif et exige une fonction démontrable | L'immobilité est correcte lorsque la composition suffit |
+| 5 | Équivalence | Préserver une expérience complète lorsque le mouvement est réduit ou supprimé | Sens, ordre, actions, contexte et continuité ne dépendent jamais du mouvement |
+| 5 | Continuité | Utiliser uniquement les relations et destinations existantes | Aucun parcours, ordre de consultation ou lien nouveau n'est créé |
+| 5 | Design System | Ne valider aucun besoin supplémentaire | Les capacités à observer de l'Incrément 4 restent inchangées |
+
+Aucune de ces décisions n'est contredite par une section ultérieure du document.
+
+## 67. Propositions non retenues
+
+Deux propositions ont été comparées puis non retenues :
+
+1. **Collection — champ comparatif stable.** Sa régularité facilitait la comparaison,
+   mais pouvait uniformiser les œuvres et rapprocher la collection d'un inventaire.
+2. **Œuvre — dialogue protégé entre œuvre et contexte.** Sa simultanéité facilitait
+   l'orientation immédiate, mais pouvait réduire la respiration de la première rencontre
+   avec l'œuvre.
+
+Elles sont conservées uniquement pour la traçabilité des arbitrages. Elles ne sont ni
+des variantes ouvertes, ni des solutions de repli, ni des autorisations futures.
+
+## 68. Ambiguïtés héritées non résolues
+
+### 68.1 Contenus au niveau de la collection
+
+`V-PUB-07` prévoit la contextualisation éventuelle d'une collection par des contenus,
+mais l'existant audité n'en rend aucun directement. La conception accepte leur présence
+ou leur absence sans créer de contenu, de relation ni d'obligation nouvelle.
+
+### 68.2 Localisation dans les routes imbriquées
+
+Le shell audité ne marque pas `Collections` comme actif sur les routes de collection et
+d'œuvre. La conception exige une localisation compréhensible mais n'autorise aucune
+modification de ce comportement.
+
+### 68.3 Contenus et médias de démonstration
+
+Les longueurs, quantités, ratios et intensités observés ne constituent pas des références
+définitives. Les compositions sont conçues pour leur remplacement sans inventer les
+contenus futurs.
+
+### 68.4 Réception réelle par les visiteurs
+
+L'audit du dépôt ne mesure aucune réaction utilisateur. Les intentions sensibles
+décrivent une contribution recherchée et non une émotion garantie.
+
+Ces ambiguïtés ne constituent ni des non-conformités démontrées, ni un périmètre de
+correction autorisé par le Sprint 018.
+
+## 69. Décisions actuellement différées
+
+Restent volontairement hors de la conception consolidée :
+
+- les valeurs, dimensions, grilles, breakpoints et comportements de production ;
+- les composants, tokens, états, variantes et APIs ;
+- les technologies et modalités d'implémentation ;
+- les animations, transitions, déclencheurs et paramètres de production ;
+- les prototypes et maquettes finales directement implémentables ;
+- les contenus et médias définitifs non encore validés ;
+- toute nouvelle route, action, destination ou relation fonctionnelle ;
+- toute évolution du Design System ;
+- la cartographie des dépendances d'implémentation ;
+- le regroupement, l'ordre et le découpage des futurs Sprints.
+
+Les quatre derniers sujets relevant de la stratégie ou d'une évolution canonique ne
+peuvent être déduits de la présente consolidation. Les dépendances et la stratégie
+générale seront examinées exclusivement dans l'Incrément 7.
+
+## 70. Capacités du Design System à observer
+
+Aucun besoin d'évolution du Design System n'est validé. Deux capacités seulement
+restent à observer lors d'un futur Sprint autorisé :
+
+1. préserver des ratios hétérogènes dans un champ d'œuvres à rythme éditorial ;
+2. maintenir une hiérarchie perceptivement asymétrique entre une œuvre dominante et son
+   contexte sur plusieurs largeurs.
+
+Ces observations ne présument ni une insuffisance des fondations actuelles, ni une
+solution, ni une priorité. Toute évolution éventuelle devra être démontrée et suivre la
+gouvernance propre du Design System.
+
+## 71. Matrice consolidée de traçabilité
+
+| Décision consolidée | Responsabilités concernées | Manifeste canonique | Arbitrage Product Owner | Statut |
+| --- | --- | --- | --- | --- |
+| Sujet principal prioritaire et interface médiatrice | Toutes | Sections 4, 7 et 11 | Intentions des huit responsabilités | Validé |
+| Univers artistique premier sur l'accueil | `V-PUB-01` | Sections 8 et 18.1 | Incrément 3 — Accueil | Validé |
+| Diversité des ensembles perceptible | `V-PUB-03` | Sections 9, 11 et 18.3 | Intentions de l'Incrément 3 | Validé |
+| Ensemble des œuvres premier dans la collection | `V-PUB-07` | Sections 11, 14 et 18.4 | Incrément 3 — Collection | Validé |
+| Champ éditorial à rythme maîtrisé | `V-PUB-07` | Sections 10, 12, 14 et 18.4 | Incrément 4 — Collection | Validé |
+| Œuvre individuelle première | `V-PUB-04` | Sections 4, 14, 15 et 18.5 | Intention de l'Incrément 3 | Validé |
+| Révélation puis contextualisation | `V-PUB-04` | Sections 11, 14 et 15 | Incrément 4 — Œuvre | Validé |
+| Lecture et contextualisation prioritaires | `V-PUB-02`, `V-PUB-05` | Sections 5, 7, 12, 18.2 et 18.6 | Intentions de l'Incrément 3 | Validé |
+| Temps perceptible sans récit imposé | `V-PUB-06` | Sections 12, 17 et 18.7 | Intention de l'Incrément 3 | Validé |
+| Shell stable et discret | Shell public | Sections 7, 17 et 18.8 | Intention de l'Incrément 3 | Validé |
+| Transformations responsive complètes | Toutes | Sections 10, 11, 19 et 20 | Validation de l'Incrément 4 | Validé |
+| Ratios et lisibilité des œuvres protégés | Vues portant des médias | Sections 14, 15, 19 et 23 | Validation de l'Incrément 4 | Validé |
+| Immobilité complète et mouvement fonctionnel seulement | Toutes | Sections 16, 20, 21 et 23 | Validation de l'Incrément 5 | Validé |
+| Continuité sans nouveau parcours | Toutes | Section 17 | Validation de l'Incrément 5 | Validé |
+| Capacités du Design System seulement observées | Collection, Œuvre | Sections 19, 20 et 24 | Validations des Incréments 4 et 5 | À observer |
+
+Les responsabilités fonctionnelles restent celles des spécifications et contrats
+canoniques. Le manifeste fournit les principes d'expérience ; les arbitrages Product
+Owner fixent les choix propres au Sprint 018. Aucun niveau ne remplace ni ne réécrit le
+précédent.
+
+## 72. Contrôle de cohérence consolidé
+
+La consolidation établit que :
+
+- les huit responsabilités conservent leur fonction et leur contenu existants ;
+- leurs intentions, compositions et principes de mouvement partagent une grammaire
+  commune sans les uniformiser ;
+- les hiérarchies d'attention restent identiques en mobile, tablette et bureau ;
+- les médias restent protégés et remplaçables ;
+- les deux arbitrages de composition retenus sont appliqués partout ;
+- les deux propositions non retenues ne sont plus ouvertes ;
+- la continuité ne crée aucun parcours ni destination ;
+- le mouvement reste facultatif et supprimable sans perte ;
+- aucune capacité du Design System n'est devenue un besoin validé ;
+- aucune décision différée n'est implicitement anticipée.
+
+Aucune contradiction ne nécessite un nouvel arbitrage Product Owner. La conception
+consolidée reste un brouillon non normatif jusqu'à la validation de l'Incrément 6.
+
+## 73. Éléments explicitement différés après l'Incrément 6
+
+L'Incrément 6 ne définit ni dépendance d'implémentation, ni regroupement de vues, ni
+ordre de réalisation, ni futur contrat de Sprint. Ces sujets relèvent exclusivement de
+l'Incrément 7.
+
+Il ne modifie aucune décision des Incréments 2 à 5 et n'autorise aucune implémentation.
