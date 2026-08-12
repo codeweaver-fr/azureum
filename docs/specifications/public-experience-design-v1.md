@@ -2,18 +2,14 @@
 
 ## 1. Statut
 
-**Validé par le Product Owner et verrouillé sur la branche du Sprint — intégration dans `main` en attente**
+**Validé par le Product Owner, verrouillé, intégré dans `main` et canonique**
 
-Les Incréments 2 à 8 sont validés par le Product Owner. Le verrouillage documentaire
-final est réalisé sur la branche du Sprint ; son intégration dans `main` reste à
-effectuer.
+Les Incréments 2 à 8 sont validés par le Product Owner. Le document est verrouillé et
+intégré dans `main` par la Pull Request nº 21 sous le tag officiel `sprint-018`.
 
-Le document n'est pas encore intégré dans `main` et ne constitue donc pas encore la
-référence canonique finale de la conception de l'expérience publique V1.
-
-Il ne constitue pas encore une référence canonique finale, une maquette ou une
-instruction d'implémentation. Aucun constat, aucune limite et aucun risque consigné dans
-cet audit ne modifie le canon ou le produit par lui-même.
+Il constitue la référence canonique de la conception de l'expérience publique V1. Il ne
+constitue ni une maquette ni une instruction d'implémentation. Aucun constat, aucune
+limite et aucun risque consigné dans cet audit ne modifie le produit par lui-même.
 
 ## 2. Objet et portée
 
@@ -2893,17 +2889,19 @@ exclusivement de l'Incrément 8.
 
 ## 84. Version et évolution
 
-La présente version consolide les Incréments 2 à 8 validés par le Product Owner et
-verrouillés sur la branche du Sprint. Elle n'est pas encore intégrée dans `main` et
-n'acquiert donc pas encore son statut canonique final.
+La présente version consolide les Incréments 2 à 8 validés par le Product Owner. Elle est
+verrouillée, intégrée dans `main` par la Pull Request nº 21 au commit de fusion
+`8ea6d3d4b1c9141b474857596d1813ea869fd461` et publiée sous le tag officiel
+`sprint-018`. Elle constitue la référence canonique de la conception de l'expérience
+publique V1.
 
 Son acquisition du statut canonique suit la séquence :
 
 ```text
 Validation Product Owner finale — réalisée
-→ verrouillage documentaire sur la branche du Sprint — réalisé
-→ intégration dans main — à effectuer
-→ acquisition du statut canonique conformément à docs/GOVERNANCE.md
+→ verrouillage documentaire — réalisé
+→ intégration dans main — réalisée
+→ acquisition du statut canonique conformément à docs/GOVERNANCE.md — réalisée
 ```
 
 Après son intégration, toute évolution devra être motivée, tracée, validée et intégrée

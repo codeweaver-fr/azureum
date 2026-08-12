@@ -2,14 +2,14 @@
 
 ## Phase actuelle
 
-Sprint 018 — Conception de l'expérience publique V1 verrouillé sur sa branche et en
-attente d'intégration.
+Sprint 018 — Conception de l'expérience publique V1 définitivement clôturé.
 
-Les Incréments 1 à 8 sont validés par le Product Owner. Le verrouillage documentaire
-final est réalisé sur la branche du Sprint, sans ouvrir de futur Sprint ni autoriser
-d'implémentation.
+Les Incréments 1 à 8 sont validés par le Product Owner. Le Sprint est intégré dans
+`main` par la Pull Request nº 21 au commit de fusion
+`8ea6d3d4b1c9141b474857596d1813ea869fd461` et publié sous le tag officiel
+`sprint-018`. Aucun futur Sprint n'est ouvert.
 
-## Sprint actuel en clôture
+## Dernier Sprint clôturé
 
 Le contrat du Sprint 018 est verrouillé par le commit
 `161f8e5acf924a43a4fb780ec9a476c820c7d0d3`. Les incréments documentaires suivants sont
@@ -69,11 +69,12 @@ Product Owner a explicitement autorisé et fait créer, sur le commit
 `docs(experience): consolidate public experience decisions`. Cet écart ne remet pas en
 cause le contenu de l'incrément et ne justifie aucune réécriture Git.
 
-À ce stade, la validation Product Owner finale est acquise. Le commit de clôture est en
-cours de création sur la branche du Sprint ; le tag éventuel, la Pull Request et la
-fusion dans `main` ne sont pas réalisés.
+La validation Product Owner finale et le commit de clôture
+`01b0edb6d94f63d9264991cf96915fca66200a3a` sont acquis. La Pull Request nº 21 est
+fusionnée dans `main`, le tag `sprint-018` désigne le commit de fusion et la branche de
+travail est supprimée localement et à distance. Le Sprint 018 est définitivement clos.
 
-## Dernier Sprint clôturé
+## Sprint précédent clôturé
 
 Le contrat du Sprint 017 est verrouillé par le commit
 `33705e2afa993124ef6ec063f770c28553e3fcab`. Les Incréments 2 à 5 ont défini puis
@@ -350,6 +351,5 @@ Aucune base de données déployée. Le modèle conceptuel et l'architecture Post
 
 ## Prochaine étape
 
-Publier le verrouillage documentaire du Sprint 018 sur sa branche, puis procéder à son
-intégration conformément à `docs/GOVERNANCE.md`. Aucun futur Sprint n'est encore ouvert
-ou contractuellement défini.
+Définir le prochain Sprint conformément à `docs/GOVERNANCE.md`. Aucun futur Sprint n'est
+encore ouvert ou contractuellement défini.
