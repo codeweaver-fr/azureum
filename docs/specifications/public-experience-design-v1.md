@@ -2,10 +2,10 @@
 
 ## 1. Statut
 
-**Brouillon non normatif — Incrément 6 en cours de revue Product Owner**
+**Brouillon non normatif — Incrément 7 en cours de revue Product Owner**
 
-Le présent document est créé dans le cadre du Sprint 018. Les Incréments 2 à 5 sont
-verrouillés. La consolidation de l'Incrément 6 reste soumise à la revue du Product
+Le présent document est créé dans le cadre du Sprint 018. Les Incréments 2 à 6 sont
+verrouillés. La stratégie générale de l'Incrément 7 reste soumise à la revue du Product
 Owner.
 
 Il ne constitue encore ni une conception validée, ni une maquette, ni une instruction
@@ -2499,7 +2499,7 @@ La consolidation établit que :
 - aucune décision différée n'est implicitement anticipée.
 
 Aucune contradiction ne nécessite un nouvel arbitrage Product Owner. La conception
-consolidée reste un brouillon non normatif jusqu'à la validation de l'Incrément 6.
+consolidée est validée et verrouillée.
 
 ## 73. Éléments explicitement différés après l'Incrément 6
 
@@ -2508,3 +2508,370 @@ ordre de réalisation, ni futur contrat de Sprint. Ces sujets relèvent exclusiv
 l'Incrément 7.
 
 Il ne modifie aucune décision des Incréments 2 à 5 et n'autorise aucune implémentation.
+
+## 74. Cadre de la stratégie générale
+
+La présente stratégie organise des dépendances et regroupements candidats. Elle ne crée
+ni contrat, ni numéro de Sprint, ni engagement de réalisation.
+
+Les statuts employés sont :
+
+- **dépendance démontrée** : relation imposée par une fondation partagée, une continuité
+  validée ou une décision de conception commune ;
+- **dépendance conditionnelle à vérifier** : capacité dont l'évaluation est préalable à
+  une décision, sans besoin du Design System déjà établi ;
+- **préférence de séquençage** : ordre recommandé pour réduire un risque ou une
+  duplication, mais qui n'est pas imposé par le canon ;
+- **sujet différé** : décision qui nécessite un futur contrat ou une autorisation
+  distincte.
+
+Une dépendance entre deux vues ne signifie pas qu'elles doivent nécessairement être
+implémentées dans le même Sprint. Elle signifie que leur conception et leurs contrôles
+ne peuvent être évalués indépendamment sans risque identifié.
+
+## 75. Fondations communes
+
+### 75.1 Shell public
+
+Le shell est une dépendance démontrée des sept responsabilités `V-PUB`. Il porte
+l'identité, la navigation, la localisation, le skip link, le landmark principal et le
+footer. Sa stabilité conditionne la continuité de toutes les vues.
+
+Une éventuelle évolution du shell doit être évaluée avant ou avec les premières vues
+implémentées, puis rester stable pendant les lots suivants. Cette relation ne présume
+pas qu'une modification soit nécessaire.
+
+### 75.2 Fondations du Design System
+
+Toutes les vues reposent sur les primitives, tokens, règles responsive, états et
+fondations d'accessibilité canoniques. Leur disponibilité constitue une dépendance
+démontrée ; leur évolution ne l'est pas.
+
+Avant toute composition locale, un futur Sprint devra vérifier que les fondations
+existantes permettent de matérialiser la conception retenue. Toute insuffisance
+démontrée suivra ensuite la gouvernance du Design System.
+
+### 75.3 Grammaire transversale
+
+Les hiérarchies d'attention, la respiration, la protection des médias, l'ordre
+sémantique, l'expérience responsive complète et l'équivalence sans mouvement sont des
+dépendances démontrées communes. Les implémenter séparément sans référence partagée
+créerait un risque de duplication et de divergence.
+
+Cette grammaire n'autorise pas la création d'un composant unique ou d'une composition
+uniforme pour toutes les vues.
+
+### 75.4 Contenus et médias
+
+Les contenus et médias existants permettent de construire et tester les vues, mais ne
+constituent pas une dépendance à des données finales. La robustesse à leur remplacement
+est démontrée comme exigence de conception.
+
+La disponibilité de médias définitifs reste un sujet différé. Elle ne bloque pas une
+implémentation conceptuellement robuste et ne justifie aucun média nouveau.
+
+## 76. Cartographie des dépendances entre responsabilités
+
+| Source ou ensemble | Responsabilité liée | Nature | Démonstration | Conséquence stratégique |
+| --- | --- | --- | --- | --- |
+| Shell public | Toutes les vues | Dépendance démontrée | Identité, localisation, navigation et accessibilité communes | Stabiliser le cadre transversal avant de multiplier les adaptations locales |
+| Accueil — `V-PUB-01` | Collections — `V-PUB-03` | Dépendance démontrée | L'accueil introduit l'univers et donne accès aux mêmes ensembles | Maintenir une continuité d'identité et d'aperçus entre entrée et exploration |
+| Collections — `V-PUB-03` | Collection — `V-PUB-07` | Dépendance démontrée | L'identité d'un ensemble mène à ses œuvres et à son intention | Préserver l'ensemble choisi et son contexte lors du changement de vue |
+| Collection — `V-PUB-07` | Œuvre — `V-PUB-04` | Dépendance démontrée forte | Passage validé de la pluralité rythmée à la concentration individuelle | Concevoir et vérifier conjointement ratios, continuité média et hiérarchie œuvre-contexte |
+| David — `V-PUB-02` | Collections et œuvres | Dépendance éditoriale démontrée | La démarche contextualise le travail et possède un accès existant aux collections | Préserver le ton et les relations sans fabriquer d'illustration mécanique |
+| Contenu — `V-PUB-05` | Œuvre — `V-PUB-04` | Dépendance démontrée | Relations explicites entre contenus et œuvres | Stabiliser l'identité des ressources et les reprises contextuelles |
+| Évolution — `V-PUB-06` | Œuvres et contenus | Dépendance démontrée | Les repères résolvent des ressources existantes | Préserver titres, destinations et contexte des ressources liées |
+| Collection et Œuvre | Design System | Dépendance conditionnelle à vérifier | Deux capacités restent à observer pour les ratios et la hiérarchie asymétrique | Évaluer les fondations avant de figer leur matérialisation locale |
+| Toutes les vues | Responsive et accessibilité | Dépendance démontrée | Même contenu, hiérarchie et usages sur toutes les largeurs et sans mouvement | Employer des critères communs dans chaque futur lot |
+
+```text
+                         [SHELL + FONDATIONS]
+                                  │
+              ┌───────────────────┼───────────────────┐
+              │                   │                   │
+         [ACCUEIL]            [DAVID]          [ÉVOLUTION]
+              │                   │                   │
+        [COLLECTIONS]       [CONTENUS] ───────────────┤
+              │                   │                   │
+         [COLLECTION] ──────── [ŒUVRE] ◀──────────────┘
+              │                   │
+              └──── capacités Design System à observer ┘
+```
+
+Le schéma représente des relations de conception et de vérification. Il ne prescrit ni
+navigation, ni architecture technique, ni ordre de livraison.
+
+## 77. Vues susceptibles d'évoluer ensemble
+
+### 77.1 Collection et Œuvre — regroupement fortement recommandé
+
+Ce regroupement est le plus directement fondé par la conception.
+
+- **Avantages :** protège la continuité du média ; vérifie ensemble le champ éditorial
+  et la révélation individuelle ; évite deux réponses divergentes aux ratios ; concentre
+  l'évaluation des deux capacités Design System.
+- **Limites :** réunit deux compositions sensibles qui exigent chacune une validation
+  complète.
+- **Risques :** un lot trop large pourrait confondre la logique plurielle de la
+  collection avec la concentration de la fiche œuvre.
+- **Dépendances préalables :** grammaire commune disponible ; évaluation des fondations
+  pour les ratios et la hiérarchie asymétrique ; shell suffisamment stable.
+
+La dépendance est démontrée. Le choix de les placer dans un même futur Sprint reste une
+recommandation, pas une obligation contractuelle.
+
+### 77.2 Accueil et Collections — regroupement recommandé
+
+Les deux vues organisent l'entrée dans l'univers artistique et l'exploration des
+ensembles.
+
+- **Avantages :** évite de dupliquer la présentation des collections ; maintient une
+  progression cohérente entre promesse et diversité ; facilite la robustesse des mêmes
+  aperçus.
+- **Limites :** l'accueil doit conserver une identité plus introductive que la vue
+  Collections.
+- **Risques :** leur rapprochement pourrait produire deux compositions identiques ou
+  donner aux collections le même poids sur les deux vues.
+- **Dépendances préalables :** langage média cohérent ; identité des collections stable ;
+  shell disponible.
+
+La relation entre les vues est démontrée. Leur regroupement constitue une préférence de
+séquençage fondée sur la réduction des duplications.
+
+### 77.3 David et Contenu artistique — regroupement plausible
+
+Ces vues partagent une priorité éditoriale, une largeur de lecture et des enjeux de
+densité variables.
+
+- **Avantages :** mutualise l'évaluation du rythme de lecture, des contextes et des
+  relations vers les œuvres ; maintient une expression éditoriale cohérente.
+- **Limites :** la page David construit une proximité avec l'artiste tandis qu'un
+  contenu possède plusieurs types et finalités.
+- **Risques :** uniformiser les deux lectures ou transformer David en contenu générique.
+- **Dépendances préalables :** grammaire typographique et de respiration disponible ;
+  identité des relations vers les œuvres stabilisée.
+
+Le partage d'enjeux est démontré. Le regroupement lui-même reste une préférence de
+séquençage.
+
+### 77.4 Évolution dans le temps — lot distinct recommandé
+
+La chronologie consomme des identités et destinations d'œuvres et de contenus, mais sa
+responsabilité temporelle et son ordre propre sont singuliers.
+
+- **Avantages :** permet de vérifier la continuité vers des ressources déjà stabilisées
+  sans imposer son modèle temporel aux autres vues.
+- **Limites :** son traitement plus tardif reporte la validation globale des relations
+  temporelles.
+- **Risques :** une réalisation trop isolée pourrait produire une frise décorative ou
+  une présentation étrangère à la grammaire commune.
+- **Dépendances préalables :** identités et relations des œuvres et contenus stables ;
+  shell et grammaire transversale disponibles.
+
+La dépendance aux ressources est démontrée. Le traitement distinct et tardif est une
+préférence de séquençage.
+
+## 78. Regroupements candidats comparés
+
+### 78.1 Candidat A — Progression du parcours — non retenu
+
+```text
+Fondations et shell
+→ Accueil + Collections
+→ Collection + Œuvre
+→ David + Contenu
+→ Évolution dans le temps
+→ Contrôle transversal
+```
+
+- **Avantages :** suit la progression de découverte ; rend rapidement cohérente
+  l'entrée publique ; facilite une revue par parcours perceptible.
+- **Limites :** reporte l'évaluation du couple Collection–Œuvre, qui concentre les
+  compositions les plus affirmées.
+- **Risques :** construire le langage des aperçus avant d'avoir vérifié les deux
+  capacités Design System les plus sensibles ; devoir ajuster ensuite des choix déjà
+  propagés.
+- **Dépendances préalables :** fondations et shell évalués ; médias de démonstration
+  utilisables sans devenir canoniques.
+
+Le Product Owner conserve cette stratégie comme approche étudiée mais non retenue.
+
+### 78.2 Candidat B — Réduction des risques structurels — retenu
+
+```text
+Fondations et shell
+→ évaluation des capacités à observer
+→ Collection + Œuvre
+→ Accueil + Collections
+→ David + Contenu
+→ Évolution dans le temps
+→ Contrôle transversal
+```
+
+- **Avantages :** traite d'abord la continuité et les compositions les plus sensibles ;
+  vérifie tôt les fondations avant leur répétition ; réduit le risque de réponses média
+  divergentes ; fournit ensuite une référence éprouvée aux vues de découverte.
+- **Limites :** la première évolution visible ne suit pas l'entrée naturelle du
+  visiteur ; le shell doit rester assez neutre pour ne pas anticiper les vues suivantes.
+- **Risques :** surdimensionner les fondations communes à partir des besoins du seul
+  couple Collection–Œuvre.
+- **Dépendances préalables :** évaluation limitée des fondations existantes ; séparation
+  stricte entre besoin démontré et préférence locale.
+
+Le Product Owner retient cette stratégie parce qu'elle traite les incertitudes du
+continuum Collection–Œuvre avant de propager les choix aux autres vues.
+
+### 78.3 Candidat C — Vue par vue sans regroupement — non recommandé
+
+```text
+Une responsabilité
+→ validation
+→ responsabilité suivante
+```
+
+- **Avantages :** périmètres locaux réduits ; historique simple pour chaque vue.
+- **Limites :** continuités évaluées tardivement ; contrôles transversaux répétés.
+- **Risques :** duplication, divergence des médias et de la respiration, correction
+  répétée des mêmes fondations.
+- **Dépendances préalables :** conventions transversales extrêmement stables avant la
+  première vue.
+
+Ce candidat reste plausible sur le plan organisationnel, mais il répond moins bien aux
+dépendances démontrées par la conception.
+
+## 79. Ordre général recommandé
+
+Le **Candidat B — Réduction des risques structurels** est retenu comme stratégie
+générale.
+
+### Étape générale 1 — Vérifier les fondations applicables et le shell
+
+Les futurs Sprints d'implémentation devront d'abord évaluer les primitives existantes,
+les règles responsive et accessibles, la protection des médias, l'équivalence sans
+mouvement et la discrétion du shell.
+
+Cette étape stratégique ne constitue aucune autorisation de modifier le shell ou le
+Design System dans le Sprint 018. Elle ne présume ni insuffisance, ni évolution des
+fondations.
+
+### Étape générale 2 — Matérialiser le continuum Collection–Œuvre
+
+Traiter le passage de la pluralité au sujet individuel et évaluer les deux capacités du
+Design System seulement observées. Ce continuum concentre les risques de ratios,
+hiérarchie et continuité média.
+
+### Étape générale 3 — Matérialiser l'entrée Accueil–Collections
+
+Construire l'entrée dans l'univers et la perception de la diversité à partir d'une
+grammaire média déjà éprouvée, sans reproduire les compositions du continuum
+Collection–Œuvre.
+
+### Étape générale 4 — Matérialiser les lectures David–Contenu
+
+Appliquer les principes éditoriaux, les respirations et les relations vers les œuvres
+avec une grammaire transversale déjà stabilisée, tout en conservant leurs responsabilités
+distinctes.
+
+### Étape générale 5 — Matérialiser l'évolution dans le temps
+
+Relier des œuvres et contenus dont les identités, destinations et présentations sont
+déjà stables, sans transformer l'ordre temporel en dispositif décoratif.
+
+### Étape générale 6 — Contrôler l'expérience publique complète
+
+Vérifier transversalement continuité, responsive, accessibilité, médias, shell,
+immobilité complète et absence d'uniformisation.
+
+Cet ordre réduit les risques parce qu'il :
+
+- vérifie les fondations avant leur multiplication ;
+- traite tôt les deux compositions les plus sensibles ;
+- évite de définir plusieurs fois les mêmes réponses média ;
+- stabilise les ressources avant les vues qui les relient ;
+- réserve un contrôle global après les singularités locales.
+
+Il fixe uniquement un ordre général recommandé fondé sur les dépendances et les risques
+démontrés. Il ne fixe ni nombre, ni numéro, ni périmètre, ni ordre contractuel des futurs
+Sprints.
+
+## 80. Distinction entre faits, dépendances, préférences et sujets différés
+
+### 80.1 Faits établis
+
+- les huit responsabilités existent et sont fonctionnellement stabilisées ;
+- elles utilisent un shell et des fondations communs ;
+- l'accueil donne accès aux collections ;
+- les collections donnent accès aux collections individuelles ;
+- les collections individuelles donnent accès aux œuvres ;
+- les contenus et la chronologie relient des ressources existantes ;
+- les contenus et médias actuels restent remplaçables.
+
+### 80.2 Dépendances démontrées
+
+- shell et fondations vers toutes les vues ;
+- continuité Accueil–Collections–Collection–Œuvre ;
+- continuité média et hiérarchique renforcée entre Collection et Œuvre ;
+- relations explicites Contenu–Œuvre et Évolution–Ressources ;
+- critères responsive, accessibilité, médias et mouvement communs.
+
+### 80.3 Dépendances conditionnelles à vérifier
+
+- capacité des fondations à préserver les ratios hétérogènes du champ éditorial ;
+- capacité des fondations à maintenir l'asymétrie œuvre-contexte selon la largeur.
+
+Leur vérification n'établit pas à elle seule un besoin d'évolution du Design System.
+
+### 80.4 Préférences de séquençage
+
+- regrouper Collection et Œuvre ;
+- regrouper Accueil et Collections ;
+- rapprocher David et Contenu sans les uniformiser ;
+- traiter la chronologie après la stabilisation des ressources liées ;
+- retenir une stratégie de réduction des risques plutôt qu'un ordre strictement fondé
+  sur le parcours.
+
+### 80.5 Sujets différés
+
+- contrats, numéros et périmètres détaillés des futurs Sprints ;
+- estimations, dates, engagements et roadmap ;
+- technologies et architecture d'implémentation ;
+- décisions d'évolution du Design System ;
+- contenus et médias définitifs ;
+- mouvements ou transitions de production.
+
+## 81. Arbitrage Product Owner de l'Incrément 7
+
+**Décision :** le Candidat B — réduction des risques structurels — est retenu.
+
+La stratégie générale validée est :
+
+1. vérifier les fondations applicables et le shell avant propagation ;
+2. traiter le continuum Collection–Œuvre ;
+3. traiter l'entrée Accueil–Collections ;
+4. traiter les expériences éditoriales David–Contenu artistique ;
+5. traiter Évolution dans le temps ;
+6. terminer par un contrôle transversal de l'expérience publique complète.
+
+Le Candidat A reste une stratégie étudiée mais non retenue. Le Candidat C reste non
+recommandé en raison des risques de duplication et de divergence.
+
+Aucun arbitrage ne reste ouvert dans l'Incrément 7. Cette décision n'ouvre aucun Sprint,
+ne rend aucun regroupement contractuel et n'autorise aucune implémentation.
+
+## 82. Capacités du Design System dans la stratégie
+
+Les deux capacités à observer influencent uniquement l'ordre retenu : leur
+évaluation précède le continuum Collection–Œuvre afin d'éviter de propager une réponse
+non vérifiée.
+
+Elles ne sont ni des besoins validés, ni des demandes d'évolution, ni des obstacles
+établis. Aucun autre besoin du Design System n'est introduit par la stratégie.
+
+## 83. Éléments explicitement différés après l'Incrément 7
+
+L'Incrément 7 ne crée aucun contrat, numéro, calendrier, estimation, technologie ou lot
+définitif. La stratégie retenue reste générale et ne devient pas une planification
+contractuelle.
+
+L'audit final, la synchronisation documentaire et la clôture du Sprint 018 relèvent
+exclusivement de l'Incrément 8.
