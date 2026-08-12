@@ -4,6 +4,45 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 
 ## Non publié
 
+### Sprint 018 — Conception de l'expérience publique V1
+
+- verrouillage du contrat documentaire par le commit
+  `161f8e5acf924a43a4fb780ec9a476c820c7d0d3` ;
+- audit factuel des sept responsabilités `V-PUB` et du shell public dans le commit
+  `57a7ec0bd55e907898aaa0b6d69060c5b42fadaf`, sans recommandation anticipée ni
+  modification du produit ;
+- définition des intentions sensibles et hiérarchies d'attention dans le commit
+  `781c2abde876b3517f86424397e1b0e91485940f`, avec l'univers artistique comme premier
+  foyer de l'accueil et l'ensemble des œuvres comme premier foyer de la collection ;
+- définition des compositions conceptuelles, de la présentation des médias et des
+  transformations mobile, tablette et bureau dans le commit
+  `2f83e4028f60c4dc7f207e2d9f003e0f792712aa` ;
+- sélection du champ éditorial à rythme maîtrisé pour la collection et de la révélation
+  puis contextualisation pour l'œuvre, avec protection des ratios et sans valeur de
+  production ;
+- définition d'une continuité complète avec mouvement facultatif et expérience
+  équivalente lorsque celui-ci est réduit ou supprimé dans le commit
+  `27a27c5559622deb74270be2a460ffa6788ef6c9` ;
+- consolidation des huit responsabilités, des décisions Product Owner, des propositions
+  non retenues, des ambiguïtés héritées et des décisions différées dans le commit
+  `c8acba1303f1bf74caddddb6ec236900b31c26f3` ;
+- conservation d'une réserve de traçabilité pour ce commit : le contrat prévoyait
+  `docs(experience): consolidate public experience design decisions`, tandis que le
+  message explicitement autorisé et réellement créé est
+  `docs(experience): consolidate public experience decisions`, sans impact sur son
+  contenu et sans réécriture de l'historique ;
+- cartographie des dépendances et sélection de la stratégie générale B — fondations et
+  shell, Collection–Œuvre, Accueil–Collections, David–Contenu artistique, Évolution dans
+  le temps, puis contrôle transversal — dans le commit
+  `1dfcb2960c0d40b530e2f9f8b6987f1cb6507d42` ;
+- maintien de deux capacités du Design System comme points conditionnels à observer,
+  sans besoin ni évolution validés ;
+- maintien hors périmètre de toute implémentation, technologie, valeur de production,
+  animation, média définitif ou contrat détaillé d'un futur Sprint ;
+- validation Product Owner finale et verrouillage documentaire sur la branche du Sprint ;
+- intégration dans `main` encore à effectuer avant acquisition du statut canonique
+  final ; aucun tag, aucune Pull Request et aucune fusion ne sont encore réalisés.
+
 ### Sprint 017 — Direction artistique et expérience publique V1
 
 - verrouillage du contrat documentaire par le commit
