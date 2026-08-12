@@ -4,9 +4,10 @@
 
 **Validé par le Product Owner et verrouillé avant le début de la conception**
 
-Le présent document prépare le contrat du Sprint 018. Tant qu'il n'a pas été validé
-par le Product Owner et verrouillé conformément à `docs/GOVERNANCE.md`, il n'autorise
-aucun travail de conception ni aucune modification du produit.
+Le présent document constitue le contrat du Sprint 018, validé par le Product Owner et
+verrouillé conformément à `docs/GOVERNANCE.md`. Il autorise exclusivement les travaux
+documentaires et conceptuels définis par son périmètre, sans aucune modification du
+produit.
 
 ## 1. Raison d'être
 

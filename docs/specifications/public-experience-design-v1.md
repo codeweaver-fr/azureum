@@ -2,17 +2,32 @@
 
 ## 1. Statut
 
-**Brouillon non normatif — Incrément 7 en cours de revue Product Owner**
+**Validé par le Product Owner et verrouillé sur la branche du Sprint — intégration dans `main` en attente**
 
-Le présent document est créé dans le cadre du Sprint 018. Les Incréments 2 à 6 sont
-verrouillés. La stratégie générale de l'Incrément 7 reste soumise à la revue du Product
-Owner.
+Les Incréments 2 à 8 sont validés par le Product Owner. Le verrouillage documentaire
+final est réalisé sur la branche du Sprint ; son intégration dans `main` reste à
+effectuer.
 
-Il ne constitue encore ni une conception validée, ni une maquette, ni une instruction
-d'implémentation. Aucun constat, aucune limite et aucun risque consigné dans cet audit
-ne modifie le canon ou le produit par lui-même.
+Le document n'est pas encore intégré dans `main` et ne constitue donc pas encore la
+référence canonique finale de la conception de l'expérience publique V1.
 
-## 2. Objet et portée de l'Incrément 2
+Il ne constitue pas encore une référence canonique finale, une maquette ou une
+instruction d'implémentation. Aucun constat, aucune limite et aucun risque consigné dans
+cet audit ne modifie le canon ou le produit par lui-même.
+
+## 2. Objet et portée
+
+Le présent document rassemble la conception de l'expérience publique V1 produite par le
+Sprint 018. Il couvre l'audit de l'existant, les intentions sensibles, les hiérarchies
+d'attention, les compositions conceptuelles, les transformations responsive, la
+présentation des médias, le mouvement, la continuité, les arbitrages consolidés et la
+stratégie générale d'implémentation.
+
+Il traduit le manifeste canonique en décisions de conception traçables sans modifier les
+responsabilités fonctionnelles, le Design System ou le produit et sans constituer une
+spécification d'implémentation.
+
+### 2.1 Portée historique de l'Incrément 2
 
 L'Incrément 2 établit la base factuelle sur laquelle les incréments suivants pourront
 concevoir l'expérience publique d'AZUREUM.
@@ -2875,3 +2890,22 @@ contractuelle.
 
 L'audit final, la synchronisation documentaire et la clôture du Sprint 018 relèvent
 exclusivement de l'Incrément 8.
+
+## 84. Version et évolution
+
+La présente version consolide les Incréments 2 à 8 validés par le Product Owner et
+verrouillés sur la branche du Sprint. Elle n'est pas encore intégrée dans `main` et
+n'acquiert donc pas encore son statut canonique final.
+
+Son acquisition du statut canonique suit la séquence :
+
+```text
+Validation Product Owner finale — réalisée
+→ verrouillage documentaire sur la branche du Sprint — réalisé
+→ intégration dans main — à effectuer
+→ acquisition du statut canonique conformément à docs/GOVERNANCE.md
+```
+
+Après son intégration, toute évolution devra être motivée, tracée, validée et intégrée
+conformément à la gouvernance applicable. Aucune proposition ou implémentation future ne
+pourra modifier implicitement les décisions du présent document.

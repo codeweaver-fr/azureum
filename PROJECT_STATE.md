@@ -2,8 +2,76 @@
 
 ## Phase actuelle
 
-Sprint 017 — Direction artistique et expérience publique V1 définitivement clôturé.
-Le projet est prêt pour l'ouverture du Sprint suivant.
+Sprint 018 — Conception de l'expérience publique V1 verrouillé sur sa branche et en
+attente d'intégration.
+
+Les Incréments 1 à 8 sont validés par le Product Owner. Le verrouillage documentaire
+final est réalisé sur la branche du Sprint, sans ouvrir de futur Sprint ni autoriser
+d'implémentation.
+
+## Sprint actuel en clôture
+
+Le contrat du Sprint 018 est verrouillé par le commit
+`161f8e5acf924a43a4fb780ec9a476c820c7d0d3`. Les incréments documentaires suivants sont
+validés et verrouillés :
+
+- `57a7ec0bd55e907898aaa0b6d69060c5b42fadaf` — audit factuel des huit
+  responsabilités publiques ;
+- `781c2abde876b3517f86424397e1b0e91485940f` — intentions sensibles et hiérarchies
+  d'attention ;
+- `2f83e4028f60c4dc7f207e2d9f003e0f792712aa` — compositions, médias et
+  transformations responsive conceptuelles ;
+- `27a27c5559622deb74270be2a460ffa6788ef6c9` — mouvement facultatif et continuité
+  publique ;
+- `c8acba1303f1bf74caddddb6ec236900b31c26f3` — consolidation des décisions de
+  conception ;
+- `1dfcb2960c0d40b530e2f9f8b6987f1cb6507d42` — dépendances et stratégie générale
+  d'implémentation.
+
+Les décisions Product Owner structurantes sont :
+
+- l'univers artistique constitue le premier foyer d'attention de l'accueil ;
+- l'ensemble des œuvres constitue le premier foyer d'attention d'une collection ;
+- la collection adopte un champ éditorial à rythme maîtrisé ;
+- la fiche œuvre adopte une révélation puis contextualisation ;
+- le mouvement reste facultatif et l'expérience demeure complète lorsqu'il est réduit
+  ou supprimé ;
+- la stratégie générale B — réduction des risques structurels — est retenue :
+  fondations et shell, Collection–Œuvre, Accueil–Collections, David–Contenu artistique,
+  Évolution dans le temps, puis contrôle transversal.
+
+Deux capacités du Design System restent uniquement conditionnelles et à observer :
+
+1. préserver des ratios hétérogènes dans un champ éditorial d'œuvres ;
+2. maintenir une hiérarchie asymétrique entre une œuvre dominante et son contexte selon
+   la largeur.
+
+Elles ne constituent ni des besoins validés, ni des autorisations d'évolution du Design
+System.
+
+Les ambiguïtés héritées restent limitées aux contenus contextuels de collection non
+observables, à l'état actif de `Collections` sur certaines routes imbriquées, au
+caractère démonstratif des contenus et médias actuels et à l'absence de mesure réelle de
+la réception émotionnelle. Elles ne constituent pas des corrections autorisées.
+
+Les propositions non retenues restent tracées sans valeur normative : champ comparatif
+stable pour la collection, dialogue protégé entre œuvre et contexte, stratégie A fondée
+sur la progression du parcours. La stratégie C, vue par vue, reste non recommandée.
+
+Les technologies, valeurs de production, évolutions du Design System, médias définitifs,
+animations de production et contrats détaillés des futurs Sprints restent différés.
+
+Une réserve historique de traçabilité est conservée pour l'Incrément 6. Le contrat
+prévoyait le message
+`docs(experience): consolidate public experience design decisions`, tandis que le
+Product Owner a explicitement autorisé et fait créer, sur le commit
+`c8acba1303f1bf74caddddb6ec236900b31c26f3`, le message
+`docs(experience): consolidate public experience decisions`. Cet écart ne remet pas en
+cause le contenu de l'incrément et ne justifie aucune réécriture Git.
+
+À ce stade, la validation Product Owner finale est acquise. Le commit de clôture est en
+cours de création sur la branche du Sprint ; le tag éventuel, la Pull Request et la
+fusion dans `main` ne sont pas réalisés.
 
 ## Dernier Sprint clôturé
 
@@ -282,5 +350,6 @@ Aucune base de données déployée. Le modèle conceptuel et l'architecture Post
 
 ## Prochaine étape
 
-Ouvrir le Sprint suivant conformément à `docs/GOVERNANCE.md`, à partir de la référence
-officielle `sprint-017` et d'un contrat validé avant toute implémentation.
+Publier le verrouillage documentaire du Sprint 018 sur sa branche, puis procéder à son
+intégration conformément à `docs/GOVERNANCE.md`. Aucun futur Sprint n'est encore ouvert
+ou contractuellement défini.
