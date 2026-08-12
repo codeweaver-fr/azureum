@@ -39,9 +39,14 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
   sans besoin ni évolution validés ;
 - maintien hors périmètre de toute implémentation, technologie, valeur de production,
   animation, média définitif ou contrat détaillé d'un futur Sprint ;
-- validation Product Owner finale et verrouillage documentaire sur la branche du Sprint ;
-- intégration dans `main` encore à effectuer avant acquisition du statut canonique
-  final ; aucun tag, aucune Pull Request et aucune fusion ne sont encore réalisés.
+- validation Product Owner finale et clôture documentaire par le commit
+  `01b0edb6d94f63d9264991cf96915fca66200a3a` ;
+- fusion de la Pull Request nº 21 dans `main` par le commit
+  `8ea6d3d4b1c9141b474857596d1813ea869fd461` ;
+- publication du tag officiel `sprint-018` sur ce commit de fusion et acquisition du
+  statut canonique par `docs/specifications/public-experience-design-v1.md` ;
+- suppression locale et distante de la branche de travail, puis clôture définitive du
+  Sprint 018 sans ouverture d'un Sprint suivant.
 
 ### Sprint 017 — Direction artistique et expérience publique V1
 
