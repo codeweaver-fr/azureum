@@ -2,11 +2,12 @@
 
 ## 1. Statut
 
-**Brouillon non normatif — Incrément 3 en cours de revue Product Owner**
+**Brouillon non normatif — Incrément 4 en cours de revue Product Owner**
 
 Le présent document est créé dans le cadre du Sprint 018. L'audit factuel de
-l'Incrément 2 est verrouillé. Les intentions sensibles et hiérarchies d'attention de
-l'Incrément 3 restent soumises à la revue du Product Owner.
+l'Incrément 2 et les intentions sensibles et hiérarchies d'attention de l'Incrément 3
+sont verrouillés. Les compositions conceptuelles de l'Incrément 4 restent soumises à
+la revue du Product Owner.
 
 Il ne constitue encore ni une conception validée, ni une maquette, ni une instruction
 d'implémentation. Aucun constat, aucune limite et aucun risque consigné dans cet audit
@@ -1324,6 +1325,590 @@ L'Incrément 3 ne définit pas :
 - les besoins d'évolution du Design System ;
 - les dépendances ou la stratégie d'implémentation.
 
-Les intentions et hiérarchies du présent incrément ne deviennent pas des instructions
-d'implémentation. Elles restent soumises aux arbitrages et à la validation du Product
-Owner avant verrouillage.
+Les intentions et hiérarchies du présent incrément sont validées et verrouillées. Elles
+ne deviennent pas pour autant des instructions d'implémentation.
+
+## 31. Cadre de conception de l'Incrément 4
+
+L'Incrément 4 traduit les intentions sensibles validées en relations spatiales
+compréhensibles. Il ne produit ni maquette finale, ni système de mise en page, ni
+instruction d'implémentation.
+
+Les rapports de masses employés ci-dessous sont exclusivement qualitatifs :
+
+- **dominant** : foyer d'attention principal de la vue ;
+- **structurant** : ensemble nécessaire à la compréhension et au rythme ;
+- **d'accompagnement** : information ou action utile qui soutient le sujet principal ;
+- **discret** : présence nécessaire qui ne doit pas concurrencer le contenu ;
+- **respiration** : espace relationnel qui sépare, rapproche ou temporise les ensembles.
+
+Les schémas textuels sont des wireframes conceptuels non exécutables. Ils montrent un
+ordre, des rapports et des zones, mais ne fixent ni dimensions, ni grille, ni position
+de production. Les libellés désignent des responsabilités existantes, pas de nouveaux
+composants.
+
+```text
+[SHELL DISCRET]
+
+[SUJET DOMINANT]
+
+       respiration
+
+[CONTEXTE STRUCTURANT]
+[TEXTE ET ACTIONS EXISTANTES]
+
+[FIN DE PAGE DISCRÈTE]
+```
+
+Cette légende n'impose pas une composition commune aux huit responsabilités. Elle rend
+leurs descriptions comparables.
+
+## 32. Accueil — `V-PUB-01`
+
+### 32.1 Composition conceptuelle
+
+L'univers artistique forme la masse dominante. L'identité éditoriale d'AZUREUM et sa
+promesse constituent un seuil de compréhension structurant, mais elles ne précèdent
+pas la rencontre au point d'en devenir le sujet. Les accès existants aux collections
+prolongent cette entrée par une exploration concrète.
+
+```text
+[SHELL DISCRET]
+
+[UNIVERS ARTISTIQUE — DOMINANT]
+[IDENTITÉ ET PROMESSE — STRUCTURANTES]
+
+       respiration ample
+
+[ACCÈS EXISTANT AUX COLLECTIONS]
+[APERÇUS DES ENSEMBLES]
+```
+
+La hiérarchie spatiale recherchée est : univers artistique, compréhension d'AZUREUM,
+exploration des collections, navigation. La respiration sépare l'entrée sensible de
+l'exploration sans créer un écran introductif autonome.
+
+### 32.2 Transformations selon la largeur
+
+- **Mobile :** l'univers, la promesse et les accès se succèdent dans un flux unique.
+  L'œuvre ou le média existant reste le premier foyer ; le contexte conserve une
+  proximité suffisante pour éviter une entrée énigmatique.
+- **Tablette :** l'univers et la promesse peuvent former un seuil commun, suivi d'un
+  champ d'exploration plus ouvert. Les aperçus restent identifiables comme un ensemble.
+- **Bureau :** le rapport de masses peut rendre simultanément perceptibles l'univers
+  artistique et la possibilité d'explorer, sans donner aux éléments éditoriaux ou au
+  shell une présence équivalente au foyer artistique.
+
+### 32.3 Médias et robustesse
+
+Le média principal et les aperçus de collections existants gardent leurs ratios. Leur
+remplacement futur par des contenus validés ne doit pas inverser la hiérarchie. Une
+promesse plus longue augmente le flux éditorial sans recouvrir le foyer artistique ;
+un nombre différent de collections étend le champ d'exploration sans transformer
+l'accueil en galerie exhaustive.
+
+**Traçabilité :** intention sensible de l'accueil ; manifeste, sections 2, 3, 9, 11,
+12, 13 et 14 ; responsabilité `V-PUB-01`.
+
+## 33. David et sa démarche — `V-PUB-02`
+
+### 33.1 Composition conceptuelle
+
+Le propos consacré à David forme la masse structurante. L'ouverture éditoriale donne
+une présence identifiable, puis la démarche se déploie par séquences lisibles. Les
+repères utiles accompagnent la lecture ; l'accès existant aux collections en constitue
+un prolongement et non une interruption.
+
+```text
+[SHELL DISCRET]
+
+[DAVID — OUVERTURE STRUCTURANTE]
+[DÉMARCHE — CORPS ÉDITORIAL]
+
+       respirations de lecture
+
+[REPÈRES UTILES]
+[ACCÈS EXISTANT AUX COLLECTIONS]
+```
+
+La hiérarchie spatiale recherchée est : David, démarche, repères utiles, prolongement
+vers les œuvres, navigation. Le texte conserve une largeur de lecture perceptivement
+maîtrisée sans qu'une valeur de production soit définie.
+
+### 33.2 Transformations selon la largeur
+
+- **Mobile :** les séquences éditoriales forment une lecture continue, scandée par des
+  respirations nettes. Aucun bloc secondaire ne coupe la relation entre l'ouverture et
+  la démarche.
+- **Tablette :** l'ouverture et les repères peuvent gagner en présence relative tandis
+  que le corps conserve une progression stable.
+- **Bureau :** la composition peut ménager un dialogue entre ouverture, texte et
+  repères, sans fragmenter le propos en panneaux indépendants ni évoquer un tableau de
+  bord.
+
+### 33.3 Médias et robustesse
+
+Aucun média nouveau n'est présumé. Si les médias existants ou ultérieurement validés
+évoluent, ils accompagnent le propos sans devenir une preuve biographique ni repousser
+la démarche hors du premier ensemble lisible. Une variation de longueur du corpus
+étend les séquences et leurs respirations sans changer leur ordre conceptuel.
+
+**Traçabilité :** intention sensible de David ; manifeste, sections 5, 8, 11, 12, 13,
+14 et 16 ; responsabilité `V-PUB-02`.
+
+## 34. Collections — `V-PUB-03`
+
+### 34.1 Composition conceptuelle
+
+Les ensembles artistiques composent une masse plurielle dominante. Le titre et le
+contexte donnent le cadre nécessaire, puis chaque collection associe une identité
+perceptible, son intention disponible et son accès existant.
+
+```text
+[SHELL DISCRET]
+
+[TITRE ET CONTEXTE — STRUCTURANTS]
+
+[COLLECTION]   [COLLECTION]   […]
+ identité       identité
+ intention      intention
+ accès          accès
+
+       respiration entre ensembles
+```
+
+La hiérarchie spatiale recherchée est : diversité des ensembles, identité de chacun,
+intention disponible, accès, navigation. Les collections appartiennent au même champ
+sans être réduites à des cartes interchangeables.
+
+### 34.2 Transformations selon la largeur
+
+- **Mobile :** les collections se découvrent séquentiellement. Chaque ensemble reste
+  complet et distinct avant le suivant.
+- **Tablette :** plusieurs ensembles peuvent entrer en relation tout en conservant une
+  lecture non ambiguë de leur identité et de leur accès.
+- **Bureau :** le champ peut rendre la diversité perceptible plus largement, sans
+  uniformiser les ratios ni faire de la densité le sujet principal.
+
+### 34.3 Médias et robustesse
+
+Les aperçus existants conservent leur ratio et ne sont pas recadrés pour fabriquer une
+uniformité artificielle. L'ajout, le retrait ou le remplacement futur d'une collection
+étend ou contracte le champ sans produire de place vide réservée. Les intentions plus
+longues restent secondaires par rapport à l'identité de l'ensemble.
+
+**Traçabilité :** intention sensible des collections ; manifeste, sections 3, 9, 11,
+12, 13, 14 et 16 ; responsabilité `V-PUB-03`.
+
+## 35. Collection — `V-PUB-07`
+
+### 35.1 Socle commun
+
+L'ensemble des œuvres forme la masse dominante. L'intention de la collection explique
+ce qui les relie lorsqu'elle existe, mais ne devient pas un écran éditorial préalable.
+Les contenus associés éventuels restent contextuels et n'introduisent aucune nouvelle
+relation.
+
+```text
+[SHELL DISCRET]
+
+[IDENTITÉ DE LA COLLECTION]
+[CONTEXTE D'ACCOMPAGNEMENT]
+
+       respiration
+
+[ENSEMBLE DES ŒUVRES — DOMINANT]
+[CONTEXTES ASSOCIÉS ÉVENTUELS]
+```
+
+La hiérarchie spatiale commune est : ensemble des œuvres, intention et contexte,
+identité de chaque œuvre, contenus associés éventuels, actions existantes, navigation.
+
+### 35.2 Composition retenue — Champ éditorial à rythme maîtrisé
+
+Les œuvres conservent une cohérence d'ensemble tout en occupant des présences relatives
+différenciées selon leurs ratios et leurs relations. Le rythme provient des œuvres ; il
+ne constitue ni une mise en scène autonome, ni une signature graphique imposée.
+
+- **Avantages :** respecte davantage la singularité des œuvres et donne un rythme
+  propre à la collection.
+- **Limites :** la comparaison immédiate peut être moins régulière.
+- **Risques :** transformer l'asymétrie en démonstration ou créer une hiérarchie non
+  fondée entre les œuvres.
+- **Principes servis :** asymétrie maîtrisée, protection des ratios, rythme éditorial,
+  primauté des œuvres.
+
+```text
+[CONTEXTE]
+
+[    ŒUVRE    ]   [ŒUVRE]
+
+       [ŒUVRE]   [    ŒUVRE    ]
+```
+
+La composition préserve la lisibilité et l'accès à chaque œuvre, leurs ratios, l'ordre
+sémantique et sa robustesse face à des quantités ou ratios différents. Elle ne peut
+devenir le sujet principal de la vue.
+
+**Proposition non retenue :** le champ comparatif stable. Sa régularité favorisait la
+comparaison immédiate, mais risquait d'uniformiser la présence des œuvres et de faire
+percevoir la collection comme un inventaire.
+
+### 35.3 Transformations selon la largeur
+
+- **Mobile :** les œuvres forment une séquence complète et lisible. Le rythme demeure
+  perceptible sans tronquer une œuvre ni perturber l'ordre sémantique.
+- **Tablette :** les relations entre œuvres deviennent perceptibles dans une variation
+  encore retenue, issue de leurs présences et de leurs ratios.
+- **Bureau :** le champ éditorial peut exprimer plus largement son rythme, tout en
+  maintenant le contexte dans un rôle d'accompagnement et la composition hors du foyer
+  principal.
+
+### 35.4 Médias et robustesse
+
+Chaque œuvre conserve son ratio. La composition n'autorise ni recadrage destructif, ni
+taille de production fixe, ni hiérarchie inventée depuis les médias temporaires. Elle
+accepte un nombre différent d'œuvres, des ratios hétérogènes, un contexte absent et des
+contenus associés absents sans produire de zone vide obligatoire.
+
+**Traçabilité :** intention sensible de la collection et arbitrage Product Owner de
+l'Incrément 3 ; manifeste, sections 3, 9, 11, 12, 13, 14, 16 et 17 ; responsabilité
+`V-PUB-07` ; arbitrage Product Owner de l'Incrément 4.
+
+## 36. Œuvre — `V-PUB-04`
+
+### 36.1 Socle commun
+
+L'œuvre forme la masse dominante et bénéficie de la respiration la plus protectrice.
+Son identité, son contexte, ses caractéristiques et ses relations existantes
+l'accompagnent selon leur importance sans rivaliser avec elle.
+
+```text
+[SHELL DISCRET]
+
+[ŒUVRE — DOMINANTE]
+
+       respiration protectrice
+
+[IDENTITÉ ET CONTEXTE]
+[CARACTÉRISTIQUES]
+[RELATIONS ET ACTIONS EXISTANTES]
+```
+
+La hiérarchie spatiale commune est : œuvre, titre et collection, description,
+caractéristiques, contenu associé éventuel, retour existant, navigation.
+
+### 36.2 Composition retenue — Révélation puis contextualisation
+
+L'œuvre occupe d'abord seule le champ principal ; son identité et son contexte suivent
+dans une masse distincte. Cette séquence fixe une hiérarchie d'attention, pas un
+empilement spatial littéral.
+
+- **Avantages :** concentration maximale ; séparation très nette entre œuvre et
+  interface.
+- **Limites :** le contexte immédiat est moins simultané.
+- **Risques :** créer une attente ou une distance excessive lorsque le média est peu
+  explicite.
+- **Principes servis :** contemplation, primauté de l'œuvre, silence, révélation.
+
+```text
+[        ŒUVRE        ]
+
+       respiration
+
+[IDENTITÉ ET CONTEXTE]
+```
+
+Sur tablette ou bureau, certains éléments peuvent demeurer perceptibles simultanément
+si la primauté de l'œuvre reste démontrable. Le contexte ne devient jamais une masse
+concurrente.
+
+**Proposition non retenue :** le dialogue protégé entre œuvre et contexte. Sa
+simultanéité favorisait l'orientation immédiate, mais réduisait potentiellement la
+respiration nécessaire à la première rencontre avec l'œuvre.
+
+### 36.3 Transformations selon la largeur
+
+- **Mobile :** l'œuvre précède son contexte dans un flux unique ; son ratio et sa
+  lisibilité restent intacts.
+- **Tablette :** une perception simultanée peut apparaître si elle ne réduit pas la
+  présence de l'œuvre ; sinon, la révélation séquentielle demeure.
+- **Bureau :** deux temps d'attention restent perceptibles. Une présence simultanée du
+  contexte ne peut effacer la séquence œuvre, respiration, identité et contexte.
+
+### 36.4 Médias et robustesse
+
+Le média est présenté dans son intégrité, sans recadrage destructif ni décor qui en
+modifie la lecture. La composition accepte des ratios portrait, paysage ou plus
+atypiques, une description plus longue et l'absence de contenu associé. La quantité de
+texte ne peut réduire l'œuvre à une illustration du contexte.
+
+**Traçabilité :** intention sensible de l'œuvre ; manifeste, sections 2, 3, 9, 11, 12,
+13, 14, 16 et 17 ; responsabilité `V-PUB-04` ; arbitrage Product Owner de l'Incrément
+4.
+
+## 37. Contenu artistique — `V-PUB-05`
+
+### 37.1 Composition conceptuelle
+
+Le propos principal et l'identité du contenu forment la masse structurante. Le corps
+éditorial établit le rythme de lecture ; le média éventuel et les œuvres associées
+prolongent le sens sans être confondus avec une galerie autonome.
+
+```text
+[SHELL DISCRET]
+
+[IDENTITÉ ET PROPOS PRINCIPAL]
+[CONTEXTE]
+
+[CORPS ÉDITORIAL — STRUCTURANT]
+
+       respirations de lecture
+
+[MÉDIA ÉVENTUEL]
+[ŒUVRES ASSOCIÉES]
+```
+
+La hiérarchie spatiale recherchée est : propos, contexte, corps, média éventuel, œuvres
+associées, actions existantes, navigation.
+
+### 37.2 Transformations selon la largeur
+
+- **Mobile :** contexte, lecture, média éventuel et relations se succèdent clairement ;
+  les œuvres associées ne fragmentent pas le corps du texte.
+- **Tablette :** le contexte peut accompagner plus étroitement l'ouverture, tandis que
+  le corps conserve une continuité éditoriale.
+- **Bureau :** la lecture peut dialoguer avec une masse contextuelle ou médiatique
+  secondaire, sans perdre son axe ni devenir une juxtaposition de panneaux.
+
+### 37.3 Médias et robustesse
+
+Le média optionnel n'occupe aucune place réservée lorsqu'il est absent. Son ratio est
+préservé. Une variation de longueur du corps étend le rythme de lecture ; une variation
+du nombre d'œuvres associées étend la relation finale sans modifier la responsabilité
+du contenu.
+
+**Traçabilité :** intention sensible du contenu artistique ; manifeste, sections 3, 8,
+11, 12, 13, 14 et 16 ; responsabilité `V-PUB-05`.
+
+## 38. Évolution dans le temps — `V-PUB-06`
+
+### 38.1 Composition conceptuelle
+
+La progression temporelle forme la structure dominante. Les repères datés constituent
+une séquence ordonnée ; leurs résumés et ressources donnent du contexte sans convertir
+la vue en frise décorative ni imposer un récit causal.
+
+```text
+[SHELL DISCRET]
+
+[INTRODUCTION]
+
+[REPÈRE TEMPOREL]
+  [RÉSUMÉ]
+  [RESSOURCES EXISTANTES]
+
+       respiration de progression
+
+[REPÈRE TEMPOREL]
+  [RÉSUMÉ]
+  [RESSOURCES EXISTANTES]
+```
+
+La hiérarchie spatiale recherchée est : progression, année et période éventuelle,
+repère, résumé, ressources liées, navigation.
+
+### 38.2 Transformations selon la largeur
+
+- **Mobile :** la séquence reste strictement lisible dans son ordre ; résumé et
+  ressources restent attachés au bon repère.
+- **Tablette :** l'intervalle entre les repères peut rendre la progression plus
+  perceptible, sans créer un axe graphique autonome.
+- **Bureau :** dates, propos et ressources peuvent entretenir une relation spatiale plus
+  ample, mais l'ordre ancien vers récent demeure la source de compréhension.
+
+### 38.3 Médias et robustesse
+
+Aucun média nouveau n'est introduit. Les liens vers œuvres et contenus restent des
+ressources d'accompagnement. Un nombre différent de repères, une période absente, un
+résumé plus long ou un repère sans ressource étendent ou réduisent la séquence sans
+laisser de groupe vide ni rompre l'ordre.
+
+**Traçabilité :** intention sensible de l'évolution dans le temps ; manifeste, sections
+3, 8, 11, 12, 13, 14 et 16 ; responsabilité `V-PUB-06`.
+
+## 39. Shell public
+
+### 39.1 Composition conceptuelle
+
+Le shell encadre toutes les vues par une présence stable et discrète. L'identité, la
+navigation, le skip link et le footer restent disponibles sans constituer une masse
+équivalente au contenu propre à la page.
+
+```text
+[SKIP LINK DISPONIBLE]
+[IDENTITÉ + NAVIGATION — DISCRÈTES]
+
+[CONTENU PROPRE À LA VUE — DOMINANT]
+
+[FOOTER — FIN DE PARCOURS DISCRÈTE]
+```
+
+La hiérarchie spatiale recherchée est : contenu de la vue, identité AZUREUM,
+localisation et destinations existantes, utilitaires d'accessibilité, footer.
+
+### 39.2 Transformations selon la largeur
+
+- **Mobile :** l'identité et les destinations existantes restent accessibles dans une
+  présence contenue. Leur transformation ne peut masquer le contenu ni créer de
+  destination nouvelle.
+- **Tablette :** le shell conserve une relation stable avec des compositions plus
+  ouvertes, sans devenir une colonne ou un panneau dominant.
+- **Bureau :** l'identité et la navigation peuvent être perçues simultanément avec le
+  contenu, mais restent une infrastructure visuelle secondaire.
+
+### 39.3 Médias et robustesse
+
+Le shell ne porte aucun média artistique propre. Il doit encadrer des vues de densité,
+de longueur et de ratios différents sans changer leur premier foyer d'attention. Une
+variation de libellé ne doit pas transformer la navigation en masse dominante.
+
+**Traçabilité :** intention sensible du shell ; manifeste, sections 7, 10, 11, 12, 15,
+16 et 17 ; responsabilité canonique du shell public.
+
+## 40. Matrice des compositions conceptuelles
+
+| Responsabilité | Masse dominante ou structurante | Contexte et texte | Actions et navigation | Respiration | Composition retenue |
+| --- | --- | --- | --- | --- | --- |
+| Accueil — `V-PUB-01` | Univers artistique | Identité et promesse soutiennent la compréhension | Accès aux collections, puis shell | Ample entre entrée et exploration | Entrée artistique puis exploration |
+| David — `V-PUB-02` | Propos consacré à David et à sa démarche | Séquences éditoriales et repères utiles | Accès aux collections, puis shell | Élevée, au service de la lecture | Progression éditoriale |
+| Collections — `V-PUB-03` | Champ pluriel des ensembles | Identité et intention de chaque collection | Accès à chaque collection, puis shell | Entre ensembles, sans uniformité | Champ pluriel distinct |
+| Collection — `V-PUB-07` | Ensemble des œuvres | Intention, contexte et contenus éventuels accompagnent | Accès aux œuvres, puis shell | Protège l'ensemble et chaque œuvre | Champ éditorial à rythme maîtrisé |
+| Œuvre — `V-PUB-04` | Œuvre individuelle | Identité, contexte, caractéristiques et relations accompagnent | Retour et liens existants, puis shell | La plus protectrice | Révélation puis contextualisation |
+| Contenu — `V-PUB-05` | Propos et corps éditorial | Contexte, média éventuel et œuvres associées | Liens existants, puis shell | Scande la lecture | Continuité éditoriale |
+| Évolution — `V-PUB-06` | Progression temporelle | Repères, résumés et ressources | Liens existants, puis shell | Rend la progression perceptible | Séquence temporelle ordonnée |
+| Shell public | Contenu propre à la vue | Identité et localisation accompagnent | Destinations existantes et skip link | Sépare infrastructure et contenu | Encadrement stable et discret |
+
+## 41. Matrice des transformations responsive conceptuelles
+
+| Responsabilité | Mobile | Tablette | Bureau | Invariant |
+| --- | --- | --- | --- | --- |
+| Accueil | Flux unique, univers en premier | Seuil commun puis champ plus ouvert | Univers et exploration perceptibles sans concurrence | Univers artistique premier |
+| David | Lecture continue scandée | Ouverture et repères plus présents | Dialogue éditorial sans panneaux indépendants | Démarche structurante |
+| Collections | Ensembles complets successifs | Relations entre plusieurs ensembles | Diversité plus largement perceptible | Identité distincte de chaque ensemble |
+| Collection | Œuvres successives et intactes | Rythme retenu issu des relations entre œuvres | Champ éditorial plus ample sans mise en scène autonome | Ensemble des œuvres dominant |
+| Œuvre | Œuvre puis contexte | Simultanéité seulement si l'œuvre reste dominante | Deux temps d'attention, même en présence simultanée | Ratio et primauté de l'œuvre |
+| Contenu | Lecture et relations successives | Contexte rapproché de l'ouverture | Dialogue avec une masse secondaire | Continuité du propos |
+| Évolution | Séquence ordonnée | Progression plus espacée | Relation ample entre dates, propos et ressources | Ordre chronologique |
+| Shell public | Présence contenue et accessible | Encadrement stable | Infrastructure secondaire simultanément disponible | Contenu de la vue prioritaire |
+
+Ces transformations ne définissent aucun breakpoint, aucune valeur, aucune grille et
+aucun comportement technique. Une largeur différente ne produit pas une version
+diminuée de l'expérience.
+
+## 42. Wireframes conceptuels produits
+
+L'Incrément 4 produit uniquement les schémas textuels intégrés au présent document :
+
+1. une légende commune de lecture ;
+2. un schéma conceptuel pour l'accueil ;
+3. un schéma conceptuel pour David ;
+4. un schéma conceptuel pour les collections ;
+5. un socle, la composition retenue et la trace de la proposition non retenue pour la
+   collection ;
+6. un socle, la composition retenue et la trace de la proposition non retenue pour
+   l'œuvre ;
+7. un schéma conceptuel pour le contenu artistique ;
+8. un schéma conceptuel pour l'évolution dans le temps ;
+9. un schéma conceptuel pour le shell public.
+
+Aucun fichier visuel séparé ni aucune capture n'est nécessaire : les schémas textuels
+suffisent à exposer les zones, les rapports de masses et les relations spatiales sans
+induire une maquette de production.
+
+## 43. Arbitrages Product Owner de l'Incrément 4
+
+### 43.1 Collection — `V-PUB-07`
+
+**Décision :** le champ éditorial à rythme maîtrisé est retenu. Son rythme provient des
+œuvres et de leurs relations, protège leur lisibilité, leurs ratios, leur accès et
+l'ordre sémantique. Il reste un moyen au service de la collection, sans devenir une
+signature graphique ni une mise en scène autonome.
+
+### 43.2 Œuvre — `V-PUB-04`
+
+**Décision :** la révélation puis contextualisation est retenue. La séquence d'attention
+est : œuvre, respiration, identité et contexte, relations et actions existantes. Elle
+n'impose pas un empilement spatial littéral ; une présence simultanée reste possible si
+la primauté perceptive de l'œuvre est démontrable.
+
+### 43.3 Progression conceptuelle préservée
+
+```text
+Accueil
+→ entrée dans l'univers artistique
+
+Collections
+→ perception et exploration de la diversité des ensembles
+
+Collection
+→ rencontre avec les œuvres comme ensemble cohérent
+
+Œuvre
+→ concentration sur une œuvre individuelle
+```
+
+Le rythme de la collection organise la pluralité des œuvres ; la révélation de la fiche
+œuvre réduit cette pluralité pour concentrer l'attention sur une œuvre particulière.
+Cette relation d'attention ne crée ni navigation, ni parcours, ni composition de
+production.
+
+Aucun arbitrage ne reste ouvert dans l'Incrément 4. Pour les six autres responsabilités,
+les intentions validées, le manifeste et les contraintes de robustesse donnent une
+direction suffisamment explicite.
+
+## 44. Besoins éventuels du Design System
+
+Aucun besoin d'évolution du Design System n'est démontré à ce stade conceptuel. Les
+compositions décrivent des relations d'expérience que les fondations existantes
+devront d'abord être évaluées à matérialiser lors d'un futur Sprint autorisé.
+
+Deux points restent à observer ultérieurement sans constituer une demande :
+
+- la capacité des fondations existantes à préserver des ratios hétérogènes dans un
+  champ d'œuvres comparatif ou éditorial ;
+- la capacité des fondations existantes à maintenir une hiérarchie nettement
+  asymétrique entre une œuvre et son contexte sur plusieurs largeurs.
+
+Si une évolution devient nécessaire, elle devra être instruite séparément par la
+gouvernance du Design System. L'Incrément 4 ne crée ni token, ni composant, ni état, ni
+variante.
+
+## 45. Robustesse transversale
+
+Les huit compositions doivent conserver leur hiérarchie lorsque :
+
+- un texte devient plus court ou plus long ;
+- une liste contient davantage ou moins d'éléments ;
+- un média change de ratio ;
+- un média ou un groupe facultatif est absent ;
+- les contenus temporaires sont remplacés par des contenus validés ;
+- la largeur modifie les relations spatiales disponibles.
+
+La robustesse n'autorise ni troncature destructrice, ni place vide obligatoire, ni
+ordre visuel contraire à l'ordre de lecture, ni contenu inventé pour remplir une zone.
+
+## 46. Éléments explicitement différés après l'Incrément 4
+
+L'Incrément 4 ne définit pas :
+
+- les mouvements, transitions ou continuités animées ;
+- les déclencheurs ou comportements d'interaction ;
+- les technologies ou contraintes d'implémentation ;
+- les dimensions, breakpoints, valeurs ou grilles de production ;
+- les composants, tokens, états ou variantes du Design System ;
+- les nouveaux médias ou contenus ;
+- le découpage des futurs Sprints d'implémentation.
+
+Les deux arbitrages de composition sont rendus dans le présent brouillon. L'ensemble de
+l'Incrément 4 reste non normatif jusqu'à sa validation par le Product Owner.
