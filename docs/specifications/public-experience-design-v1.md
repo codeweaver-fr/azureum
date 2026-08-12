@@ -2,10 +2,11 @@
 
 ## 1. Statut
 
-**Brouillon non normatif — Incrément 2 en cours de revue Product Owner**
+**Brouillon non normatif — Incrément 3 en cours de revue Product Owner**
 
-Le présent document est créé dans le cadre du Sprint 018. Dans son état actuel, il
-contient exclusivement l'audit de l'expérience publique existante.
+Le présent document est créé dans le cadre du Sprint 018. L'audit factuel de
+l'Incrément 2 est verrouillé. Les intentions sensibles et hiérarchies d'attention de
+l'Incrément 3 restent soumises à la revue du Product Owner.
 
 Il ne constitue encore ni une conception validée, ni une maquette, ni une instruction
 d'implémentation. Aucun constat, aucune limite et aucun risque consigné dans cet audit
@@ -811,3 +812,518 @@ Les sujets suivants ne sont pas traités dans l'Incrément 2 :
 - stratégie des futurs Sprints.
 
 Leur absence est volontaire et protège la responsabilité unique de l'Incrément 2.
+
+## 18. Cadre des intentions sensibles — Incrément 3
+
+L'intention sensible décrit la contribution recherchée d'une vue à l'expérience
+globale. Elle ne garantit aucune émotion individuelle et n'impose ni composition, ni
+position, ni taille, ni couleur, ni mouvement.
+
+La hiérarchie conceptuelle précise l'ordre relatif d'importance entre le sujet
+principal, son contexte, les textes, les actions déjà validées et la navigation. Elle
+ne prescrit pas leur disposition future.
+
+Les niveaux de silence, de densité et de tension sont relatifs à l'ensemble de
+l'expérience publique :
+
+- **silence élevé** : peu de sollicitations concurrentes autour du sujet principal ;
+- **silence équilibré** : présence de plusieurs repères sans concurrence avec le sujet ;
+- **densité faible, modérée ou soutenue** : quantité relative de contenus à appréhender,
+  sans préjuger de leur disposition ;
+- **tension légère, modérée ou affirmée** : intensité relative de l'invitation à
+  poursuivre ou à s'attarder, sans désigner un effet visuel.
+
+Ces qualifications servent à comparer les responsabilités entre elles. Elles ne créent
+aucune nouvelle échelle dans le Design System.
+
+## 19. Intention sensible de l'accueil — V-PUB-01
+
+### 19.1 Contribution recherchée
+
+L'accueil ouvre la rencontre avec l'univers de David par une présence artistique
+immédiate, calme et maîtrisée. Il éveille une curiosité légère, rend la destination
+AZUREUM compréhensible et permet de rejoindre les collections sans détour.
+
+Il ne cherche ni à résumer tout le travail de David, ni à imposer un récit préalable à
+la découverte.
+
+### 19.2 Rôle dans la rencontre
+
+La vue établit le premier lien entre la marque éditoriale AZUREUM, David et les ensembles
+d'œuvres. Elle donne au visiteur suffisamment de contexte pour comprendre où il entre,
+puis laisse la découverte des œuvres se poursuivre par les collections.
+
+### 19.3 Premier point d'attention — décision Product Owner
+
+L'univers artistique constitue le premier foyer d'attention. L'identité éditoriale et
+la promesse d'AZUREUM permettent au visiteur de comprendre rapidement où il se trouve
+et ce qu'il peut explorer, mais elles soutiennent l'entrée dans l'univers de David sans
+devenir le sujet principal.
+
+Cette décision fixe uniquement la hiérarchie d'attention. Elle ne prescrit ni
+composition, ni média dominant, ni proportion, ni dispositif visuel.
+
+### 19.4 Hiérarchie conceptuelle
+
+1. univers artistique ;
+2. identité et contexte nécessaires à la compréhension d'AZUREUM ;
+3. accès existant aux collections ;
+4. intentions des collections présentées ;
+5. navigation globale.
+
+Les aperçus de collections appartiennent au sujet artistique et non à une fonction
+promotionnelle autonome.
+
+### 19.5 Silence, densité et tension
+
+- silence : élevé à équilibré ;
+- densité : faible à modérée ;
+- tension : légère, concentrée sur l'invitation à découvrir.
+
+### 19.6 Risques à maîtriser
+
+- surcharge : multiplier les messages avant l'accès aux collections ;
+- banalisation : réduire l'accueil à un index ou à une répétition indifférenciée de la
+  vue Collections ;
+- confusion : rendre la destination ou la direction principale ambiguë ;
+- démonstration : faire de l'entrée un spectacle retardant les œuvres.
+
+### 19.7 Justification canonique
+
+La proposition applique le principe directeur, l'expérience des dix premières secondes,
+la hiérarchie générale, la respiration et la responsabilité sensible de l'accueil.
+
+## 20. Intention sensible de David et sa démarche — V-PUB-02
+
+### 20.1 Contribution recherchée
+
+La vue favorise une proximité progressive avec David par une lecture éditoriale calme,
+incarnée par les contenus validés et attentive à la continuité de sa démarche. Elle
+permet de comprendre l'artiste sans fabriquer une présence ou une émotion artificielle.
+
+### 20.2 Rôle dans la rencontre
+
+Elle apporte l'auteur, la démarche et les repères qui donnent sens aux œuvres. Elle
+relie la personne de David à son travail sans transformer la page en biographie
+exhaustive ni en manifeste autonome.
+
+### 20.3 Premier point d'attention
+
+David et l'entrée dans sa démarche constituent le premier point d'attention. Le canon
+rend cette direction suffisamment explicite ; aucune variante n'est nécessaire.
+
+### 20.4 Hiérarchie conceptuelle
+
+1. David et l'intention éditoriale de la vue ;
+2. démarche artistique ;
+3. repères biographiques et artistiques utiles ;
+4. accès existant aux collections ;
+5. navigation globale.
+
+Le texte sert la compréhension de David ; il ne devient pas une masse éditoriale
+indépendante de sa démarche.
+
+### 20.5 Silence, densité et tension
+
+- silence : élevé ;
+- densité : modérée à soutenue selon le corpus validé ;
+- tension : faible, portée par la progression de la compréhension.
+
+### 20.6 Risques à maîtriser
+
+- surcharge : accumuler des repères sans contribution à la compréhension ;
+- banalisation : produire une présentation biographique générique détachée des œuvres ;
+- confusion : confondre faits validés, contenu de travail et interprétation ;
+- démonstration : construire une présence de David à partir d'un média ou d'un procédé
+  non validé.
+
+### 20.7 Justification canonique
+
+La proposition applique la relation entre David, AZUREUM et les œuvres, la typographie
+éditoriale, la progression libre et la responsabilité sensible de la page David.
+
+## 21. Intention sensible des collections — V-PUB-03
+
+### 21.1 Contribution recherchée
+
+La vue favorise l'exploration et permet d'embrasser la diversité du travail de David par
+ensembles artistiques. Elle rend chaque collection identifiable par son intention sans
+transformer leur présentation en catalogue répétitif ou en classement commercial.
+
+### 21.2 Rôle dans la rencontre
+
+Elle constitue le seuil structurant entre la découverte générale de David et l'entrée
+dans des ensembles d'œuvres. Elle permet de choisir une direction de découverte sans
+hiérarchie artistique inventée entre les collections.
+
+### 21.3 Premier point d'attention
+
+La diversité des ensembles et leur identité artistique commune constituent le premier
+point d'attention. Aucun aperçu isolé ne devient une mise en avant canonique sans
+décision distincte.
+
+### 21.4 Hiérarchie conceptuelle
+
+1. ensembles artistiques et diversité perceptible ;
+2. identité et intention de chaque collection ;
+3. accès existant à chaque collection ;
+4. contexte introductif de la vue lorsqu'il existe ;
+5. navigation globale.
+
+### 21.5 Silence, densité et tension
+
+- silence : équilibré ;
+- densité : modérée, dépendante du nombre réel de collections ;
+- tension : légère à modérée, portée par le choix d'un ensemble à explorer.
+
+### 21.6 Risques à maîtriser
+
+- surcharge : rendre les collections difficiles à distinguer lorsque leur nombre varie ;
+- banalisation : reprendre le vocabulaire répétitif d'un catalogue ou d'une interface
+  SaaS ;
+- confusion : créer une hiérarchie implicite non fondée entre les ensembles ;
+- démonstration : faire du système de présentation le sujet principal.
+
+### 21.7 Justification canonique
+
+La proposition applique les collections comme accès structurant, la grammaire commune
+non uniforme, la hiérarchie de l'attention et la responsabilité sensible de la vue
+Collections.
+
+## 22. Intention sensible d'une collection — V-PUB-07
+
+### 22.1 Contribution recherchée
+
+La vue fait percevoir une intention commune et permet de regarder les œuvres qui la
+matérialisent comme un ensemble, tout en préservant leur singularité. Elle favorise la
+comparaison sans uniformiser les œuvres ni réduire la collection à une grille.
+
+### 22.2 Rôle dans la rencontre
+
+Elle donne le contexte nécessaire avant ou pendant l'exploration des œuvres et conserve
+la relation entre l'ensemble, chaque œuvre et les contenus qui le contextualisent
+lorsqu'ils sont disponibles.
+
+### 22.3 Premier point d'attention — décision Product Owner
+
+L'ensemble des œuvres constitue le premier foyer d'attention. L'intention de la
+collection conserve sa responsabilité de contextualisation et permet de comprendre ce
+qui relie les œuvres lorsqu'un contenu correspondant existe. Elle ne devient pas un
+préalable éditorial faisant passer le discours avant leur rencontre.
+
+Cette décision fixe uniquement la hiérarchie conceptuelle. Elle ne prescrit ni la
+position ou la longueur du texte, ni la composition de la vue, ni la présentation des
+œuvres.
+
+### 22.4 Hiérarchie conceptuelle
+
+1. ensemble des œuvres ;
+2. intention commune et contexte nécessaire à leur relation ;
+3. singularité et identification de chaque œuvre ;
+4. contenus contextualisant la collection lorsqu'ils existent ;
+5. accès existants aux fiches d'œuvre ;
+6. navigation globale.
+
+### 22.5 Silence, densité et tension
+
+- silence : équilibré, avec une respiration autour des œuvres ;
+- densité : modérée à soutenue selon le nombre d'œuvres et de contextes ;
+- tension : modérée, portée par le passage de l'ensemble à une œuvre.
+
+### 22.6 Risques à maîtriser
+
+- surcharge : juxtaposer intention, œuvres et contextes sans hiérarchie lisible ;
+- banalisation : réduire la collection à une grille répétitive ;
+- confusion : rendre la relation entre l'intention et les œuvres difficile à comprendre ;
+- démonstration : uniformiser ou encadrer les œuvres pour produire un effet de système.
+
+### 22.7 Justification canonique
+
+La proposition applique `PS-07`, la primauté des œuvres, la respiration, la présentation
+non destructive et la responsabilité sensible de la collection.
+
+## 23. Intention sensible d'une œuvre — V-PUB-04
+
+### 23.1 Contribution recherchée
+
+La fiche crée le moment de contemplation le plus concentré de l'expérience publique.
+Elle donne à l'œuvre les conditions nécessaires pour être regardée, identifiée et située
+dans la démarche de David, tandis que ses informations accompagnent sa compréhension.
+
+### 23.2 Rôle dans la rencontre
+
+Elle constitue la rencontre la plus directe avec une œuvre singulière. Elle relie cette
+œuvre à sa collection, à ses caractéristiques et à ses contextes sans réduire la
+consultation à des données descriptives.
+
+### 23.3 Premier point d'attention
+
+L'œuvre constitue sans ambiguïté le premier point d'attention. Le manifeste et la
+responsabilité sensible excluent une variante concurrente.
+
+### 23.4 Hiérarchie conceptuelle
+
+1. œuvre ;
+2. titre et collection d'origine ;
+3. description et texte artistique ;
+4. caractéristiques fiables ;
+5. contenus associés ;
+6. retour existant à la collection ;
+7. navigation globale.
+
+Les informations peuvent conserver leur nécessité sans acquérir une intensité égale à
+l'œuvre.
+
+### 23.5 Silence, densité et tension
+
+- silence : élevé autour de l'œuvre ;
+- densité : modérée à soutenue dans les informations qui l'accompagnent ;
+- tension : modérée et concentrée sur le passage du regard à la compréhension.
+
+### 23.6 Risques à maîtriser
+
+- surcharge : faire rivaliser les caractéristiques ou contextes avec l'œuvre ;
+- banalisation : traiter la fiche comme une fiche produit ou une fiche technique ;
+- confusion : détacher l'œuvre de sa collection ou de ses contextes explicites ;
+- démonstration : utiliser la composition affirmée comme spectacle d'interface.
+
+### 23.7 Justification canonique
+
+La proposition applique le principe directeur, la primauté et l'intégrité des œuvres,
+la hiérarchie générale et la responsabilité sensible de la fiche d'œuvre.
+
+## 24. Intention sensible d'un contenu artistique — V-PUB-05
+
+### 24.1 Contribution recherchée
+
+La vue ouvre un temps de lecture et de contextualisation qui approfondit la compréhension
+du travail de David. Elle rend perceptible la nature du contenu et ses relations avec
+les œuvres sans subordonner celles-ci à un discours autonome.
+
+### 24.2 Rôle dans la rencontre
+
+Elle relie les œuvres à des textes, expositions, installations, événements ou ensembles.
+Elle donne au visiteur un contexte supplémentaire et lui permet de revenir vers les
+œuvres explicitement concernées.
+
+### 24.3 Premier point d'attention
+
+Le contenu artistique identifié par sa nature, son titre et son propos principal
+constitue le premier point d'attention. Les œuvres associées prolongent cette lecture ;
+elles ne servent pas d'illustrations génériques.
+
+### 24.4 Hiérarchie conceptuelle
+
+1. propos principal et identité du contenu ;
+2. contexte nécessaire, notamment type, période ou lieu lorsqu'ils existent ;
+3. corps éditorial ;
+4. média explicitement associé lorsqu'il existe ;
+5. œuvres explicitement associées ;
+6. navigation globale.
+
+Cette hiérarchie reste conceptuelle : elle ne fixe pas la position du média par rapport
+au corps.
+
+### 24.5 Silence, densité et tension
+
+- silence : élevé à équilibré ;
+- densité : variable selon la nature et la longueur du contenu ;
+- tension : faible, portée par l'approfondissement et les relations éditoriales.
+
+### 24.6 Risques à maîtriser
+
+- surcharge : accumuler contexte, corps, média et relations sans priorité intelligible ;
+- banalisation : traiter tous les types comme des articles indifférenciés ;
+- confusion : rendre incertaine la relation entre le contenu et les œuvres ;
+- démonstration : utiliser un média ou une forme éditoriale sans finalité contextuelle.
+
+### 24.7 Justification canonique
+
+La proposition applique la lecture éditoriale, la contextualisation, les relations
+explicites, la typographie éditoriale et la responsabilité sensible du contenu
+artistique.
+
+## 25. Intention sensible de l'évolution dans le temps — V-PUB-06
+
+### 25.1 Contribution recherchée
+
+La vue rend perceptibles les étapes et la progression du travail de David sans les
+transformer en récit imposé. Elle favorise la compréhension du temps, puis permet
+d'explorer les œuvres et contenus explicitement liés à chaque repère.
+
+### 25.2 Rôle dans la rencontre
+
+Elle relie des moments datés à des expressions concrètes du travail. Elle donne une
+continuité temporelle à la découverte tout en laissant chaque ressource consultable dans
+son propre contexte.
+
+### 25.3 Premier point d'attention
+
+La progression temporelle et les repères qui la rendent compréhensible constituent le
+premier point d'attention. Aucun repère isolé ne reçoit de mise en avant non déclarée.
+
+### 25.4 Hiérarchie conceptuelle
+
+1. progression temporelle ;
+2. année, période et intention de chaque repère ;
+3. résumé nécessaire à sa compréhension ;
+4. œuvres et contenus explicitement associés ;
+5. navigation globale.
+
+### 25.5 Silence, densité et tension
+
+- silence : équilibré ;
+- densité : modérée à soutenue selon le nombre de repères et de relations ;
+- tension : modérée, portée par la progression et l'envie de poursuivre entre les
+  repères.
+
+### 25.6 Risques à maîtriser
+
+- surcharge : multiplier les repères et ressources sans relation temporelle lisible ;
+- banalisation : réduire la vue à une frise décorative conventionnelle ;
+- confusion : faire prendre l'ordre temporel pour un récit exhaustif ou obligatoire ;
+- démonstration : rendre le dispositif temporel plus visible que les contenus reliés.
+
+### 25.7 Justification canonique
+
+La proposition applique la progression libre, la continuité, la contextualisation et la
+responsabilité sensible de l'évolution dans le temps.
+
+## 26. Intention sensible du shell public
+
+### 26.1 Contribution recherchée
+
+Le shell maintient une présence stable, discrète et immédiatement utilisable. Il donne
+les repères nécessaires pour comprendre où l'on se trouve et poursuivre la découverte,
+sans réclamer une attention comparable à celle des contenus.
+
+### 26.2 Rôle dans la rencontre
+
+Il relie les responsabilités publiques, porte l'identité AZUREUM et rend les parcours
+prévisibles. Il agit comme médiateur constant entre les vues sans devenir une vue ou un
+récit autonome.
+
+### 26.3 Premier point d'attention
+
+Le contenu propre à la vue reste le premier point d'attention. Dans le shell, l'identité
+et la navigation doivent être disponibles et compréhensibles sans devenir le foyer
+principal.
+
+### 26.4 Hiérarchie conceptuelle
+
+1. contenu principal de la vue ;
+2. identité AZUREUM comme repère stable ;
+3. navigation principale et état de localisation disponible ;
+4. utilitaires d'accessibilité et informations du footer.
+
+Cette hiérarchie ne modifie ni les destinations ni les libellés existants.
+
+### 26.5 Silence, densité et tension
+
+- silence : élevé ;
+- densité : faible ;
+- tension : très faible, limitée à la lisibilité des actions et du contexte courant.
+
+### 26.6 Risques à maîtriser
+
+- surcharge : ajouter des repères ou informations sans nécessité fonctionnelle validée ;
+- banalisation : rendre le shell indistinct au point d'affaiblir l'identité et les
+  repères ;
+- confusion : ne pas rendre la localisation ou les destinations compréhensibles ;
+- démonstration : donner au header, au menu ou au footer une présence supérieure au
+  contenu.
+
+### 26.7 Justification canonique
+
+La proposition applique le rôle de médiateur discret d'AZUREUM, la hiérarchie générale,
+la continuité et la responsabilité sensible du shell.
+
+## 27. Matrice des intentions sensibles — Incrément 3
+
+| Responsabilité | Contribution recherchée | Premier point d'attention | Hiérarchie conceptuelle résumée | Silence | Densité | Tension | Statut d'arbitrage |
+|---|---|---|---|---|---|---|---|
+| Accueil — `V-PUB-01` | Ouvrir l'univers de David et donner accès aux collections sans détour. | Univers artistique. | Univers artistique → contexte AZUREUM → collections → navigation. | Élevé à équilibré | Faible à modérée | Légère | Non — décision PO |
+| David — `V-PUB-02` | Favoriser une proximité progressive par la compréhension de la démarche. | David et l'entrée dans sa démarche. | David → démarche → repères → collections → navigation. | Élevé | Modérée à soutenue | Faible | Non |
+| Collections — `V-PUB-03` | Faire percevoir la diversité des ensembles et inviter à en choisir un. | Diversité et identité des ensembles. | Ensembles → intentions → accès → contexte → navigation. | Équilibré | Modérée | Légère à modérée | Non |
+| Collection — `V-PUB-07` | Relier une intention commune aux œuvres sans les uniformiser. | Ensemble des œuvres. | Œuvres → intention et contexte → accès → navigation. | Équilibré | Modérée à soutenue | Modérée | Non — décision PO |
+| Œuvre — `V-PUB-04` | Concentrer la contemplation et situer l'œuvre dans sa démarche. | Œuvre. | Œuvre → identité et collection → textes → caractéristiques → contextes → retour. | Élevé | Modérée à soutenue | Modérée | Non |
+| Contenu — `V-PUB-05` | Approfondir la compréhension par la lecture et la contextualisation. | Propos principal et identité du contenu. | Propos → contexte → corps → média éventuel → œuvres → navigation. | Élevé à équilibré | Variable | Faible | Non |
+| Évolution — `V-PUB-06` | Rendre le temps perceptible sans imposer un récit. | Progression temporelle. | Progression → repères → résumés → ressources → navigation. | Équilibré | Modérée à soutenue | Modérée | Non |
+| Shell public | Maintenir identité, localisation et continuité sans concurrencer les vues. | Contenu propre à la vue. | Contenu → identité → navigation → utilitaires et footer. | Élevé | Faible | Très faible | Non |
+
+## 28. Arbitrages Product Owner de l'Incrément 3
+
+### 28.1 Accueil
+
+**Décision :** l'univers artistique constitue le premier foyer d'attention. L'identité
+éditoriale et la promesse d'AZUREUM soutiennent sa compréhension sans devenir le sujet
+principal.
+
+### 28.2 Collection
+
+**Décision :** l'ensemble des œuvres constitue le premier foyer d'attention. L'intention
+de la collection contextualise ce qui les relie sans devenir un écran éditorial
+préalable.
+
+Aucun arbitrage ne reste ouvert dans l'Incrément 3. Pour les six autres responsabilités,
+le manifeste et les responsabilités existantes donnent une direction suffisamment
+explicite pour ne pas fabriquer de variante.
+
+### 28.3 Progression conceptuelle confirmée
+
+```text
+Accueil
+→ entrée dans l'univers artistique
+
+Collections
+→ perception et exploration de la diversité des ensembles
+
+Collection
+→ rencontre avec les œuvres comme ensemble cohérent
+
+Œuvre
+→ concentration sur une œuvre individuelle
+```
+
+Cette progression exprime une relation d'attention entre les responsabilités. Elle ne
+crée ni parcours fonctionnel, ni navigation, ni destination, ni prescription de
+composition.
+
+## 29. Ambiguïtés héritées conservées
+
+### 29.1 Contenus au niveau de la collection
+
+La responsabilité `V-PUB-07` mentionne les contenus qui contextualisent une collection,
+alors que l'état actuel n'en rend aucun directement. L'intention sensible les inclut
+uniquement lorsqu'ils existent. Elle ne crée ni contenu, ni relation, ni obligation
+fonctionnelle nouvelle.
+
+### 29.2 État actif des routes imbriquées
+
+Le shell actuel ne marque pas `Collections` comme actif sur les routes de collection et
+d'œuvre. L'intention sensible exige seulement un état de localisation disponible et
+compréhensible conformément au manifeste. Elle ne décide aucune modification du shell
+ni du comportement de navigation.
+
+### 29.3 Contenus et médias provisoires
+
+Les niveaux de densité sont exprimés comme des relations attendues, non comme des
+mesures fondées sur la longueur, le nombre ou le ratio exact des contenus actuels.
+
+## 30. Éléments explicitement différés après l'Incrément 3
+
+L'Incrément 3 ne définit pas :
+
+- les compositions détaillées ;
+- les schémas ou wireframes ;
+- les positions, dimensions ou rapports de masses ;
+- les transformations responsive ;
+- la présentation future des médias ;
+- les mouvements ou transitions ;
+- les valeurs techniques ;
+- les besoins d'évolution du Design System ;
+- les dépendances ou la stratégie d'implémentation.
+
+Les intentions et hiérarchies du présent incrément ne deviennent pas des instructions
+d'implémentation. Elles restent soumises aux arbitrages et à la validation du Product
+Owner avant verrouillage.
