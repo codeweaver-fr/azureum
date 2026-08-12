@@ -2,12 +2,11 @@
 
 ## 1. Statut
 
-**Brouillon non normatif — Incrément 4 en cours de revue Product Owner**
+**Brouillon non normatif — Incrément 5 en cours de revue Product Owner**
 
-Le présent document est créé dans le cadre du Sprint 018. L'audit factuel de
-l'Incrément 2 et les intentions sensibles et hiérarchies d'attention de l'Incrément 3
-sont verrouillés. Les compositions conceptuelles de l'Incrément 4 restent soumises à
-la revue du Product Owner.
+Le présent document est créé dans le cadre du Sprint 018. Les Incréments 2 à 4 sont
+verrouillés. Les principes de mouvement et de continuité de l'Incrément 5 restent
+soumis à la revue du Product Owner.
 
 Il ne constitue encore ni une conception validée, ni une maquette, ni une instruction
 d'implémentation. Aucun constat, aucune limite et aucun risque consigné dans cet audit
@@ -1910,5 +1909,383 @@ L'Incrément 4 ne définit pas :
 - les nouveaux médias ou contenus ;
 - le découpage des futurs Sprints d'implémentation.
 
-Les deux arbitrages de composition sont rendus dans le présent brouillon. L'ensemble de
-l'Incrément 4 reste non normatif jusqu'à sa validation par le Product Owner.
+Les deux arbitrages de composition sont validés et verrouillés. Ils ne deviennent pas
+pour autant des instructions d'implémentation.
+
+## 47. Cadre de conception de l'Incrément 5
+
+La continuité repose d'abord sur la stabilité du shell, la permanence des identités,
+les relations éditoriales existantes, les compositions et les variations de densité.
+Le mouvement n'intervient que s'il remplit une fonction démontrable que ces fondations
+ne rendent pas déjà suffisamment perceptible.
+
+Un mouvement éventuel ne peut servir qu'à :
+
+- clarifier une relation ;
+- orienter sans imposer un parcours ;
+- confirmer un changement déjà compréhensible ;
+- maintenir une continuité entre deux états ou vues existants ;
+- accompagner la contemplation sans la déclencher ni la retarder.
+
+L'immobilité est la décision correcte lorsque la composition, la hiérarchie et le
+rythme suffisent. Aucun contenu, ordre de lecture, repère, action ou relation ne dépend
+du mouvement.
+
+L'expérience équivalente sans mouvement conserve toujours :
+
+- le même sujet principal ;
+- le même ordre sémantique ;
+- les mêmes informations et actions ;
+- la même localisation ;
+- les mêmes relations entre ressources ;
+- une confirmation perceptible des changements.
+
+Le présent incrément ne définit ni animation, ni déclencheur, ni paramètre de
+production.
+
+## 48. Accueil — `V-PUB-01`
+
+### 48.1 Stabilité et progression
+
+L'univers artistique reste immédiatement présent et constitue le foyer stable. La
+promesse d'AZUREUM, les accès aux collections et le shell conservent leur rôle et leur
+ordre d'attention. La progression peut accompagner le passage de l'entrée artistique à
+l'exploration des ensembles, sans retarder leur disponibilité.
+
+### 48.2 Mouvement et immobilité
+
+Un mouvement n'est recevable que s'il rend plus lisible la relation entre le foyer
+artistique et les collections déjà accessibles. Sa finalité serait la continuité ou
+l'orientation. Il est inutile lorsque la composition rend déjà cette relation
+évidente.
+
+Le média principal, les textes nécessaires à la compréhension, les accès et la
+navigation ne doivent pas dépendre d'une révélation. Une entrée spectaculaire, une
+attente artificielle ou une chorégraphie imposée contredirait la fonction des dix
+premières secondes.
+
+Sans mouvement, les rapports de masses, la proximité éditoriale et l'ordre de lecture
+assurent intégralement l'entrée dans l'univers puis l'accès aux collections.
+
+**Traçabilité :** composition de l'accueil ; manifeste, sections 4, 8, 16, 17, 18.1,
+20, 21 et 23 ; responsabilité `V-PUB-01`.
+
+## 49. David et sa démarche — `V-PUB-02`
+
+### 49.1 Stabilité et progression
+
+L'ouverture, le corps éditorial, les repères et l'accès aux collections restent une
+progression de lecture stable. La continuité naît d'abord de la typographie, des
+respirations et du rapprochement progressif entre David, sa démarche et les œuvres.
+
+### 49.2 Mouvement et immobilité
+
+Aucun mouvement n'est nécessaire à la lecture. Un accompagnement éventuel ne serait
+recevable que s'il aide à identifier le passage entre deux séquences éditoriales sans
+fragmenter le propos. Sa finalité serait l'orientation.
+
+Le texte, les repères et les actions existantes restent immobiles lorsqu'un mouvement
+risquerait d'interrompre la lecture, de produire une attente ou de transformer la page
+en récit imposé. Aucun média ne peut être animé pour compenser son absence ou son
+caractère provisoire.
+
+Sans mouvement, la progression des titres, des paragraphes et des respirations conserve
+la proximité progressive recherchée.
+
+**Traçabilité :** composition de David ; manifeste, sections 4, 5, 7, 16, 17, 18.2, 20
+et 23 ; responsabilité `V-PUB-02`.
+
+## 50. Collections — `V-PUB-03`
+
+### 50.1 Stabilité et progression
+
+La diversité des ensembles, leur identité et leur accès restent simultanément
+compréhensibles. La continuité avec l'accueil repose sur la reprise des collections et
+de leur univers, non sur la reproduction de sa composition.
+
+### 50.2 Mouvement et immobilité
+
+Une réponse de mouvement peut uniquement confirmer qu'un ensemble existant devient le
+foyer d'une interaction ou accompagner l'orientation vers son accès. Elle ne doit ni
+hiérarchiser arbitrairement les collections, ni faire apparaître leur diversité par une
+séquence imposée.
+
+Les aperçus et leurs identités restent perceptibles sans mouvement. Un mouvement
+répétitif appliqué à chaque ensemble, une cascade décorative ou une réaction qui attire
+plus que les œuvres doit rester absent.
+
+Sans mouvement, la distinction des ensembles, leurs rapports de masses et les états
+interactifs canoniques assurent la compréhension et la confirmation.
+
+**Traçabilité :** composition des collections ; manifeste, sections 4, 9, 16, 17,
+18.3, 20, 21 et 23 ; responsabilité `V-PUB-03`.
+
+## 51. Collection — `V-PUB-07`
+
+### 51.1 Stabilité et progression
+
+Le champ éditorial à rythme maîtrisé reste fondé sur les œuvres, leurs ratios et leurs
+relations. La continuité depuis les collections reprend l'identité de l'ensemble et son
+contexte ; la continuité vers une œuvre particulière réduit progressivement la
+pluralité sans modifier les accès existants.
+
+### 51.2 Mouvement et immobilité
+
+Un mouvement peut être envisagé uniquement s'il aide à maintenir la relation perceptive
+entre une œuvre choisie dans l'ensemble et sa fiche. Sa finalité serait la continuité et
+l'orientation. Il ne peut réordonner les œuvres, créer leur rythme, masquer un
+chargement ou imposer la sélection d'une œuvre.
+
+Le champ des œuvres reste stable pendant la consultation. Son rythme provient de la
+composition et non d'une animation. Les ratios, les identités et les accès ne dépendent
+jamais d'un mouvement.
+
+Sans mouvement, la reprise du même média, de son identité et du contexte de collection
+assure la relation avec la fiche œuvre. Cette continuité statique constitue le socle,
+qu'un mouvement éventuel ne ferait que renforcer.
+
+**Traçabilité :** composition retenue de la collection ; manifeste, sections 4, 10,
+14, 16, 17, 18.4, 20, 21 et 23 ; responsabilité `V-PUB-07`.
+
+## 52. Œuvre — `V-PUB-04`
+
+### 52.1 Stabilité et progression
+
+La séquence d'attention reste : œuvre, respiration, identité et contexte, relations et
+actions existantes. La continuité depuis la collection peut conserver l'identité de
+l'œuvre et son appartenance, mais la fiche réduit la pluralité pour protéger la
+contemplation individuelle.
+
+### 52.2 Mouvement et immobilité
+
+Le mouvement n'est pas nécessaire à la révélation. Un accompagnement éventuel n'est
+recevable que s'il confirme la continuité avec l'œuvre précédemment choisie, sans
+retarder sa présence complète. Sa finalité serait la continuité ou l'accompagnement de
+la contemplation.
+
+L'œuvre elle-même reste immobile lorsque son animation, son déplacement ou sa révélation
+progressive ferait de l'interface le sujet. Le contexte ne doit pas entrer en scène de
+façon concurrente. Les informations et actions restent disponibles indépendamment de
+tout mouvement.
+
+Sans mouvement, la reprise du média, la respiration protectrice et la hiérarchie
+œuvre-contexte réalisent entièrement la révélation puis contextualisation.
+
+**Traçabilité :** composition retenue de l'œuvre ; manifeste, sections 4, 14, 15, 16,
+17, 18.5, 20, 21 et 23 ; responsabilité `V-PUB-04`.
+
+## 53. Contenu artistique — `V-PUB-05`
+
+### 53.1 Stabilité et progression
+
+L'identité du contenu, son propos, son corps éditorial, le média éventuel et les œuvres
+associées conservent une progression de lecture stable. La continuité avec les œuvres
+repose sur les relations éditoriales explicites et les ressources déjà liées.
+
+### 53.2 Mouvement et immobilité
+
+Aucun mouvement n'est nécessaire au corps éditorial. Un accompagnement éventuel ne
+serait recevable que pour clarifier le passage entre le propos et une ressource associée
+sans interrompre la lecture. Sa finalité serait la compréhension ou la continuité.
+
+Le texte, les médias et les relations restent immobiles lorsque leur mouvement créerait
+une distraction, une attente ou une hiérarchie étrangère au contenu. Un média
+facultatif n'acquiert pas une importance supérieure par son mouvement.
+
+Sans mouvement, les titres, les respirations, les reprises d'identité et les liens
+explicites conservent intégralement le sens et la relation avec les œuvres.
+
+**Traçabilité :** composition du contenu artistique ; manifeste, sections 4, 7, 16,
+17, 18.6, 20, 21 et 23 ; responsabilité `V-PUB-05`.
+
+## 54. Évolution dans le temps — `V-PUB-06`
+
+### 54.1 Stabilité et progression
+
+L'ordre ancien vers récent, les repères, leurs résumés et leurs ressources restent la
+source stable de la progression. La continuité temporelle repose sur leur séquence et
+leur espacement, sans transformer la vue en récit imposé.
+
+### 54.2 Mouvement et immobilité
+
+Un mouvement ne serait recevable que s'il aide à confirmer le passage d'un repère au
+suivant ou à maintenir l'association entre un repère et ses ressources. Sa finalité
+serait l'orientation ou la compréhension. Il ne peut simuler le passage du temps,
+fabriquer une causalité ou animer la chronologie comme un dispositif décoratif.
+
+Les années, périodes, résumés et liens restent immédiatement lisibles. Une apparition
+successive obligatoire, un défilement contraint ou une progression spectaculaire doit
+rester absent.
+
+Sans mouvement, l'ordre sémantique, les respirations et le rattachement explicite des
+ressources rendent entièrement la progression perceptible.
+
+**Traçabilité :** composition de l'évolution dans le temps ; manifeste, sections 4,
+12, 16, 17, 18.7, 20, 21 et 23 ; responsabilité `V-PUB-06`.
+
+## 55. Shell public
+
+### 55.1 Stabilité et progression
+
+L'identité AZUREUM, les destinations existantes, la localisation, le skip link et le
+footer constituent l'infrastructure stable entre les vues. Le shell ne reproduit pas
+la personnalité de chaque composition ; il leur offre un cadre continu et discret.
+
+### 55.2 Mouvement et immobilité
+
+Un mouvement peut uniquement confirmer un changement d'état déjà compréhensible ou
+accompagner la modification de présence de la navigation selon la largeur. Sa finalité
+serait la confirmation ou l'orientation. Il ne peut masquer une destination, retarder
+le contenu ou devenir une signature plus forte que les vues.
+
+L'identité, la localisation, les destinations, le focus et le skip link restent
+fonctionnels et perceptibles sans mouvement. Les changements de page ne nécessitent
+aucune transition animée pour être compris.
+
+Sans mouvement, la stabilité des emplacements conceptuels, les libellés, les états
+canoniques et la hiérarchie du shell assurent toute la continuité nécessaire.
+
+**Traçabilité :** composition du shell ; manifeste, sections 4, 7, 16, 17, 18.8, 20,
+21 et 23 ; responsabilité canonique du shell public.
+
+## 56. Matrice mouvement et immobilité
+
+| Responsabilité | Stable | Progression possible | Mouvement éventuellement recevable | Finalité admissible | Doit rester immobile ou complet sans mouvement |
+| --- | --- | --- | --- | --- | --- |
+| Accueil — `V-PUB-01` | Univers, promesse, accès, shell | Entrée artistique vers exploration | Relation entre foyer artistique et collections | Orientation, continuité | Média, compréhension, accès et navigation |
+| David — `V-PUB-02` | Ouverture, lecture, repères, accès | Proximité progressive avec David et les œuvres | Passage entre séquences si nécessaire | Orientation | Texte, repères, actions et sens du propos |
+| Collections — `V-PUB-03` | Identités, diversité, accès | D'un ensemble perçu à un ensemble consulté | Confirmation d'un foyer interactif | Confirmation, orientation | Aperçus, identités et diversité complète |
+| Collection — `V-PUB-07` | Champ, ratios, ordre, accès | Pluralité vers œuvre choisie | Maintien de la relation collection-œuvre | Continuité, orientation | Rythme du champ, œuvres et accès |
+| Œuvre — `V-PUB-04` | Œuvre, respiration, contexte, actions | Concentration puis contextualisation | Confirmation de l'œuvre précédemment choisie | Continuité, contemplation | Présence complète de l'œuvre et informations |
+| Contenu — `V-PUB-05` | Propos, corps, média éventuel, relations | Lecture vers ressources associées | Clarification d'une relation explicite | Compréhension, continuité | Corps éditorial, médias et liens |
+| Évolution — `V-PUB-06` | Ordre, repères, résumés, ressources | D'un repère au suivant | Confirmation d'une association temporelle | Orientation, compréhension | Chronologie complète et liens |
+| Shell public | Identité, destinations, localisation, accessibilité | Continuité entre vues | Confirmation d'un changement d'état | Confirmation, orientation | Navigation, focus, skip link et contenu |
+
+La colonne « mouvement éventuellement recevable » n'autorise aucune animation. Elle
+identifie seulement les situations dans lesquelles une proposition future pourrait
+être évaluée. L'absence de proposition laisse l'expérience complète.
+
+## 57. Principes de continuité entre les vues
+
+### 57.1 Socle commun
+
+La continuité est d'abord portée par :
+
+- le shell stable ;
+- les titres, identités et médias déjà associés aux ressources ;
+- les relations éditoriales et destinations existantes ;
+- la conservation du sujet principal lors d'un changement de contexte ;
+- les variations maîtrisées de densité et de respiration ;
+- la permanence des ordres de lecture et des actions.
+
+Elle ne dépend jamais d'une transition animée.
+
+### 57.2 Accueil, collections, collection et œuvre
+
+```text
+Accueil
+→ univers artistique et possibilité d'explorer
+
+Collections
+→ diversité des ensembles et identité de chacun
+
+Collection
+→ pluralité rythmée d'œuvres reliées
+
+Œuvre
+→ concentration puis contextualisation individuelle
+```
+
+La progression passe d'une ouverture large à une concentration précise. Les reprises
+d'identité, de contexte et de média peuvent rendre cette relation perceptible. Elles ne
+créent ni ordre obligatoire de consultation, ni retour automatique, ni destination
+nouvelle.
+
+### 57.3 David et les œuvres
+
+La page David établit la démarche et la proximité ; les collections et les œuvres en
+montrent les expressions sans prétendre illustrer mécaniquement chaque passage du
+texte. La continuité repose sur le ton éditorial, les accès existants et la cohérence de
+présentation.
+
+### 57.4 Contenus artistiques et œuvres
+
+Les contenus et les œuvres restent reliés par leurs associations explicites. Une reprise
+de titre, d'identité ou de média peut maintenir le contexte ; aucun mouvement ne peut
+inventer une relation ou remplacer son libellé compréhensible.
+
+### 57.5 Évolution dans le temps et ressources
+
+Les repères temporels conduisent vers les œuvres et contenus déjà associés. Leur année,
+leur propos et l'identité de la ressource assurent la continuité. La consultation reste
+libre et ne devient pas une histoire imposée.
+
+## 58. Expérience avec mouvement réduit ou supprimé
+
+La réduction ou la suppression du mouvement ne constitue pas une version diminuée. Sur
+les huit responsabilités et entre toutes les vues :
+
+- les contenus sont présents sans attente ;
+- l'ordre de lecture est inchangé ;
+- les actions et destinations restent disponibles ;
+- les états sont confirmés par des signes persistants ;
+- le contexte est maintenu par les identités, titres, médias et relations explicites ;
+- le rythme résulte des compositions et des respirations ;
+- aucun espace vide ne dépend de la fin d'un mouvement.
+
+Le respect de `prefers-reduced-motion` est ici un principe d'équivalence complète. Le
+présent document ne prescrit aucun mécanisme technique permettant de l'obtenir.
+
+## 59. Risques et critères de rejet propres au mouvement
+
+Une proposition future de mouvement est rejetée si elle :
+
+- retarde l'accès à une œuvre, un texte, une action ou une destination ;
+- modifie l'ordre de lecture ou la compréhension lorsqu'elle est supprimée ;
+- détourne l'attention du sujet principal ;
+- crée le rythme à la place de la composition ;
+- produit une répétition, une cascade ou une chorégraphie sans fonction ;
+- simule une relation fonctionnelle ou temporelle inexistante ;
+- masque une instabilité, un chargement ou une faiblesse de hiérarchie ;
+- impose un ordre ou une vitesse de consultation ;
+- dépend d'un média provisoire ;
+- transforme la technologie ou l'interface en démonstration.
+
+La qualité esthétique d'un mouvement ne suffit jamais à le justifier.
+
+## 60. Arbitrages Product Owner de l'Incrément 5
+
+Aucun arbitrage Product Owner n'est ouvert à ce stade. Les principes canoniques donnent
+une réponse commune : continuité statique complète, immobilité par défaut et mouvement
+éventuel uniquement après démonstration d'une fonction.
+
+Les situations éventuellement recevables de la matrice ne constituent ni des options
+retenues, ni une liste d'animations futures, ni une priorité d'implémentation.
+
+## 61. Besoins éventuels du Design System
+
+Aucun besoin d'évolution du Design System n'est démontré par l'Incrément 5. Les états,
+le focus, la navigation et les principes de réduction du mouvement restent sous la
+responsabilité des fondations canoniques existantes.
+
+Une future proposition qui ne pourrait être exprimée avec ces fondations devrait
+signaler séparément son besoin et suivre la gouvernance du Design System. Le présent
+incrément ne crée ni composant, ni état, ni variante, ni règle de mouvement.
+
+Les deux capacités à observer signalées à l'Incrément 4 restent inchangées et ne
+deviennent pas des besoins validés.
+
+## 62. Éléments explicitement différés après l'Incrément 5
+
+L'Incrément 5 ne définit pas :
+
+- les animations ou transitions à réaliser ;
+- les paramètres, déclencheurs ou comportements de production ;
+- les technologies ou bibliothèques ;
+- les évolutions du Design System ;
+- les prototypes ;
+- les priorités ou lots d'implémentation ;
+- le découpage des futurs Sprints.
+
+Les principes de mouvement et de continuité restent non normatifs jusqu'à la validation
+de l'Incrément 5 par le Product Owner.
