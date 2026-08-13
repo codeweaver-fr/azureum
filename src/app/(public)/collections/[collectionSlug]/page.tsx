@@ -1,13 +1,12 @@
 import { notFound } from "next/navigation";
+import type { CSSProperties } from "react";
 
 import {
   getGalleryArtworksByCollectionSlug,
   getGalleryCollectionBySlug,
 } from "@/modules/gallery/queries";
-import type { GalleryMediaOrientation } from "@/modules/gallery/types";
 import { Link } from "@/shared/components/interactions";
-import { Container, Grid, GridItem, Stack } from "@/shared/components/layout";
-import type { GridItemProps } from "@/shared/components/layout";
+import { Container, Stack } from "@/shared/components/layout";
 import { ArtworkImage } from "@/shared/components/media";
 import { Heading, Text } from "@/shared/components/typography";
 
@@ -19,26 +18,9 @@ interface CollectionPageProps {
   }>;
 }
 
-const artworkSpans: Record<
-  GalleryMediaOrientation,
-  NonNullable<GridItemProps["span"]>
-> = {
-  landscape: {
-    compact: 4,
-    tablet: 8,
-    desktop: 8,
-  },
-  portrait: {
-    compact: 4,
-    tablet: 3,
-    desktop: 4,
-  },
-  square: {
-    compact: 4,
-    tablet: 4,
-    desktop: 5,
-  },
-};
+interface ArtworkStyle extends CSSProperties {
+  "--artwork-ratio": number;
+}
 
 export default async function CollectionPage({ params }: CollectionPageProps) {
   const { collectionSlug } = await params;
@@ -68,7 +50,7 @@ export default async function CollectionPage({ params }: CollectionPageProps) {
           </Text>
         </Stack>
 
-        <Grid className={styles.artworkField} gap="xl" role="list">
+        <div className={styles.artworkField} role="list">
           {artworks.map((artwork, artworkIndex) => {
             if (artwork.media.dimensions === null) {
               throw new Error(
@@ -77,11 +59,17 @@ export default async function CollectionPage({ params }: CollectionPageProps) {
             }
 
             return (
-              <GridItem
+              <div
                 className={styles.artwork}
                 key={artwork.slug}
                 role="listitem"
-                span={artworkSpans[artwork.media.orientation]}
+                style={
+                  {
+                    "--artwork-ratio":
+                      artwork.media.dimensions.width /
+                      artwork.media.dimensions.height,
+                  } as ArtworkStyle
+                }
               >
                 <Stack direction="vertical" gap="md">
                   <ArtworkImage
@@ -93,21 +81,27 @@ export default async function CollectionPage({ params }: CollectionPageProps) {
                     width={artwork.media.dimensions.width}
                   />
 
-                  <Heading as="h2" variant="h2">
-                    {artwork.title}
-                  </Heading>
-
-                  <Link
-                    aria-label={`Voir ${artwork.title}`}
-                    href={`/collections/${collection.slug}/oeuvres/${artwork.slug}`}
+                  <Stack
+                    className={styles.artworkIdentity}
+                    direction="vertical"
+                    gap="xs"
                   >
-                    Découvrir l&apos;œuvre
-                  </Link>
+                    <Heading as="h2" variant="h2">
+                      {artwork.title}
+                    </Heading>
+
+                    <Link
+                      aria-label={`Voir ${artwork.title}`}
+                      href={`/collections/${collection.slug}/oeuvres/${artwork.slug}`}
+                    >
+                      Découvrir l&apos;œuvre
+                    </Link>
+                  </Stack>
                 </Stack>
-              </GridItem>
+              </div>
             );
           })}
-        </Grid>
+        </div>
       </Stack>
     </Container>
   );

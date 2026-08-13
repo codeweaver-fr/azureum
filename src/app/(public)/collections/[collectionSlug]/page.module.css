@@ -3,12 +3,20 @@
 }
 
 .artworkField {
-  align-items: start;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--space-24);
   row-gap: var(--space-48);
 }
 
 .artwork {
-  align-self: start;
+  flex: 0 1 100%;
+  min-inline-size: 0;
+}
+
+.artworkIdentity {
+  max-inline-size: var(--size-reading-narrow);
 }
 
 .media {
@@ -25,11 +33,27 @@
   .artworkField {
     row-gap: var(--space-64);
   }
+
+  .artwork {
+    flex-basis: clamp(
+      calc(var(--size-reading-narrow) * 3 / 5),
+      calc(var(--size-reading-standard) / 2 * var(--artwork-ratio)),
+      var(--size-reading-narrow)
+    );
+  }
 }
 
 /* DT-10 — Bureau */
 @media (min-width: 1024px) {
   .artworkField {
-    row-gap: var(--space-96);
+    row-gap: var(--space-64);
+  }
+
+  .artwork {
+    flex-basis: clamp(
+      calc(var(--size-reading-narrow) * 3 / 4),
+      calc(var(--size-reading-narrow) * var(--artwork-ratio)),
+      var(--size-reading-standard)
+    );
   }
 }
