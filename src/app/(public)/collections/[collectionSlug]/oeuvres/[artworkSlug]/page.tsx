@@ -78,7 +78,7 @@ export default async function ArtworkPage({ params }: ArtworkPageProps) {
   const formattedDimensions = formatArtworkDimensions(artwork.dimensions);
 
   return (
-    <Container width="reading">
+    <Container width="main">
       <article className={styles.artwork}>
         <div className={styles.media}>
           <ArtworkImage
@@ -173,7 +173,10 @@ export default async function ArtworkPage({ params }: ArtworkPageProps) {
           </section>
 
           {associatedContents.length > 0 ? (
-            <section aria-labelledby="associated-contents-heading">
+            <section
+              aria-labelledby="associated-contents-heading"
+              className={styles.associatedContents}
+            >
               <Stack direction="vertical" gap="lg">
                 <Heading as="h2" id="associated-contents-heading" variant="h2">
                   Contenus associés
