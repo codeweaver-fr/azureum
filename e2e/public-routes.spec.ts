@@ -16,6 +16,51 @@ async function focusWithKeyboard(page: Page, target: Locator) {
   throw new Error("Expected the target to be reachable with the Tab key.");
 }
 
+async function hasHorizontalOverflow(page: Page) {
+  return page.evaluate(
+    () =>
+      document.documentElement.scrollWidth >
+      document.documentElement.clientWidth,
+  );
+}
+
+async function injectLongCollection(page: Page) {
+  return page
+    .locator("main")
+    .getByRole("list")
+    .evaluate((artworkField) => {
+      const artworks = Array.from(
+        artworkField.querySelectorAll(":scope > [role='listitem']"),
+      );
+      const sequence = [1, 1, 1, 0, 0, 0, 2, 2, 2, 1, 0, 2];
+      const expectedHrefs = sequence.map((sourceIndex) => {
+        const artwork = artworks[sourceIndex];
+
+        if (artwork === undefined) {
+          throw new Error("Expected three source artworks in the collection.");
+        }
+
+        const clone = artwork.cloneNode(true);
+
+        artworkField.append(clone);
+
+        const link = artwork.querySelector("a");
+
+        if (link === null) {
+          throw new Error("Expected every source artwork to expose a link.");
+        }
+
+        return link.getAttribute("href");
+      });
+
+      for (const artwork of artworks) {
+        artwork.remove();
+      }
+
+      return expectedHrefs;
+    });
+}
+
 const publicRoutes = [
   { heading: "AZUREUM", path: "/" },
   { heading: "David", path: "/david" },
@@ -134,14 +179,179 @@ test("does not overflow horizontally on a mobile viewport", async ({
   for (const route of routes) {
     await page.goto(route);
 
-    const hasHorizontalOverflow = await page.evaluate(
-      () =>
-        document.documentElement.scrollWidth >
-        document.documentElement.clientWidth,
-    );
-
-    expect(hasHorizontalOverflow).toBe(false);
+    expect(await hasHorizontalOverflow(page)).toBe(false);
   }
+});
+
+for (const viewport of [
+  { height: 844, label: "mobile", width: 390 },
+  { height: 1024, label: "tablet", width: 768 },
+  { height: 900, label: "desktop", width: 1440 },
+] as const) {
+  test(`preserves the collection flow on ${viewport.label}`, async ({
+    page,
+  }) => {
+    await page.setViewportSize(viewport);
+    await page.goto("/collections/collection-alpha");
+
+    const artworkItems = page.locator("main").getByRole("listitem");
+
+    await expect(artworkItems).toHaveCount(3);
+    await expect(
+      artworkItems.getByRole("link", { name: /^Voir / }),
+    ).toHaveCount(3);
+    expect(await hasHorizontalOverflow(page)).toBe(false);
+
+    const ratios = await artworkItems.evaluateAll(async (items) => {
+      await Promise.all(
+        items.map(async (item) => {
+          const image = item.querySelector("img");
+
+          if (image === null) {
+            throw new Error("Expected an image in every artwork item.");
+          }
+
+          await image.decode();
+        }),
+      );
+
+      return items.map((item) => {
+        const image = item.querySelector("img");
+
+        if (image === null) {
+          throw new Error("Expected an image in every artwork item.");
+        }
+
+        const bounds = image.getBoundingClientRect();
+
+        return {
+          intrinsic: image.naturalWidth / image.naturalHeight,
+          rendered: bounds.width / bounds.height,
+        };
+      });
+    });
+
+    expect(ratios).toHaveLength(3);
+
+    for (const ratio of ratios) {
+      expect(ratio.intrinsic).toBeGreaterThan(0);
+      expect(Math.abs(ratio.rendered - ratio.intrinsic)).toBeLessThan(0.01);
+    }
+  });
+}
+
+test("supports collection reflow equivalent to 200 percent zoom", async ({
+  page,
+}) => {
+  await page.setViewportSize({ height: 450, width: 720 });
+  await page.goto("/collections/collection-alpha");
+
+  await expect(page.locator("main").getByRole("listitem")).toHaveCount(3);
+  await expect(
+    page.locator("main").getByRole("link", { name: /^Voir / }),
+  ).toHaveCount(3);
+  expect(await hasHorizontalOverflow(page)).toBe(false);
+});
+
+for (const viewport of [
+  { height: 844, label: "mobile", width: 390 },
+  { height: 1024, label: "tablet", width: 768 },
+  { height: 900, label: "desktop", width: 1440 },
+] as const) {
+  test(`keeps an isolated long collection robust on ${viewport.label}`, async ({
+    page,
+  }) => {
+    await page.setViewportSize(viewport);
+    await page.goto("/collections/collection-alpha");
+    await page.waitForLoadState("networkidle");
+
+    const expectedHrefs = await injectLongCollection(page);
+    const artworkItems = page.locator("main").getByRole("listitem");
+    const artworkLinks = artworkItems.getByRole("link", { name: /^Voir / });
+
+    await expect(artworkItems).toHaveCount(12);
+    await expect(artworkLinks).toHaveCount(12);
+    expect(
+      await artworkLinks.evaluateAll((links) =>
+        links.map((link) => link.getAttribute("href")),
+      ),
+    ).toEqual(expectedHrefs);
+    expect(await hasHorizontalOverflow(page)).toBe(false);
+
+    for (const artworkLink of await artworkLinks.all()) {
+      await expect(artworkLink).toBeVisible();
+    }
+  });
+}
+
+test("keeps the collection artwork continuum keyboard accessible", async ({
+  page,
+}) => {
+  await page.goto("/collections/collection-alpha");
+
+  const artworkLink = page.getByRole("link", { name: "Voir Étude fictive 01" });
+
+  await focusWithKeyboard(page, artworkLink);
+  await expect(artworkLink).toBeFocused();
+  await expect(artworkLink).not.toHaveCSS("outline-style", "none");
+  await page.keyboard.press("Enter");
+
+  await expect(page).toHaveURL(
+    "/collections/collection-alpha/oeuvres/study-01",
+  );
+
+  const returnLink = page.getByRole("link", {
+    name: "Revenir à la collection Collection Alpha",
+  });
+
+  await focusWithKeyboard(page, returnLink);
+  await expect(returnLink).toBeFocused();
+  await expect(returnLink).not.toHaveCSS("outline-style", "none");
+  await page.keyboard.press("Enter");
+
+  await expect(page).toHaveURL("/collections/collection-alpha");
+});
+
+test("keeps skip navigation operational in the continuum", async ({ page }) => {
+  for (const route of [
+    "/collections/collection-alpha",
+    "/collections/collection-alpha/oeuvres/study-01",
+  ]) {
+    await page.goto(route);
+    await page.keyboard.press("Tab");
+
+    const skipLink = page.getByRole("link", {
+      name: "Aller au contenu principal",
+    });
+
+    await expect(skipLink).toBeFocused();
+    await expect(skipLink).not.toHaveCSS("outline-style", "none");
+    await page.keyboard.press("Enter");
+    await expect(page.locator("main")).toBeFocused();
+  }
+});
+
+test("emits no unexpected browser message in the continuum", async ({
+  page,
+}) => {
+  const unexpectedBrowserMessages: string[] = [];
+
+  page.on("console", (message) => {
+    if (["error", "warning"].includes(message.type())) {
+      unexpectedBrowserMessages.push(`${message.type()}: ${message.text()}`);
+    }
+  });
+  page.on("pageerror", (error) => {
+    unexpectedBrowserMessages.push(`pageerror: ${error.message}`);
+  });
+
+  await page.goto("/collections/collection-alpha");
+  await page.getByRole("link", { name: "Voir Étude fictive 01" }).click();
+  await page
+    .getByRole("link", { name: "Revenir à la collection Collection Alpha" })
+    .click();
+
+  expect(unexpectedBrowserMessages).toEqual([]);
 });
 
 test("keeps gallery links reachable by keyboard", async ({ page }) => {
