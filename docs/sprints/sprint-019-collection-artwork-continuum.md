@@ -2,7 +2,7 @@
 
 ## Statut
 
-**Validé par le Product Owner et verrouillé avant implémentation**
+**Sprint validé par le Product Owner — verrouillage documentaire en cours**
 
 Le présent document constitue le contrat du Sprint 019. Il autorise exclusivement les
 travaux définis par son périmètre et doit être appliqué conformément à

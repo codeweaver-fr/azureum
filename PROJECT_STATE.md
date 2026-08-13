@@ -2,12 +2,56 @@
 
 ## Phase actuelle
 
-Sprint 018 — Conception de l'expérience publique V1 définitivement clôturé.
+Sprint 019 — Matérialisation du continuum Collection–Œuvre V1 en phase de clôture
+documentaire.
 
-Les Incréments 1 à 8 sont validés par le Product Owner. Le Sprint est intégré dans
-`main` par la Pull Request nº 21 au commit de fusion
-`8ea6d3d4b1c9141b474857596d1813ea869fd461` et publié sous le tag officiel
-`sprint-018`. Aucun futur Sprint n'est ouvert.
+Le Sprint matérialise dans l'application le continuum allant de la perception d'une
+collection comme ensemble cohérent à la concentration sur une œuvre individuelle. Les
+Incréments 1 à 6 sont validés et verrouillés. L'audit final de l'Incrément 7 est accepté
+par le Product Owner et conclut que le Sprint est conforme et prêt pour clôture.
+
+La Collection adopte un champ éditorial automatique à rythme maîtrisé. Son placement
+reste indépendant du nombre d'œuvres, conserve leur ordre et protège leurs ratios sans
+hiérarchie métier déduite des formats. La page Œuvre matérialise la « révélation puis
+contextualisation » : l'œuvre constitue le premier foyer, puis son identité, son contexte,
+ses relations et ses actions existantes enrichissent la consultation.
+
+La continuité Collection → Œuvre → Collection est validée. Après audit, le shell est
+conservé sans modification : `Collections` reste actif uniquement sur `/collections`,
+et l'absence d'état actif sur les routes Collection et Œuvre imbriquées ne compromet pas
+la localisation du visiteur. Le responsive, le reflow, l'accessibilité, les ratios, la
+Collection longue et la robustesse navigateur sont couverts par des preuves
+automatisées. Le Design System existant est jugé suffisant et aucune animation ou
+technologie de mouvement de production n'est introduite.
+
+L'historique validé et verrouillé est le suivant :
+
+- `43af52ae7e9fcfef40964d1f8a5797ba77627d96` — contrat du Sprint 019 ;
+- `887dcbb8a05f1872004fae03b208b10b5f8a0ed5` — fondations du champ éditorial de la
+  Collection ;
+- `718eb9c5f243d2be3c324e19dd5d6282a773e66c` — rythme éditorial adaptatif de la
+  Collection ;
+- `004f099658acf2d2eb2eb0a70884f70a779d08cf` — révélation puis contextualisation de
+  l'Œuvre ;
+- `a8303013adf82a159a70c237cda0432773473beb` — continuité Collection–Œuvre et décision
+  de conserver le shell ;
+- `b9e5e17ef0a576ff487c906a7b0ac8bef356c368` — preuves responsive, accessibilité et
+  robustesse du continuum.
+
+Une réserve historique de traçabilité est conservée pour l'Incrément 3. Le contrat
+prévoyait le message `feat(collection): materialize editorial artwork composition`,
+tandis que le Product Owner a autorisé et fait créer, sur le commit
+`718eb9c5f243d2be3c324e19dd5d6282a773e66c`, le message
+`feat(collection): establish adaptive editorial artwork rhythm`. Cet écart ne remet pas
+en cause le contenu de l'incrément et ne justifie aucune réécriture Git.
+
+Restent explicitement différés les contenus contextuels supplémentaires de Collection,
+les médias et contenus officiels, toute évolution non démontrée du Design System, tout
+mouvement de production, les autres vues publiques, les contrats et numéros des Sprints
+suivants ainsi que les optimisations étrangères au continuum.
+
+Le commit final de clôture n'est pas créé. Aucune Pull Request n'est ouverte, aucune
+fusion dans `main` n'est réalisée et aucun tag Sprint 019 n'est créé.
 
 ## Dernier Sprint clôturé
 

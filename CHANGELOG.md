@@ -4,6 +4,36 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
 
 ## Non publié
 
+### Sprint 019 — Matérialisation du continuum Collection–Œuvre V1
+
+- verrouillage du contrat par le commit
+  `43af52ae7e9fcfef40964d1f8a5797ba77627d96` ;
+- vérification de la suffisance du Design System existant et matérialisation des
+  fondations du champ éditorial automatique de la Collection dans le commit
+  `887dcbb8a05f1872004fae03b208b10b5f8a0ed5`, sans nouveau token, composant, état ni
+  variante ;
+- définition du rythme éditorial adaptatif de la Collection dans le commit
+  `718eb9c5f243d2be3c324e19dd5d6282a773e66c`, avec ordre automatique, ratios préservés
+  et quantités variables sans placement indexé ;
+- conservation d'une réserve historique pour ce commit : le contrat prévoyait
+  `feat(collection): materialize editorial artwork composition`, tandis que le message
+  explicitement autorisé et réellement créé est
+  `feat(collection): establish adaptive editorial artwork rhythm`, sans impact sur son
+  contenu et sans réécriture de l'historique ;
+- matérialisation de la page Œuvre selon le principe « révélation puis
+  contextualisation » dans le commit
+  `004f099658acf2d2eb2eb0a70884f70a779d08cf` ;
+- validation de la continuité Collection → Œuvre → Collection et décision de conserver
+  le shell inchangé après audit, couvertes par le commit
+  `a8303013adf82a159a70c237cda0432773473beb` ;
+- démonstration automatisée du responsive, du reflow, de l'accessibilité, des ratios,
+  d'une Collection longue et de la robustesse navigateur dans le commit
+  `b9e5e17ef0a576ff487c906a7b0ac8bef356c368` ;
+- maintien d'une expérience complète sans mouvement de production et sans évolution du
+  Design System ;
+- validation Product Owner de l'audit final, Sprint conforme et prêt pour clôture, sans
+  commit final, Pull Request, fusion ni tag à ce stade.
+
 ### Sprint 018 — Conception de l'expérience publique V1
 
 - verrouillage du contrat documentaire par le commit
