@@ -1,0 +1,35 @@
+.introduction {
+  max-inline-size: var(--size-reading-standard);
+}
+
+.artworkField {
+  align-items: start;
+  row-gap: var(--space-48);
+}
+
+.artwork {
+  align-self: start;
+}
+
+.media {
+  inline-size: 100%;
+}
+
+.media img {
+  block-size: auto;
+  inline-size: 100%;
+}
+
+/* DT-10 — Tablette */
+@media (min-width: 768px) {
+  .artworkField {
+    row-gap: var(--space-64);
+  }
+}
+
+/* DT-10 — Bureau */
+@media (min-width: 1024px) {
+  .artworkField {
+    row-gap: var(--space-96);
+  }
+}
