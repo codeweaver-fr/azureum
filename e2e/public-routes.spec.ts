@@ -59,23 +59,63 @@ for (const route of publicRoutes) {
   });
 }
 
-test("navigates from collections to an artwork and back", async ({ page }) => {
-  await page.goto("/collections");
+for (const journey of [
+  {
+    artworkAlt:
+      "Composition abstraite fictive horizontale traversée par une ligne centrale.",
+    artworkHeading: "Étude fictive 02",
+    artworkPath: "/collections/collection-alpha/oeuvres/study-02",
+    collectionHeading: "Collection Alpha",
+    collectionPath: "/collections/collection-alpha",
+  },
+  {
+    artworkAlt:
+      "Composition abstraite verticale faite de colonnes beiges et noires, de formes courbes et d’un cercle ocre.",
+    artworkHeading: "Composition fictive B",
+    artworkPath: "/collections/collection-beta/oeuvres/composition-b",
+    collectionHeading: "Collection Bêta",
+    collectionPath: "/collections/collection-beta",
+  },
+] as const) {
+  test(`preserves the ${journey.collectionHeading} artwork continuum`, async ({
+    page,
+  }) => {
+    await page.goto(journey.collectionPath);
 
-  await page.getByRole("link", { name: /Collection Alpha/i }).click();
+    const artworkLink = page.getByRole("link", {
+      name: `Voir ${journey.artworkHeading}`,
+    });
 
-  await expect(page).toHaveURL(/\/collections\/collection-alpha$/);
+    await expect(artworkLink).toHaveAttribute("href", journey.artworkPath);
+    await artworkLink.click();
 
-  await page.getByRole("link", { name: "Voir Étude fictive 01" }).click();
+    await expect(page).toHaveURL(journey.artworkPath);
+    await expect(
+      page.getByRole("heading", {
+        level: 1,
+        name: journey.artworkHeading,
+      }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("img", { name: journey.artworkAlt }),
+    ).toBeVisible();
 
-  await expect(page).toHaveURL(
-    /\/collections\/collection-alpha\/oeuvres\/study-01$/,
-  );
+    const returnLink = page.getByRole("link", {
+      name: `Revenir à la collection ${journey.collectionHeading}`,
+    });
 
-  await page.getByRole("link", { name: "Revenir à la collection" }).click();
+    await expect(returnLink).toHaveAttribute("href", journey.collectionPath);
+    await returnLink.click();
 
-  await expect(page).toHaveURL(/\/collections\/collection-alpha$/);
-});
+    await expect(page).toHaveURL(journey.collectionPath);
+    await expect(
+      page.getByRole("heading", {
+        level: 1,
+        name: journey.collectionHeading,
+      }),
+    ).toBeVisible();
+  });
+}
 
 test("does not overflow horizontally on a mobile viewport", async ({
   page,
