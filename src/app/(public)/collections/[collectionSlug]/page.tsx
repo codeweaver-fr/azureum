@@ -1,18 +1,25 @@
 import { notFound } from "next/navigation";
+import type { CSSProperties } from "react";
 
 import {
   getGalleryArtworksByCollectionSlug,
   getGalleryCollectionBySlug,
 } from "@/modules/gallery/queries";
 import { Link } from "@/shared/components/interactions";
-import { Container, Grid, GridItem, Stack } from "@/shared/components/layout";
+import { Container, Stack } from "@/shared/components/layout";
 import { ArtworkImage } from "@/shared/components/media";
 import { Heading, Text } from "@/shared/components/typography";
+
+import styles from "./page.module.css";
 
 interface CollectionPageProps {
   params: Promise<{
     collectionSlug: string;
   }>;
+}
+
+interface ArtworkStyle extends CSSProperties {
+  "--artwork-ratio": number;
 }
 
 export default async function CollectionPage({ params }: CollectionPageProps) {
@@ -33,7 +40,7 @@ export default async function CollectionPage({ params }: CollectionPageProps) {
   return (
     <Container width="main">
       <Stack direction="vertical" gap="3xl">
-        <Stack direction="vertical" gap="lg">
+        <Stack className={styles.introduction} direction="vertical" gap="lg">
           <Heading as="h1" variant="display">
             {collection.title}
           </Heading>
@@ -43,7 +50,7 @@ export default async function CollectionPage({ params }: CollectionPageProps) {
           </Text>
         </Stack>
 
-        <Grid gap="xl" role="list">
+        <div className={styles.artworkField} role="list">
           {artworks.map((artwork, artworkIndex) => {
             if (artwork.media.dimensions === null) {
               throw new Error(
@@ -52,39 +59,49 @@ export default async function CollectionPage({ params }: CollectionPageProps) {
             }
 
             return (
-              <GridItem
+              <div
+                className={styles.artwork}
                 key={artwork.slug}
                 role="listitem"
-                span={{
-                  compact: 4,
-                  tablet: 4,
-                  desktop: 4,
-                }}
+                style={
+                  {
+                    "--artwork-ratio":
+                      artwork.media.dimensions.width /
+                      artwork.media.dimensions.height,
+                  } as ArtworkStyle
+                }
               >
                 <Stack direction="vertical" gap="md">
                   <ArtworkImage
                     alt={artwork.media.alt}
+                    className={styles.media}
                     height={artwork.media.dimensions.height}
-                    preload={artworkIndex === 0}
+                    preload={artworkIndex < 2}
                     src={artwork.media.src}
                     width={artwork.media.dimensions.width}
                   />
 
-                  <Heading as="h2" variant="h2">
-                    {artwork.title}
-                  </Heading>
-
-                  <Link
-                    aria-label={`Voir ${artwork.title}`}
-                    href={`/collections/${collection.slug}/oeuvres/${artwork.slug}`}
+                  <Stack
+                    className={styles.artworkIdentity}
+                    direction="vertical"
+                    gap="xs"
                   >
-                    Découvrir l&apos;œuvre
-                  </Link>
+                    <Heading as="h2" variant="h2">
+                      {artwork.title}
+                    </Heading>
+
+                    <Link
+                      aria-label={`Voir ${artwork.title}`}
+                      href={`/collections/${collection.slug}/oeuvres/${artwork.slug}`}
+                    >
+                      Découvrir l&apos;œuvre
+                    </Link>
+                  </Stack>
                 </Stack>
-              </GridItem>
+              </div>
             );
           })}
-        </Grid>
+        </div>
       </Stack>
     </Container>
   );

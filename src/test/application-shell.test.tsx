@@ -164,6 +164,34 @@ describe("public application shell", () => {
     );
   });
 
+  it("keeps Collections active only on the collections index", () => {
+    for (const route of [
+      { isCurrent: true, pathname: "/collections" },
+      {
+        isCurrent: false,
+        pathname: "/collections/collection-alpha",
+      },
+      {
+        isCurrent: false,
+        pathname: "/collections/collection-alpha/oeuvres/study-01",
+      },
+    ] as const) {
+      navigationState.pathname = route.pathname;
+
+      const markup = renderToStaticMarkup(
+        <PublicLayout>
+          <h1>Contenu de la page</h1>
+        </PublicLayout>,
+      );
+      const currentCollectionsLinks =
+        markup.match(
+          /<a(?=[^>]*href="\/collections")(?=[^>]*aria-current="page")[^>]*>/g,
+        ) ?? [];
+
+      expect(currentCollectionsLinks).toHaveLength(route.isCurrent ? 2 : 0);
+    }
+  });
+
   it("exposes an accessible mobile navigation control", () => {
     const markup = renderToStaticMarkup(
       <PublicLayout>

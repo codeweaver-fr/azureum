@@ -1,0 +1,59 @@
+.introduction {
+  max-inline-size: var(--size-reading-standard);
+}
+
+.artworkField {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--space-24);
+  row-gap: var(--space-48);
+}
+
+.artwork {
+  flex: 0 1 100%;
+  min-inline-size: 0;
+}
+
+.artworkIdentity {
+  max-inline-size: var(--size-reading-narrow);
+}
+
+.media {
+  inline-size: 100%;
+}
+
+.media img {
+  block-size: auto;
+  inline-size: 100%;
+}
+
+/* DT-10 — Tablette */
+@media (min-width: 768px) {
+  .artworkField {
+    row-gap: var(--space-64);
+  }
+
+  .artwork {
+    flex-basis: clamp(
+      calc(var(--size-reading-narrow) * 3 / 5),
+      calc(var(--size-reading-standard) / 2 * var(--artwork-ratio)),
+      var(--size-reading-narrow)
+    );
+  }
+}
+
+/* DT-10 — Bureau */
+@media (min-width: 1024px) {
+  .artworkField {
+    row-gap: var(--space-64);
+  }
+
+  .artwork {
+    flex-basis: clamp(
+      calc(var(--size-reading-narrow) * 3 / 4),
+      calc(var(--size-reading-narrow) * var(--artwork-ratio)),
+      var(--size-reading-standard)
+    );
+  }
+}
