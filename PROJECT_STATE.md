@@ -2,13 +2,16 @@
 
 ## Phase actuelle
 
-Sprint 019 — Matérialisation du continuum Collection–Œuvre V1 en phase de clôture
-documentaire.
+Aucun Sprint suivant n'est ouvert.
 
-Le Sprint matérialise dans l'application le continuum allant de la perception d'une
+Le Sprint 019 — Matérialisation du continuum Collection–Œuvre V1 est validé par le
+Product Owner, fusionné dans `main`, verrouillé sous le tag annoté `sprint-019` et
+définitivement clos.
+
+Le Sprint a matérialisé dans l'application le continuum allant de la perception d'une
 collection comme ensemble cohérent à la concentration sur une œuvre individuelle. Les
-Incréments 1 à 6 sont validés et verrouillés. L'audit final de l'Incrément 7 est accepté
-par le Product Owner et conclut que le Sprint est conforme et prêt pour clôture.
+Incréments 1 à 6 ont été validés et verrouillés. L'audit final de l'Incrément 7 a été
+accepté par le Product Owner et a conclu à la conformité du Sprint.
 
 La Collection adopte un champ éditorial automatique à rythme maîtrisé. Son placement
 reste indépendant du nombre d'œuvres, conserve leur ordre et protège leurs ratios sans
@@ -50,10 +53,15 @@ les médias et contenus officiels, toute évolution non démontrée du Design Sy
 mouvement de production, les autres vues publiques, les contrats et numéros des Sprints
 suivants ainsi que les optimisations étrangères au continuum.
 
-Le commit final de clôture n'est pas créé. Aucune Pull Request n'est ouverte, aucune
-fusion dans `main` n'est réalisée et aucun tag Sprint 019 n'est créé.
+La correction de sécurité transitive est verrouillée par le commit
+`a49d1be5b41f764f0682b9923ac43bed7de6ebcb`. Le commit documentaire final
+`b4411a2893203c9653adf4e52e8841866b49e358` a préparé la clôture. La Pull Request nº 23
+a été fusionnée dans `main` par le merge commit classique
+`726c39e2cf22eb7d80e9ffda4e9eeb530d263275`. Le tag annoté `sprint-019`, dont l'objet
+est `8c29fef82b67cea1ec1ac9a04455559619da3e96`, cible ce commit de fusion. La branche
+`sprint-019-collection-artwork-continuum` a été supprimée localement et à distance.
 
-## Dernier Sprint clôturé
+## Sprints clôturés précédents
 
 Le contrat du Sprint 018 est verrouillé par le commit
 `161f8e5acf924a43a4fb780ec9a476c820c7d0d3`. Les incréments documentaires suivants sont
