@@ -31,8 +31,15 @@ Toutes les modifications importantes du projet AZUREUM seront documentées dans 
   `b9e5e17ef0a576ff487c906a7b0ac8bef356c368` ;
 - maintien d'une expérience complète sans mouvement de production et sans évolution du
   Design System ;
-- validation Product Owner de l'audit final, Sprint conforme et prêt pour clôture, sans
-  commit final, Pull Request, fusion ni tag à ce stade.
+- résolution contrôlée des vulnérabilités transitives d'audit par le commit
+  `a49d1be5b41f764f0682b9923ac43bed7de6ebcb`, sans mise à jour générale des dépendances ;
+- validation Product Owner de l'audit final et clôture documentaire par le commit
+  `b4411a2893203c9653adf4e52e8841866b49e358` ;
+- fusion de la Pull Request nº 23 dans `main` par le merge commit classique
+  `726c39e2cf22eb7d80e9ffda4e9eeb530d263275` ;
+- publication du tag annoté officiel `sprint-019` sur ce commit de fusion, puis
+  suppression locale et distante de la branche de travail ;
+- clôture définitive du Sprint 019 sans ouverture d'un Sprint suivant.
 
 ### Sprint 018 — Conception de l'expérience publique V1
 
